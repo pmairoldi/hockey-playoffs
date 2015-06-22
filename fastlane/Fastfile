@@ -35,11 +35,6 @@ platform :ios do
       xctest destination: "OS=8.3,name=iPhone 6"
   end
 
-  lane :deliver do
-      ipa configuration: "Release", destination: "build", embed: "fastlane/distribution.mobileprovision"
-      deliver force: true, skip_deploy: true
-  end
-
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
     snapshot
