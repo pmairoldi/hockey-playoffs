@@ -1,0 +1,16 @@
+language: objective-c
+osx_image: beta-xcode6.3
+cache: bundler
+branches:
+  only:
+    - master
+rvm:
+  - system
+before_install:
+  - gem install bundler
+install:
+  - bundle install
+before_script:
+  - bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
+script:
+  - bundle exec fastlane test
