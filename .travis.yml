@@ -7,7 +7,7 @@ branches:
 rvm:
   - system
 before_install:
-  - gem install bundler
+  - sudo gem install bundler
 install:
   - bundle install
 before_script:

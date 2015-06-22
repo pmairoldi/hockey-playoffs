@@ -35,7 +35,7 @@ PODS:
     - FMDB/common
   - Keys (1.0.0)
   - LSWeekView (1.0.5)
-  - SimulatorStatusMagic (1.5)
+  - SimulatorStatusMagic (1.6.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
@@ -55,6 +55,6 @@ SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  SimulatorStatusMagic: c62f346b59e4630962ae8d421c7cc01872bbd7b5
+  SimulatorStatusMagic: 688d39a6bf90b15d2ff33ad7fcaea806cb2ac1c2
 
 COCOAPODS: 0.37.2
