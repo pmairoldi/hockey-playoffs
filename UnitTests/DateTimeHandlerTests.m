@@ -10,8 +10,6 @@
 #import <XCTest/XCTest.h>
 #import "DateTimeHandler.h"
 
-extern void __gcov_flush();
-
 @interface UnitTests : XCTestCase
 
 @property NSTimeZone *cachedTimeZone;
@@ -32,8 +30,6 @@ extern void __gcov_flush();
     
     [NSTimeZone setDefaultTimeZone:_cachedTimeZone];
     
-    __gcov_flush();
-
     [super tearDown];
 }
 
@@ -44,7 +40,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"" andTime:@""];
     NSString *expectedResult = @"";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromNilDateAndNilTime {
@@ -52,7 +48,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:nil andTime:nil];
     NSString *expectedResult = @"";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromEmptyDateAndNilTime {
@@ -60,7 +56,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"" andTime:nil];
     NSString *expectedResult = @"";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromNilDateAndEmptyTime {
@@ -68,7 +64,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"" andTime:nil];
     NSString *expectedResult = @"";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromIncorectlyFormattedDateAndNilTime {
@@ -76,15 +72,15 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"22/6/2015" andTime:nil];
     NSString *expectedResult = @"";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromIncorectlyFormattedDateAndEmptyTime {
     
     NSString *actualResult = [DateTimeHandler getDateForDate:@"22/6/2015" andTime:@""];
     NSString *expectedResult = @"";
-    
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromWellFormattedDateAndNilTime {
@@ -92,7 +88,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"2015-06-22" andTime:nil];
     NSString *expectedResult = @"Jun 22, 2015";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromWellFormattedDateAndEmptyTime {
@@ -100,7 +96,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"2015-06-22" andTime:@""];
     NSString *expectedResult = @"Jun 22, 2015";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testDateFromWellFormattedDateAndTime {
@@ -108,7 +104,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getDateForDate:@"2015-06-22" andTime:@"10:53:00"];
     NSString *expectedResult = @"Jun 22, 2015";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 // tests for
@@ -118,7 +114,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:@"" andTime:@""];
     NSString *expectedResult = NSLocalizedString(@"time.tbd", nil);
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromNilDateAndNilTime {
@@ -126,7 +122,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:nil andTime:nil];
     NSString *expectedResult = NSLocalizedString(@"time.tbd", nil);
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromEmptyDateAndNilTime {
@@ -134,7 +130,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:@"" andTime:nil];
     NSString *expectedResult = NSLocalizedString(@"time.tbd", nil);
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromNilDateAndEmptyTime {
@@ -142,7 +138,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:@"" andTime:nil];
     NSString *expectedResult = NSLocalizedString(@"time.tbd", nil);
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromIncorectlyFormattedTimeAndNilDate {
@@ -150,7 +146,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:nil andTime:@"10:00 PM"];
     NSString *expectedResult = NSLocalizedString(@"time.tbd", nil);
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromIncorectlyFormattedTimeAndEmptyDate {
@@ -158,7 +154,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:@"" andTime:@"10:00 PM"];
     NSString *expectedResult = NSLocalizedString(@"time.tbd", nil);
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromWellFormattedTimeAndNilDate {
@@ -166,7 +162,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:nil andTime:@"10:53:00"];
     NSString *expectedResult = @"10:53 AM";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromWellFormattedTimeAndEmptyDate {
@@ -174,7 +170,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:@"" andTime:@"10:53:00"];
     NSString *expectedResult = @"10:53 AM";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testTimeFromWellFormattedDateAndTime {
@@ -182,7 +178,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getTimeForDate:@"2015-06-22" andTime:@"10:53:00"];
     NSString *expectedResult = @"10:53 AM";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 // tests for
@@ -192,7 +188,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getStringForDate:nil];
     NSString *expectedResult = @"";
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 -(void)testStringDateFromDate {
@@ -202,7 +198,7 @@ extern void __gcov_flush();
     NSString *actualResult = [DateTimeHandler getStringForDate:date];
     NSString *expectedResult = @"1969-12-31"; //since the time is converted to EST from UTC is is the day before epoch
     
-    XCTAssert([actualResult isEqualToString:expectedResult]);
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
 @end
