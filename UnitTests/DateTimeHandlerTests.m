@@ -196,7 +196,7 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
 
     NSString *actualResult = [DateTimeHandler getStringForDate:date];
-    NSString *expectedResult = @"1969-12-31"; //since the time is converted to EST from UTC is is the day before epoch
+    NSString *expectedResult = @"1970-01-01";
     
     XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
