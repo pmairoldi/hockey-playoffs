@@ -229,3 +229,6 @@ DEPENDENCIES
   cocoapods
   cocoapods-keys
   fastlane
+
+BUNDLED WITH
+   1.10.4
