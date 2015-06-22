@@ -1,0 +1,989 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		062A8BEF18E7D7DF00276A40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */; };
+		065804201ADDEB7F0080C634 /* NSObject+PMDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0658041F1ADDEB7F0080C634 /* NSObject+PMDescription.m */; };
+		065804241ADDFC5E0080C634 /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 065804231ADDFC5E0080C634 /* CRToast.m */; };
+		065804271ADE0B070080C634 /* NoContentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 065804261ADE0B070080C634 /* NoContentTableView.m */; };
+		0658042A1ADE323C0080C634 /* AdjustableNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 065804291ADE323C0080C634 /* AdjustableNavigationBar.m */; };
+		06749A091AD2604A008BC92D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499821AD2604A008BC92D /* AppDelegate.m */; };
+		06749A0A1AD2604A008BC92D /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499901AD2604A008BC92D /* EventObject.m */; };
+		06749A0B1AD2604A008BC92D /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499921AD2604A008BC92D /* GameObject.m */; };
+		06749A0C1AD2604A008BC92D /* PeriodObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499941AD2604A008BC92D /* PeriodObject.m */; };
+		06749A0D1AD2604A008BC92D /* SeriesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499961AD2604A008BC92D /* SeriesObject.m */; };
+		06749A0E1AD2604A008BC92D /* TeamObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499981AD2604A008BC92D /* TeamObject.m */; };
+		06749A111AD2604A008BC92D /* APIRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 0674999F1AD2604A008BC92D /* APIRequestHandler.m */; };
+		06749A121AD2604A008BC92D /* DatabaseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499A11AD2604A008BC92D /* DatabaseHandler.m */; };
+		06749A131AD2604A008BC92D /* DateTimeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499A31AD2604A008BC92D /* DateTimeHandler.m */; };
+		06749A141AD2604A008BC92D /* DictionaryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499A51AD2604A008BC92D /* DictionaryHandler.m */; };
+		06749A151AD2604A008BC92D /* FileHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499A71AD2604A008BC92D /* FileHandler.m */; };
+		06749A161AD2604A008BC92D /* FormatterHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499A91AD2604A008BC92D /* FormatterHandler.m */; };
+		06749A171AD2604A008BC92D /* TeamHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499AB1AD2604A008BC92D /* TeamHandler.m */; };
+		06749A1C1AD2604A008BC92D /* BracketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499B61AD2604A008BC92D /* BracketModel.m */; };
+		06749A1D1AD2604A008BC92D /* GameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499B81AD2604A008BC92D /* GameModel.m */; };
+		06749A1E1AD2604A008BC92D /* RecentGamesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499BA1AD2604A008BC92D /* RecentGamesModel.m */; };
+		06749A1F1AD2604A008BC92D /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499BC1AD2604A008BC92D /* Rectangle.m */; };
+		06749A201AD2604A008BC92D /* SeriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499BE1AD2604A008BC92D /* SeriesModel.m */; };
+		06749A211AD2604A008BC92D /* hockey.sql in Resources */ = {isa = PBXBuildFile; fileRef = 067499C01AD2604A008BC92D /* hockey.sql */; };
+		06749A221AD2604A008BC92D /* hockey.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 067499C11AD2604A008BC92D /* hockey.sqlite */; };
+		06749A231AD2604A008BC92D /* TeamColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 067499C21AD2604A008BC92D /* TeamColors.plist */; };
+		06749A241AD2604A008BC92D /* BracketSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499C51AD2604A008BC92D /* BracketSection.m */; };
+		06749A251AD2604A008BC92D /* BracketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499C71AD2604A008BC92D /* BracketView.m */; };
+		06749A261AD2604A008BC92D /* ExpandedVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499C91AD2604A008BC92D /* ExpandedVideoView.m */; };
+		06749A271AD2604A008BC92D /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499CB1AD2604A008BC92D /* GameCell.m */; };
+		06749A281AD2604A008BC92D /* GameDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499CD1AD2604A008BC92D /* GameDetailCell.m */; };
+		06749A291AD2604A008BC92D /* GameDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499CF1AD2604A008BC92D /* GameDetailHeader.m */; };
+		06749A2A1AD2604A008BC92D /* GameHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499D11AD2604A008BC92D /* GameHeader.m */; };
+		06749A2B1AD2604A008BC92D /* GameOverviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499D31AD2604A008BC92D /* GameOverviewView.m */; };
+		06749A2C1AD2604A008BC92D /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499D51AD2604A008BC92D /* GameView.m */; };
+		06749A2D1AD2604A008BC92D /* NoDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499D71AD2604A008BC92D /* NoDataTableViewCell.m */; };
+		06749A2E1AD2604A008BC92D /* PeriodScoresView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499D91AD2604A008BC92D /* PeriodScoresView.m */; };
+		06749A2F1AD2604A008BC92D /* PeriodScoreViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499DB1AD2604A008BC92D /* PeriodScoreViewHeader.m */; };
+		06749A301AD2604A008BC92D /* RecentGamesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499DD1AD2604A008BC92D /* RecentGamesView.m */; };
+		06749A311AD2604A008BC92D /* RefreshTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499DF1AD2604A008BC92D /* RefreshTableViewCell.m */; };
+		06749A331AD2604A008BC92D /* SeriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499E31AD2604A008BC92D /* SeriesCell.m */; };
+		06749A341AD2604A008BC92D /* SeriesHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499E51AD2604A008BC92D /* SeriesHeader.m */; };
+		06749A351AD2604A008BC92D /* SeriesHeaderScoresView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499E71AD2604A008BC92D /* SeriesHeaderScoresView.m */; };
+		06749A361AD2604A008BC92D /* SeriesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499E91AD2604A008BC92D /* SeriesView.m */; };
+		06749A371AD2604A008BC92D /* StrengthIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499EB1AD2604A008BC92D /* StrengthIndicator.m */; };
+		06749A381AD2604A008BC92D /* TeamImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499ED1AD2604A008BC92D /* TeamImage.m */; };
+		06749A391AD2604A008BC92D /* VideoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499EF1AD2604A008BC92D /* VideoButton.m */; };
+		06749A3A1AD2604A008BC92D /* BaseUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499F21AD2604A008BC92D /* BaseUINavigationController.m */; };
+		06749A3B1AD2604A008BC92D /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499F41AD2604A008BC92D /* BaseViewController.m */; };
+		06749A3C1AD2604A008BC92D /* BracketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499F61AD2604A008BC92D /* BracketViewController.m */; };
+		06749A3D1AD2604A008BC92D /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499F81AD2604A008BC92D /* GameViewController.m */; };
+		06749A3E1AD2604A008BC92D /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499FA1AD2604A008BC92D /* NewsViewController.m */; };
+		06749A3F1AD2604A008BC92D /* RecentGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499FC1AD2604A008BC92D /* RecentGamesViewController.m */; };
+		06749A401AD2604A008BC92D /* SeriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 067499FE1AD2604A008BC92D /* SeriesViewController.m */; };
+		06749A411AD2604A008BC92D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06749A001AD2604A008BC92D /* SettingsViewController.m */; };
+		06749A421AD2604A008BC92D /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06749A021AD2604A008BC92D /* StatisticsViewController.m */; };
+		06749A431AD2604A008BC92D /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06749A041AD2604A008BC92D /* TabBarController.m */; };
+		06749A441AD2604A008BC92D /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06749A061AD2604A008BC92D /* TeamsViewController.m */; };
+		06749A451AD2604A008BC92D /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06749A081AD2604A008BC92D /* VideoPlayerViewController.m */; };
+		0684138918B9A0CE00A89D7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138818B9A0CE00A89D7C /* Foundation.framework */; };
+		0684138B18B9A0CE00A89D7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */; };
+		0684138D18B9A0CE00A89D7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138C18B9A0CE00A89D7C /* UIKit.framework */; };
+		10ED75BB669ACCA598CD22F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7374E6C0BF95F37187E26E62 /* libPods.a */; };
+		555BC33A1B385D5D00029FA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555BC3391B385D5D00029FA8 /* Images.xcassets */; };
+		555BC35B1B385D8E00029FA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 555BC3541B385D8E00029FA8 /* InfoPlist.strings */; };
+		555BC35C1B385D8E00029FA8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 555BC3561B385D8E00029FA8 /* Localizable.strings */; };
+		555BC35E1B385D8E00029FA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 555BC35A1B385D8E00029FA8 /* main.m */; };
+		55BBBEE41B3861F400044778 /* DateTimeHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55BBBEE51B3861F400044778 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0684137D18B9A0CE00A89D7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0684138418B9A0CE00A89D7C;
+			remoteInfo = HockeyPlayoffs;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0675ACCF19C5FD9D007B46D8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0658041E1ADDEB7F0080C634 /* NSObject+PMDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PMDescription.h"; sourceTree = "<group>"; };
+		0658041F1ADDEB7F0080C634 /* NSObject+PMDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PMDescription.m"; sourceTree = "<group>"; };
+		065804221ADDFC5E0080C634 /* CRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToast.h; sourceTree = "<group>"; };
+		065804231ADDFC5E0080C634 /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
+		065804251ADE0B070080C634 /* NoContentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoContentTableView.h; sourceTree = "<group>"; };
+		065804261ADE0B070080C634 /* NoContentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoContentTableView.m; sourceTree = "<group>"; };
+		065804281ADE323C0080C634 /* AdjustableNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustableNavigationBar.h; sourceTree = "<group>"; };
+		065804291ADE323C0080C634 /* AdjustableNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustableNavigationBar.m; sourceTree = "<group>"; };
+		067499811AD2604A008BC92D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		067499821AD2604A008BC92D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		067499841AD2604A008BC92D /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
+		067499851AD2604A008BC92D /* APIIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIIdentifiers.h; sourceTree = "<group>"; };
+		067499861AD2604A008BC92D /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		067499871AD2604A008BC92D /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
+		067499881AD2604A008BC92D /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		067499891AD2604A008BC92D /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
+		0674998A1AD2604A008BC92D /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
+		0674998B1AD2604A008BC92D /* Queues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queues.h; sourceTree = "<group>"; };
+		0674998C1AD2604A008BC92D /* ReuseIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseIdentifiers.h; sourceTree = "<group>"; };
+		0674998D1AD2604A008BC92D /* Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rotation.h; sourceTree = "<group>"; };
+		0674998F1AD2604A008BC92D /* EventObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventObject.h; sourceTree = "<group>"; };
+		067499901AD2604A008BC92D /* EventObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventObject.m; sourceTree = "<group>"; };
+		067499911AD2604A008BC92D /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
+		067499921AD2604A008BC92D /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
+		067499931AD2604A008BC92D /* PeriodObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodObject.h; sourceTree = "<group>"; };
+		067499941AD2604A008BC92D /* PeriodObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodObject.m; sourceTree = "<group>"; };
+		067499951AD2604A008BC92D /* SeriesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesObject.h; sourceTree = "<group>"; };
+		067499961AD2604A008BC92D /* SeriesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesObject.m; sourceTree = "<group>"; };
+		067499971AD2604A008BC92D /* TeamObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamObject.h; sourceTree = "<group>"; };
+		067499981AD2604A008BC92D /* TeamObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamObject.m; sourceTree = "<group>"; };
+		0674999E1AD2604A008BC92D /* APIRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIRequestHandler.h; sourceTree = "<group>"; };
+		0674999F1AD2604A008BC92D /* APIRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIRequestHandler.m; sourceTree = "<group>"; };
+		067499A01AD2604A008BC92D /* DatabaseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHandler.h; sourceTree = "<group>"; };
+		067499A11AD2604A008BC92D /* DatabaseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHandler.m; sourceTree = "<group>"; };
+		067499A21AD2604A008BC92D /* DateTimeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeHandler.h; sourceTree = "<group>"; };
+		067499A31AD2604A008BC92D /* DateTimeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeHandler.m; sourceTree = "<group>"; };
+		067499A41AD2604A008BC92D /* DictionaryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryHandler.h; sourceTree = "<group>"; };
+		067499A51AD2604A008BC92D /* DictionaryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryHandler.m; sourceTree = "<group>"; };
+		067499A61AD2604A008BC92D /* FileHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHandler.h; sourceTree = "<group>"; };
+		067499A71AD2604A008BC92D /* FileHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHandler.m; sourceTree = "<group>"; };
+		067499A81AD2604A008BC92D /* FormatterHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatterHandler.h; sourceTree = "<group>"; };
+		067499A91AD2604A008BC92D /* FormatterHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatterHandler.m; sourceTree = "<group>"; };
+		067499AA1AD2604A008BC92D /* TeamHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamHandler.h; sourceTree = "<group>"; };
+		067499AB1AD2604A008BC92D /* TeamHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamHandler.m; sourceTree = "<group>"; };
+		067499B51AD2604A008BC92D /* BracketModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketModel.h; sourceTree = "<group>"; };
+		067499B61AD2604A008BC92D /* BracketModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketModel.m; sourceTree = "<group>"; };
+		067499B71AD2604A008BC92D /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		067499B81AD2604A008BC92D /* GameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameModel.m; sourceTree = "<group>"; };
+		067499B91AD2604A008BC92D /* RecentGamesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentGamesModel.h; sourceTree = "<group>"; };
+		067499BA1AD2604A008BC92D /* RecentGamesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentGamesModel.m; sourceTree = "<group>"; };
+		067499BB1AD2604A008BC92D /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
+		067499BC1AD2604A008BC92D /* Rectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rectangle.m; sourceTree = "<group>"; };
+		067499BD1AD2604A008BC92D /* SeriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesModel.h; sourceTree = "<group>"; };
+		067499BE1AD2604A008BC92D /* SeriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesModel.m; sourceTree = "<group>"; };
+		067499C01AD2604A008BC92D /* hockey.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hockey.sql; sourceTree = "<group>"; };
+		067499C11AD2604A008BC92D /* hockey.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hockey.sqlite; sourceTree = "<group>"; };
+		067499C21AD2604A008BC92D /* TeamColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TeamColors.plist; sourceTree = "<group>"; };
+		067499C41AD2604A008BC92D /* BracketSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketSection.h; sourceTree = "<group>"; };
+		067499C51AD2604A008BC92D /* BracketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketSection.m; sourceTree = "<group>"; };
+		067499C61AD2604A008BC92D /* BracketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketView.h; sourceTree = "<group>"; };
+		067499C71AD2604A008BC92D /* BracketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketView.m; sourceTree = "<group>"; };
+		067499C81AD2604A008BC92D /* ExpandedVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandedVideoView.h; sourceTree = "<group>"; };
+		067499C91AD2604A008BC92D /* ExpandedVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedVideoView.m; sourceTree = "<group>"; };
+		067499CA1AD2604A008BC92D /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
+		067499CB1AD2604A008BC92D /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
+		067499CC1AD2604A008BC92D /* GameDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailCell.h; sourceTree = "<group>"; };
+		067499CD1AD2604A008BC92D /* GameDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailCell.m; sourceTree = "<group>"; };
+		067499CE1AD2604A008BC92D /* GameDetailHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailHeader.h; sourceTree = "<group>"; };
+		067499CF1AD2604A008BC92D /* GameDetailHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDetailHeader.m; sourceTree = "<group>"; };
+		067499D01AD2604A008BC92D /* GameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHeader.h; sourceTree = "<group>"; };
+		067499D11AD2604A008BC92D /* GameHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHeader.m; sourceTree = "<group>"; };
+		067499D21AD2604A008BC92D /* GameOverviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverviewView.h; sourceTree = "<group>"; };
+		067499D31AD2604A008BC92D /* GameOverviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverviewView.m; sourceTree = "<group>"; };
+		067499D41AD2604A008BC92D /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		067499D51AD2604A008BC92D /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		067499D61AD2604A008BC92D /* NoDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDataTableViewCell.h; sourceTree = "<group>"; };
+		067499D71AD2604A008BC92D /* NoDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataTableViewCell.m; sourceTree = "<group>"; };
+		067499D81AD2604A008BC92D /* PeriodScoresView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodScoresView.h; sourceTree = "<group>"; };
+		067499D91AD2604A008BC92D /* PeriodScoresView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodScoresView.m; sourceTree = "<group>"; };
+		067499DA1AD2604A008BC92D /* PeriodScoreViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodScoreViewHeader.h; sourceTree = "<group>"; };
+		067499DB1AD2604A008BC92D /* PeriodScoreViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodScoreViewHeader.m; sourceTree = "<group>"; };
+		067499DC1AD2604A008BC92D /* RecentGamesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentGamesView.h; sourceTree = "<group>"; };
+		067499DD1AD2604A008BC92D /* RecentGamesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentGamesView.m; sourceTree = "<group>"; };
+		067499DE1AD2604A008BC92D /* RefreshTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableViewCell.h; sourceTree = "<group>"; };
+		067499DF1AD2604A008BC92D /* RefreshTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableViewCell.m; sourceTree = "<group>"; };
+		067499E21AD2604A008BC92D /* SeriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesCell.h; sourceTree = "<group>"; };
+		067499E31AD2604A008BC92D /* SeriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesCell.m; sourceTree = "<group>"; };
+		067499E41AD2604A008BC92D /* SeriesHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesHeader.h; sourceTree = "<group>"; };
+		067499E51AD2604A008BC92D /* SeriesHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesHeader.m; sourceTree = "<group>"; };
+		067499E61AD2604A008BC92D /* SeriesHeaderScoresView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesHeaderScoresView.h; sourceTree = "<group>"; };
+		067499E71AD2604A008BC92D /* SeriesHeaderScoresView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesHeaderScoresView.m; sourceTree = "<group>"; };
+		067499E81AD2604A008BC92D /* SeriesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesView.h; sourceTree = "<group>"; };
+		067499E91AD2604A008BC92D /* SeriesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesView.m; sourceTree = "<group>"; };
+		067499EA1AD2604A008BC92D /* StrengthIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrengthIndicator.h; sourceTree = "<group>"; };
+		067499EB1AD2604A008BC92D /* StrengthIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrengthIndicator.m; sourceTree = "<group>"; };
+		067499EC1AD2604A008BC92D /* TeamImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamImage.h; sourceTree = "<group>"; };
+		067499ED1AD2604A008BC92D /* TeamImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamImage.m; sourceTree = "<group>"; };
+		067499EE1AD2604A008BC92D /* VideoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoButton.h; sourceTree = "<group>"; };
+		067499EF1AD2604A008BC92D /* VideoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoButton.m; sourceTree = "<group>"; };
+		067499F11AD2604A008BC92D /* BaseUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseUINavigationController.h; sourceTree = "<group>"; };
+		067499F21AD2604A008BC92D /* BaseUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseUINavigationController.m; sourceTree = "<group>"; };
+		067499F31AD2604A008BC92D /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		067499F41AD2604A008BC92D /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		067499F51AD2604A008BC92D /* BracketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketViewController.h; sourceTree = "<group>"; };
+		067499F61AD2604A008BC92D /* BracketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketViewController.m; sourceTree = "<group>"; };
+		067499F71AD2604A008BC92D /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		067499F81AD2604A008BC92D /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		067499F91AD2604A008BC92D /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		067499FA1AD2604A008BC92D /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		067499FB1AD2604A008BC92D /* RecentGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentGamesViewController.h; sourceTree = "<group>"; };
+		067499FC1AD2604A008BC92D /* RecentGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentGamesViewController.m; sourceTree = "<group>"; };
+		067499FD1AD2604A008BC92D /* SeriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesViewController.h; sourceTree = "<group>"; };
+		067499FE1AD2604A008BC92D /* SeriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesViewController.m; sourceTree = "<group>"; };
+		067499FF1AD2604A008BC92D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		06749A001AD2604A008BC92D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		06749A011AD2604A008BC92D /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
+		06749A021AD2604A008BC92D /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
+		06749A031AD2604A008BC92D /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		06749A041AD2604A008BC92D /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		06749A051AD2604A008BC92D /* TeamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamsViewController.h; sourceTree = "<group>"; };
+		06749A061AD2604A008BC92D /* TeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsViewController.m; sourceTree = "<group>"; };
+		06749A071AD2604A008BC92D /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		06749A081AD2604A008BC92D /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyPlayoffs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0684138818B9A0CE00A89D7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0684138C18B9A0CE00A89D7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		068413A118B9A0CE00A89D7C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		555BC3391B385D5D00029FA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		555BC3551B385D8E00029FA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		555BC3571B385D8E00029FA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		555BC3581B385D8E00029FA8 /* HockeyPlayoffs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "HockeyPlayoffs-Info.plist"; sourceTree = "<group>"; };
+		555BC3591B385D8E00029FA8 /* HockeyPlayoffs-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HockeyPlayoffs-Prefix.pch"; sourceTree = "<group>"; };
+		555BC35A1B385D8E00029FA8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		55BBBEDF1B3861F300044778 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55BBBEE21B3861F300044778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimeHandlerTests.m; sourceTree = "<group>"; };
+		7374E6C0BF95F37187E26E62 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B373D7F2A27FFC221F91FE0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F9C5A52084217DA6D892FEC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0684138218B9A0CE00A89D7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				062A8BEF18E7D7DF00276A40 /* MediaPlayer.framework in Frameworks */,
+				0684138B18B9A0CE00A89D7C /* CoreGraphics.framework in Frameworks */,
+				0684138D18B9A0CE00A89D7C /* UIKit.framework in Frameworks */,
+				0684138918B9A0CE00A89D7C /* Foundation.framework in Frameworks */,
+				10ED75BB669ACCA598CD22F0 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BBBEDC1B3861F300044778 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		065804211ADDFC5E0080C634 /* CRToast */ = {
+			isa = PBXGroup;
+			children = (
+				065804221ADDFC5E0080C634 /* CRToast.h */,
+				065804231ADDFC5E0080C634 /* CRToast.m */,
+			);
+			path = CRToast;
+			sourceTree = "<group>";
+		};
+		067499801AD2604A008BC92D /* HockeyPlayoffs */ = {
+			isa = PBXGroup;
+			children = (
+				067499811AD2604A008BC92D /* AppDelegate.h */,
+				067499821AD2604A008BC92D /* AppDelegate.m */,
+				067499831AD2604A008BC92D /* Constants */,
+				0674998E1AD2604A008BC92D /* DatabaseObjects */,
+				0674999D1AD2604A008BC92D /* Handlers */,
+				067499AF1AD2604A008BC92D /* Libraries */,
+				067499B41AD2604A008BC92D /* Model */,
+				067499BF1AD2604A008BC92D /* Resources */,
+				555BC3531B385D8E00029FA8 /* SupportingFiles */,
+				067499C31AD2604A008BC92D /* View */,
+				067499F01AD2604A008BC92D /* ViewController */,
+			);
+			path = HockeyPlayoffs;
+			sourceTree = "<group>";
+		};
+		067499831AD2604A008BC92D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				067499841AD2604A008BC92D /* Animations.h */,
+				067499851AD2604A008BC92D /* APIIdentifiers.h */,
+				067499861AD2604A008BC92D /* Colours.h */,
+				067499871AD2604A008BC92D /* Dimensions.h */,
+				067499881AD2604A008BC92D /* Enums.h */,
+				067499891AD2604A008BC92D /* Images.h */,
+				0674998A1AD2604A008BC92D /* Notifications.h */,
+				0674998B1AD2604A008BC92D /* Queues.h */,
+				0674998C1AD2604A008BC92D /* ReuseIdentifiers.h */,
+				0674998D1AD2604A008BC92D /* Rotation.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		0674998E1AD2604A008BC92D /* DatabaseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				0674998F1AD2604A008BC92D /* EventObject.h */,
+				067499901AD2604A008BC92D /* EventObject.m */,
+				067499911AD2604A008BC92D /* GameObject.h */,
+				067499921AD2604A008BC92D /* GameObject.m */,
+				067499931AD2604A008BC92D /* PeriodObject.h */,
+				067499941AD2604A008BC92D /* PeriodObject.m */,
+				067499951AD2604A008BC92D /* SeriesObject.h */,
+				067499961AD2604A008BC92D /* SeriesObject.m */,
+				067499971AD2604A008BC92D /* TeamObject.h */,
+				067499981AD2604A008BC92D /* TeamObject.m */,
+			);
+			path = DatabaseObjects;
+			sourceTree = "<group>";
+		};
+		0674999D1AD2604A008BC92D /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				0674999E1AD2604A008BC92D /* APIRequestHandler.h */,
+				0674999F1AD2604A008BC92D /* APIRequestHandler.m */,
+				067499A01AD2604A008BC92D /* DatabaseHandler.h */,
+				067499A11AD2604A008BC92D /* DatabaseHandler.m */,
+				067499A21AD2604A008BC92D /* DateTimeHandler.h */,
+				067499A31AD2604A008BC92D /* DateTimeHandler.m */,
+				067499A41AD2604A008BC92D /* DictionaryHandler.h */,
+				067499A51AD2604A008BC92D /* DictionaryHandler.m */,
+				067499A61AD2604A008BC92D /* FileHandler.h */,
+				067499A71AD2604A008BC92D /* FileHandler.m */,
+				067499A81AD2604A008BC92D /* FormatterHandler.h */,
+				067499A91AD2604A008BC92D /* FormatterHandler.m */,
+				067499AA1AD2604A008BC92D /* TeamHandler.h */,
+				067499AB1AD2604A008BC92D /* TeamHandler.m */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		067499AF1AD2604A008BC92D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				065804211ADDFC5E0080C634 /* CRToast */,
+				0658041E1ADDEB7F0080C634 /* NSObject+PMDescription.h */,
+				0658041F1ADDEB7F0080C634 /* NSObject+PMDescription.m */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		067499B41AD2604A008BC92D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				067499B51AD2604A008BC92D /* BracketModel.h */,
+				067499B61AD2604A008BC92D /* BracketModel.m */,
+				067499B71AD2604A008BC92D /* GameModel.h */,
+				067499B81AD2604A008BC92D /* GameModel.m */,
+				067499B91AD2604A008BC92D /* RecentGamesModel.h */,
+				067499BA1AD2604A008BC92D /* RecentGamesModel.m */,
+				067499BB1AD2604A008BC92D /* Rectangle.h */,
+				067499BC1AD2604A008BC92D /* Rectangle.m */,
+				067499BD1AD2604A008BC92D /* SeriesModel.h */,
+				067499BE1AD2604A008BC92D /* SeriesModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		067499BF1AD2604A008BC92D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				555BC3391B385D5D00029FA8 /* Images.xcassets */,
+				067499C01AD2604A008BC92D /* hockey.sql */,
+				067499C11AD2604A008BC92D /* hockey.sqlite */,
+				067499C21AD2604A008BC92D /* TeamColors.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		067499C31AD2604A008BC92D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				067499C41AD2604A008BC92D /* BracketSection.h */,
+				067499C51AD2604A008BC92D /* BracketSection.m */,
+				067499C61AD2604A008BC92D /* BracketView.h */,
+				067499C71AD2604A008BC92D /* BracketView.m */,
+				067499C81AD2604A008BC92D /* ExpandedVideoView.h */,
+				067499C91AD2604A008BC92D /* ExpandedVideoView.m */,
+				067499CA1AD2604A008BC92D /* GameCell.h */,
+				067499CB1AD2604A008BC92D /* GameCell.m */,
+				067499CC1AD2604A008BC92D /* GameDetailCell.h */,
+				067499CD1AD2604A008BC92D /* GameDetailCell.m */,
+				067499CE1AD2604A008BC92D /* GameDetailHeader.h */,
+				067499CF1AD2604A008BC92D /* GameDetailHeader.m */,
+				067499D01AD2604A008BC92D /* GameHeader.h */,
+				067499D11AD2604A008BC92D /* GameHeader.m */,
+				067499D21AD2604A008BC92D /* GameOverviewView.h */,
+				067499D31AD2604A008BC92D /* GameOverviewView.m */,
+				067499D41AD2604A008BC92D /* GameView.h */,
+				067499D51AD2604A008BC92D /* GameView.m */,
+				067499D61AD2604A008BC92D /* NoDataTableViewCell.h */,
+				067499D71AD2604A008BC92D /* NoDataTableViewCell.m */,
+				067499D81AD2604A008BC92D /* PeriodScoresView.h */,
+				067499D91AD2604A008BC92D /* PeriodScoresView.m */,
+				067499DA1AD2604A008BC92D /* PeriodScoreViewHeader.h */,
+				067499DB1AD2604A008BC92D /* PeriodScoreViewHeader.m */,
+				067499DC1AD2604A008BC92D /* RecentGamesView.h */,
+				067499DD1AD2604A008BC92D /* RecentGamesView.m */,
+				067499DE1AD2604A008BC92D /* RefreshTableViewCell.h */,
+				067499DF1AD2604A008BC92D /* RefreshTableViewCell.m */,
+				067499E21AD2604A008BC92D /* SeriesCell.h */,
+				067499E31AD2604A008BC92D /* SeriesCell.m */,
+				067499E41AD2604A008BC92D /* SeriesHeader.h */,
+				067499E51AD2604A008BC92D /* SeriesHeader.m */,
+				067499E61AD2604A008BC92D /* SeriesHeaderScoresView.h */,
+				067499E71AD2604A008BC92D /* SeriesHeaderScoresView.m */,
+				067499E81AD2604A008BC92D /* SeriesView.h */,
+				067499E91AD2604A008BC92D /* SeriesView.m */,
+				067499EA1AD2604A008BC92D /* StrengthIndicator.h */,
+				067499EB1AD2604A008BC92D /* StrengthIndicator.m */,
+				067499EC1AD2604A008BC92D /* TeamImage.h */,
+				067499ED1AD2604A008BC92D /* TeamImage.m */,
+				067499EE1AD2604A008BC92D /* VideoButton.h */,
+				067499EF1AD2604A008BC92D /* VideoButton.m */,
+				065804251ADE0B070080C634 /* NoContentTableView.h */,
+				065804261ADE0B070080C634 /* NoContentTableView.m */,
+				065804281ADE323C0080C634 /* AdjustableNavigationBar.h */,
+				065804291ADE323C0080C634 /* AdjustableNavigationBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		067499F01AD2604A008BC92D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				067499F11AD2604A008BC92D /* BaseUINavigationController.h */,
+				067499F21AD2604A008BC92D /* BaseUINavigationController.m */,
+				067499F31AD2604A008BC92D /* BaseViewController.h */,
+				067499F41AD2604A008BC92D /* BaseViewController.m */,
+				067499F51AD2604A008BC92D /* BracketViewController.h */,
+				067499F61AD2604A008BC92D /* BracketViewController.m */,
+				067499F71AD2604A008BC92D /* GameViewController.h */,
+				067499F81AD2604A008BC92D /* GameViewController.m */,
+				067499F91AD2604A008BC92D /* NewsViewController.h */,
+				067499FA1AD2604A008BC92D /* NewsViewController.m */,
+				067499FB1AD2604A008BC92D /* RecentGamesViewController.h */,
+				067499FC1AD2604A008BC92D /* RecentGamesViewController.m */,
+				067499FD1AD2604A008BC92D /* SeriesViewController.h */,
+				067499FE1AD2604A008BC92D /* SeriesViewController.m */,
+				067499FF1AD2604A008BC92D /* SettingsViewController.h */,
+				06749A001AD2604A008BC92D /* SettingsViewController.m */,
+				06749A011AD2604A008BC92D /* StatisticsViewController.h */,
+				06749A021AD2604A008BC92D /* StatisticsViewController.m */,
+				06749A031AD2604A008BC92D /* TabBarController.h */,
+				06749A041AD2604A008BC92D /* TabBarController.m */,
+				06749A051AD2604A008BC92D /* TeamsViewController.h */,
+				06749A061AD2604A008BC92D /* TeamsViewController.m */,
+				06749A071AD2604A008BC92D /* VideoPlayerViewController.h */,
+				06749A081AD2604A008BC92D /* VideoPlayerViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0684137C18B9A0CE00A89D7C = {
+			isa = PBXGroup;
+			children = (
+				067499801AD2604A008BC92D /* HockeyPlayoffs */,
+				55BBBEE01B3861F300044778 /* UnitTests */,
+				0684138718B9A0CE00A89D7C /* Frameworks */,
+				0684138618B9A0CE00A89D7C /* Products */,
+				B6805ACD70DA6C8CF4426223 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		0684138618B9A0CE00A89D7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */,
+				55BBBEDF1B3861F300044778 /* UnitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0684138718B9A0CE00A89D7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */,
+				0684138818B9A0CE00A89D7C /* Foundation.framework */,
+				0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */,
+				0684138C18B9A0CE00A89D7C /* UIKit.framework */,
+				068413A118B9A0CE00A89D7C /* XCTest.framework */,
+				7374E6C0BF95F37187E26E62 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		555BC3531B385D8E00029FA8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				555BC3541B385D8E00029FA8 /* InfoPlist.strings */,
+				555BC3561B385D8E00029FA8 /* Localizable.strings */,
+				555BC3581B385D8E00029FA8 /* HockeyPlayoffs-Info.plist */,
+				555BC3591B385D8E00029FA8 /* HockeyPlayoffs-Prefix.pch */,
+				555BC35A1B385D8E00029FA8 /* main.m */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		55BBBEE01B3861F300044778 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */,
+				55BBBEE11B3861F300044778 /* Supporting Files */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		55BBBEE11B3861F300044778 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55BBBEE21B3861F300044778 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6805ACD70DA6C8CF4426223 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9C5A52084217DA6D892FEC6 /* Pods.debug.xcconfig */,
+				B373D7F2A27FFC221F91FE0B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0684138418B9A0CE00A89D7C /* HockeyPlayoffs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 068413B118B9A0CE00A89D7C /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
+			buildPhases = (
+				FD57A2801EAA4972957E9F91 /* Check Pods Manifest.lock */,
+				0684138118B9A0CE00A89D7C /* Sources */,
+				0684138218B9A0CE00A89D7C /* Frameworks */,
+				0684138318B9A0CE00A89D7C /* Resources */,
+				A03AE37ED869410092B5B9F4 /* Copy Pods Resources */,
+				0675ACCF19C5FD9D007B46D8 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HockeyPlayoffs;
+			productName = "Hockey Playoffs 14";
+			productReference = 0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		55BBBEDE1B3861F300044778 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55BBBEE71B3861F400044778 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				55BBBEDB1B3861F300044778 /* Sources */,
+				55BBBEDC1B3861F300044778 /* Frameworks */,
+				55BBBEDD1B3861F300044778 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55BBBEE61B3861F400044778 /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 55BBBEDF1B3861F300044778 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0684137D18B9A0CE00A89D7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
+				TargetAttributes = {
+					0684138418B9A0CE00A89D7C = {
+						DevelopmentTeam = W78ZZKUER7;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
+					};
+					55BBBEDE1B3861F300044778 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 0684138418B9A0CE00A89D7C;
+					};
+				};
+			};
+			buildConfigurationList = 0684138018B9A0CE00A89D7C /* Build configuration list for PBXProject "HockeyPlayoffs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0684137C18B9A0CE00A89D7C;
+			productRefGroup = 0684138618B9A0CE00A89D7C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0684138418B9A0CE00A89D7C /* HockeyPlayoffs */,
+				55BBBEDE1B3861F300044778 /* UnitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0684138318B9A0CE00A89D7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06749A231AD2604A008BC92D /* TeamColors.plist in Resources */,
+				555BC35C1B385D8E00029FA8 /* Localizable.strings in Resources */,
+				06749A221AD2604A008BC92D /* hockey.sqlite in Resources */,
+				555BC33A1B385D5D00029FA8 /* Images.xcassets in Resources */,
+				06749A211AD2604A008BC92D /* hockey.sql in Resources */,
+				555BC35B1B385D8E00029FA8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BBBEDD1B3861F300044778 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A03AE37ED869410092B5B9F4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD57A2801EAA4972957E9F91 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0684138118B9A0CE00A89D7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06749A171AD2604A008BC92D /* TeamHandler.m in Sources */,
+				06749A2A1AD2604A008BC92D /* GameHeader.m in Sources */,
+				06749A291AD2604A008BC92D /* GameDetailHeader.m in Sources */,
+				06749A3F1AD2604A008BC92D /* RecentGamesViewController.m in Sources */,
+				06749A311AD2604A008BC92D /* RefreshTableViewCell.m in Sources */,
+				06749A0D1AD2604A008BC92D /* SeriesObject.m in Sources */,
+				06749A091AD2604A008BC92D /* AppDelegate.m in Sources */,
+				06749A141AD2604A008BC92D /* DictionaryHandler.m in Sources */,
+				06749A0B1AD2604A008BC92D /* GameObject.m in Sources */,
+				06749A1D1AD2604A008BC92D /* GameModel.m in Sources */,
+				06749A361AD2604A008BC92D /* SeriesView.m in Sources */,
+				06749A111AD2604A008BC92D /* APIRequestHandler.m in Sources */,
+				06749A341AD2604A008BC92D /* SeriesHeader.m in Sources */,
+				06749A1C1AD2604A008BC92D /* BracketModel.m in Sources */,
+				06749A401AD2604A008BC92D /* SeriesViewController.m in Sources */,
+				06749A3B1AD2604A008BC92D /* BaseViewController.m in Sources */,
+				06749A441AD2604A008BC92D /* TeamsViewController.m in Sources */,
+				06749A3E1AD2604A008BC92D /* NewsViewController.m in Sources */,
+				06749A3C1AD2604A008BC92D /* BracketViewController.m in Sources */,
+				06749A0E1AD2604A008BC92D /* TeamObject.m in Sources */,
+				06749A151AD2604A008BC92D /* FileHandler.m in Sources */,
+				06749A0A1AD2604A008BC92D /* EventObject.m in Sources */,
+				06749A0C1AD2604A008BC92D /* PeriodObject.m in Sources */,
+				06749A3D1AD2604A008BC92D /* GameViewController.m in Sources */,
+				06749A2D1AD2604A008BC92D /* NoDataTableViewCell.m in Sources */,
+				06749A391AD2604A008BC92D /* VideoButton.m in Sources */,
+				06749A1F1AD2604A008BC92D /* Rectangle.m in Sources */,
+				06749A331AD2604A008BC92D /* SeriesCell.m in Sources */,
+				06749A2B1AD2604A008BC92D /* GameOverviewView.m in Sources */,
+				06749A271AD2604A008BC92D /* GameCell.m in Sources */,
+				06749A451AD2604A008BC92D /* VideoPlayerViewController.m in Sources */,
+				06749A1E1AD2604A008BC92D /* RecentGamesModel.m in Sources */,
+				065804271ADE0B070080C634 /* NoContentTableView.m in Sources */,
+				06749A421AD2604A008BC92D /* StatisticsViewController.m in Sources */,
+				06749A301AD2604A008BC92D /* RecentGamesView.m in Sources */,
+				06749A2F1AD2604A008BC92D /* PeriodScoreViewHeader.m in Sources */,
+				06749A241AD2604A008BC92D /* BracketSection.m in Sources */,
+				065804201ADDEB7F0080C634 /* NSObject+PMDescription.m in Sources */,
+				06749A251AD2604A008BC92D /* BracketView.m in Sources */,
+				0658042A1ADE323C0080C634 /* AdjustableNavigationBar.m in Sources */,
+				06749A3A1AD2604A008BC92D /* BaseUINavigationController.m in Sources */,
+				06749A201AD2604A008BC92D /* SeriesModel.m in Sources */,
+				06749A261AD2604A008BC92D /* ExpandedVideoView.m in Sources */,
+				06749A431AD2604A008BC92D /* TabBarController.m in Sources */,
+				06749A131AD2604A008BC92D /* DateTimeHandler.m in Sources */,
+				06749A121AD2604A008BC92D /* DatabaseHandler.m in Sources */,
+				06749A371AD2604A008BC92D /* StrengthIndicator.m in Sources */,
+				065804241ADDFC5E0080C634 /* CRToast.m in Sources */,
+				06749A351AD2604A008BC92D /* SeriesHeaderScoresView.m in Sources */,
+				06749A161AD2604A008BC92D /* FormatterHandler.m in Sources */,
+				06749A281AD2604A008BC92D /* GameDetailCell.m in Sources */,
+				06749A381AD2604A008BC92D /* TeamImage.m in Sources */,
+				06749A411AD2604A008BC92D /* SettingsViewController.m in Sources */,
+				06749A2E1AD2604A008BC92D /* PeriodScoresView.m in Sources */,
+				555BC35E1B385D8E00029FA8 /* main.m in Sources */,
+				06749A2C1AD2604A008BC92D /* GameView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55BBBEDB1B3861F300044778 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55BBBEE41B3861F400044778 /* DateTimeHandlerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		55BBBEE61B3861F400044778 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0684138418B9A0CE00A89D7C /* HockeyPlayoffs */;
+			targetProxy = 55BBBEE51B3861F400044778 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		555BC3541B385D8E00029FA8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				555BC3551B385D8E00029FA8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		555BC3561B385D8E00029FA8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				555BC3571B385D8E00029FA8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		068413AF18B9A0CE00A89D7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		068413B018B9A0CE00A89D7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		068413B218B9A0CE00A89D7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9C5A52084217DA6D892FEC6 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HockeyPlayoffs/SupportingFiles/HockeyPlayoffs-Prefix.pch";
+				INFOPLIST_FILE = "HockeyPlayoffs/SupportingFiles/HockeyPlayoffs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		068413B318B9A0CE00A89D7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B373D7F2A27FFC221F91FE0B /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HockeyPlayoffs/SupportingFiles/HockeyPlayoffs-Prefix.pch";
+				INFOPLIST_FILE = "HockeyPlayoffs/SupportingFiles/HockeyPlayoffs-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		55BBBEE81B3861F400044778 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
+			};
+			name = Debug;
+		};
+		55BBBEE91B3861F400044778 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = UnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0684138018B9A0CE00A89D7C /* Build configuration list for PBXProject "HockeyPlayoffs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				068413AF18B9A0CE00A89D7C /* Debug */,
+				068413B018B9A0CE00A89D7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		068413B118B9A0CE00A89D7C /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				068413B218B9A0CE00A89D7C /* Debug */,
+				068413B318B9A0CE00A89D7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55BBBEE71B3861F400044778 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55BBBEE81B3861F400044778 /* Debug */,
+				55BBBEE91B3861F400044778 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0684137D18B9A0CE00A89D7C /* Project object */;
+}

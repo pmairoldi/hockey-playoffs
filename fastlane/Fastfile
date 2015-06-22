@@ -1,0 +1,61 @@
+# Customise this file, documentation can be found here:
+# https://github.com/KrauseFx/fastlane/tree/master/docs
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# By default, fastlane will send which actions are used
+# No personal data is shared, more information on https://github.com/fastlane/enhancer
+# Uncomment the following line to opt out
+# opt_out_usage
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "0.12.4"
+
+default_platform :ios
+
+
+platform :ios do
+
+  before_all do
+    sh 'bundle exec pod install'
+  end
+
+  desc "Sets up project"
+  lane :setup do
+
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+      xctest destination: "OS=8.3,name=iPhone 6"
+  end
+
+  lane :deliver do
+      ipa configuration: "Release", destination: "build", embed: "fastlane/distribution.mobileprovision"
+      deliver force: true, skip_deploy: true
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :beta do
+    snapshot
+    cert
+    sigh filename: "fastlane/distribution.mobileprovision"
+    ipa configuration: "Release", destination: "build", embed: "fastlane/distribution.mobileprovision"
+    deliver beta: true, skip_deploy: false
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :deploy do
+    snapshot
+    cert
+    sigh filename: "fastlane/distribution.mobileprovision", force: true
+    ipa configuration: "Release", destination: "build", embed: "fastlane/distribution.mobileprovision"
+    deliver force: true, skip_deploy: true
+  end
+
+end
