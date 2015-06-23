@@ -35,7 +35,6 @@
 		553F36661B39A65F00CCAE17 /* hockey.sql in Resources */ = {isa = PBXBuildFile; fileRef = 553F35FE1B39A65F00CCAE17 /* hockey.sql */; };
 		553F36671B39A65F00CCAE17 /* hockey.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 553F35FF1B39A65F00CCAE17 /* hockey.sqlite */; };
 		553F36681B39A65F00CCAE17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553F36001B39A65F00CCAE17 /* Images.xcassets */; };
-		553F36691B39A65F00CCAE17 /* TeamColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 553F36011B39A65F00CCAE17 /* TeamColors.plist */; };
 		553F366A1B39A65F00CCAE17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553F36031B39A65F00CCAE17 /* InfoPlist.strings */; };
 		553F366B1B39A65F00CCAE17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 553F36051B39A65F00CCAE17 /* Localizable.strings */; };
 		553F366D1B39A65F00CCAE17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36091B39A65F00CCAE17 /* main.m */; };
@@ -74,6 +73,12 @@
 		553F368E1B39A65F00CCAE17 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F364D1B39A65F00CCAE17 /* TabBarController.m */; };
 		553F368F1B39A65F00CCAE17 /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F364F1B39A65F00CCAE17 /* TeamsViewController.m */; };
 		553F36901B39A65F00CCAE17 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36511B39A65F00CCAE17 /* VideoPlayerViewController.m */; };
+		553F36931B39AB9300CCAE17 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36921B39AB9300CCAE17 /* StringHandler.m */; };
+		553F36951B39ABEF00CCAE17 /* StringHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36941B39ABEF00CCAE17 /* StringHandlerTests.m */; };
+		553F36971B39B68F00CCAE17 /* TeamHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36961B39B68F00CCAE17 /* TeamHandlerTests.m */; };
+		553F36991B39B84100CCAE17 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F36981B39B84100CCAE17 /* teams.json */; };
+		553F369F1B39D86100CCAE17 /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F369E1B39D86100CCAE17 /* bad_teams.json */; };
+		553F36A11B39D87400CCAE17 /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F36A01B39D87400CCAE17 /* good_teams.json */; };
 		55BBBEE41B3861F400044778 /* DateTimeHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */; };
 /* End PBXBuildFile section */
 
@@ -160,7 +165,6 @@
 		553F35FE1B39A65F00CCAE17 /* hockey.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hockey.sql; sourceTree = "<group>"; };
 		553F35FF1B39A65F00CCAE17 /* hockey.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hockey.sqlite; sourceTree = "<group>"; };
 		553F36001B39A65F00CCAE17 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		553F36011B39A65F00CCAE17 /* TeamColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TeamColors.plist; sourceTree = "<group>"; };
 		553F36041B39A65F00CCAE17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		553F36061B39A65F00CCAE17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		553F36071B39A65F00CCAE17 /* HockeyPlayoffs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "HockeyPlayoffs-Info.plist"; sourceTree = "<group>"; };
@@ -236,6 +240,13 @@
 		553F364F1B39A65F00CCAE17 /* TeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamsViewController.m; sourceTree = "<group>"; };
 		553F36501B39A65F00CCAE17 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
 		553F36511B39A65F00CCAE17 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		553F36911B39AB9300CCAE17 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
+		553F36921B39AB9300CCAE17 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
+		553F36941B39ABEF00CCAE17 /* StringHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandlerTests.m; sourceTree = "<group>"; };
+		553F36961B39B68F00CCAE17 /* TeamHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamHandlerTests.m; sourceTree = "<group>"; };
+		553F36981B39B84100CCAE17 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
+		553F369E1B39D86100CCAE17 /* bad_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_teams.json; sourceTree = "<group>"; };
+		553F36A01B39D87400CCAE17 /* good_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_teams.json; sourceTree = "<group>"; };
 		55BBBEDF1B3861F300044778 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BBBEE21B3861F300044778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimeHandlerTests.m; sourceTree = "<group>"; };
@@ -369,6 +380,8 @@
 				553F35E91B39A65F00CCAE17 /* FormatterHandler.m */,
 				553F35EA1B39A65F00CCAE17 /* TeamHandler.h */,
 				553F35EB1B39A65F00CCAE17 /* TeamHandler.m */,
+				553F36911B39AB9300CCAE17 /* StringHandler.h */,
+				553F36921B39AB9300CCAE17 /* StringHandler.m */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -415,7 +428,7 @@
 				553F35FE1B39A65F00CCAE17 /* hockey.sql */,
 				553F35FF1B39A65F00CCAE17 /* hockey.sqlite */,
 				553F36001B39A65F00CCAE17 /* Images.xcassets */,
-				553F36011B39A65F00CCAE17 /* TeamColors.plist */,
+				553F36981B39B84100CCAE17 /* teams.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -516,10 +529,22 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		553F369D1B39D86100CCAE17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				553F36A01B39D87400CCAE17 /* good_teams.json */,
+				553F369E1B39D86100CCAE17 /* bad_teams.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		55BBBEE01B3861F300044778 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */,
+				553F36941B39ABEF00CCAE17 /* StringHandlerTests.m */,
+				553F36961B39B68F00CCAE17 /* TeamHandlerTests.m */,
+				553F369D1B39D86100CCAE17 /* Resources */,
 				55BBBEE11B3861F300044778 /* Supporting Files */,
 			);
 			path = UnitTests;
@@ -640,7 +665,7 @@
 				553F366B1B39A65F00CCAE17 /* Localizable.strings in Resources */,
 				553F36671B39A65F00CCAE17 /* hockey.sqlite in Resources */,
 				553F36661B39A65F00CCAE17 /* hockey.sql in Resources */,
-				553F36691B39A65F00CCAE17 /* TeamColors.plist in Resources */,
+				553F36991B39B84100CCAE17 /* teams.json in Resources */,
 				553F366A1B39A65F00CCAE17 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,6 +674,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553F369F1B39D86100CCAE17 /* bad_teams.json in Resources */,
+				553F36A11B39D87400CCAE17 /* good_teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +737,7 @@
 				553F367C1B39A65F00CCAE17 /* RecentGamesView.m in Sources */,
 				553F36701B39A65F00CCAE17 /* BracketView.m in Sources */,
 				553F36581B39A65F00CCAE17 /* APIRequestHandler.m in Sources */,
+				553F36931B39AB9300CCAE17 /* StringHandler.m in Sources */,
 				553F36781B39A65F00CCAE17 /* NoContentTableView.m in Sources */,
 				553F36611B39A65F00CCAE17 /* BracketModel.m in Sources */,
 				553F36711B39A65F00CCAE17 /* ExpandedVideoView.m in Sources */,
@@ -756,6 +784,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55BBBEE41B3861F400044778 /* DateTimeHandlerTests.m in Sources */,
+				553F36971B39B68F00CCAE17 /* TeamHandlerTests.m in Sources */,
+				553F36951B39ABEF00CCAE17 /* StringHandlerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

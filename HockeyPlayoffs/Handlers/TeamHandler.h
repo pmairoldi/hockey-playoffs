@@ -13,6 +13,6 @@
 +(NSString *)getTeamCity:(NSString *)teamABR;
 +(NSString *)getTeamName:(NSString *)teamABR;
 +(NSString *)getTeamABR:(NSString *)teamName;
-+(UIColor *)getTeamColor:(NSString *)team;
++(UIColor *)getTeamColor:(NSString *)teamABR;
 
 @end

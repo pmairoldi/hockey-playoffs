@@ -1,0 +1,290 @@
+{
+  "tbl" : {
+    "color" : {
+      "red" : 0,
+      "green" : 30,
+      "blue" : 80
+    },
+    "city" : "tampa bay",
+    "name" : "lightning"
+  },
+  "det" : {
+    "color" : {
+      "red" : 159,
+      "green" : 10,
+      "blue" : 39
+    },
+    "city" : "detroit",
+    "name" : "red wings"
+  },
+  "cbj" : {
+    "color" : {
+      "red" : 0,
+      "green" : 26,
+      "blue" : 57
+    },
+    "city" : "columbus",
+    "name" : "blue jackets"
+  },
+  "atl" : {
+    "color" : {
+      "red" : 0,
+      "green" : 0,
+      "blue" : 0
+    },
+    "city" : "atlanta",
+    "name" : "thrashers"
+  },
+  "van" : {
+    "color" : {
+      "red" : 0,
+      "green" : 106,
+      "blue" : 53
+    },
+    "city" : "vancouver",
+    "name" : "canucks"
+  },
+  "njd" : {
+    "color" : {
+      "red" : 159,
+      "green" : 10,
+      "blue" : 39
+    },
+    "city" : "new jersey",
+    "name" : "devils"
+  },
+  "sjs" : {
+    "color" : {
+      "red" : 0,
+      "green" : 83,
+      "blue" : 96
+    },
+    "city" : "san jose",
+    "name" : "sharks"
+  },
+  "chi" : {
+    "color" : {
+      "red" : 159,
+      "green" : 10,
+      "blue" : 39
+    },
+    "city" : "chicago",
+    "name" : "blackhawks"
+  },
+  "car" : {
+    "color" : {
+      "red" : 159,
+      "green" : 19,
+      "blue" : 39
+    },
+    "city" : "carolina",
+    "name" : "hurricanes"
+  },
+  "wpg" : {
+    "color" : {
+      "red" : 0,
+      "green" : 30,
+      "blue" : 80
+    },
+    "city" : "winnipeg",
+    "name" : "jets"
+  },
+  "pit" : {
+    "color" : {
+      "red" : 167,
+      "green" : 161,
+      "blue" : 126
+    },
+    "city" : "pittsburgh",
+    "name" : "penguins"
+  },
+  "cgy" : {
+    "color" : {
+      "red" : 159,
+      "green" : 19,
+      "blue" : 39
+    },
+    "city" : "calgary",
+    "name" : "flames"
+  },
+  "min" : {
+    "color" : {
+      "red" : 2,
+      "green" : 57,
+      "blue" : 39
+    },
+    "city" : "minnesota",
+    "name" : "wild"
+  },
+  "ott" : {
+    "color" : {
+      "red" : 159,
+      "green" : 10,
+      "blue" : 39
+    },
+    "city" : "ottawa",
+    "name" : "senators"
+  },
+  "buf" : {
+    "color" : {
+      "red" : 0,
+      "green" : 26,
+      "blue" : 57
+    },
+    "city" : "buffalo",
+    "name" : "sabres"
+  },
+  "nyr" : {
+    "color" : {
+      "red" : 0,
+      "green" : 46,
+      "blue" : 133
+    },
+    "city" : "new york",
+    "name" : "rangers"
+  },
+  "phi" : {
+    "color" : {
+      "red" : 199,
+      "green" : 56,
+      "blue" : 22
+    },
+    "city" : "philadelphia",
+    "name" : "flyers"
+  },
+  "dal" : {
+    "color" : {
+      "red" : 2,
+      "green" : 57,
+      "blue" : 39
+    },
+    "city" : "dallas",
+    "name" : "stars"
+  },
+  "edm" : {
+    "color" : {
+      "red" : 0,
+      "green" : 26,
+      "blue" : 57
+    },
+    "city" : "edmonton",
+    "name" : "oilers"
+  },
+  "nyi" : {
+    "color" : {
+      "red" : 201,
+      "green" : 63,
+      "blue" : 16
+    },
+    "city" : "new york",
+    "name" : "islanders"
+  },
+  "tor" : {
+    "color" : {
+      "red" : 0,
+      "green" : 30,
+      "blue" : 80
+    },
+    "city" : "toronto",
+    "name" : "maple leafs"
+  },
+  "mtl" : {
+    "color" : {
+      "red" : 134,
+      "green" : 20,
+      "blue" : 38
+    },
+    "city" : "montr\u00E9al",
+    "name" : "canadiens"
+  },
+  "nsh" : {
+    "color" : {
+      "red" : 205,
+      "green" : 146,
+      "blue" : 14
+    },
+    "city" : "nashville",
+    "name" : "predators"
+  },
+  "bos" : {
+    "color" : {
+      "red" : 205,
+      "green" : 146,
+      "blue" : 14
+    },
+    "city" : "boston",
+    "name" : "bruins"
+  },
+  "col" : {
+    "color" : {
+      "red" : 88,
+      "green" : 31,
+      "blue" : 49
+    },
+    "city" : "colorado",
+    "name" : "avalanche"
+  },
+  "lak" : {
+    "color" : {
+      "red" : 27,
+      "green" : 6,
+      "blue" : 85
+    },
+    "city" : "los angeles",
+    "name" : "kings"
+  },
+  "ana" : {
+    "color" : {
+      "red" : 201,
+      "green" : 63,
+      "blue" : 16
+    },
+    "city" : "anaheim",
+    "name" : "ducks"
+  },
+  "fla" : {
+    "color" : {
+      "red" : 0,
+      "green" : 26,
+      "blue" : 57
+    },
+    "city" : "florida",
+    "name" : "panthers"
+  },
+  "phx" : {
+    "color" : {
+      "red" : 104,
+      "green" : 29,
+      "blue" : 41
+    },
+    "city" : "phoenix",
+    "name" : "coyotes"
+  },
+  "ari" : {
+    "color" : {
+      "red" : 104,
+      "green" : 29,
+      "blue" : 41
+    },
+    "city" : "arizona",
+    "name" : "coyotes"
+  },
+  "stl" : {
+    "color" : {
+      "red" : 0,
+      "green" : 41,
+      "blue" : 113
+    },
+    "city" : "st. louis",
+    "name" : "blues"
+  },
+  "wsh" : {
+    "color" : {
+      "red" : 158,
+      "green" : 10,
+      "blue" : 38
+    },
+    "city" : "washington",
+    "name" : "capitals"
+  }
+}

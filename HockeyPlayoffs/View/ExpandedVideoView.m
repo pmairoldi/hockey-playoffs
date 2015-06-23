@@ -60,11 +60,6 @@
     
     [super layoutSubviews];
     
-//    CGRect horizontalSlice;
-//    CGRect horizontalRemainder;
-//    
-//    CGRectDivide(self.frame, &horizontalSlice, &horizontalRemainder, CGRectGetHeight(self.frame)/2, CGRectMinYEdge);
-    
     CGRect verticalSlice;
     CGRect verticalRemainder;
     
@@ -75,10 +70,6 @@
     _homeHighlights.frame = CGRectMake(CGRectGetWidth(verticalSlice) + 1.0/[[UIScreen mainScreen] scale], yOffset, CGRectGetWidth(verticalSlice) - 1.0/[[UIScreen mainScreen] scale], CGRectGetHeight(self.frame) - 1.0/[[UIScreen mainScreen] scale] - yOffset);
     
     _awayHighlights.frame = CGRectMake(0, yOffset, CGRectGetWidth(verticalSlice) - 1.0/[[UIScreen mainScreen] scale], CGRectGetHeight(self.frame) - 1.0/[[UIScreen mainScreen] scale] - yOffset);
-    
-//    _homeCondensed.frame = CGRectMake(CGRectGetWidth(verticalRemainder) + 1.0/[[UIScreen mainScreen] scale], CGRectGetHeight(horizontalRemainder) + 1.0/[[UIScreen mainScreen] scale], CGRectGetWidth(verticalRemainder) - 1.0/[[UIScreen mainScreen] scale], CGRectGetHeight(horizontalRemainder) - 1.0/[[UIScreen mainScreen] scale] - yOffset);
-//    
-//    _awayCondensed.frame = CGRectMake(0, CGRectGetHeight(horizontalRemainder) + 1.0/[[UIScreen mainScreen] scale], CGRectGetWidth(verticalRemainder) - 1.0/[[UIScreen mainScreen] scale], CGRectGetHeight(horizontalRemainder) - 1.0/[[UIScreen mainScreen] scale] - yOffset);
 }
 
 -(void)setSelected:(BOOL)animated {
@@ -106,10 +97,6 @@
 
     [_awayHighlights setBackgroundColor:[TeamHandler getTeamColor:awayTeam]];
     [_awayHighlights setEnabled:[(NSNumber *)isEnabled[1] boolValue]];
-    
-//    [_homeCondensed setBackgroundColor:[TeamHandler getTeamColor:homeTeam]];
-//    [_awayCondensed setBackgroundColor:[TeamHandler getTeamColor:awayTeam]];
-
 }
 
 @end

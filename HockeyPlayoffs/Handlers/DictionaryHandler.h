@@ -12,5 +12,7 @@
 
 +(NSString *)stringInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key;
 +(NSNumber *)numberInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key;
++(NSDictionary *)dictionaryInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key;
++(NSDictionary *)JSONDictionaryAtFile:(NSString *)file;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "DateTimeHandler.h"
 #import "FormatterHandler.h"
+#import "StringHandler.h"
 
 @implementation DateTimeHandler
 
@@ -15,7 +16,7 @@
 
 +(NSString *)getDateForDate:(NSString *)date andTime:(NSString *)time {
     
-    if (![[self class] compareString:date withRegex:@"\\d{4}-\\d{2}-\\d{2}"]) {
+    if (![StringHandler compareString:date withRegex:@"\\d{4}-\\d{2}-\\d{2}"]) {
         return @"";
     }
     
@@ -28,7 +29,7 @@
 
 +(NSString *)getTimeForDate:(NSString *)date andTime:(NSString *)time {
     
-    if (![[self class] compareString:time withRegex:@"\\d{2}:\\d{2}:\\d{2}"]) {
+    if (![StringHandler compareString:time withRegex:@"\\d{2}:\\d{2}:\\d{2}"]) {
         return NSLocalizedString(@"time.tbd", nil);
     }
     
@@ -53,30 +54,6 @@
 }
 
 #pragma Private Methods
-
-+(BOOL)compareString:(NSString *)string withRegex:(NSString *)regex {
-    
-    if (string == nil || regex == nil) {
-        return false;
-    }
-    
-    NSError *error;
-    NSRegularExpression *expression = [NSRegularExpression regularExpressionWithPattern:regex options:NSRegularExpressionCaseInsensitive error:&error];
-    
-    if (error) {
-        return false;
-    }
-    
-    NSUInteger num = [expression numberOfMatchesInString:string options:0 range:NSMakeRange(0, [string length])];
-    
-    if (num == 1) {
-        return true;
-    }
-    
-    else {
-        return false;
-    }
-}
 
 +(NSDate *)convertToTimeZoneForDate:(NSString *)date andTime:(NSString *)time {
 

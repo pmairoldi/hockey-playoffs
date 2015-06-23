@@ -38,7 +38,7 @@ platform :ios do
   desc "Runs all the tests and generates a coverage report"
   lane :coverage do
       xctest destination: "OS=8.3,name=iPhone 6"
-      sh 'cd .. && bundle exec slather coverage -s -h --output-directory build/coverage'
+      sh 'cd .. && bundle exec slather coverage -h --output-directory build/coverage --show'
   end
 
   desc "Submit a new Beta Build to Apple TestFlight"

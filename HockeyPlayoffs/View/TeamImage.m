@@ -8,10 +8,13 @@
 
 #import "TeamImage.h"
 #import "Colours.h"
+#import "TeamHandler.h"
 
 @interface TeamImage ()
 
-@property NSDictionary *dict;
+@property NSString *teamABR;
+@property UIColor *color;
+@property int textSize;
 
 @end
 
@@ -22,59 +25,33 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
-        
         self.backgroundColor = [UIColor clearColor];
+        _color = LIGHT_GRAY_COLOUR;
     }
     
     return self;
 }
 
--(void)getTeamColors:(NSString *)team withSize:(int)size{
+-(void)setSmallImage:(NSString *)teamABR {
     
-    NSDictionary *colors = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TeamColors" ofType:@"plist"]];
-    
-//    NSNumber *redB = [[colors objectForKey:team] objectForKey:@"bottomRed"];
-//    NSNumber *greenB = [[colors objectForKey:team] objectForKey:@"bottomGreen"];
-//    NSNumber *blueB = [[colors objectForKey:team] objectForKey:@"bottomBlue"];
-//    NSNumber *redT = [[colors objectForKey:team] objectForKey:@"topRed"];
-//    NSNumber *greenT = [[colors objectForKey:team] objectForKey:@"topGreen"];
-//    NSNumber *blueT = [[colors objectForKey:team] objectForKey:@"topBlue"];
-
-    NSNumber *red = [[colors objectForKey:[team uppercaseString]] objectForKey:@"bottomRed"];
-    NSNumber *green = [[colors objectForKey:[team uppercaseString]] objectForKey:@"bottomGreen"];
-    NSNumber *blue = [[colors objectForKey:[team uppercaseString]] objectForKey:@"bottomBlue"];
-    
-    NSNumber *textSize = [NSNumber numberWithInt:size];
-    
-    _dict = [[NSDictionary alloc] initWithObjectsAndKeys:red, @"red", green, @"green", blue, @"blue", team, @"team",textSize,@"size", nil];
-    
+    [self setImageForTeam:teamABR andSize:9];
 }
 
--(void)setSmallImage:(NSString *)team{
+-(void)setMediumImage:(NSString *)teamABR {
     
-    [self setImageForTeam:team andSize:9];
-    
-    [self setNeedsDisplay];
+    [self setImageForTeam:teamABR andSize:14];
 }
 
--(void)setMediumImage:(NSString *)team{
+-(void)setLargeImage:(NSString *)teamABR {
     
-    [self setImageForTeam:team andSize:14];
-    
-    [self setNeedsDisplay];
+    [self setImageForTeam:teamABR andSize:16];
 }
 
--(void)setLargeImage:(NSString *)team{
+-(void)setImageForTeam:(NSString *)teamABR andSize:(int)size {
     
-    [self setImageForTeam:team andSize:16];
-    
-    [self setNeedsDisplay];
-}
-
--(void)setImageForTeam:(NSString *)team andSize:(int)size {
-    
-    [self getTeamColors:team withSize:size];
+    _teamABR = teamABR;
+    _color = [TeamHandler getTeamColor:teamABR];
+    _textSize = size;
     
     [self setNeedsDisplay];
 }
@@ -85,44 +62,20 @@
     
     CGRect frame = CGRectMake(rect.origin.x + 0.5, rect.origin.y + 0.5, rect.size.width - 1, rect.size.height - 1);
     
-    CGColorRef color;
-    
-    if (_dict == nil) {
-//        topColor = CGColorRetain([[UIColor colorWithWhite:0.8 alpha:1.0] CGColor]);
-        color = CGColorRetain([[UIColor colorWithWhite:0.9 alpha:1.0] CGColor]);
-    }
-    
-    else {
-//        topColor = CGColorRetain([[UIColor colorWithRed:[[_dict objectForKey:@"redT"] floatValue]/255.0 green:[[_dict objectForKey:@"greenT"] floatValue]/255.0 blue:[[_dict objectForKey:@"blueT"] floatValue]/255.0 alpha:1.0] CGColor]);
-//        bottomColor = CGColorRetain([[UIColor colorWithRed:[[_dict objectForKey:@"redB"] floatValue]/255.0 green:[[_dict objectForKey:@"greenB"] floatValue]/255.0 blue:[[_dict objectForKey:@"blueB"] floatValue]/255.0 alpha:1.0] CGColor]);
-
-        color = CGColorRetain([[UIColor colorWithRed:[[_dict objectForKey:@"red"] floatValue]/255.0 green:[[_dict objectForKey:@"green"] floatValue]/255.0 blue:[[_dict objectForKey:@"blue"] floatValue]/255.0 alpha:1.0] CGColor]);
-
-    }
-    
-//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-//    CGFloat locations[] = {0.0, 1.0};
-//    
-//    NSArray *colors = [NSArray arrayWithObjects:CFBridgingRelease(bottomColor), CFBridgingRelease(topColor), nil];
-//    
-//    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef) colors, locations);
-//    
-//    CGPoint startPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect));
-//    CGPoint endPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect));
+    CGColorRef color = CGColorRetain(_color.CGColor);
     
     CGContextSaveGState(context);
     CGContextSetFillColorWithColor(context, color);
     CGContextFillEllipseInRect(context, frame);
     CGContextAddEllipseInRect(context, frame);
     CGContextClip(context);
-//    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
     CGContextRestoreGState(context);
     
     CGContextSaveGState(context);
     
-    UIFont *font = [UIFont systemFontOfSize:[[_dict objectForKey:@"size"] intValue]];
+    UIFont *font = [UIFont systemFontOfSize:_textSize];
     
-    NSString *text = [[_dict objectForKey:@"team"] uppercaseString];
+    NSString *text = [_teamABR uppercaseString];
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
@@ -147,8 +100,6 @@
     CGContextStrokeEllipseInRect(context, frame);
     CGContextRestoreGState(context);
     
-//    CGGradientRelease(gradient);
-//    CGColorSpaceRelease(colorSpace);
     CGColorRelease(strokeColor);
     CGColorRelease(color);
 }

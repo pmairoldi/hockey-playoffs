@@ -40,8 +40,6 @@
             else {
                 number = [NSNumber numberWithInt:0];
             }
-            
-//            number = [[FormatterHandler numberFormatter] numberFromString:object];
         }
         
         else if ([object isKindOfClass:[NSNumber class]]){
@@ -62,4 +60,31 @@
         return [NSNumber numberWithInt:0];
     }
 }
+
++(NSDictionary *)dictionaryInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key {
+    
+    if ([dictionary objectForKey:key] != [NSNull null]) {
+        return [dictionary objectForKey:key];
+    }
+    else {
+        return [NSDictionary dictionary];
+    }
+}
+
++(NSDictionary *)JSONDictionaryAtFile:(NSString *)file {
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:@"json"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    NSError *error;
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    
+    if (error != nil) {
+        return [NSDictionary dictionary];
+    }
+    
+    return dictionary;
+}
+
 @end

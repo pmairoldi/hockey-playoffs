@@ -11,9 +11,9 @@
 
 @interface TeamImage : UIView
 
--(void)setSmallImage:(NSString *)team;
--(void)setMediumImage:(NSString *)team;
--(void)setLargeImage:(NSString *)team;
--(void)setImageForTeam:(NSString *)team andSize:(int)size;
+-(void)setSmallImage:(NSString *)teamABR;
+-(void)setMediumImage:(NSString *)teamABR;
+-(void)setLargeImage:(NSString *)teamABR;
+-(void)setImageForTeam:(NSString *)teamABR andSize:(int)size;
 
 @end
