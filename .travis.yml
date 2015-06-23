@@ -15,3 +15,5 @@ before_script:
   - bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
 script:
   - bundle exec fastlane test
+after_success:
+  - bundle exec slather  

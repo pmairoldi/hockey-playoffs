@@ -1,0 +1,6 @@
+coverage_service: coveralls
+xcodeproj: HockeyPlayoffs.xcodeproj
+source_directory: HockeyPlayoffs
+# ignore:
+#   - UnitTests/.*
+#   - Pods/.*
