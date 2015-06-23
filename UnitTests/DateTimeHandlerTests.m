@@ -191,10 +191,27 @@
     XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
 }
 
--(void)testStringDateFromDate {
-    
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:0];
 
+-(void)testStringDateFromIncorrectlyFormattedDate {
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *date = [dateFormatter dateFromString:@"1970-01-01 00:00:00"];
+    
+    NSString *actualResult = [DateTimeHandler getStringForDate:date];
+    NSString *expectedResult = @"1970-01-01";
+    
+    XCTAssert([actualResult isEqualToString:expectedResult], "actual result: %@, expected results: %@", actualResult, expectedResult);
+}
+
+-(void)testStringDateFromWellFormattedDate {
+    
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSDate *date = [dateFormatter dateFromString:@"1970-01-01"];
+    
     NSString *actualResult = [DateTimeHandler getStringForDate:date];
     NSString *expectedResult = @"1970-01-01";
     
