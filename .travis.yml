@@ -8,6 +8,7 @@ rvm:
   - system
 before_install:
   - sudo gem install bundler
+  - sudo chown :wheel "/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 8.3.simruntime/Contents/Resources/RuntimeRoot/usr/lib/dyld_sim"
   - xcrun instruments -w "iPhone 6 (8.3 Simulator)" || echo "(Pre)Launched the simulator."
 install:
   - bundle install
