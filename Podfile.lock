@@ -41,13 +41,13 @@ DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - CocoaLumberjack (~> 2.0)
   - FMDB (~> 2.5)
-  - Keys (from `/Users/pierremarcairoldi/Developer/cocoa/hockey-playoffs/Pods/CocoaPodsKeys/`)
+  - Keys (from `/Users/pmairoldi/Developer/cocoa/hockey-playoffs/Pods/CocoaPodsKeys/`)
   - LSWeekView (~> 1.0)
   - SimulatorStatusMagic
 
 EXTERNAL SOURCES:
   Keys:
-    :path: "/Users/pierremarcairoldi/Developer/cocoa/hockey-playoffs/Pods/CocoaPodsKeys/"
+    :path: "/Users/pmairoldi/Developer/cocoa/hockey-playoffs/Pods/CocoaPodsKeys/"
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
