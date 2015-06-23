@@ -27,6 +27,7 @@ GEM
       fastlane_core (>= 0.7.2)
     certified (1.0.0)
     claide (0.8.1)
+    clamp (0.6.5)
     cliver (0.3.2)
     cocoapods (0.37.2)
       activesupport (>= 3.2.15)
@@ -193,6 +194,10 @@ GEM
       plist (~> 3.1.0)
       spaceship (>= 0.0.11)
     slack-notifier (1.2.1)
+    slather (1.8)
+      clamp (~> 0.6)
+      nokogiri (~> 1.6.3)
+      xcodeproj (~> 0.24.1)
     snapshot (0.9.0)
       fastimage (~> 1.6.3)
       fastlane_core (>= 0.7.2)
@@ -229,3 +234,4 @@ DEPENDENCIES
   cocoapods
   cocoapods-keys
   fastlane
+  slather
