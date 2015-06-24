@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		062A8BEF18E7D7DF00276A40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */; };
-		0634B8F11B3A74470053B603 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0634B8EE1B3A74470053B603 /* DateTimeHandlerTests.swift */; };
-		0634B8F21B3A74470053B603 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0634B8EF1B3A74470053B603 /* StringHandlerTests.swift */; };
-		0634B8F31B3A74470053B603 /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0634B8F01B3A74470053B603 /* TeamHandlerTests.swift */; };
 		0667D71E1B3A6611009571A6 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667D71D1B3A6611009571A6 /* Colors.m */; };
 		0684138918B9A0CE00A89D7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138818B9A0CE00A89D7C /* Foundation.framework */; };
 		0684138B18B9A0CE00A89D7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */; };
 		0684138D18B9A0CE00A89D7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138C18B9A0CE00A89D7C /* UIKit.framework */; };
+		069353C41B3A773F008DC06F /* DateTimeHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 069353BE1B3A773F008DC06F /* DateTimeHandlerTests.m */; };
+		069353C51B3A773F008DC06F /* StringHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 069353BF1B3A773F008DC06F /* StringHandlerTests.m */; };
+		069353C61B3A773F008DC06F /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 069353C11B3A773F008DC06F /* bad_teams.json */; };
+		069353C71B3A773F008DC06F /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 069353C21B3A773F008DC06F /* good_teams.json */; };
+		069353C81B3A773F008DC06F /* TeamHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 069353C31B3A773F008DC06F /* TeamHandlerTests.m */; };
 		10ED75BB669ACCA598CD22F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7374E6C0BF95F37187E26E62 /* libPods.a */; };
 		553F36521B39A65F00CCAE17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35C61B39A65F00CCAE17 /* AppDelegate.m */; };
 		553F36531B39A65F00CCAE17 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35D41B39A65F00CCAE17 /* EventObject.m */; };
@@ -82,7 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0634B8E81B3A74380053B603 /* PBXContainerItemProxy */ = {
+		069353B91B3A7731008DC06F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0684137D18B9A0CE00A89D7C /* Project object */;
 			proxyType = 1;
@@ -106,12 +108,6 @@
 
 /* Begin PBXFileReference section */
 		062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		0634B8E21B3A74380053B603 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0634B8E51B3A74380053B603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0634B8ED1B3A74470053B603 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		0634B8EE1B3A74470053B603 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
-		0634B8EF1B3A74470053B603 /* StringHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
-		0634B8F01B3A74470053B603 /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
 		0667D71C1B3A6611009571A6 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		0667D71D1B3A6611009571A6 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyPlayoffs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +115,13 @@
 		0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0684138C18B9A0CE00A89D7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		068413A118B9A0CE00A89D7C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		069353B31B3A7731008DC06F /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		069353BE1B3A773F008DC06F /* DateTimeHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeHandlerTests.m; sourceTree = "<group>"; };
+		069353BF1B3A773F008DC06F /* StringHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandlerTests.m; sourceTree = "<group>"; };
+		069353C11B3A773F008DC06F /* bad_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_teams.json; sourceTree = "<group>"; };
+		069353C21B3A773F008DC06F /* good_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_teams.json; sourceTree = "<group>"; };
+		069353C31B3A773F008DC06F /* TeamHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamHandlerTests.m; sourceTree = "<group>"; };
+		069353CA1B3A7764008DC06F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553F35C51B39A65F00CCAE17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		553F35C61B39A65F00CCAE17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		553F35C81B39A65F00CCAE17 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
@@ -255,13 +258,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0634B8DF1B3A74380053B603 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0684138218B9A0CE00A89D7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,34 +270,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		069353B01B3A7731008DC06F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0634B8E31B3A74380053B603 /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				0634B8EE1B3A74470053B603 /* DateTimeHandlerTests.swift */,
-				0634B8EF1B3A74470053B603 /* StringHandlerTests.swift */,
-				0634B8F01B3A74470053B603 /* TeamHandlerTests.swift */,
-				0634B8E41B3A74380053B603 /* Supporting Files */,
-				0634B8ED1B3A74470053B603 /* UnitTests-Bridging-Header.h */,
-			);
-			path = UnitTests;
-			sourceTree = "<group>";
-		};
-		0634B8E41B3A74380053B603 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0634B8E51B3A74380053B603 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		0684137C18B9A0CE00A89D7C = {
 			isa = PBXGroup;
 			children = (
 				553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */,
-				0634B8E31B3A74380053B603 /* UnitTests */,
+				069353B41B3A7731008DC06F /* UnitTests */,
 				0684138718B9A0CE00A89D7C /* Frameworks */,
 				0684138618B9A0CE00A89D7C /* Products */,
 				B6805ACD70DA6C8CF4426223 /* Pods */,
@@ -312,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */,
-				0634B8E21B3A74380053B603 /* UnitTests.xctest */,
+				069353B31B3A7731008DC06F /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,6 +311,35 @@
 				7374E6C0BF95F37187E26E62 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		069353B41B3A7731008DC06F /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				069353BE1B3A773F008DC06F /* DateTimeHandlerTests.m */,
+				069353BF1B3A773F008DC06F /* StringHandlerTests.m */,
+				069353C31B3A773F008DC06F /* TeamHandlerTests.m */,
+				069353C01B3A773F008DC06F /* Resources */,
+				069353C91B3A7764008DC06F /* SupportingFiles */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		069353C01B3A773F008DC06F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				069353C11B3A773F008DC06F /* bad_teams.json */,
+				069353C21B3A773F008DC06F /* good_teams.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		069353C91B3A7764008DC06F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				069353CA1B3A7764008DC06F /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */ = {
@@ -561,24 +573,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0634B8E11B3A74380053B603 /* UnitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0634B8EA1B3A74380053B603 /* Build configuration list for PBXNativeTarget "UnitTests" */;
-			buildPhases = (
-				0634B8DE1B3A74380053B603 /* Sources */,
-				0634B8DF1B3A74380053B603 /* Frameworks */,
-				0634B8E01B3A74380053B603 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0634B8E91B3A74380053B603 /* PBXTargetDependency */,
-			);
-			name = UnitTests;
-			productName = UnitTests;
-			productReference = 0634B8E21B3A74380053B603 /* UnitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		0684138418B9A0CE00A89D7C /* HockeyPlayoffs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 068413B118B9A0CE00A89D7C /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
@@ -599,6 +593,24 @@
 			productReference = 0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */;
 			productType = "com.apple.product-type.application";
 		};
+		069353B21B3A7731008DC06F /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 069353BD1B3A7731008DC06F /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				069353AF1B3A7731008DC06F /* Sources */,
+				069353B01B3A7731008DC06F /* Frameworks */,
+				069353B11B3A7731008DC06F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				069353BA1B3A7731008DC06F /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 069353B31B3A7731008DC06F /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -609,10 +621,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
 				TargetAttributes = {
-					0634B8E11B3A74380053B603 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 0684138418B9A0CE00A89D7C;
-					};
 					0684138418B9A0CE00A89D7C = {
 						DevelopmentTeam = W78ZZKUER7;
 						SystemCapabilities = {
@@ -626,6 +634,10 @@
 								enabled = 0;
 							};
 						};
+					};
+					069353B21B3A7731008DC06F = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 0684138418B9A0CE00A89D7C;
 					};
 				};
 			};
@@ -642,19 +654,12 @@
 			projectRoot = "";
 			targets = (
 				0684138418B9A0CE00A89D7C /* HockeyPlayoffs */,
-				0634B8E11B3A74380053B603 /* UnitTests */,
+				069353B21B3A7731008DC06F /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0634B8E01B3A74380053B603 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0684138318B9A0CE00A89D7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +670,15 @@
 				553F36661B39A65F00CCAE17 /* hockey.sql in Resources */,
 				553F36991B39B84100CCAE17 /* teams.json in Resources */,
 				553F366A1B39A65F00CCAE17 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		069353B11B3A7731008DC06F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				069353C61B3A773F008DC06F /* bad_teams.json in Resources */,
+				069353C71B3A773F008DC06F /* good_teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,16 +718,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0634B8DE1B3A74380053B603 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0634B8F11B3A74470053B603 /* DateTimeHandlerTests.swift in Sources */,
-				0634B8F31B3A74470053B603 /* TeamHandlerTests.swift in Sources */,
-				0634B8F21B3A74470053B603 /* StringHandlerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0684138118B9A0CE00A89D7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -779,13 +783,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		069353AF1B3A7731008DC06F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				069353C41B3A773F008DC06F /* DateTimeHandlerTests.m in Sources */,
+				069353C81B3A773F008DC06F /* TeamHandlerTests.m in Sources */,
+				069353C51B3A773F008DC06F /* StringHandlerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0634B8E91B3A74380053B603 /* PBXTargetDependency */ = {
+		069353BA1B3A7731008DC06F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0684138418B9A0CE00A89D7C /* HockeyPlayoffs */;
-			targetProxy = 0634B8E81B3A74380053B603 /* PBXContainerItemProxy */;
+			targetProxy = 069353B91B3A7731008DC06F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -809,60 +823,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0634B8EB1B3A74380053B603 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
-			};
-			name = Debug;
-		};
-		0634B8EC1B3A74380053B603 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
-			};
-			name = Release;
-		};
 		068413AF18B9A0CE00A89D7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -988,17 +948,58 @@
 			};
 			name = Release;
 		};
+		069353BB1B3A7731008DC06F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = UnitTests/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
+			};
+			name = Debug;
+		};
+		069353BC1B3A7731008DC06F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = UnitTests/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0634B8EA1B3A74380053B603 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0634B8EB1B3A74380053B603 /* Debug */,
-				0634B8EC1B3A74380053B603 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		0684138018B9A0CE00A89D7C /* Build configuration list for PBXProject "HockeyPlayoffs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1016,6 +1017,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		069353BD1B3A7731008DC06F /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				069353BB1B3A7731008DC06F /* Debug */,
+				069353BC1B3A7731008DC06F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
