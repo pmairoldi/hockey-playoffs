@@ -7,7 +7,7 @@
 //
 
 #import "NoDataTableViewCell.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 
 @implementation NoDataTableViewCell
@@ -17,15 +17,14 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        // Initialization code
         
-        self.contentView.backgroundColor = GAME_BACKGROUND_COLOUR;
+        self.contentView.backgroundColor = [Colors gameBackgroundColor];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         self.separatorInset = UIEdgeInsetsZero;
         
-        self.textLabel.textColor = GAME_CELL_STATUS_TEXT_COLOUR;
+        self.textLabel.textColor = [Colors gameCellStatusTextColor];
         self.textLabel.textAlignment = NSTextAlignmentCenter;
         self.textLabel.font = [UIFont systemFontOfSize:DETAIL_GAME_STATUS_FONT_SIZE];
         self.textLabel.numberOfLines = 1;

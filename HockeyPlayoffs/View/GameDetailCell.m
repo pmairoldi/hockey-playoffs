@@ -8,7 +8,7 @@
 
 #import "GameDetailCell.h"
 #import "TeamImage.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 #import "EventObject.h"
 #import "StrengthIndicator.h"
@@ -33,9 +33,8 @@
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        // Initialization code
         
-        self.contentView.backgroundColor = GAME_BACKGROUND_COLOUR;
+        self.contentView.backgroundColor = [Colors gameBackgroundColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _teamImage = [[TeamImage alloc] init];
@@ -54,7 +53,7 @@
         [self.contentView addSubview:_strength];
         
         _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = ULTRA_LIGHT_GRAY_COLOUR;
+        _seperatorView.backgroundColor = [Colors ultraLightGrayColor];
         
         [self.contentView addSubview:_seperatorView];
     }
@@ -108,7 +107,7 @@
 
 -(void)setPropertiesForTimeLabel:(UILabel *)label {
     
-    label.textColor = GAME_DETAIL_CELL_TIME_COLOUR;
+    label.textColor = [Colors gameDetailCellTimeColor];
     label.font = [UIFont systemFontOfSize:TIME_LABEL_FONT_SIZE];
     label.numberOfLines = 1;
     label.textAlignment = NSTextAlignmentCenter;
@@ -118,7 +117,7 @@
 
 -(void)setPropertiesForTextLabel:(UILabel *)label {
     
-    label.textColor = GAME_DETAIL_CELL_TEXT_COLOUR;
+    label.textColor = [Colors gameDetailCellTextColor];
     label.font = [UIFont systemFontOfSize:TEXT_LABEL_FONT_SIZE];
     label.numberOfLines = 0;
     label.textAlignment = NSTextAlignmentLeft;
@@ -130,7 +129,7 @@
     _timeLabel.text = event.time;
     _textLabel.text = event.details;
     
-    [_strength setStrenght:event.strength];
+    [_strength setStrength:event.strength];
     [_teamImage setSmallImage:event.teamID];
     
     [self layoutIfNeeded];

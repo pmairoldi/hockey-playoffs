@@ -14,7 +14,7 @@
 #import "ReuseIdentifiers.h"
 #import "SeriesViewController.h"
 #import "Images.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Rotation.h"
 #import "SeriesObject.h"
 #import "APIRequestHandler.h"
@@ -51,7 +51,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BACKGROUND_COLOUR;
+    self.view.backgroundColor = [Colors backgroundColor];
     
     _bracketView = [[BracketView alloc] initWithFrame:self.view.frame];
     _bracketView.delegate = self;

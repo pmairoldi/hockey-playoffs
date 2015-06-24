@@ -7,7 +7,7 @@
 //
 
 #import "GameDetailHeader.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 
 @interface GameDetailHeader ()
@@ -25,14 +25,11 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
-        
-//        self.contentView.backgroundColor = GAME_DETAIL_HEADER_BACKGROUND_COLOUR;
         
         _textLabel = [[UILabel alloc] init];
         [self setPropertiesForTextLabel:_textLabel];
         
-        self.contentView.backgroundColor = GAME_DETAIL_HEADER_BACKGROUND_COLOUR;
+        self.contentView.backgroundColor = [Colors gameDetailHeaderBackgroundColor];
         [self.contentView addSubview:_textLabel];
     }
     
@@ -48,7 +45,7 @@
 
 -(void)setPropertiesForTextLabel:(UILabel *)label {
     
-    label.textColor = GAME_DETAIL_HEADER_TEXT_COLOUR;
+    label.textColor = [Colors gameDetailHeaderTextColor];
     label.textAlignment = NSTextAlignmentLeft;
     label.font = [UIFont boldSystemFontOfSize:DETAIL_GAME_HEADER_FONT_SIZE];
     label.adjustsFontSizeToFitWidth = YES;

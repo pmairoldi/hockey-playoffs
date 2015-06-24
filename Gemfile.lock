@@ -235,3 +235,6 @@ DEPENDENCIES
   cocoapods-keys
   fastlane
   slather
+
+BUNDLED WITH
+   1.10.4

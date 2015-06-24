@@ -7,7 +7,7 @@
 //
 
 #import "SettingsViewController.h"
-#import "Colours.h"
+#import "Colors.h"
 
 @interface SettingsViewController ()
 
@@ -26,7 +26,7 @@
         
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:nil selectedImage:nil];
         
-        self.view.backgroundColor = BACKGROUND_COLOUR;
+        self.view.backgroundColor = [Colors backgroundColor];
     }
     
     return self;

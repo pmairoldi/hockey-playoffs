@@ -11,7 +11,7 @@
 #import "ReuseIdentifiers.h"
 #import "RefreshTableViewCell.h"
 #import "NoDataTableViewCell.h"
-#import "Colours.h"
+#import "Colors.h"
 
 @implementation RecentGamesView
 
@@ -20,7 +20,6 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];

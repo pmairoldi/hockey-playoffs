@@ -7,7 +7,7 @@
 //
 
 #import "TeamImage.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "TeamHandler.h"
 
 @interface TeamImage ()
@@ -26,7 +26,7 @@
     
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        _color = LIGHT_GRAY_COLOUR;
+        _color = [Colors lightGrayColor];
     }
     
     return self;
@@ -93,7 +93,7 @@
     
     CGContextSaveGState(context);
     
-    CGColorRef strokeColor = CGColorRetain([LIGHT_GRAY_COLOUR CGColor]);
+    CGColorRef strokeColor = CGColorRetain([[Colors lightGrayColor] CGColor]);
     
     CGContextSetStrokeColorWithColor(context, strokeColor);
     CGContextSetLineWidth(context, 0.7);

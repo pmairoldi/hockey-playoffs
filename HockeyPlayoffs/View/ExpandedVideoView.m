@@ -7,7 +7,7 @@
 //
 
 #import "ExpandedVideoView.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "TeamHandler.h"
 
 @interface ExpandedVideoView ()
@@ -22,7 +22,7 @@
     
     if (self) {
         
-        self.backgroundColor = EXPANDED_VIDEO_BACKGROUND_COLOUR;
+        self.backgroundColor = [Colors expandedVideoBackgroundColor];
     
         _homeHighlights = [[UIButton alloc] init];
         [self setPropertiesForButton:_homeHighlights];
@@ -48,7 +48,7 @@
 //        [self addSubview:_awayCondensed];
         
         UIView *topline = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 1.0/[[UIScreen mainScreen] scale])];
-        topline.backgroundColor = ULTRA_LIGHT_GRAY_COLOUR;
+        topline.backgroundColor = [Colors ultraLightGrayColor];
         
         [self addSubview:topline];
     }
@@ -82,10 +82,10 @@
 
 -(void)setPropertiesForButton:(UIButton *)button {
     
-    [button setTitleColor:WHITE_COLOUR forState:UIControlStateNormal];
-    [button setTitleColor:LIGHT_GRAY_COLOUR forState:UIControlStateHighlighted];
-    [button setTitleColor:LIGHT_GRAY_COLOUR forState:UIControlStateSelected];
-    [button setTitleColor:LIGHT_GRAY_COLOUR forState:UIControlStateDisabled];
+    [button setTitleColor:[Colors lightColor] forState:UIControlStateNormal];
+    [button setTitleColor:[Colors lightGrayColor] forState:UIControlStateHighlighted];
+    [button setTitleColor:[Colors lightGrayColor] forState:UIControlStateSelected];
+    [button setTitleColor:[Colors lightGrayColor] forState:UIControlStateDisabled];
     
     [button setEnabled:NO];
 }

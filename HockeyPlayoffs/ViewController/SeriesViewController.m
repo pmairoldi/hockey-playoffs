@@ -12,7 +12,7 @@
 #import "GameCell.h"
 #import "SeriesHeader.h"
 #import "ReuseIdentifiers.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "GameViewController.h"
 #import "GameModel.h"
 #import "Rotation.h"
@@ -53,7 +53,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BACKGROUND_COLOUR;
+    self.view.backgroundColor = [Colors backgroundColor];
     
     self.title = [_seriesModel getControllerTitle];
     

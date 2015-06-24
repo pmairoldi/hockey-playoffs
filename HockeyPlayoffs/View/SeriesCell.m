@@ -8,7 +8,7 @@
 
 #import "SeriesCell.h"
 #import "TeamHandler.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "SeriesObject.h"
 #import "Dimensions.h"
 
@@ -33,8 +33,6 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-    
-        // Initialization code
         
         self.backgroundColor = [UIColor clearColor];
         
@@ -100,14 +98,14 @@
 
 -(void)setTeamLabelProperties:(UILabel *)label {
     
-    label.textColor = SERIES_TEAM_NAME_COLOUR;
+    label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentLeft;
 }
 
 -(void)setWinLabelProperties:(UILabel *)label {
     
-    label.textColor = SERIES_TEAM_NAME_COLOUR;
+    label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont systemFontOfSize:SERIES_WINS_FONT_SIZE];
     label.textAlignment = NSTextAlignmentRight;
 }
@@ -175,11 +173,11 @@
     CGContextSaveGState(context);
 
     if (_hasGameToday) {
-        CGContextSetFillColorWithColor(context, [SERIES_BORDER_TODAY_COLOUR CGColor]);
+        CGContextSetFillColorWithColor(context, [[Colors seriesBorderTodayColor] CGColor]);
     }
     
     else {
-        CGContextSetFillColorWithColor(context, [SERIES_BORDER_COLOUR CGColor]);
+        CGContextSetFillColorWithColor(context, [[Colors seriesBorderColor] CGColor]);
     }
     
     [[UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:cornersToRound cornerRadii:outerCornerRadius] fill];
@@ -190,11 +188,11 @@
     CGContextSaveGState(context);
     
     if (_hasGameToday) {
-        CGContextSetFillColorWithColor(context, [SERIES_BORDER_TODAY_COLOUR CGColor]);
+        CGContextSetFillColorWithColor(context, [[Colors seriesBorderTodayColor] CGColor]);
     }
     
     else {
-        CGContextSetFillColorWithColor(context, [SERIES_BACKGROUND_COLOUR CGColor]);
+        CGContextSetFillColorWithColor(context, [[Colors seriesBackgroundColor] CGColor]);
     }
     
     [[UIBezierPath bezierPathWithRoundedRect:insetRect byRoundingCorners:cornersToRound cornerRadii:cornerRadius] fill];
@@ -225,7 +223,7 @@
      
         CGContextSaveGState(context);
         
-        CGContextSetFillColorWithColor(context, [SERIES_SELECTED_COLOUR CGColor]);
+        CGContextSetFillColorWithColor(context, [[Colors seriesSelectedColor] CGColor]);
         
         [[UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:cornersToRound cornerRadii:outerCornerRadius] fill];
         

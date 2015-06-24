@@ -21,7 +21,6 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];

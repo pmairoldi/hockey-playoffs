@@ -10,7 +10,7 @@
 #import "TeamImage.h"
 #import "GameObject.h"
 #import "TeamHandler.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 #import "VideoButton.h"
 
@@ -29,9 +29,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        // Initialization code
         
-        self.contentView.backgroundColor = GAME_BACKGROUND_COLOUR;
+        
+        self.contentView.backgroundColor = [Colors gameBackgroundColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame))];
@@ -42,7 +42,7 @@
         [self.contentView addSubview:_gameOverview];
         
         _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - 2 * EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = ULTRA_LIGHT_GRAY_COLOUR;
+        _seperatorView.backgroundColor = [Colors ultraLightGrayColor];
         
         [self.contentView addSubview:_seperatorView];
     }

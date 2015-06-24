@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TabBarController.h"
-#import "Colours.h"
+#import "Colors.h"
 
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
@@ -40,8 +40,8 @@
     _rootViewController = [[TabBarController alloc] init];
     self.window.rootViewController = _rootViewController;
     
-    self.window.backgroundColor = BACKGROUND_COLOUR;
-    self.window.tintColor = TINT_COLOUR;
+    self.window.backgroundColor = [Colors backgroundColor];
+    self.window.tintColor = [Colors tintColor];
     
     [self.window makeKeyAndVisible];
     

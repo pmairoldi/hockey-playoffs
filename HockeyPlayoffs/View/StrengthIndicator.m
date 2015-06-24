@@ -15,12 +15,13 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
+        
     }
+    
     return self;
 }
 
--(void)setStrenght:(NSString *)strenght {
+-(void)setStrength:(NSString *)strenght {
  
     //TODO:add implement of strength
     

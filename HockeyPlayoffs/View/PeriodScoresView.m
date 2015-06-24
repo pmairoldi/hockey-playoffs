@@ -8,7 +8,7 @@
 
 #import "PeriodScoresView.h"
 #import "Dimensions.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "GameModel.h"
 #import "TeamHandler.h"
 
@@ -31,9 +31,8 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         
-        self.backgroundColor = PERIOD_SCORE_SEPERATOR_COLOUR;
+        self.backgroundColor = [Colors periodScoreSeperatorColor];
         
         _teamLabel = [[UILabel alloc] init];
         [self setTeamLabelProperties:_teamLabel];
@@ -172,14 +171,14 @@
 
 -(void)setGameLabelProperties:(UILabel *)label {
     
-    label.textColor = SERIES_TEAM_NAME_COLOUR;
+    label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
 }
 
 -(void)setTeamLabelProperties:(UILabel *)label {
     
-    label.textColor = SERIES_TEAM_NAME_COLOUR;
+    label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
 }

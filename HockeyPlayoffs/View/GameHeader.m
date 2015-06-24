@@ -10,7 +10,7 @@
 #import "TeamImage.h"
 #import "GameModel.h"
 #import "TeamHandler.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 #import "PeriodScoresView.h"
 #import "PeriodScoreViewHeader.h"
@@ -40,9 +40,8 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         
-        self.contentView.backgroundColor = GAME_BACKGROUND_COLOUR;
+        self.contentView.backgroundColor = [Colors gameBackgroundColor];
         
         _topPeriodScores = [[PeriodScoresView alloc] init];
         
@@ -51,10 +50,10 @@
         _periodScoresHeader = [[PeriodScoreViewHeader alloc] init];
 
         _sectionControl = [[UISegmentedControl alloc] initWithItems:[GameModel getSectionItems]];
-        _sectionControl.tintColor = SEGEMENT_TINT_COLOUR;
+        _sectionControl.tintColor = [Colors segmentTintColor];
         
         _segmentBackground = [[UIView alloc] init];
-        _segmentBackground.backgroundColor = SEGMENT_BACKGROUND_COLOUR;
+        _segmentBackground.backgroundColor = [Colors segmentBackgroundColor];
         
         _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), [GameOverviewView height])];
         
@@ -62,13 +61,13 @@
 //        _videoView = _gameOverview.videoView;
 
         _seperatorView = [[UIView alloc] init];
-        _seperatorView.backgroundColor = PERIOD_SCORE_SEPERATOR_COLOUR;
+        _seperatorView.backgroundColor = [Colors periodScoreSeperatorColor];
         
         _topSeperator = [[UIView alloc] init];
-        _topSeperator.backgroundColor = PERIOD_SCORE_BACKGROUND_COLOUR;
+        _topSeperator.backgroundColor = [Colors periodScoreBackgroundColor];
         
         _bottomSeperator = [[UIView alloc] init];
-        _bottomSeperator.backgroundColor = PERIOD_SCORE_BACKGROUND_COLOUR;
+        _bottomSeperator.backgroundColor = [Colors periodScoreBackgroundColor];
     
         [_seperatorView addSubview:_topPeriodScores];
         [_seperatorView addSubview:_bottomPeriodScores];

@@ -10,7 +10,7 @@
 #import "GameModel.h"
 #import "GameView.h"
 #import "ReuseIdentifiers.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "GameHeader.h"
 #import "GameDetailCell.h"
 #import "GameDetailHeader.h"
@@ -50,7 +50,7 @@
     // Do any additional setup after loading the view.
     
     self.title = [_gameModel getTitle];
-    self.view.backgroundColor = BACKGROUND_COLOUR;
+    self.view.backgroundColor = [Colors backgroundColor];
     
     _gameView = [[GameView alloc] initWithFrame:self.view.frame];
     _gameView.delegate = self;

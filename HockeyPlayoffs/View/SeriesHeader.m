@@ -9,7 +9,7 @@
 #import "SeriesHeader.h"
 #import "SeriesModel.h"
 #import "Dimensions.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "TeamHandler.h"
 #import "SeriesHeaderScoresView.h"
 
@@ -30,10 +30,10 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
+        
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         
-        self.contentView.backgroundColor = WHITE_COLOUR;
+        self.contentView.backgroundColor = [Colors lightColor];
         
         _topTeamLabel = [[UILabel alloc] init];
         [self setTeamLabelProperties:_topTeamLabel];
@@ -52,7 +52,7 @@
         [self.contentView addSubview:_bottomScoresView];
         
         _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(0, self.contentView.frame.size.height - 1/[[UIScreen mainScreen] scale], self.contentView.frame.size.width, 1/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = TABLE_VIEW_SEPERATOR_COLOUR;
+        _seperatorView.backgroundColor = [Colors tableViewSeperatorColor];
 
         [self.contentView addSubview:_seperatorView];
         
@@ -100,10 +100,10 @@
 
 -(void)setTeamLabelProperties:(UILabel *)label {
     
-    label.textColor = SERIES_TEAM_NAME_COLOUR;
+    label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = LIGHT_GRAY_COLOUR;
+    label.backgroundColor = [Colors lightGrayColor];
 }
 
 -(void)setSeries:(SeriesModel *)series {

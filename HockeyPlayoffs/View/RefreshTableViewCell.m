@@ -7,7 +7,7 @@
 //
 
 #import "RefreshTableViewCell.h"
-#import "Colours.h"
+#import "Colors.h"
 
 @interface RefreshTableViewCell ()
 
@@ -22,9 +22,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        // Initialization code
     
-        self.contentView.backgroundColor = GAME_BACKGROUND_COLOUR;
+        self.contentView.backgroundColor = [Colors gameBackgroundColor];
 
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -40,8 +39,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 -(void)layoutSubviews {

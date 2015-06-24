@@ -7,12 +7,12 @@
 //
 
 #import "RecentGamesViewController.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Rotation.h"
 #import "APIRequestHandler.h"
 #import "GameCell.h"
 #import "ReuseIdentifiers.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "GameViewController.h"
 #import "GameModel.h"
 #import "Rotation.h"
@@ -58,9 +58,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    self.view.backgroundColor = BACKGROUND_COLOUR;
+    self.view.backgroundColor = [Colors backgroundColor];
 
     AdjustableNavigationBar *navBar = (AdjustableNavigationBar *)self.navigationController.navigationBar;
     navBar.height = NavBarHeight;
@@ -69,9 +68,8 @@
     _datePicker = [[LSWeekView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 90) style:LSWeekViewStyleDefault];
     _datePicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _datePicker.calendar = [NSCalendar currentCalendar];
-    _datePicker.tintColor = SEGEMENT_TINT_COLOUR;
+    _datePicker.tintColor = [Colors segmentTintColor];
     _datePicker.selectedDate = _recentGamesModel.date;
-    //    _datePicker.backgroundColor = [UIColor redColor];
     
     UIView *titleView = [UIView new];
     titleView.frame = _datePicker.frame;

@@ -7,7 +7,7 @@
 //
 
 #import "TeamsViewController.h"
-#import "Colours.h"
+#import "Colors.h"
 
 @interface TeamsViewController ()
 
@@ -20,13 +20,12 @@
     self = [super init];
     
     if (self) {
-        // Custom initialization
         
         self.title = NSLocalizedString(@"controller.teams.title", nil);
         
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:nil selectedImage:nil];
         
-        self.view.backgroundColor = BACKGROUND_COLOUR;
+        self.view.backgroundColor = [Colors backgroundColor];
     }
     
     return self;

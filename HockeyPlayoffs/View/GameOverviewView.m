@@ -10,7 +10,7 @@
 #import "TeamImage.h"
 #import "VideoButton.h"
 #import "GameObject.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 #import "TeamHandler.h"
 //#import "MPFoldTransition.h"
@@ -36,7 +36,6 @@
     self = [super initWithFrame:frame];
   
     if (self) {
-        // Initialization code
         
         self.clipsToBounds = YES;
         
@@ -86,8 +85,8 @@
     if (!_videoButton.enabled) {
         
         if (selected) {
-            _videoButton.tintColor = VIDEO_BUTTON_SELECTED_COLOUR;
-            self.backgroundColor = LIGHT_GRAY_COLOUR;
+            _videoButton.tintColor = [Colors videoButtonSelectedColor];
+            self.backgroundColor = [Colors lightGrayColor];
         }
         
         else {
@@ -96,11 +95,11 @@
     }
     
     if (selected) {
-        self.backgroundColor = ULTRA_LIGHT_GRAY_COLOUR;
+        self.backgroundColor = [Colors ultraLightGrayColor];
     }
     
     else {
-        self.backgroundColor = GAME_BACKGROUND_COLOUR;
+        self.backgroundColor = [Colors gameBackgroundColor];
     }
 }
 
@@ -110,7 +109,7 @@
         
         if (highlighted) {
             
-            _videoButton.tintColor = VIDEO_BUTTON_SELECTED_COLOUR;
+            _videoButton.tintColor = [Colors videoButtonSelectedColor];
         }
         
         else {
@@ -119,11 +118,11 @@
     }
     
     if (highlighted) {
-        self.backgroundColor = ULTRA_LIGHT_GRAY_COLOUR;
+        self.backgroundColor = [Colors ultraLightGrayColor];
     }
     
     else {
-        self.backgroundColor = GAME_BACKGROUND_COLOUR;
+        self.backgroundColor = [Colors gameBackgroundColor];
     }
 }
 
@@ -173,7 +172,7 @@
 
 -(void)setPropertiesForScoreLabel:(UILabel *)label {
     
-    label.textColor = GAME_CELL_SCORE_COLOUR;
+    label.textColor = [Colors gameCellScoreColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:SCORE_LABEL_FONT_SIZE];
     label.adjustsFontSizeToFitWidth = YES;
@@ -182,7 +181,7 @@
 
 -(void)setPropertiesForStatusLabel:(UILabel *)label {
     
-    label.textColor = GAME_CELL_STATUS_TEXT_COLOUR;
+    label.textColor = [Colors gameCellStatusTextColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:DETAIL_GAME_STATUS_FONT_SIZE];
     label.numberOfLines = 2;
@@ -192,7 +191,7 @@
 
 -(void)setPropertiesForTeamLabel:(UILabel *)label {
     
-    label.textColor = GAME_CELL_TEAM_TEXT_COLOUR;
+    label.textColor = [Colors gameCellTeamTextColor];
     label.font = [UIFont systemFontOfSize:TEAM_LABEL_FONT_SIZE];
     label.numberOfLines = 2;
     label.adjustsFontSizeToFitWidth = YES;
@@ -201,7 +200,7 @@
 
 -(void)setPropertiesForGameLabel:(UILabel *)label {
     
-    label.textColor = GAME_LABEL_TEXT_COLOUR;
+    label.textColor = [Colors gameLabelTextColor];
     label.font = [UIFont systemFontOfSize:GAME_LABEL_FONT_SIZE];
     label.numberOfLines = 1;
     label.textAlignment = NSTextAlignmentCenter;

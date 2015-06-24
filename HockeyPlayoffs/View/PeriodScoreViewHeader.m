@@ -8,7 +8,7 @@
 
 #import "PeriodScoreViewHeader.h"
 #import "Dimensions.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "GameModel.h"
 
 @interface PeriodScoreViewHeader ()
@@ -29,9 +29,6 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
-        
-//        self.backgroundColor = PERIOD_SCORE_BACKGROUND_COLOUR;
         
         _shotsLabel = [[UILabel alloc] init];
         _shotsLabel.text = NSLocalizedString(@"SOG", nil);
@@ -135,7 +132,7 @@
 
 -(void)setGameLabelProperties:(UILabel *)label {
     
-    label.textColor = PERIOD_SCORE_VIEW_HEADER_FONT_COLOUR;
+    label.textColor = [Colors periodScoreViewHeaderFontColor];
     label.font = [UIFont systemFontOfSize:PERIOD_SCORE_VIEW_HEADER_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
 }

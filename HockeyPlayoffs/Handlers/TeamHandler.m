@@ -7,7 +7,7 @@
 //
 
 #import "TeamHandler.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "DictionaryHandler.h"
 
 @implementation TeamHandler
@@ -66,7 +66,7 @@
         NSNumber *blue = [DictionaryHandler numberInDictionary:colors withKey:@"blue"];
         
         if ([red integerValue] == 0 && [green integerValue] == 0 && [blue integerValue] == 0) {
-            return LIGHT_GRAY_COLOUR;
+            return [Colors lightGrayColor];
         }
         
         else {
@@ -75,7 +75,7 @@
     }
     
     else {
-        return LIGHT_GRAY_COLOUR;
+        return [Colors lightGrayColor];
     }
 }
 

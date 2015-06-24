@@ -8,7 +8,7 @@
 
 #import "SeriesHeaderScoresView.h"
 #import "Dimensions.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "GameModel.h"
 #import "TeamHandler.h"
 #import "GameObject.h"
@@ -32,7 +32,6 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         
         _gameOne = [[UILabel alloc] init];
         [self setGameLabelProperties:_gameOne];
@@ -84,7 +83,7 @@
         
         else {
             
-            label.backgroundColor = LIGHT_GRAY_COLOUR;
+            label.backgroundColor = [Colors lightGrayColor];
         }
     }
     
@@ -154,12 +153,11 @@
 
 -(void)setGameLabelProperties:(UILabel *)label {
     
-    label.textColor = SERIES_TEAM_NAME_COLOUR;
+    label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = LIGHT_GRAY_COLOUR;
+    label.backgroundColor = [Colors lightGrayColor];
 }
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -7,7 +7,7 @@
 //
 
 #import "VideoButton.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 
 @interface VideoButton ()
@@ -23,10 +23,9 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
         
         self.backgroundColor = [UIColor clearColor];
-        self.tintColor = VIDEO_BUTTON_UNSELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonUnselectedColor];
     }
     
     return self;
@@ -37,15 +36,15 @@
     [super setEnabled:enabled];
     
     if (!self.enabled) {
-        self.tintColor = VIDEO_BUTTON_DISABLED_COLOUR;
+        self.tintColor = [Colors videoButtonDisabledColor];
     }
     
     else if (self.selected) {
-        self.tintColor = VIDEO_BUTTON_SELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonSelectedColor];
     }
     
     else {
-        self.tintColor = VIDEO_BUTTON_UNSELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonUnselectedColor];
     }
 
     [self setNeedsDisplay];
@@ -56,15 +55,15 @@
     [super setSelected:selected];
     
     if (!self.enabled) {
-        self.tintColor = VIDEO_BUTTON_DISABLED_COLOUR;
+        self.tintColor = [Colors videoButtonDisabledColor];
     }
     
     else if (self.selected) {
-        self.tintColor = VIDEO_BUTTON_SELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonSelectedColor];
     }
     
     else {
-        self.tintColor = VIDEO_BUTTON_UNSELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonUnselectedColor];
     }
 }
 
@@ -73,15 +72,15 @@
     [super setHighlighted:highlighted];
     
     if (!self.enabled) {
-        self.tintColor = VIDEO_BUTTON_DISABLED_COLOUR;
+        self.tintColor = [Colors videoButtonDisabledColor];
     }
     
     else if (self.highlighted) {
-        self.tintColor = VIDEO_BUTTON_SELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonSelectedColor];
     }
     
     else {
-        self.tintColor = VIDEO_BUTTON_UNSELECTED_COLOUR;
+        self.tintColor = [Colors videoButtonUnselectedColor];
     }
 }
 

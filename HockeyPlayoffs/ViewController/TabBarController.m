@@ -13,7 +13,7 @@
 #import "StatisticsViewController.h"
 #import "TeamsViewController.h"
 #import "SettingsViewController.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Rotation.h"
 #import "Images.h"
 #import "BaseUINavigationController.h"
@@ -41,7 +41,7 @@
         
         self.delegate = self;
         
-        self.tabBar.barTintColor = NAVIGATION_BAR_COLOUR;
+        self.tabBar.barTintColor = [Colors navigationBarColor];
         
         _bracketViewController = [[BracketViewController alloc] init];
         _bracketViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:_bracketViewController.title image:[UIImage imageNamed:BRACKET_TAB_ICON] selectedImage:nil];
@@ -71,7 +71,7 @@
     BaseUINavigationController *navigationController = [[BaseUINavigationController alloc] initWithNavigationBarClass:navbarClass toolbarClass:nil];
     [navigationController pushViewController:rootController animated:NO];
     
-    navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLOUR;
+    navigationController.navigationBar.barTintColor = [Colors navigationBarColor];
     
     return navigationController;
 }

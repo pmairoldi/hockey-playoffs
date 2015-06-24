@@ -25,8 +25,7 @@
     self = [super initWithFrame:frame collectionViewLayout:[[self class] getLayout]];
     
     if (self) {
-        // Initialization code
-        
+      
         self.backgroundColor = [UIColor clearColor];
         self.autoresizesSubviews = YES;
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

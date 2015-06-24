@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061141841B3A335A00608455 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061141831B3A335A00608455 /* DateTimeHandlerTests.swift */; };
+		061141861B3A336C00608455 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061141851B3A336C00608455 /* StringHandlerTests.swift */; };
+		061141881B3A337900608455 /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061141871B3A337900608455 /* TeamHandlerTests.swift */; };
 		062A8BEF18E7D7DF00276A40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */; };
+		062C42FC1B3A4C93003B7C87 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 062C42FB1B3A4C93003B7C87 /* Colors.m */; };
 		0684138918B9A0CE00A89D7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138818B9A0CE00A89D7C /* Foundation.framework */; };
 		0684138B18B9A0CE00A89D7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */; };
 		0684138D18B9A0CE00A89D7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138C18B9A0CE00A89D7C /* UIKit.framework */; };
@@ -74,16 +78,11 @@
 		553F368F1B39A65F00CCAE17 /* TeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F364F1B39A65F00CCAE17 /* TeamsViewController.m */; };
 		553F36901B39A65F00CCAE17 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36511B39A65F00CCAE17 /* VideoPlayerViewController.m */; };
 		553F36931B39AB9300CCAE17 /* StringHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36921B39AB9300CCAE17 /* StringHandler.m */; };
-		553F36951B39ABEF00CCAE17 /* StringHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36941B39ABEF00CCAE17 /* StringHandlerTests.m */; };
-		553F36971B39B68F00CCAE17 /* TeamHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36961B39B68F00CCAE17 /* TeamHandlerTests.m */; };
 		553F36991B39B84100CCAE17 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F36981B39B84100CCAE17 /* teams.json */; };
-		553F369F1B39D86100CCAE17 /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F369E1B39D86100CCAE17 /* bad_teams.json */; };
-		553F36A11B39D87400CCAE17 /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F36A01B39D87400CCAE17 /* good_teams.json */; };
-		55BBBEE41B3861F400044778 /* DateTimeHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		55BBBEE51B3861F400044778 /* PBXContainerItemProxy */ = {
+		061141771B3A321B00608455 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0684137D18B9A0CE00A89D7C /* Project object */;
 			proxyType = 1;
@@ -106,7 +105,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		061141711B3A321B00608455 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0611417C1B3A324900608455 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0611417F1B3A324A00608455 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		061141831B3A335A00608455 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
+		061141851B3A336C00608455 /* StringHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
+		061141871B3A337900608455 /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
 		062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		062C42FA1B3A4C93003B7C87 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		062C42FB1B3A4C93003B7C87 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyPlayoffs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0684138818B9A0CE00A89D7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,7 +123,6 @@
 		553F35C61B39A65F00CCAE17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		553F35C81B39A65F00CCAE17 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
 		553F35C91B39A65F00CCAE17 /* APIIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIIdentifiers.h; sourceTree = "<group>"; };
-		553F35CA1B39A65F00CCAE17 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		553F35CB1B39A65F00CCAE17 /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
 		553F35CC1B39A65F00CCAE17 /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		553F35CD1B39A65F00CCAE17 /* Images.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Images.h; sourceTree = "<group>"; };
@@ -242,20 +248,20 @@
 		553F36511B39A65F00CCAE17 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		553F36911B39AB9300CCAE17 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
 		553F36921B39AB9300CCAE17 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
-		553F36941B39ABEF00CCAE17 /* StringHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandlerTests.m; sourceTree = "<group>"; };
-		553F36961B39B68F00CCAE17 /* TeamHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamHandlerTests.m; sourceTree = "<group>"; };
 		553F36981B39B84100CCAE17 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
-		553F369E1B39D86100CCAE17 /* bad_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_teams.json; sourceTree = "<group>"; };
-		553F36A01B39D87400CCAE17 /* good_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_teams.json; sourceTree = "<group>"; };
-		55BBBEDF1B3861F300044778 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		55BBBEE21B3861F300044778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateTimeHandlerTests.m; sourceTree = "<group>"; };
 		7374E6C0BF95F37187E26E62 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B373D7F2A27FFC221F91FE0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F9C5A52084217DA6D892FEC6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0611416E1B3A321B00608455 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0684138218B9A0CE00A89D7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,21 +274,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55BBBEDC1B3861F300044778 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		061141721B3A321B00608455 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0611417C1B3A324900608455 /* UnitTests-Bridging-Header.h */,
+				061141831B3A335A00608455 /* DateTimeHandlerTests.swift */,
+				061141851B3A336C00608455 /* StringHandlerTests.swift */,
+				061141871B3A337900608455 /* TeamHandlerTests.swift */,
+				0611417D1B3A324A00608455 /* Resources */,
+				0611417E1B3A324A00608455 /* SupportingFiles */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		0611417D1B3A324A00608455 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0611417E1B3A324A00608455 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0611417F1B3A324A00608455 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		0684137C18B9A0CE00A89D7C = {
 			isa = PBXGroup;
 			children = (
 				553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */,
-				55BBBEE01B3861F300044778 /* UnitTests */,
+				061141721B3A321B00608455 /* UnitTests */,
 				0684138718B9A0CE00A89D7C /* Frameworks */,
 				0684138618B9A0CE00A89D7C /* Products */,
 				B6805ACD70DA6C8CF4426223 /* Pods */,
@@ -293,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */,
-				55BBBEDF1B3861F300044778 /* UnitTests.xctest */,
+				061141711B3A321B00608455 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,7 +361,6 @@
 			children = (
 				553F35C81B39A65F00CCAE17 /* Animations.h */,
 				553F35C91B39A65F00CCAE17 /* APIIdentifiers.h */,
-				553F35CA1B39A65F00CCAE17 /* Colours.h */,
 				553F35CB1B39A65F00CCAE17 /* Dimensions.h */,
 				553F35CC1B39A65F00CCAE17 /* Enums.h */,
 				553F35CD1B39A65F00CCAE17 /* Images.h */,
@@ -342,6 +368,8 @@
 				553F35CF1B39A65F00CCAE17 /* Queues.h */,
 				553F35D01B39A65F00CCAE17 /* ReuseIdentifiers.h */,
 				553F35D11B39A65F00CCAE17 /* Rotation.h */,
+				062C42FA1B3A4C93003B7C87 /* Colors.h */,
+				062C42FB1B3A4C93003B7C87 /* Colors.m */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -529,35 +557,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		553F369D1B39D86100CCAE17 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				553F36A01B39D87400CCAE17 /* good_teams.json */,
-				553F369E1B39D86100CCAE17 /* bad_teams.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		55BBBEE01B3861F300044778 /* UnitTests */ = {
-			isa = PBXGroup;
-			children = (
-				55BBBEE31B3861F400044778 /* DateTimeHandlerTests.m */,
-				553F36941B39ABEF00CCAE17 /* StringHandlerTests.m */,
-				553F36961B39B68F00CCAE17 /* TeamHandlerTests.m */,
-				553F369D1B39D86100CCAE17 /* Resources */,
-				55BBBEE11B3861F300044778 /* Supporting Files */,
-			);
-			path = UnitTests;
-			sourceTree = "<group>";
-		};
-		55BBBEE11B3861F300044778 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				55BBBEE21B3861F300044778 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		B6805ACD70DA6C8CF4426223 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +569,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		061141701B3A321B00608455 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 061141791B3A321B00608455 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				0611416D1B3A321B00608455 /* Sources */,
+				0611416E1B3A321B00608455 /* Frameworks */,
+				0611416F1B3A321B00608455 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				061141781B3A321B00608455 /* PBXTargetDependency */,
+			);
+			name = UnitTests;
+			productName = UnitTests;
+			productReference = 061141711B3A321B00608455 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0684138418B9A0CE00A89D7C /* HockeyPlayoffs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 068413B118B9A0CE00A89D7C /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
@@ -590,24 +607,6 @@
 			productReference = 0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		55BBBEDE1B3861F300044778 /* UnitTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 55BBBEE71B3861F400044778 /* Build configuration list for PBXNativeTarget "UnitTests" */;
-			buildPhases = (
-				55BBBEDB1B3861F300044778 /* Sources */,
-				55BBBEDC1B3861F300044778 /* Frameworks */,
-				55BBBEDD1B3861F300044778 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				55BBBEE61B3861F400044778 /* PBXTargetDependency */,
-			);
-			name = UnitTests;
-			productName = UnitTests;
-			productReference = 55BBBEDF1B3861F300044778 /* UnitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -618,6 +617,10 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
 				TargetAttributes = {
+					061141701B3A321B00608455 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 0684138418B9A0CE00A89D7C;
+					};
 					0684138418B9A0CE00A89D7C = {
 						DevelopmentTeam = W78ZZKUER7;
 						SystemCapabilities = {
@@ -631,10 +634,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					55BBBEDE1B3861F300044778 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 0684138418B9A0CE00A89D7C;
 					};
 				};
 			};
@@ -651,12 +650,19 @@
 			projectRoot = "";
 			targets = (
 				0684138418B9A0CE00A89D7C /* HockeyPlayoffs */,
-				55BBBEDE1B3861F300044778 /* UnitTests */,
+				061141701B3A321B00608455 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0611416F1B3A321B00608455 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0684138318B9A0CE00A89D7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -667,15 +673,6 @@
 				553F36661B39A65F00CCAE17 /* hockey.sql in Resources */,
 				553F36991B39B84100CCAE17 /* teams.json in Resources */,
 				553F366A1B39A65F00CCAE17 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		55BBBEDD1B3861F300044778 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				553F369F1B39D86100CCAE17 /* bad_teams.json in Resources */,
-				553F36A11B39D87400CCAE17 /* good_teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,6 +712,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0611416D1B3A321B00608455 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				061141881B3A337900608455 /* TeamHandlerTests.swift in Sources */,
+				061141861B3A336C00608455 /* StringHandlerTests.swift in Sources */,
+				061141841B3A335A00608455 /* DateTimeHandlerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0684138118B9A0CE00A89D7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -724,6 +731,7 @@
 				553F368D1B39A65F00CCAE17 /* StatisticsViewController.m in Sources */,
 				553F368E1B39A65F00CCAE17 /* TabBarController.m in Sources */,
 				553F36561B39A65F00CCAE17 /* SeriesObject.m in Sources */,
+				062C42FC1B3A4C93003B7C87 /* Colors.m in Sources */,
 				553F367B1B39A65F00CCAE17 /* PeriodScoreViewHeader.m in Sources */,
 				553F36831B39A65F00CCAE17 /* TeamImage.m in Sources */,
 				553F36521B39A65F00CCAE17 /* AppDelegate.m in Sources */,
@@ -779,23 +787,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55BBBEDB1B3861F300044778 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55BBBEE41B3861F400044778 /* DateTimeHandlerTests.m in Sources */,
-				553F36971B39B68F00CCAE17 /* TeamHandlerTests.m in Sources */,
-				553F36951B39ABEF00CCAE17 /* StringHandlerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		55BBBEE61B3861F400044778 /* PBXTargetDependency */ = {
+		061141781B3A321B00608455 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0684138418B9A0CE00A89D7C /* HockeyPlayoffs */;
-			targetProxy = 55BBBEE51B3861F400044778 /* PBXContainerItemProxy */;
+			targetProxy = 061141771B3A321B00608455 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -819,6 +817,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0611417A1B3A321B00608455 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = UnitTests/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
+			};
+			name = Debug;
+		};
+		0611417B1B3A321B00608455 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = UnitTests/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UnitTests/UnitTests-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
+			};
+			name = Release;
+		};
 		068413AF18B9A0CE00A89D7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -937,59 +989,18 @@
 			};
 			name = Release;
 		};
-		55BBBEE81B3861F400044778 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
-			};
-			name = Debug;
-		};
-		55BBBEE91B3861F400044778 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = UnitTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HockeyPlayoffs.app/HockeyPlayoffs";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		061141791B3A321B00608455 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0611417A1B3A321B00608455 /* Debug */,
+				0611417B1B3A321B00608455 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0684138018B9A0CE00A89D7C /* Build configuration list for PBXProject "HockeyPlayoffs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1004,15 +1015,6 @@
 			buildConfigurations = (
 				068413B218B9A0CE00A89D7C /* Debug */,
 				068413B318B9A0CE00A89D7C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		55BBBEE71B3861F400044778 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				55BBBEE81B3861F400044778 /* Debug */,
-				55BBBEE91B3861F400044778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

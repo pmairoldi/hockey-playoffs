@@ -10,6 +10,6 @@
 
 @interface StrengthIndicator : UIView
 
--(void)setStrenght:(NSString *)strenght;
+-(void)setStrength:(NSString *)strenght;
 
 @end

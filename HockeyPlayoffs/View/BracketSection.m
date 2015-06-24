@@ -9,7 +9,7 @@
 #import "BracketSection.h"
 #import "BracketView.h"
 #import "Rectangle.h"
-#import "Colours.h"
+#import "Colors.h"
 #import "Dimensions.h"
 
 @interface BracketSection ()
@@ -26,8 +26,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        // Initialization code
-        
+                
         self.backgroundColor = [UIColor clearColor];
     }
     
@@ -53,7 +52,7 @@
     
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetStrokeColorWithColor(context, [BRACKET_LINE_COLOUR CGColor]);
+    CGContextSetStrokeColorWithColor(context, [[Colors bracketLineColor] CGColor]);
     CGContextSetLineWidth(context, LINE_WIDTH);
     
     for (int i = 0; i < _fromFrames.count; ++i) {
