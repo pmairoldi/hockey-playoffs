@@ -13,7 +13,7 @@
 
 +(NSString *)stringInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key {
     
-    if ([dictionary objectForKey:key] != [NSNull null]) {
+    if ([dictionary objectForKey:key] != [NSNull null] && [dictionary objectForKey:key] != nil) {
         return [dictionary objectForKey:key];
     }
     else {
@@ -23,7 +23,7 @@
 
 +(NSNumber *)numberInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key {
     
-    if ([dictionary objectForKey:key] != [NSNull null]) {
+    if ([dictionary objectForKey:key] != [NSNull null] && [dictionary objectForKey:key] != nil) {
         
         NSNumber *number;
         
@@ -63,7 +63,7 @@
 
 +(NSDictionary *)dictionaryInDictionary:(NSDictionary *)dictionary withKey:(NSString *)key {
     
-    if ([dictionary objectForKey:key] != [NSNull null]) {
+    if ([dictionary objectForKey:key] != [NSNull null] && [dictionary objectForKey:key] != nil) {
         return [dictionary objectForKey:key];
     }
     else {

@@ -46,7 +46,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "061141701B3A321B00608455"
+               BlueprintIdentifier = "0667D7401B3A69D7009571A6"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
                ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
@@ -64,7 +64,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "061141701B3A321B00608455"
+               BlueprintIdentifier = "0667D7401B3A69D7009571A6"
                BuildableName = "UnitTests.xctest"
                BlueprintName = "UnitTests"
                ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">

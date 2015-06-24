@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		061141841B3A335A00608455 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061141831B3A335A00608455 /* DateTimeHandlerTests.swift */; };
-		061141861B3A336C00608455 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061141851B3A336C00608455 /* StringHandlerTests.swift */; };
-		061141881B3A337900608455 /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061141871B3A337900608455 /* TeamHandlerTests.swift */; };
 		062A8BEF18E7D7DF00276A40 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */; };
-		062C42FC1B3A4C93003B7C87 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 062C42FB1B3A4C93003B7C87 /* Colors.m */; };
+		0667D71E1B3A6611009571A6 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667D71D1B3A6611009571A6 /* Colors.m */; };
+		0667D7511B3A69FC009571A6 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667D74D1B3A69FC009571A6 /* DateTimeHandlerTests.swift */; };
+		0667D7521B3A69FC009571A6 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667D74E1B3A69FC009571A6 /* StringHandlerTests.swift */; };
+		0667D7531B3A69FC009571A6 /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0667D74F1B3A69FC009571A6 /* TeamHandlerTests.swift */; };
 		0684138918B9A0CE00A89D7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138818B9A0CE00A89D7C /* Foundation.framework */; };
 		0684138B18B9A0CE00A89D7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */; };
 		0684138D18B9A0CE00A89D7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138C18B9A0CE00A89D7C /* UIKit.framework */; };
@@ -82,7 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		061141771B3A321B00608455 /* PBXContainerItemProxy */ = {
+		0667D7471B3A69D7009571A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0684137D18B9A0CE00A89D7C /* Project object */;
 			proxyType = 1;
@@ -105,15 +105,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		061141711B3A321B00608455 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0611417C1B3A324900608455 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		0611417F1B3A324A00608455 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		061141831B3A335A00608455 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
-		061141851B3A336C00608455 /* StringHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
-		061141871B3A337900608455 /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
 		062A8BEE18E7D7DF00276A40 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		062C42FA1B3A4C93003B7C87 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
-		062C42FB1B3A4C93003B7C87 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		0667D71C1B3A6611009571A6 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		0667D71D1B3A6611009571A6 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		0667D7411B3A69D7009571A6 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0667D7441B3A69D7009571A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0667D74D1B3A69FC009571A6 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
+		0667D74E1B3A69FC009571A6 /* StringHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
+		0667D74F1B3A69FC009571A6 /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
+		0667D7501B3A69FC009571A6 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyPlayoffs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0684138818B9A0CE00A89D7C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -255,7 +255,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0611416E1B3A321B00608455 /* Frameworks */ = {
+		0667D73E1B3A69D7009571A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,39 +277,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		061141721B3A321B00608455 /* UnitTests */ = {
+		0667D7421B3A69D7009571A6 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				0611417C1B3A324900608455 /* UnitTests-Bridging-Header.h */,
-				061141831B3A335A00608455 /* DateTimeHandlerTests.swift */,
-				061141851B3A336C00608455 /* StringHandlerTests.swift */,
-				061141871B3A337900608455 /* TeamHandlerTests.swift */,
-				0611417D1B3A324A00608455 /* Resources */,
-				0611417E1B3A324A00608455 /* SupportingFiles */,
+				0667D74D1B3A69FC009571A6 /* DateTimeHandlerTests.swift */,
+				0667D74E1B3A69FC009571A6 /* StringHandlerTests.swift */,
+				0667D74F1B3A69FC009571A6 /* TeamHandlerTests.swift */,
+				0667D7501B3A69FC009571A6 /* UnitTests-Bridging-Header.h */,
+				0667D7431B3A69D7009571A6 /* Supporting Files */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
 		};
-		0611417D1B3A324A00608455 /* Resources */ = {
+		0667D7431B3A69D7009571A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0667D7441B3A69D7009571A6 /* Info.plist */,
 			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		0611417E1B3A324A00608455 /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				0611417F1B3A324A00608455 /* Info.plist */,
-			);
-			path = SupportingFiles;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		0684137C18B9A0CE00A89D7C = {
 			isa = PBXGroup;
 			children = (
 				553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */,
-				061141721B3A321B00608455 /* UnitTests */,
+				0667D7421B3A69D7009571A6 /* UnitTests */,
 				0684138718B9A0CE00A89D7C /* Frameworks */,
 				0684138618B9A0CE00A89D7C /* Products */,
 				B6805ACD70DA6C8CF4426223 /* Pods */,
@@ -320,7 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				0684138518B9A0CE00A89D7C /* HockeyPlayoffs.app */,
-				061141711B3A321B00608455 /* UnitTests.xctest */,
+				0667D7411B3A69D7009571A6 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +351,8 @@
 		553F35C71B39A65F00CCAE17 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0667D71C1B3A6611009571A6 /* Colors.h */,
+				0667D71D1B3A6611009571A6 /* Colors.m */,
 				553F35C81B39A65F00CCAE17 /* Animations.h */,
 				553F35C91B39A65F00CCAE17 /* APIIdentifiers.h */,
 				553F35CB1B39A65F00CCAE17 /* Dimensions.h */,
@@ -368,8 +362,6 @@
 				553F35CF1B39A65F00CCAE17 /* Queues.h */,
 				553F35D01B39A65F00CCAE17 /* ReuseIdentifiers.h */,
 				553F35D11B39A65F00CCAE17 /* Rotation.h */,
-				062C42FA1B3A4C93003B7C87 /* Colors.h */,
-				062C42FB1B3A4C93003B7C87 /* Colors.m */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -569,22 +561,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		061141701B3A321B00608455 /* UnitTests */ = {
+		0667D7401B3A69D7009571A6 /* UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 061141791B3A321B00608455 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildConfigurationList = 0667D7491B3A69D7009571A6 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
-				0611416D1B3A321B00608455 /* Sources */,
-				0611416E1B3A321B00608455 /* Frameworks */,
-				0611416F1B3A321B00608455 /* Resources */,
+				0667D73D1B3A69D7009571A6 /* Sources */,
+				0667D73E1B3A69D7009571A6 /* Frameworks */,
+				0667D73F1B3A69D7009571A6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				061141781B3A321B00608455 /* PBXTargetDependency */,
+				0667D7481B3A69D7009571A6 /* PBXTargetDependency */,
 			);
 			name = UnitTests;
 			productName = UnitTests;
-			productReference = 061141711B3A321B00608455 /* UnitTests.xctest */;
+			productReference = 0667D7411B3A69D7009571A6 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		0684138418B9A0CE00A89D7C /* HockeyPlayoffs */ = {
@@ -617,7 +609,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
 				TargetAttributes = {
-					061141701B3A321B00608455 = {
+					0667D7401B3A69D7009571A6 = {
 						CreatedOnToolsVersion = 6.3.2;
 						TestTargetID = 0684138418B9A0CE00A89D7C;
 					};
@@ -650,13 +642,13 @@
 			projectRoot = "";
 			targets = (
 				0684138418B9A0CE00A89D7C /* HockeyPlayoffs */,
-				061141701B3A321B00608455 /* UnitTests */,
+				0667D7401B3A69D7009571A6 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0611416F1B3A321B00608455 /* Resources */ = {
+		0667D73F1B3A69D7009571A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -712,13 +704,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0611416D1B3A321B00608455 /* Sources */ = {
+		0667D73D1B3A69D7009571A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				061141881B3A337900608455 /* TeamHandlerTests.swift in Sources */,
-				061141861B3A336C00608455 /* StringHandlerTests.swift in Sources */,
-				061141841B3A335A00608455 /* DateTimeHandlerTests.swift in Sources */,
+				0667D7511B3A69FC009571A6 /* DateTimeHandlerTests.swift in Sources */,
+				0667D7531B3A69FC009571A6 /* TeamHandlerTests.swift in Sources */,
+				0667D7521B3A69FC009571A6 /* StringHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +723,6 @@
 				553F368D1B39A65F00CCAE17 /* StatisticsViewController.m in Sources */,
 				553F368E1B39A65F00CCAE17 /* TabBarController.m in Sources */,
 				553F36561B39A65F00CCAE17 /* SeriesObject.m in Sources */,
-				062C42FC1B3A4C93003B7C87 /* Colors.m in Sources */,
 				553F367B1B39A65F00CCAE17 /* PeriodScoreViewHeader.m in Sources */,
 				553F36831B39A65F00CCAE17 /* TeamImage.m in Sources */,
 				553F36521B39A65F00CCAE17 /* AppDelegate.m in Sources */,
@@ -742,6 +733,7 @@
 				553F36541B39A65F00CCAE17 /* GameObject.m in Sources */,
 				553F36621B39A65F00CCAE17 /* GameModel.m in Sources */,
 				553F36741B39A65F00CCAE17 /* GameDetailHeader.m in Sources */,
+				0667D71E1B3A6611009571A6 /* Colors.m in Sources */,
 				553F367C1B39A65F00CCAE17 /* RecentGamesView.m in Sources */,
 				553F36701B39A65F00CCAE17 /* BracketView.m in Sources */,
 				553F36581B39A65F00CCAE17 /* APIRequestHandler.m in Sources */,
@@ -790,10 +782,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		061141781B3A321B00608455 /* PBXTargetDependency */ = {
+		0667D7481B3A69D7009571A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0684138418B9A0CE00A89D7C /* HockeyPlayoffs */;
-			targetProxy = 061141771B3A321B00608455 /* PBXContainerItemProxy */;
+			targetProxy = 0667D7471B3A69D7009571A6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -817,7 +809,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0611417A1B3A321B00608455 /* Debug */ = {
+		0667D74A1B3A69D7009571A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -835,7 +827,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = UnitTests/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -846,7 +838,7 @@
 			};
 			name = Debug;
 		};
-		0611417B1B3A321B00608455 /* Release */ = {
+		0667D74B1B3A69D7009571A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -861,7 +853,7 @@
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = UnitTests/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -992,14 +984,13 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		061141791B3A321B00608455 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+		0667D7491B3A69D7009571A6 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0611417A1B3A321B00608455 /* Debug */,
-				0611417B1B3A321B00608455 /* Release */,
+				0667D74A1B3A69D7009571A6 /* Debug */,
+				0667D74B1B3A69D7009571A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		0684138018B9A0CE00A89D7C /* Build configuration list for PBXProject "HockeyPlayoffs" */ = {
 			isa = XCConfigurationList;
