@@ -811,6 +811,7 @@
 /* Begin XCBuildConfiguration section */
 		0667D74A1B3A69D7009571A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9C5A52084217DA6D892FEC6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -840,6 +841,7 @@
 		};
 		0667D74B1B3A69D7009571A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B373D7F2A27FFC221F91FE0B /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -946,6 +948,7 @@
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -968,6 +971,7 @@
 				CLANG_ANALYZER_SECURITY_INSECUREAPI_GETPW_GETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -991,6 +995,7 @@
 				0667D74B1B3A69D7009571A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0684138018B9A0CE00A89D7C /* Build configuration list for PBXProject "HockeyPlayoffs" */ = {
 			isa = XCConfigurationList;
