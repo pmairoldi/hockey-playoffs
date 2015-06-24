@@ -21,3 +21,4 @@ report.xml
 Pods/
 fastlane/screenshots
 *.itmsp
+*.gcno
