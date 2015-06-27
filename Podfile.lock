@@ -20,13 +20,13 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (2.0.0):
-    - CocoaLumberjack/Default (= 2.0.0)
-    - CocoaLumberjack/Extensions (= 2.0.0)
-  - CocoaLumberjack/Core (2.0.0)
-  - CocoaLumberjack/Default (2.0.0):
+  - CocoaLumberjack (2.0.1):
+    - CocoaLumberjack/Default (= 2.0.1)
+    - CocoaLumberjack/Extensions (= 2.0.1)
+  - CocoaLumberjack/Core (2.0.1)
+  - CocoaLumberjack/Default (2.0.1):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0):
+  - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
@@ -35,26 +35,26 @@ PODS:
     - FMDB/common
   - Keys (1.0.0)
   - LSWeekView (1.0.5)
-  - SimulatorStatusMagic (1.6.1)
+  - SimulatorStatusMagic (1.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - CocoaLumberjack (~> 2.0)
   - FMDB (~> 2.5)
-  - Keys (from `/Users/pierremarcairoldi/Developer/cocoa/hockey-playoffs/Pods/CocoaPodsKeys/`)
+  - Keys (from `Pods/CocoaPodsKeys`)
   - LSWeekView (~> 1.0)
-  - SimulatorStatusMagic
+  - SimulatorStatusMagic (~> 1.7)
 
 EXTERNAL SOURCES:
   Keys:
-    :path: "/Users/pierremarcairoldi/Developer/cocoa/hockey-playoffs/Pods/CocoaPodsKeys/"
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  SimulatorStatusMagic: 688d39a6bf90b15d2ff33ad7fcaea806cb2ac1c2
+  SimulatorStatusMagic: 46c90a12f73abeda6d7c16876e1e0998b6ca5f4f
 
 COCOAPODS: 0.37.2

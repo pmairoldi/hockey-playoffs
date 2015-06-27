@@ -14,4 +14,4 @@ pod 'CocoaLumberjack', '~> 2.0'
 pod 'FMDB', '~> 2.5'
 pod 'AFNetworking', '~> 2.5'
 pod 'LSWeekView', '~> 1.0'
-pod 'SimulatorStatusMagic', :configurations => ['Debug']
+pod 'SimulatorStatusMagic', '~> 1.7', :configurations => ['Debug']

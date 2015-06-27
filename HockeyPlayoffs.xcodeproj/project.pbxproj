@@ -12,12 +12,11 @@
 		0684138918B9A0CE00A89D7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138818B9A0CE00A89D7C /* Foundation.framework */; };
 		0684138B18B9A0CE00A89D7C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138A18B9A0CE00A89D7C /* CoreGraphics.framework */; };
 		0684138D18B9A0CE00A89D7C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0684138C18B9A0CE00A89D7C /* UIKit.framework */; };
-		069353C41B3A773F008DC06F /* DateTimeHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 069353BE1B3A773F008DC06F /* DateTimeHandlerTests.m */; };
-		069353C51B3A773F008DC06F /* StringHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 069353BF1B3A773F008DC06F /* StringHandlerTests.m */; };
 		069353C61B3A773F008DC06F /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 069353C11B3A773F008DC06F /* bad_teams.json */; };
 		069353C71B3A773F008DC06F /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 069353C21B3A773F008DC06F /* good_teams.json */; };
-		069353C81B3A773F008DC06F /* TeamHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 069353C31B3A773F008DC06F /* TeamHandlerTests.m */; };
 		06CBC8151B3F69A1004DD032 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC8141B3F69A1004DD032 /* DateTimeHandlerTests.swift */; };
+		06CBC8181B3F6C5F004DD032 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC8161B3F6C5F004DD032 /* StringHandlerTests.swift */; };
+		06CBC8191B3F6C5F004DD032 /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC8171B3F6C5F004DD032 /* TeamHandlerTests.swift */; };
 		10ED75BB669ACCA598CD22F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7374E6C0BF95F37187E26E62 /* libPods.a */; };
 		553F36521B39A65F00CCAE17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35C61B39A65F00CCAE17 /* AppDelegate.m */; };
 		553F36531B39A65F00CCAE17 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35D41B39A65F00CCAE17 /* EventObject.m */; };
@@ -117,14 +116,13 @@
 		0684138C18B9A0CE00A89D7C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		068413A118B9A0CE00A89D7C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		069353B31B3A7731008DC06F /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		069353BE1B3A773F008DC06F /* DateTimeHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeHandlerTests.m; sourceTree = "<group>"; };
-		069353BF1B3A773F008DC06F /* StringHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandlerTests.m; sourceTree = "<group>"; };
 		069353C11B3A773F008DC06F /* bad_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_teams.json; sourceTree = "<group>"; };
 		069353C21B3A773F008DC06F /* good_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_teams.json; sourceTree = "<group>"; };
-		069353C31B3A773F008DC06F /* TeamHandlerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamHandlerTests.m; sourceTree = "<group>"; };
 		069353CA1B3A7764008DC06F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06CBC8131B3F69A0004DD032 /* UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		06CBC8141B3F69A1004DD032 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
+		06CBC8161B3F6C5F004DD032 /* StringHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
+		06CBC8171B3F6C5F004DD032 /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
 		553F35C51B39A65F00CCAE17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		553F35C61B39A65F00CCAE17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		553F35C81B39A65F00CCAE17 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
@@ -320,9 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				06CBC8141B3F69A1004DD032 /* DateTimeHandlerTests.swift */,
-				069353BE1B3A773F008DC06F /* DateTimeHandlerTests.m */,
-				069353BF1B3A773F008DC06F /* StringHandlerTests.m */,
-				069353C31B3A773F008DC06F /* TeamHandlerTests.m */,
+				06CBC8161B3F6C5F004DD032 /* StringHandlerTests.swift */,
+				06CBC8171B3F6C5F004DD032 /* TeamHandlerTests.swift */,
 				069353C01B3A773F008DC06F /* Resources */,
 				069353C91B3A7764008DC06F /* SupportingFiles */,
 				06CBC8131B3F69A0004DD032 /* UnitTests-Bridging-Header.h */,
@@ -792,10 +789,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				069353C41B3A773F008DC06F /* DateTimeHandlerTests.m in Sources */,
-				069353C81B3A773F008DC06F /* TeamHandlerTests.m in Sources */,
-				069353C51B3A773F008DC06F /* StringHandlerTests.m in Sources */,
+				06CBC8191B3F6C5F004DD032 /* TeamHandlerTests.swift in Sources */,
 				06CBC8151B3F69A1004DD032 /* DateTimeHandlerTests.swift in Sources */,
+				06CBC8181B3F6C5F004DD032 /* StringHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
