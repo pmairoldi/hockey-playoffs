@@ -17,6 +17,7 @@
 		06CBC8151B3F69A1004DD032 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC8141B3F69A1004DD032 /* DateTimeHandlerTests.swift */; };
 		06CBC8181B3F6C5F004DD032 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC8161B3F6C5F004DD032 /* StringHandlerTests.swift */; };
 		06CBC8191B3F6C5F004DD032 /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC8171B3F6C5F004DD032 /* TeamHandlerTests.swift */; };
+		06CBC81D1B3F72BB004DD032 /* BaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CBC81C1B3F72BB004DD032 /* BaseTests.m */; };
 		10ED75BB669ACCA598CD22F0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7374E6C0BF95F37187E26E62 /* libPods.a */; };
 		553F36521B39A65F00CCAE17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35C61B39A65F00CCAE17 /* AppDelegate.m */; };
 		553F36531B39A65F00CCAE17 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35D41B39A65F00CCAE17 /* EventObject.m */; };
@@ -123,6 +124,7 @@
 		06CBC8141B3F69A1004DD032 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
 		06CBC8161B3F6C5F004DD032 /* StringHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
 		06CBC8171B3F6C5F004DD032 /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
+		06CBC81C1B3F72BB004DD032 /* BaseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTests.m; sourceTree = "<group>"; };
 		553F35C51B39A65F00CCAE17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		553F35C61B39A65F00CCAE17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		553F35C81B39A65F00CCAE17 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				069353C01B3A773F008DC06F /* Resources */,
 				069353C91B3A7764008DC06F /* SupportingFiles */,
 				06CBC8131B3F69A0004DD032 /* UnitTests-Bridging-Header.h */,
+				06CBC81C1B3F72BB004DD032 /* BaseTests.m */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CBC81D1B3F72BB004DD032 /* BaseTests.m in Sources */,
 				06CBC8191B3F6C5F004DD032 /* TeamHandlerTests.swift in Sources */,
 				06CBC8151B3F69A1004DD032 /* DateTimeHandlerTests.swift in Sources */,
 				06CBC8181B3F6C5F004DD032 /* StringHandlerTests.swift in Sources */,
