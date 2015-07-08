@@ -1,9 +1,6 @@
 language: objective-c
 osx_image: xcode6.4
 cache: bundler
-branches:
-  only:
-    - master
 rvm:
   - system
 before_install:
