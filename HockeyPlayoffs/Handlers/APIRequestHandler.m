@@ -13,7 +13,7 @@
 #import "Animations.h"
 #import "Queues.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import <Keys/HockeyPlayoffsKeys.h>
+#import <Keys/HockeyplayoffsKeys.h>
 
 #define SYNCHRONIZE_REFRESH_TIME 10ull
 #define SYNCHRONIZE_REFRESH_TIME_LEEWAY 1ull
@@ -56,8 +56,7 @@
         
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForResource = 20;
-        
-        HockeyPlayoffsKeys *keys = [HockeyPlayoffsKeys new];
+        HockeyplayoffsKeys *keys = [HockeyplayoffsKeys new];
         
         _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:keys.hockeyAPIPath] sessionConfiguration:configuration];
         [_manager setCompletionQueue:_synchronizeQueue];

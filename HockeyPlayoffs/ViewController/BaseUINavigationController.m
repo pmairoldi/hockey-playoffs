@@ -51,7 +51,7 @@
     return YES;
 }
 
--(NSUInteger)supportedInterfaceOrientations {
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return SUPPORTED_ORIENTATIONS;
 }
 
