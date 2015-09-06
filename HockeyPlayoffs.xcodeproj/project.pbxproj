@@ -582,6 +582,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 068413B118B9A0CE00A89D7C /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
 			buildPhases = (
+				067274261B9BE19F00B6E6A7 /* Update Build */,
 				FD57A2801EAA4972957E9F91 /* Check Pods Manifest.lock */,
 				0684138118B9A0CE00A89D7C /* Sources */,
 				0684138218B9A0CE00A89D7C /* Frameworks */,
@@ -690,6 +691,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		067274261B9BE19F00B6E6A7 /* Update Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Build";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n# This script automatically sets the version and short version string of\n# an Xcode project from the Git repository containing the project.\n#\n# To use this script in Xcode, add the contents to a \"Run Script\" build\n# phase for your application target.\n\n# NOTE: make sure you add a new value to your Info plist called \"FullVersion\"\n#\n# NOTE: if you receive error saying 'fatal: Not a git responsitory', make sure |--git-dir| points\n# to the root dir of your repo\n#\n# NOTE: if your git repo has no tags, this would fail, so make sure you create at least one tag\n# (I usually create a tag '0.0.0' at the very first commit, you can do the same).\n\nset -o errexit\nset -o nounset\n\nINFO_PLIST=\"${INFOPLIST_FILE}\"\n\necho \"$INFO_PLIST\"\n\n# Get git tag and hash in the FullVersion\nFULL_VERSION=$(git --git-dir=\"${PROJECT_DIR}/.git\" --work-tree=\"${PROJECT_DIR}/\" describe --dirty | sed -e 's/^v//' -e 's/g//')\n\n# Use the latest tag for short version (You'll have to make sure that all your tags are of the format 0.0.0,\n# this is to satisfy Apple's rule that short version be three integers separated by dots)\n# using git tag for version also encourages you to create tags that match your releases\nSHORT_VERSION=$(git --git-dir=\"${PROJECT_DIR}/.git\" --work-tree=\"${PROJECT_DIR}/\" describe --abbrev=0 | sed -e 's/^v//' -e 's/g//')\n\n# I'd like to use the Git commit hash for CFBundleVersion.\n# VERSION=$(git --git-dir=\"${PROJECT_DIR}/.git\" --work-tree=\"${PROJECT_DIR}\" rev-parse --short HEAD)\n\n# But Apple wants this value to be a monotonically increasing integer, so\n# instead use the number of commits on the master branch. If you like to\n# play fast and loose with your Git history, this may cause you problems.\n# Thanks to @amrox for pointing out the issue and fix.\nVERSION=$(git --git-dir=\"${PROJECT_DIR}/.git\" --work-tree=\"${PROJECT_DIR}/\" rev-list master | wc -l)\n\n/usr/libexec/PlistBuddy -c \"Set CFBundleShortVersionString $SHORT_VERSION\" $INFO_PLIST\n/usr/libexec/PlistBuddy -c \"Set CFBundleVersion $VERSION\" $INFO_PLIST\n/usr/libexec/PlistBuddy -c \"Set FullVersion $FULL_VERSION\" $INFO_PLIST\n\necho \"VERSION: ${VERSION}\"\necho \"SHORT VERSION: ${SHORT_VERSION}\"\necho \"FULL VERSION: ${FULL_VERSION}\"";
+		};
 		A03AE37ED869410092B5B9F4 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

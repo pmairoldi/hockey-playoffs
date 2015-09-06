@@ -38,7 +38,7 @@ PODS:
   - SimulatorStatusMagic (1.7)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
+  - AFNetworking (~> 2.6)
   - CocoaLumberjack (~> 2.0)
   - FMDB (~> 2.5)
   - Keys (from `Pods/CocoaPodsKeys`)
