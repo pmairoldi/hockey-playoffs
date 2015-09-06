@@ -67,9 +67,15 @@
     return YES;
 }
 
+#ifdef __IPHONE_9_0
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskLandscape;
 }
+#else
+-(NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+#endif
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return !UIInterfaceOrientationIsLandscape(toInterfaceOrientation);

@@ -92,9 +92,15 @@
     return YES;
 }
 
+#ifdef __IPHONE_9_0
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return SUPPORTED_ORIENTATIONS;
 }
+#else
+-(NSUInteger)supportedInterfaceOrientations {
+    return SUPPORTED_ORIENTATIONS;
+}
+#endif
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return SHOULD_ROTATE(toInterfaceOrientation);
