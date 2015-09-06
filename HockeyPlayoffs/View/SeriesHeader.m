@@ -25,40 +25,45 @@
 
 @implementation SeriesHeader
 
-- (id)initWithFrame:(CGRect)frame {
+-(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     
-    self = [super initWithFrame:frame];
+    self = [super initWithReuseIdentifier:reuseIdentifier];
     
-    if (self) {
-        
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        
-        self.contentView.backgroundColor = [Colors lightColor];
-        
-        _topTeamLabel = [[UILabel alloc] init];
-        [self setTeamLabelProperties:_topTeamLabel];
-        
-        _bottomTeamLabel = [[UILabel alloc] init];
-        [self setTeamLabelProperties:_bottomTeamLabel];
-        
-        _topScoresView = [[SeriesHeaderScoresView alloc] init];
-        
-        _bottomScoresView = [[SeriesHeaderScoresView alloc] init];
-        
-        [self.contentView addSubview:_topTeamLabel];
-        [self.contentView addSubview:_bottomTeamLabel];
-    
-        [self.contentView addSubview:_topScoresView];
-        [self.contentView addSubview:_bottomScoresView];
-        
-        _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(0, self.contentView.frame.size.height - 1/[[UIScreen mainScreen] scale], self.contentView.frame.size.width, 1/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = [Colors tableViewSeperatorColor];
-
-        [self.contentView addSubview:_seperatorView];
-        
+    if (!self) {
+        return nil;
     }
     
+    [self commonInit];
+    
     return self;
+}
+
+-(void)commonInit {
+    
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    self.contentView.backgroundColor = [Colors lightColor];
+    
+    _topTeamLabel = [[UILabel alloc] init];
+    [self setTeamLabelProperties:_topTeamLabel];
+    
+    _bottomTeamLabel = [[UILabel alloc] init];
+    [self setTeamLabelProperties:_bottomTeamLabel];
+    
+    _topScoresView = [[SeriesHeaderScoresView alloc] init];
+    
+    _bottomScoresView = [[SeriesHeaderScoresView alloc] init];
+    
+    [self.contentView addSubview:_topTeamLabel];
+    [self.contentView addSubview:_bottomTeamLabel];
+    
+    [self.contentView addSubview:_topScoresView];
+    [self.contentView addSubview:_bottomScoresView];
+    
+    _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(0, self.contentView.frame.size.height - 1/[[UIScreen mainScreen] scale], self.contentView.frame.size.width, 1/[[UIScreen mainScreen] scale])];
+    _seperatorView.backgroundColor = [Colors tableViewSeperatorColor];
+    
+    [self.contentView addSubview:_seperatorView];
 }
 
 -(void)layoutSubviews {

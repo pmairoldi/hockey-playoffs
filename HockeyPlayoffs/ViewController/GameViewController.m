@@ -53,6 +53,7 @@
     self.view.backgroundColor = [Colors backgroundColor];
     
     _gameView = [[GameView alloc] initWithFrame:self.view.frame];
+    
     _gameView.delegate = self;
     _gameView.dataSource = self;
     

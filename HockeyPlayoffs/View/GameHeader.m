@@ -35,53 +35,59 @@
 
 @implementation GameHeader
 
-- (id)initWithFrame:(CGRect)frame {
+-(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     
-    self = [super initWithFrame:frame];
+    self = [super initWithReuseIdentifier:reuseIdentifier];
     
-    if (self) {
-        
-        self.contentView.backgroundColor = [Colors gameBackgroundColor];
-        
-        _topPeriodScores = [[PeriodScoresView alloc] init];
-        
-        _bottomPeriodScores = [[PeriodScoresView alloc] init];
-
-        _periodScoresHeader = [[PeriodScoreViewHeader alloc] init];
-
-        _sectionControl = [[UISegmentedControl alloc] initWithItems:[GameModel getSectionItems]];
-        _sectionControl.tintColor = [Colors segmentTintColor];
-        
-        _segmentBackground = [[UIView alloc] init];
-        _segmentBackground.backgroundColor = [Colors segmentBackgroundColor];
-        
-        _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), [GameOverviewView height])];
-        
-        _videoButton = _gameOverview.videoButton;
-//        _videoView = _gameOverview.videoView;
-
-        _seperatorView = [[UIView alloc] init];
-        _seperatorView.backgroundColor = [Colors periodScoreSeperatorColor];
-        
-        _topSeperator = [[UIView alloc] init];
-        _topSeperator.backgroundColor = [Colors periodScoreBackgroundColor];
-        
-        _bottomSeperator = [[UIView alloc] init];
-        _bottomSeperator.backgroundColor = [Colors periodScoreBackgroundColor];
-    
-        [_seperatorView addSubview:_topPeriodScores];
-        [_seperatorView addSubview:_bottomPeriodScores];
-        [_seperatorView addSubview:_topSeperator];
-        [_seperatorView addSubview:_bottomSeperator];
-        
-        [self.contentView addSubview:_gameOverview];
-        [self.contentView addSubview:_periodScoresHeader];
-        [self.contentView addSubview:_seperatorView];
-        [self.contentView addSubview:_segmentBackground];
-        [self.contentView addSubview:_sectionControl];
+    if (!self) {
+        return nil;
     }
     
+    [self commonInit];
+    
     return self;
+}
+
+-(void)commonInit {
+    
+    self.contentView.backgroundColor = [Colors gameBackgroundColor];
+    
+    _topPeriodScores = [[PeriodScoresView alloc] init];
+    
+    _bottomPeriodScores = [[PeriodScoresView alloc] init];
+    
+    _periodScoresHeader = [[PeriodScoreViewHeader alloc] init];
+    
+    _sectionControl = [[UISegmentedControl alloc] initWithItems:[GameModel getSectionItems]];
+    _sectionControl.tintColor = [Colors segmentTintColor];
+    
+    _segmentBackground = [[UIView alloc] init];
+    _segmentBackground.backgroundColor = [Colors segmentBackgroundColor];
+    
+    _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), [GameOverviewView height])];
+    
+    _videoButton = _gameOverview.videoButton;
+    //        _videoView = _gameOverview.videoView;
+    
+    _seperatorView = [[UIView alloc] init];
+    _seperatorView.backgroundColor = [Colors periodScoreSeperatorColor];
+    
+    _topSeperator = [[UIView alloc] init];
+    _topSeperator.backgroundColor = [Colors periodScoreBackgroundColor];
+    
+    _bottomSeperator = [[UIView alloc] init];
+    _bottomSeperator.backgroundColor = [Colors periodScoreBackgroundColor];
+    
+    [_seperatorView addSubview:_topPeriodScores];
+    [_seperatorView addSubview:_bottomPeriodScores];
+    [_seperatorView addSubview:_topSeperator];
+    [_seperatorView addSubview:_bottomSeperator];
+    
+    [self.contentView addSubview:_gameOverview];
+    [self.contentView addSubview:_periodScoresHeader];
+    [self.contentView addSubview:_seperatorView];
+    [self.contentView addSubview:_segmentBackground];
+    [self.contentView addSubview:_sectionControl];
 }
 
 

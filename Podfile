@@ -12,6 +12,6 @@ inhibit_all_warnings!
 
 pod 'CocoaLumberjack', '~> 2.0'
 pod 'FMDB', '~> 2.5'
-pod 'AFNetworking', '~> 2.5'
+pod 'AFNetworking', '~> 2.6'
 pod 'LSWeekView', '~> 1.0'
 pod 'SimulatorStatusMagic', '~> 1.7', :configurations => ['Debug']

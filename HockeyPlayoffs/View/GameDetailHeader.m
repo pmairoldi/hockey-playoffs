@@ -20,20 +20,26 @@
 
 @synthesize textLabel = _textLabel;
 
-- (id)initWithFrame:(CGRect)frame {
+-(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     
-    self = [super initWithFrame:frame];
+    self = [super initWithReuseIdentifier:reuseIdentifier];
     
-    if (self) {
-        
-        _textLabel = [[UILabel alloc] init];
-        [self setPropertiesForTextLabel:_textLabel];
-        
-        self.contentView.backgroundColor = [Colors gameDetailHeaderBackgroundColor];
-        [self.contentView addSubview:_textLabel];
+    if (!self) {
+        return nil;
     }
     
+    [self commonInit];
+    
     return self;
+}
+
+-(void)commonInit {
+    
+    _textLabel = [[UILabel alloc] init];
+    [self setPropertiesForTextLabel:_textLabel];
+    
+    self.contentView.backgroundColor = [Colors gameDetailHeaderBackgroundColor];
+    [self.contentView addSubview:_textLabel];
 }
 
 -(void)layoutSubviews {

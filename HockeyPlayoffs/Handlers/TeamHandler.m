@@ -18,14 +18,14 @@
     
     NSDictionary *team = [[self class] getTeamForAbbreavation:teamABR];
     
-    return [DictionaryHandler stringInDictionary:team withKey:@"city"];
+    return [[DictionaryHandler stringInDictionary:team withKey:@"city"] capitalizedString];
 }
 
 +(NSString *)getTeamName:(NSString *)teamABR {
     
     NSDictionary *team = [[self class] getTeamForAbbreavation:teamABR];
     
-    return [DictionaryHandler stringInDictionary:team withKey:@"name"];
+    return [[DictionaryHandler stringInDictionary:team withKey:@"name"] capitalizedString];
 }
 
 +(NSString *)getTeamABR:(NSString *)teamName {

@@ -49,7 +49,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamCityForCorrectAbbreviation() {
         
         let actualResult = TeamHandler.getTeamCity("ana")
-        let expectedResult = "anaheim"
+        let expectedResult = "Anaheim"
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
     }
@@ -57,7 +57,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamCityForCorrectUppercaseAbbreviation() {
         
         let actualResult = TeamHandler.getTeamCity("ANA")
-        let expectedResult = "anaheim"
+        let expectedResult = "Anaheim"
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
     }
@@ -99,7 +99,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamNameForCorrectAbbreviation() {
         
         let actualResult = TeamHandler.getTeamName("ana")
-        let expectedResult = "ducks"
+        let expectedResult = "Ducks"
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
     }
@@ -107,7 +107,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamNameForCorrectUppercaseAbbreviation() {
         
         let actualResult = TeamHandler.getTeamName("ANA")
-        let expectedResult = "ducks"
+        let expectedResult = "Ducks"
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
     }

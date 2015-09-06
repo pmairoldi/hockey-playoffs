@@ -27,6 +27,7 @@
 #import "RecentGamesModel.h"
 #import <LSWeekView/LSWeekView.h>
 #import "AdjustableNavigationBar.h"
+#import "Queues.h"
 
 @interface RecentGamesViewController ()
 
@@ -34,6 +35,7 @@
 @property RecentGamesView *recentGamesView;
 @property RecentGamesModel *recentGamesModel;
 @property LSWeekView *datePicker;
+@property dispatch_queue_t datepickerQueue;
 
 @end
 
@@ -47,8 +49,14 @@
     
     if (self) {
         
+        static dispatch_once_t onceToken;
+        
+        dispatch_once(&onceToken, ^{
+            _datepickerQueue = DATE_PICKER_QUEUE;
+        });
+        
         _recentGamesModel = [[RecentGamesModel alloc] init];
-
+        
         self.title = NSLocalizedString(@"controller.recent.title", nil);
     }
     
@@ -60,11 +68,11 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [Colors backgroundColor];
-
+    
     AdjustableNavigationBar *navBar = (AdjustableNavigationBar *)self.navigationController.navigationBar;
     navBar.height = NavBarHeight;
     [self.navigationController.navigationBar sizeToFit];
-
+    
     _datePicker = [[LSWeekView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 90) style:LSWeekViewStyleDefault];
     _datePicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _datePicker.calendar = [NSCalendar currentCalendar];
@@ -78,7 +86,7 @@
     
     [self.navigationItem setTitleView:_datePicker];
     [self.navigationItem.titleView sizeToFit];
-
+    
     _recentGamesView = [[RecentGamesView alloc] initWithFrame:self.view.frame];
     _recentGamesView.delegate = self;
     _recentGamesView.dataSource = self;
@@ -95,13 +103,21 @@
     __weak typeof(self) weakSelf = self;
     _datePicker.didChangeSelectedDateBlock = ^(NSDate *selectedDate) {
         
-        if ([selectedDate compare:weakSelf.recentGamesModel.date] != NSOrderedSame) {
-            weakSelf.recentGamesModel.date = selectedDate;
-            weakSelf.recentGamesView.hasContent = weakSelf.recentGamesModel.hasData;
-            [weakSelf.recentGamesView reloadData];
-        }
+        dispatch_async(weakSelf.datepickerQueue, ^{
+            
+            if ([selectedDate compare:weakSelf.recentGamesModel.date] != NSOrderedSame) {
+                
+                weakSelf.recentGamesModel.date = selectedDate;
+                BOOL hasContent = weakSelf.recentGamesModel.hasData;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    weakSelf.recentGamesView.hasContent = hasContent;
+                    [weakSelf.recentGamesView reloadData];
+                });
+            }
+        });
     };
-
+    
     _recentGamesView.hasContent = _recentGamesModel.hasData;
 }
 
@@ -128,7 +144,7 @@
     [self.navigationController.navigationBar sizeToFit];
     self.recentGamesView.frame = animatedFrame;
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-18 forBarMetrics:UIBarMetricsDefault];
-
+    
     if (animated) {
         [UIView commitAnimations];
     }
@@ -144,7 +160,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
-        
+    
     //smoothen when it is quickly let go
     AdjustableNavigationBar *navBar = (AdjustableNavigationBar *)self.navigationController.navigationBar;
     navBar.height = 44;
@@ -158,7 +174,7 @@
     [self.navigationController.navigationBar sizeToFit];
     self.recentGamesView.frame = animatedFrame;
     [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
-
+    
     if (animated) {
         [UIView commitAnimations];
     }
@@ -263,7 +279,7 @@
         else {
             cell.seperatorView.hidden = NO;
         }
-                
+        
         return cell;
     }
 }
