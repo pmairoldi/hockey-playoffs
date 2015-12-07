@@ -6,7 +6,8 @@ platform :ios do
 
   before_all do
     clean_build_artifacts
-    sh 'cd .. && bundle exec pod install'
+    keys
+    cocoapods
   end
 
   desc "Sets up project"
@@ -15,22 +16,27 @@ platform :ios do
   end
 
   desc "Runs all the tests"
-  lane :test do
-
-    xctest scheme: "HockeyPlayoffs", destination: "OS=8.4,name=iPhone 6", clean: true
-
+  lane :tests do
+    scan device: "iPhone 6s"
   end
 
   desc "Runs all the tests and generates a coverage report"
   lane :coverage do
-
-    test
+    tests
     sh 'cd .. && bundle exec slather coverage -h --output-directory build/coverage --show'
+  end
 
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :beta do |options|
+    build beta: true, screenshots: options[:screenshots]
+  end
+
+  desc "Deploy a new version to the App Store"
+  lane :deploy do |options|
+    build screenshots: options[:screenshots]
   end
 
   desc "Builds app and packages it"
-
   private_lane :build do |options|
 
     if options[:screenshots]
@@ -39,7 +45,7 @@ platform :ios do
 
     cert
     sigh
-    gym scheme: "HockeyPlayoffs"
+    gym
 
     if options[:beta]
       deliver beta: true, skip_deploy: false
@@ -51,18 +57,24 @@ platform :ios do
 
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  lane :beta do |options|
+  desc "Sets up private keys"
+  private_lane :keys do
+    require 'cocoapods-core'
+    puts "Validating CocoaPods Keys"
+    Dir.chdir ".." do
+      podfile = Pod::Podfile.from_file "Podfile"
+      target = podfile.plugins["cocoapods-keys"]["target"] || ""
+      podfile.plugins["cocoapods-keys"]["keys"].each do |key|
+        puts " - #{key}"
+        value = `bundle exec pod keys get #{key} #{target}`
+        value = value.split("]").last.strip
 
-    build(beta: true, screenshots: options[:screenshots])
-
+        if value == "-" || value == ""
+          raise "Did not pass validation for key #{key}. Run `bundle exec pod keys get #{key} #{target}` to see what it is. It's likely this key is invalid.".red
+        elsif value == "Could not find value"
+          raise "Key #{key} has not been set run `bundle exec pod keys set #{key} YOUR_KEY` to set it.".red
+        end
+      end
+    end
   end
-
-  desc "Deploy a new version to the App Store"
-  lane :deploy do |options|
-
-    build(screenshots: options[:screenshots])
-
-  end
-
 end

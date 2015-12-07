@@ -31,11 +31,10 @@
     
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-        
+    
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-        
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     
     _rootViewController = [[TabBarController alloc] init];
     self.window.rootViewController = _rootViewController;
@@ -45,6 +44,11 @@
     
     [self.window makeKeyAndVisible];
     
+    // Register for notifications
+    
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes: UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+    [UIApplication.sharedApplication registerUserNotificationSettings:settings];
+    
     return YES;
 }
 
@@ -52,7 +56,7 @@
     
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-
+    
     [[APIRequestHandler sharedHandler] stopSyncTimer];
 }
 
@@ -70,7 +74,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-
+    
     [[APIRequestHandler sharedHandler] startSyncTimer];
 }
 
@@ -103,10 +107,36 @@
 }
 
 -(void (^)(AFNetworkReachabilityStatus status))reachabilityChanged {
-
+    
     return ^(AFNetworkReachabilityStatus status) {
         DDLogDebug(@"reachable %d", [AFNetworkReachabilityManager sharedManager].reachable);
     };
+}
+
+// Notification Methods
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)settings {
+    [application registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)token {
+    NSLog(@"Registration successful, bundle identifier: %@, mode: %@, device token: %@", [NSBundle.mainBundle bundleIdentifier], [self modeString], token);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Failed to register: %@", error);
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)notification completionHandler:(void(^)())completionHandler {
+    NSLog(@"Received push notification: %@, identifier: %@", notification, identifier);
+    completionHandler();
+}
+
+- (NSString *)modeString {
+#if DEBUG
+    return @"Development (sandbox)";
+#else
+    return @"Production";
+#endif
 }
 
 @end
