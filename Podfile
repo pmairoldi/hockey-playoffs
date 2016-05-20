@@ -1,17 +1,26 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source "https://github.com/CocoaPods/Specs.git"
 
-plugin 'cocoapods-keys', {
+plugin "cocoapods-keys", {
   :project => "HockeyPlayoffs",
   :keys => [
     "HockeyAPIPath"
   ]
 }
 
-platform :ios, '7.0'
+platform :ios, "7.0"
 inhibit_all_warnings!
+use_frameworks!
 
-pod 'CocoaLumberjack', '~> 2.0'
-pod 'FMDB', '~> 2.5'
-pod 'AFNetworking', '~> 2.6'
-pod 'LSWeekView', '~> 1.0'
-pod 'SimulatorStatusMagic', '~> 1.7', :configurations => ['Debug']
+target "HockeyPlayoffs" do
+  pod "CocoaLumberjack", "~> 2.0"
+  pod "FMDB", "~> 2.5"
+  pod "AFNetworking", "~> 2.6"
+  pod "LSWeekView", "~> 1.0"
+  pod "SimulatorStatusMagic", "~> 1.7", :configurations => ["Debug"]
+
+  target "UnitTests" do
+    inherit! :search_paths
+    pod "Quick", "~> 0.9"
+    pod "Nimble", "~> 4.0"
+  end
+end

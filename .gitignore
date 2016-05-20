@@ -24,3 +24,7 @@ fastlane/screenshots
 *.gcno
 *.cer
 *.gcda
+
+*.certSigningRequest
+
+*.p12
