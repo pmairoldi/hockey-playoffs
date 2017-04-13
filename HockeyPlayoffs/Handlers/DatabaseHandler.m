@@ -617,7 +617,7 @@
         
         NSString *convertedDate = [DateTimeHandler getStringForDate:date];
         
-        FMResultSet *games = [db executeQuery:@"SELECT * FROM games WHERE date = ? ORDER BY time ASC, date ASC" withArgumentsInArray:@[convertedDate]];
+        FMResultSet *games = [db executeQuery:@"SELECT * FROM games WHERE date = ? ORDER BY time ASC, date ASC, game_id ASC" withArgumentsInArray:@[convertedDate]];
         
         NSMutableArray *temp = [[NSMutableArray alloc] init];
         
