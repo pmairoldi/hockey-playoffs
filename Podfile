@@ -7,7 +7,7 @@ plugin "cocoapods-keys", {
   ]
 }
 
-platform :ios, "7.0"
+platform :ios, "8.0"
 inhibit_all_warnings!
 use_frameworks!
 
@@ -20,7 +20,7 @@ target "HockeyPlayoffs" do
 
   target "UnitTests" do
     inherit! :search_paths
-    pod "Quick", "~> 0.9"
-    pod "Nimble", "~> 4.0"
+    pod "Quick", "~> 1.1"
+    pod "Nimble", "~> 6.1"
   end
 end

@@ -21,9 +21,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>44</string>
+	<string>45</string>
 	<key>FullVersion</key>
-	<string>1.0.8-7-96fdd6d-dirty</string>
+	<string>1.0.8-8-4f5cb34-dirty</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>

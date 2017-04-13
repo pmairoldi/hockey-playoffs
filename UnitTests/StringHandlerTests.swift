@@ -16,7 +16,7 @@ class StringHandlerTests: XCTestCase {
     // +(BOOL)compareString:(NSString *)string withRegex:(NSString *)regex
     func testNilStringAndNilRegex() {
     
-        let actualResult = StringHandler.compareString(nil, withRegex: nil)
+        let actualResult = StringHandler.compare(nil, withRegex: nil)
         let expectedResult = false
     
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
@@ -24,7 +24,7 @@ class StringHandlerTests: XCTestCase {
     
     func testEmptyStringAndEmptyRegex() {
     
-        let actualResult = StringHandler.compareString("", withRegex: "")
+        let actualResult = StringHandler.compare("", withRegex: "")
         let expectedResult = false
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
@@ -32,7 +32,7 @@ class StringHandlerTests: XCTestCase {
     
     func testEmptyStringAndNilRegex() {
     
-        let actualResult = StringHandler.compareString("", withRegex: nil)
+        let actualResult = StringHandler.compare("", withRegex: nil)
         let expectedResult = false
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
@@ -40,7 +40,7 @@ class StringHandlerTests: XCTestCase {
     
     func testNilStringAndEmptyRegex() {
     
-        let actualResult = StringHandler.compareString(nil, withRegex: "")
+        let actualResult = StringHandler.compare(nil, withRegex: "")
         let expectedResult = false
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
@@ -48,7 +48,7 @@ class StringHandlerTests: XCTestCase {
     
     func testCorrectStringAndWrongRegex() {
     
-        let actualResult = StringHandler.compareString("12", withRegex: "\\d{4}");
+        let actualResult = StringHandler.compare("12", withRegex: "\\d{4}");
         let expectedResult = false;
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
@@ -56,7 +56,7 @@ class StringHandlerTests: XCTestCase {
     
     func testCorrectStringAndCorrectRegex() {
     
-        let actualResult = StringHandler.compareString("1234", withRegex: "\\d{4}");
+        let actualResult = StringHandler.compare("1234", withRegex: "\\d{4}");
         let expectedResult = true;
         
         XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")

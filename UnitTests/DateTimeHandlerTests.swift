@@ -2,17 +2,17 @@ import XCTest
 
 class DateTimeHandlerTests: XCTestCase {
     
-    let cachedTimeZone = NSTimeZone.defaultTimeZone()
+    let cachedTimeZone = TimeZone.current
     
     override func setUp() {
         super.setUp()
         
-        NSTimeZone.setDefaultTimeZone(NSTimeZone(abbreviation: "EST")!)
+        NSTimeZone.default = TimeZone(abbreviation: "EST")!
     }
     
     override func tearDown() {
 
-        NSTimeZone.setDefaultTimeZone(cachedTimeZone)
+        NSTimeZone.default = cachedTimeZone
         
         super.tearDown()
     }
@@ -24,7 +24,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("", andTime: "")
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromNilDateAndNilTime() {
@@ -32,7 +32,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate(nil, andTime: nil)
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromEmptyDateAndNilTime() {
@@ -40,7 +40,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("", andTime: nil)
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromNilDateAndEmptyTime() {
@@ -48,7 +48,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate(nil, andTime: "")
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromIncorectlyFormattedDateAndNilTime() {
@@ -56,7 +56,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("22/6/2015", andTime: nil)
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromIncorectlyFormattedDateAndEmptyTime() {
@@ -64,7 +64,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("22/6/2015", andTime: "")
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromWellFormattedDateAndNilTime() {
@@ -72,7 +72,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("2015-06-22", andTime: nil)
         let expectedResult = "Jun 22, 2015"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromWellFormattedDateAndEmptyTime() {
@@ -80,7 +80,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("2015-06-22", andTime: "")
         let expectedResult = "Jun 22, 2015"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testDateFromWellFormattedDateAndTime() {
@@ -88,7 +88,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getDateForDate("2015-06-22", andTime: "10:53:00")
         let expectedResult = "Jun 22, 2015"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     // tests for
@@ -98,7 +98,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate("", andTime: "")
         let expectedResult = NSLocalizedString("time.tbd", comment: "")
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromNilDateAndNilTime() {
@@ -106,7 +106,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate(nil, andTime: nil)
         let expectedResult = NSLocalizedString("time.tbd", comment: "")
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromEmptyDateAndNilTime() {
@@ -114,7 +114,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate("", andTime: nil)
         let expectedResult = NSLocalizedString("time.tbd", comment: "")
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromNilDateAndEmptyTime() {
@@ -122,7 +122,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate(nil, andTime: "")
         let expectedResult = NSLocalizedString("time.tbd", comment: "")
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromIncorectlyFormattedTimeAndNilDate() {
@@ -130,7 +130,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate(nil, andTime: "10:00 PM")
         let expectedResult = NSLocalizedString("time.tbd", comment: "")
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromIncorectlyFormattedTimeAndEmptyDate() {
@@ -138,7 +138,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate("", andTime: "10:00 PM")
         let expectedResult = NSLocalizedString("time.tbd", comment: "")
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromWellFormattedTimeAndNilDate() {
@@ -146,7 +146,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate(nil, andTime: "10:53:00")
         let expectedResult = "10:53 AM"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromWellFormattedTimeAndEmptyDate() {
@@ -154,7 +154,7 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate("", andTime: "10:53:00")
         let expectedResult = "10:53 AM"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testTimeFromWellFormattedDateAndTime() {
@@ -162,42 +162,42 @@ class DateTimeHandlerTests: XCTestCase {
         let actualResult = DateTimeHandler.getTimeForDate("2015-06-22", andTime: "10:53:00")
         let expectedResult = "10:53 AM"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     // tests for
     // +(NSString *)getStringForDate:(NSDate *)date
     func testStringDateFromNilDate() {
         
-        let actualResult = DateTimeHandler.getStringForDate(nil)
+        let actualResult = DateTimeHandler.getStringFor(nil)
         let expectedResult = ""
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testStringDateFromIncorrectlyFormattedDate() {
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        let date = dateFormatter.dateFromString("1970-01-01 00:00:00")
+        let date = dateFormatter.date(from: "1970-01-01 00:00:00")
         
-        let actualResult = DateTimeHandler.getStringForDate(date)
+        let actualResult = DateTimeHandler.getStringFor(date)
         let expectedResult = "1970-01-01"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
     
     func testStringDateFromWellFormattedDate() {
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let date = dateFormatter.dateFromString("1970-01-01")
+        let date = dateFormatter.date(from: "1970-01-01")
         
-        let actualResult = DateTimeHandler.getStringForDate(date)
+        let actualResult = DateTimeHandler.getStringFor(date)
         let expectedResult = "1970-01-01"
         
-        XCTAssertEqual(actualResult, expectedResult, "actual result: \(actualResult), expected results: \(expectedResult)")
+        XCTAssertEqual(actualResult, expectedResult)
     }
 }
