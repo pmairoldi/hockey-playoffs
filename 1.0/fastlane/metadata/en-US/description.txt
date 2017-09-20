@@ -1,6 +1,0 @@
-It's back for the spring time tournament. This is the go to app for all your hockey playoffs needs during the off season. Never skip a beat by keeping track of the scores and watching highlights of the games you missed.
-
-Key Features:
--Video Highlights
--Interactive Bracket
--Full Score Summary
