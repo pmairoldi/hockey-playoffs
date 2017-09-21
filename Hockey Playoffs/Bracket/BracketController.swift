@@ -19,7 +19,7 @@ class BracketController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.darkGray
         
         view.addSubview(bracketView)
         
