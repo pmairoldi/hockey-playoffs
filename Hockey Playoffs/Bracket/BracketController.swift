@@ -3,11 +3,15 @@ import UIKit
 class BracketController: UIViewController {
     
     let bracketView: BracketView
-
+    let scrollView: UIScrollView
+    
     init() {
         
         bracketView = BracketView()
         bracketView.translatesAutoresizingMaskIntoConstraints = false;
+    
+        scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false;
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -21,8 +25,11 @@ class BracketController: UIViewController {
         
         view.backgroundColor = UIColor.darkGray
         
-        view.addSubview(bracketView)
-        
+        view.addSubview(scrollView)
+        scrollView.addSubview(bracketView)
+        scrollView.backgroundColor = UIColor.red
+        scrollView.alwaysBounceVertical = true
+
         setupConstraints()
     }
     
@@ -36,26 +43,46 @@ class BracketController: UIViewController {
     
     func setupConstraints() {
         
-        let margins = view.layoutMarginsGuide;
+        let margins = view!;
         
-        bracketView
+        scrollView
             .leadingAnchor
             .constraint(equalTo: margins.leadingAnchor)
             .isActive = true;
         
-        bracketView
+        scrollView
             .trailingAnchor
             .constraint(equalTo: margins.trailingAnchor)
             .isActive = true;
         
-        bracketView
+        scrollView
             .topAnchor
             .constraint(equalTo: margins.topAnchor)
             .isActive = true;
         
-        bracketView
+        scrollView
             .bottomAnchor
             .constraint(equalTo: margins.bottomAnchor)
+            .isActive = true;
+        
+        bracketView
+            .bottomAnchor
+            .constraint(equalTo: scrollView.layoutMarginsGuide.bottomAnchor)
+            .isActive = true;
+        
+        bracketView
+            .topAnchor
+            .constraint(equalTo: scrollView.layoutMarginsGuide.topAnchor)
+            .isActive = true;
+        
+        bracketView
+            .leadingAnchor
+            .constraint(equalTo: scrollView.layoutMarginsGuide.leadingAnchor)
+            .isActive = true;
+        
+        bracketView
+            .trailingAnchor
+            .constraint(equalTo: scrollView.layoutMarginsGuide.trailingAnchor)
             .isActive = true;
     }
 }
