@@ -7,7 +7,7 @@ class SeriesView: UIView {
     }
     
     init() {
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.darkGray

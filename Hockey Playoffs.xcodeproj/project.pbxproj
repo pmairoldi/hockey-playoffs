@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06861D9C1F720F1B00E8C020 /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9B1F720F1B00E8C020 /* BracketView.swift */; };
+		0669EA351F76C52400516670 /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0669EA341F76C52400516670 /* BracketView.swift */; };
+		06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9B1F720F1B00E8C020 /* TreeView.swift */; };
 		06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9D1F720F4A00E8C020 /* SeriesView.swift */; };
 		06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA21F760FFC00E8C020 /* BracketLine.swift */; };
 		06861DA51F76198F00E8C020 /* Bracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA41F76198F00E8C020 /* Bracket.swift */; };
@@ -21,7 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06861D9B1F720F1B00E8C020 /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
+		0669EA341F76C52400516670 /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
+		06861D9B1F720F1B00E8C020 /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		06861D9D1F720F4A00E8C020 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		06861DA21F760FFC00E8C020 /* BracketLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketLine.swift; sourceTree = "<group>"; };
 		06861DA41F76198F00E8C020 /* Bracket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket.swift; sourceTree = "<group>"; };
@@ -92,7 +94,8 @@
 			children = (
 				06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */,
 				06CEB20D1F71FF7700723709 /* BracketController.swift */,
-				06861D9B1F720F1B00E8C020 /* BracketView.swift */,
+				0669EA341F76C52400516670 /* BracketView.swift */,
+				06861D9B1F720F1B00E8C020 /* TreeView.swift */,
 				06861D9D1F720F4A00E8C020 /* SeriesView.swift */,
 				06861DA21F760FFC00E8C020 /* BracketLine.swift */,
 				06861DA41F76198F00E8C020 /* Bracket.swift */,
@@ -174,9 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				06D871271F71E64900B0111C /* AppController.swift in Sources */,
+				0669EA351F76C52400516670 /* BracketView.swift in Sources */,
 				06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */,
 				06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */,
-				06861D9C1F720F1B00E8C020 /* BracketView.swift in Sources */,
+				06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */,
 				06861DA51F76198F00E8C020 /* Bracket.swift in Sources */,
 				06D8D2D11F71F7DB00F82A49 /* BracketCoordinator.swift in Sources */,
 				06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */,
