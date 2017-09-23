@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		06861D9C1F720F1B00E8C020 /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9B1F720F1B00E8C020 /* BracketView.swift */; };
 		06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9D1F720F4A00E8C020 /* SeriesView.swift */; };
+		06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA21F760FFC00E8C020 /* BracketLine.swift */; };
+		06861DA51F76198F00E8C020 /* Bracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA41F76198F00E8C020 /* Bracket.swift */; };
 		06CEB2021F71F93200723709 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2041F71F93200723709 /* InfoPlist.strings */; };
 		06CEB2071F71F95300723709 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2091F71F95300723709 /* Localizable.strings */; };
 		06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CEB20D1F71FF7700723709 /* BracketController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		06861D9B1F720F1B00E8C020 /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
 		06861D9D1F720F4A00E8C020 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
+		06861DA21F760FFC00E8C020 /* BracketLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketLine.swift; sourceTree = "<group>"; };
+		06861DA41F76198F00E8C020 /* Bracket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket.swift; sourceTree = "<group>"; };
 		06CEB1FE1F71F8EC00723709 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06CEB2031F71F93200723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		06CEB2081F71F95300723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				06CEB20D1F71FF7700723709 /* BracketController.swift */,
 				06861D9B1F720F1B00E8C020 /* BracketView.swift */,
 				06861D9D1F720F4A00E8C020 /* SeriesView.swift */,
+				06861DA21F760FFC00E8C020 /* BracketLine.swift */,
+				06861DA41F76198F00E8C020 /* Bracket.swift */,
 			);
 			path = Bracket;
 			sourceTree = "<group>";
@@ -169,7 +175,9 @@
 			files = (
 				06D871271F71E64900B0111C /* AppController.swift in Sources */,
 				06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */,
+				06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */,
 				06861D9C1F720F1B00E8C020 /* BracketView.swift in Sources */,
+				06861DA51F76198F00E8C020 /* Bracket.swift in Sources */,
 				06D8D2D11F71F7DB00F82A49 /* BracketCoordinator.swift in Sources */,
 				06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */,
 				06D871251F71E64900B0111C /* AppDelegate.swift in Sources */,

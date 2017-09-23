@@ -1,64 +1,11 @@
 import UIKit
 
-//TODO: make series a type that can't be more than the actual values
-enum BracketSection {
-    case westQuarterFinals(series: Int)
-    case westSemiFinals(series: Int)
-    case westFinals
-    case finals
-    case eastFinals
-    case eastSemiFinals(series: Int)
-    case eastQuarterFinals(series: Int)
-}
-
-extension BracketSection: Hashable {
-    var hashValue: Int {
-        switch self {
-        case .westQuarterFinals(let series):
-            return 1.hashValue ^ series.hashValue
-        case .westSemiFinals(let series):
-            return 2.hashValue ^ series.hashValue
-        case .westFinals:
-            return 3.hashValue
-        case .finals:
-            return 4.hashValue
-        case .eastFinals:
-            return 5.hashValue
-        case .eastSemiFinals(let series):
-            return 6.hashValue ^ series.hashValue
-        case .eastQuarterFinals(let series):
-            return 7.hashValue ^ series.hashValue
-        }
-    }
-    
-    static func ==(lhs: BracketSection, rhs: BracketSection) -> Bool {
-        switch (lhs, rhs) {
-        case (.westQuarterFinals(let lhs), .westQuarterFinals(series: let rhs)):
-            return lhs == rhs
-        case (.westSemiFinals(let lhs), .westSemiFinals(series: let rhs)):
-            return lhs == rhs
-        case (.westFinals, .westFinals):
-            return true
-        case (.finals, .finals):
-            return true
-        case (.eastFinals, .eastFinals):
-            return true
-        case (.eastSemiFinals(let lhs), .eastSemiFinals(let rhs)):
-            return lhs == rhs
-        case (.eastQuarterFinals(let lhs), .eastQuarterFinals(let rhs)):
-            return lhs == rhs
-        default:
-            return false
-        }
-    }
-}
-
 protocol BracketViewDelegate {
-    func didSelect(series: BracketSection)
+    func didSelect(series: Bracket)
 }
 
 protocol BracketViewDataSource {
-    func itemAt(series: BracketSection)
+    func itemAt(series: Bracket)
 }
 
 class BracketView: UIView {
@@ -66,324 +13,137 @@ class BracketView: UIView {
     var delegate: BracketViewDelegate?
     var dataSource: BracketViewDataSource?
     
-    fileprivate let series: [BracketSection: SeriesView]
+    fileprivate let westQuarterFinals1: SeriesView
+    fileprivate let westQuarterFinals2: SeriesView
+    fileprivate let westQuarterFinals3: SeriesView
+    fileprivate let westQuarterFinals4: SeriesView
+    fileprivate let westSemiFinals1: SeriesView
+    fileprivate let westSemiFinals2: SeriesView
+    fileprivate let westFinals: SeriesView
+    fileprivate let finals: SeriesView
+    fileprivate let eastFinals: SeriesView
+    fileprivate let eastSemiFinals1: SeriesView
+    fileprivate let eastSemiFinals2: SeriesView
+    fileprivate let eastQuarterFinals1: SeriesView
+    fileprivate let eastQuarterFinals2: SeriesView
+    fileprivate let eastQuarterFinals3: SeriesView
+    fileprivate let eastQuarterFinals4: SeriesView
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+    }
     
     init() {
         
         func seriesView() -> SeriesView {
             
             let seriesView = SeriesView()
-            seriesView.backgroundColor = UIColor.white
-
+            seriesView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+            seriesView.heightAnchor.constraint(equalToConstant: 55).isActive = true
+            
             return seriesView
         }
-        
-        func roundStackView(_ views: [UIView]) -> UIStackView {
-            
-            let stackView = UIStackView(arrangedSubviews: views)
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .horizontal
-            stackView.distribution = .equalSpacing
-            stackView.alignment = .center
-            
-            return stackView
-        }
-        
-        series = [
-            .westQuarterFinals(series: 1) : seriesView(),
-            .westQuarterFinals(series: 2) : seriesView(),
-            .westQuarterFinals(series: 3) : seriesView(),
-            .westQuarterFinals(series: 4) : seriesView(),
-            .westSemiFinals(series: 1) : seriesView(),
-            .westSemiFinals(series: 2) : seriesView(),
-            .westFinals : seriesView(),
-            .finals : seriesView(),
-            .eastFinals : seriesView(),
-            .eastSemiFinals(series: 1) : seriesView(),
-            .eastSemiFinals(series: 2) : seriesView(),
-            .eastQuarterFinals(series: 1) : seriesView(),
-            .eastQuarterFinals(series: 2) : seriesView(),
-            .eastQuarterFinals(series: 3) : seriesView(),
-            .eastQuarterFinals(series: 4) : seriesView()
-        ]
+    
+        westQuarterFinals1 = seriesView()
+        westQuarterFinals2 = seriesView()
+        westQuarterFinals3 = seriesView()
+        westQuarterFinals4 = seriesView()
+        westSemiFinals1 = seriesView()
+        westSemiFinals2 = seriesView()
+        westFinals = seriesView()
+        finals = seriesView()
+        eastFinals = seriesView()
+        eastSemiFinals1 = seriesView()
+        eastSemiFinals2 = seriesView()
+        eastQuarterFinals1 = seriesView()
+        eastQuarterFinals2 = seriesView()
+        eastQuarterFinals3 = seriesView()
+        eastQuarterFinals4 = seriesView()
         
         super.init(frame: CGRect.zero)
         
-        let westQuarterFinals = roundStackView([
-            series[.westQuarterFinals(series: 1)]!,
-            series[.westQuarterFinals(series: 2)]!,
-            series[.westQuarterFinals(series: 3)]!,
-            series[.westQuarterFinals(series: 4)]!
-            ])
+        let westQuarterFinalRound = stackView(axis: .horizontal, views: westQuarterFinals1, westQuarterFinals2, westQuarterFinals3, westQuarterFinals4)
+        let westSemiFinalRound = stackView(axis: .horizontal, views: westSemiFinals1, westSemiFinals2)
+        let westFinalRound = stackView(axis: .horizontal, views: westFinals)
+        let finalRound = stackView(axis: .horizontal, views: finals)
+        let eastFinalRound = stackView(axis: .horizontal, views: eastFinals)
+        let eastSemiFinalRound = stackView(axis: .horizontal, views: eastSemiFinals1, eastSemiFinals2)
+        let eastQuarterFinalRound = stackView(axis: .horizontal, views: eastQuarterFinals1, eastQuarterFinals2, eastQuarterFinals3, eastQuarterFinals4)
         
-        let westSemiFinals = roundStackView([
-            series[.westSemiFinals(series: 1)]!,
-            series[.westSemiFinals(series: 2)]!
-            ])
+        let bracket = stackView(axis: .vertical, views: westQuarterFinalRound, westSemiFinalRound, westFinalRound, finalRound, eastFinalRound, eastSemiFinalRound, eastQuarterFinalRound)
         
-        let westFinals = roundStackView([
-            series[.westFinals]!
-            ])
+        addSubview(bracket)
         
-        let finals = roundStackView([
-            series[.finals]!
-            ])
+        addBracketBetween(leadingView: westQuarterFinals1, trailingView: westQuarterFinals2, bottomView: westSemiFinals1, orientation: .top)
         
-        let eastFinals = roundStackView([
-            series[.eastFinals]!
-            ])
+        addBracketBetween(leadingView: westQuarterFinals3, trailingView: westQuarterFinals4, bottomView: westSemiFinals2, orientation: .top)
         
-        let eastSemiFinals = roundStackView([
-            series[.eastSemiFinals(series: 1)]!,
-            series[.eastSemiFinals(series: 2)]!
-            ])
+        addBracketBetween(leadingView: westSemiFinals1, trailingView: westSemiFinals2, bottomView: westFinals, orientation: .top)
         
-        let eastQuarterFinals = roundStackView([
-            series[.eastQuarterFinals(series: 1)]!,
-            series[.eastQuarterFinals(series: 2)]!,
-            series[.eastQuarterFinals(series: 3)]!,
-            series[.eastQuarterFinals(series: 4)]!
-            ])
+        addLineBetween(firstView: westFinals, secondView: finals)
         
-        let stackView = UIStackView(arrangedSubviews: [
-            westQuarterFinals,
-            westSemiFinals,
-            westFinals,
-            finals,
-            eastFinals,
-            eastSemiFinals,
-            eastQuarterFinals
-            ])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .center
-        
-        let lineView = BracketSectionView(orientation: .top)
-        let lineView2 = BracketSectionView(orientation: .top)
-        let lineView3 = BracketSectionView(orientation: .top)
-        let lineView4 = BracketSectionView(orientation: .bottom)
-        let lineView5 = BracketSectionView(orientation: .bottom)
-        let lineView6 = BracketSectionView(orientation: .bottom)
-        let lineView7 = UIView()
-        lineView7.translatesAutoresizingMaskIntoConstraints = false;
-        lineView7.backgroundColor = UIColor.white
-        let lineView8 = UIView()
-        lineView8.translatesAutoresizingMaskIntoConstraints = false;
-        lineView8.backgroundColor = UIColor.white
+        addLineBetween(firstView: finals, secondView: eastFinals)
 
-        addSubview(stackView)
-        addSubview(lineView)
-        addSubview(lineView2)
-        addSubview(lineView3)
-        addSubview(lineView4)
-        addSubview(lineView5)
-        addSubview(lineView6)
-        addSubview(lineView7)
-        addSubview(lineView8)
+        addBracketBetween(leadingView: eastSemiFinals1, trailingView: eastSemiFinals2, bottomView: eastFinals, orientation: .bottom)
         
-        lineView
-            .topAnchor
-            .constraint(equalTo: series[.westQuarterFinals(series: 1)]!.bottomAnchor)
-            .isActive = true
+        addBracketBetween(leadingView: eastQuarterFinals1, trailingView: eastQuarterFinals2, bottomView: eastSemiFinals1, orientation: .bottom)
         
-        lineView
-            .bottomAnchor
-            .constraint(equalTo: series[.westSemiFinals(series: 1)]!.topAnchor)
-            .isActive = true
-        
-        lineView
-            .leadingAnchor
-            .constraint(equalTo: series[.westQuarterFinals(series: 1)]!.centerXAnchor)
-            .isActive = true
+        addBracketBetween(leadingView: eastQuarterFinals3, trailingView: eastQuarterFinals4, bottomView: eastSemiFinals2, orientation: .bottom)
 
-        lineView
-            .trailingAnchor
-            .constraint(equalTo: series[.westQuarterFinals(series: 2)]!.centerXAnchor)
-            .isActive = true
+        westQuarterFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor).isActive = true
         
-        lineView2
-            .topAnchor
-            .constraint(equalTo: series[.westQuarterFinals(series: 3)]!.bottomAnchor)
-            .isActive = true
+        westSemiFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor, multiplier: 0.72).isActive = true
         
-        lineView2
-            .bottomAnchor
-            .constraint(equalTo: series[.westSemiFinals(series: 2)]!.topAnchor)
-            .isActive = true
+        eastSemiFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor, multiplier: 0.72).isActive = true
         
-        lineView2
-            .leadingAnchor
-            .constraint(equalTo: series[.westQuarterFinals(series: 3)]!.centerXAnchor)
-            .isActive = true
+        eastQuarterFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor).isActive = true
         
-        lineView2
-            .trailingAnchor
-            .constraint(equalTo: series[.westQuarterFinals(series: 4)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView3
-            .topAnchor
-            .constraint(equalTo: series[.westSemiFinals(series: 1)]!.bottomAnchor)
-            .isActive = true
-        
-        lineView3
-            .bottomAnchor
-            .constraint(equalTo: series[.westFinals]!.topAnchor)
-            .isActive = true
-        
-        lineView3
-            .leadingAnchor
-            .constraint(equalTo: series[.westSemiFinals(series: 1)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView3
-            .trailingAnchor
-            .constraint(equalTo: series[.westSemiFinals(series: 2)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView4
-            .topAnchor
-            .constraint(equalTo: series[.eastFinals]!.bottomAnchor)
-            .isActive = true
-        
-        lineView4
-            .bottomAnchor
-            .constraint(equalTo: series[.eastSemiFinals(series: 1)]!.topAnchor)
-            .isActive = true
-        
-        lineView4
-            .leadingAnchor
-            .constraint(equalTo: series[.eastSemiFinals(series: 1)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView4
-            .trailingAnchor
-            .constraint(equalTo: series[.eastSemiFinals(series: 2)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView5
-            .topAnchor
-            .constraint(equalTo: series[.eastSemiFinals(series: 1)]!.bottomAnchor)
-            .isActive = true
-        
-        lineView5
-            .bottomAnchor
-            .constraint(equalTo: series[.eastQuarterFinals(series: 1)]!.topAnchor)
-            .isActive = true
-        
-        lineView5
-            .leadingAnchor
-            .constraint(equalTo: series[.eastQuarterFinals(series: 1)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView5
-            .trailingAnchor
-            .constraint(equalTo: series[.eastQuarterFinals(series: 2)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView6
-            .topAnchor
-            .constraint(equalTo: series[.eastSemiFinals(series: 2)]!.bottomAnchor)
-            .isActive = true
-        
-        lineView6
-            .bottomAnchor
-            .constraint(equalTo: series[.eastQuarterFinals(series: 3)]!.topAnchor)
-            .isActive = true
-        
-        lineView6
-            .leadingAnchor
-            .constraint(equalTo: series[.eastQuarterFinals(series: 3)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView6
-            .trailingAnchor
-            .constraint(equalTo: series[.eastQuarterFinals(series: 4)]!.centerXAnchor)
-            .isActive = true
-        
-        lineView7
-            .topAnchor
-            .constraint(equalTo: series[.westFinals]!.bottomAnchor)
-            .isActive = true
-        
-        lineView7
-            .bottomAnchor
-            .constraint(equalTo: series[.finals]!.topAnchor)
-            .isActive = true
-        
-        lineView7
-            .centerXAnchor
-            .constraint(equalTo: series[.westFinals]!.centerXAnchor)
-            .isActive = true
-        
-        lineView7
-            .widthAnchor
-            .constraint(equalToConstant: 2.0)
-            .isActive = true
-        
-        lineView8
-            .topAnchor
-            .constraint(equalTo: series[.finals]!.bottomAnchor)
-            .isActive = true
-        
-        lineView8
-            .bottomAnchor
-            .constraint(equalTo: series[.eastFinals]!.topAnchor)
-            .isActive = true
-        
-        lineView8
-            .centerXAnchor
-            .constraint(equalTo: series[.eastFinals]!.centerXAnchor)
-            .isActive = true
-        
-        lineView8
-            .widthAnchor
-            .constraint(equalToConstant: 2.0)
-            .isActive = true
-        
-        westQuarterFinals
-            .widthAnchor
-            .constraint(equalTo: stackView.widthAnchor)
-            .isActive = true
-        
-        westSemiFinals
-            .widthAnchor
-            .constraint(equalTo: stackView.widthAnchor, multiplier: 0.72)
-            .isActive = true
-
-        eastSemiFinals
-            .widthAnchor
-            .constraint(equalTo: stackView.widthAnchor, multiplier: 0.72)
-            .isActive = true
-
-        eastQuarterFinals
-            .widthAnchor
-            .constraint(equalTo: stackView.widthAnchor)
-            .isActive = true
-
-        stackView
-            .topAnchor
-            .constraint(equalTo: topAnchor)
-            .isActive = true
-        
-        stackView
-            .leadingAnchor
-            .constraint(equalTo: leadingAnchor)
-            .isActive = true
-        
-        stackView
-            .trailingAnchor
-            .constraint(equalTo: trailingAnchor)
-            .isActive = true
-        
-        stackView
-            .bottomAnchor
-            .constraint(equalTo: bottomAnchor)
-            .isActive = true
+        bracket.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        bracket.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        bracket.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        bracket.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
+    func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {
+        
+        let stackView = UIStackView(arrangedSubviews: views)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = axis
+        stackView.distribution = .equalCentering
+        stackView.alignment = .center
+        
+        return stackView
+    }
+    
+    func addLineBetween(firstView: UIView, secondView: UIView) {
+        
+        let bracket = BracketLine()
+        
+        addSubview(bracket)
+        
+        bracket.topAnchor.constraint(equalTo: firstView.bottomAnchor).isActive = true
+        bracket.bottomAnchor.constraint(equalTo: secondView.topAnchor).isActive = true
+        bracket.leadingAnchor.constraint(equalTo: firstView.leadingAnchor).isActive = true
+        bracket.trailingAnchor.constraint(equalTo: firstView.trailingAnchor).isActive = true
+    }
+    
+    func addBracketBetween(leadingView: UIView, trailingView: UIView, bottomView: UIView, orientation: BracketOrientation) {
+        
+        let bracket = BracketLine(orientation: orientation)
+        
+        addSubview(bracket)
+        
+        switch orientation {
+        case .top:
+            bracket.topAnchor.constraint(equalTo: leadingView.bottomAnchor).isActive = true
+            bracket.bottomAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
+        case .bottom:
+            bracket.bottomAnchor.constraint(equalTo: leadingView.topAnchor).isActive = true
+            bracket.topAnchor.constraint(equalTo: bottomView.bottomAnchor).isActive = true
+        }
+        
+        bracket.leadingAnchor.constraint(equalTo: leadingView.centerXAnchor).isActive = true
+        bracket.trailingAnchor.constraint(equalTo: trailingView.centerXAnchor).isActive = true
+        bracket.centerXAnchor.constraint(equalTo: bottomView.centerXAnchor).isActive = true
     }
 }
