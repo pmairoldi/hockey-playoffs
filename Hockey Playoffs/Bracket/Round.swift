@@ -1,5 +1,5 @@
 //TODO: make series a type that can't be more than the actual values
-enum Bracket {
+enum Round {
     case westQuarterFinals(series: Int)
     case westSemiFinals(series: Int)
     case westFinals
@@ -9,7 +9,7 @@ enum Bracket {
     case eastQuarterFinals(series: Int)
 }
 
-extension Bracket: Hashable {
+extension Round: Hashable {
     var hashValue: Int {
         switch self {
         case .westQuarterFinals(let series):
@@ -29,7 +29,7 @@ extension Bracket: Hashable {
         }
     }
     
-    static func ==(lhs: Bracket, rhs: Bracket) -> Bool {
+    static func ==(lhs: Round, rhs: Round) -> Bool {
         switch (lhs, rhs) {
         case (.westQuarterFinals(let lhs), .westQuarterFinals(series: let rhs)):
             return lhs == rhs

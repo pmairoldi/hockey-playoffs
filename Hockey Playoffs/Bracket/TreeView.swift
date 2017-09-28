@@ -1,17 +1,21 @@
 import UIKit
 
 protocol TreeViewDelegate {
-    func didSelect(series: Bracket)
+    func didSelect(series: Round)
 }
 
 protocol TreeViewDataSource {
-    func itemAt(series: Bracket)
+    func itemAt(series: Round) -> Series
 }
 
 class TreeView: UIView {
     
     var delegate: TreeViewDelegate?
-    var dataSource: TreeViewDataSource?
+    var dataSource: TreeViewDataSource? {
+        didSet {
+            reloadData()
+        }
+    }
     
     fileprivate let westQuarterFinals1: SeriesView
     fileprivate let westQuarterFinals2: SeriesView
@@ -29,36 +33,56 @@ class TreeView: UIView {
     fileprivate let eastQuarterFinals3: SeriesView
     fileprivate let eastQuarterFinals4: SeriesView
     
+    fileprivate lazy var roundViews: [SeriesView] = {
+        return [
+            westQuarterFinals1,
+            westQuarterFinals2,
+            westQuarterFinals3,
+            westQuarterFinals4,
+            westSemiFinals1,
+            westSemiFinals2,
+            westFinals,
+            finals,
+            eastFinals,
+            eastSemiFinals1,
+            eastSemiFinals2,
+            eastQuarterFinals1,
+            eastQuarterFinals2,
+            eastQuarterFinals3,
+            eastQuarterFinals4
+        ]
+    }()
+    
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
     init() {
         
-        func seriesView() -> SeriesView {
+        func seriesView(_ round: Round) -> SeriesView {
             
-            let seriesView = SeriesView()
+            let seriesView = SeriesView(round: round)
             seriesView.widthAnchor.constraint(equalToConstant: 60).isActive = true
             seriesView.heightAnchor.constraint(equalToConstant: 55).isActive = true
             
             return seriesView
         }
-    
-        westQuarterFinals1 = seriesView()
-        westQuarterFinals2 = seriesView()
-        westQuarterFinals3 = seriesView()
-        westQuarterFinals4 = seriesView()
-        westSemiFinals1 = seriesView()
-        westSemiFinals2 = seriesView()
-        westFinals = seriesView()
-        finals = seriesView()
-        eastFinals = seriesView()
-        eastSemiFinals1 = seriesView()
-        eastSemiFinals2 = seriesView()
-        eastQuarterFinals1 = seriesView()
-        eastQuarterFinals2 = seriesView()
-        eastQuarterFinals3 = seriesView()
-        eastQuarterFinals4 = seriesView()
+        
+        westQuarterFinals1 = seriesView(.westQuarterFinals(series: 1))
+        westQuarterFinals2 = seriesView(.westQuarterFinals(series: 2))
+        westQuarterFinals3 = seriesView(.westQuarterFinals(series: 3))
+        westQuarterFinals4 = seriesView(.westQuarterFinals(series: 4))
+        westSemiFinals1 = seriesView(.westSemiFinals(series: 1))
+        westSemiFinals2 = seriesView(.westSemiFinals(series: 2))
+        westFinals = seriesView(.westFinals)
+        finals = seriesView(.finals)
+        eastFinals = seriesView(.eastFinals)
+        eastSemiFinals1 = seriesView(.eastSemiFinals(series: 1))
+        eastSemiFinals2 = seriesView(.eastSemiFinals(series: 2))
+        eastQuarterFinals1 = seriesView(.eastQuarterFinals(series: 1))
+        eastQuarterFinals2 = seriesView(.eastQuarterFinals(series: 2))
+        eastQuarterFinals3 = seriesView(.eastQuarterFinals(series: 3))
+        eastQuarterFinals4 = seriesView(.eastQuarterFinals(series: 4))
         
         super.init(frame: .zero)
         
@@ -83,13 +107,13 @@ class TreeView: UIView {
         addLineBetween(firstView: westFinals, secondView: finals)
         
         addLineBetween(firstView: finals, secondView: eastFinals)
-
+        
         addBracketBetween(leadingView: eastSemiFinals1, trailingView: eastSemiFinals2, bottomView: eastFinals, orientation: .bottom)
         
         addBracketBetween(leadingView: eastQuarterFinals1, trailingView: eastQuarterFinals2, bottomView: eastSemiFinals1, orientation: .bottom)
         
         addBracketBetween(leadingView: eastQuarterFinals3, trailingView: eastQuarterFinals4, bottomView: eastSemiFinals2, orientation: .bottom)
-
+        
         westQuarterFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor).isActive = true
         
         westSemiFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor, multiplier: 0.72).isActive = true
@@ -104,7 +128,17 @@ class TreeView: UIView {
         bracket.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
-    func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {
+    func reloadData() {
+        guard let dataSource = dataSource else {
+            return
+        }
+        
+        roundViews.forEach { (view) in
+            view.data = dataSource.itemAt(series: view.round)
+        }
+    }
+    
+    fileprivate func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {
         
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -115,7 +149,7 @@ class TreeView: UIView {
         return stackView
     }
     
-    func addLineBetween(firstView: UIView, secondView: UIView) {
+    fileprivate func addLineBetween(firstView: UIView, secondView: UIView) {
         
         let bracket = BracketLine()
         
@@ -127,7 +161,7 @@ class TreeView: UIView {
         bracket.trailingAnchor.constraint(equalTo: firstView.trailingAnchor).isActive = true
     }
     
-    func addBracketBetween(leadingView: UIView, trailingView: UIView, bottomView: UIView, orientation: BracketOrientation) {
+    fileprivate func addBracketBetween(leadingView: UIView, trailingView: UIView, bottomView: UIView, orientation: BracketOrientation) {
         
         let bracket = BracketLine(orientation: orientation)
         

@@ -1,28 +1,49 @@
 import UIKit
 
+enum BracketViewState {
+    case loading
+    case data
+}
+
 class BracketView: UIView {
     
+    fileprivate let scrollView: UIScrollView
+    
     let treeView: TreeView
+    let refreshView: UIRefreshControl
+    
+    var state: BracketViewState {
+        didSet {
+            switch state {
+            case .loading:
+                break
+            case .data:
+                treeView.reloadData()
+                refreshView.endRefreshing()
+            }
+        }
+    }
     
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
     }
     
     init() {
-        treeView = TreeView()
-        treeView.translatesAutoresizingMaskIntoConstraints = false
         
-        let scrollView = UIScrollView()
+        state = .data
+        
+        scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceVertical = true
         
-        let refreshView = UIRefreshControl()
+        refreshView = UIRefreshControl()
         refreshView.tintColor = UIColor.white
+        
+        treeView = TreeView()
+        treeView.translatesAutoresizingMaskIntoConstraints = false
         
         super.init(frame: .zero)
         
-        refreshView.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
-
         backgroundColor = UIColor.darkGray
         treeView.backgroundColor = backgroundColor
         
@@ -34,16 +55,10 @@ class BracketView: UIView {
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-    
+        
         treeView.leadingAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.leadingAnchor).isActive = true
         treeView.trailingAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.trailingAnchor).isActive = true
         treeView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         treeView.heightAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.heightAnchor).isActive = true
-    }
-    
-    @objc fileprivate func refresh(sender: UIRefreshControl) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
-            sender.endRefreshing()
-        }
     }
 }

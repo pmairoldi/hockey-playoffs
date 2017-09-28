@@ -15,6 +15,7 @@ class BracketLine: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         translatesAutoresizingMaskIntoConstraints = false
         
         let view = lineView()
@@ -29,6 +30,7 @@ class BracketLine: UIView {
     
     init(orientation: BracketOrientation) {
         super.init(frame: .zero)
+        
         translatesAutoresizingMaskIntoConstraints = false
         
         let topLeading = lineView()

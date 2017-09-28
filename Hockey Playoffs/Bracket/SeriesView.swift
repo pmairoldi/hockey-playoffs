@@ -2,37 +2,44 @@ import UIKit
 
 class SeriesView: UIView {
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
+    fileprivate let top: TeamView
+    fileprivate let bottom: TeamView
+    
+    let round: Round
+    
+    var data: Series? {
+        didSet {
+            top.data = data?.top
+            bottom.data = data?.bottom
+        }
     }
     
-    init() {
+    init(round: Round) {
+        
+        self.round = round
+    
+        top = TeamView(position: .top)
+        bottom = TeamView(position: .bottom)
+        
+        let seperater = UIView()
+        seperater.translatesAutoresizingMaskIntoConstraints = false
+        seperater.backgroundColor = UIColor.white
+        
         super.init(frame: .zero)
         
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.darkGray
         clipsToBounds = true
         
-        layer.cornerRadius = 8.0
-        layer.borderWidth = 2.0
+        layer.cornerRadius = 10.0
+        layer.borderWidth = 1.5
         layer.borderColor = UIColor.white.cgColor
-        
-        let top = UIView()
-        top.translatesAutoresizingMaskIntoConstraints = false
-        top.backgroundColor = UIColor.red
-        
-        let bottom = UIView()
-        bottom.translatesAutoresizingMaskIntoConstraints = false
-        bottom.backgroundColor = UIColor.blue
-        
-        let seperater = UIView()
-        seperater.translatesAutoresizingMaskIntoConstraints = false
-        seperater.backgroundColor = UIColor.white
         
         addSubview(top)
         addSubview(seperater)
         addSubview(bottom)
 
+        //TODO: move to stackview?
         top.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         top.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         top.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -47,5 +54,9 @@ class SeriesView: UIView {
         bottom.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         bottom.topAnchor.constraint(equalTo: seperater.bottomAnchor).isActive = true
         bottom.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
