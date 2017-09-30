@@ -30,7 +30,7 @@ end
 
 def schemes
   {
-    ios: 'HockeyPlayoffs'
+    ios: 'HockeyPlayoffs-CI'
   }
 end
 
