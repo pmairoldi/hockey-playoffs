@@ -3,13 +3,13 @@ import RealmSwift
 import UIKit
 
 struct Store {
-    
+
     fileprivate let api: API
-    
+
     init(api: API = API()) {
         self.api = api
     }
-    
+
     func fetchBracket(completion: @escaping () -> Void) {
         api.fetchBracket { (response) in
             guard let response = response else {
@@ -18,9 +18,9 @@ struct Store {
                 }
                 return
             }
-        
+
             let realm = try! Realm()
-            
+
             try! realm.write {
                 realm.deleteAll()
                 realm.add(response.events)
@@ -28,17 +28,17 @@ struct Store {
                 realm.add(response.periods)
                 realm.add(response.teams)
             }
-            
+
             DispatchQueue.main.async {
                 completion()
             }
         }
     }
-    
+
     func fetchSeries(round: Round) -> Series {
-        
+
         let realm = try! Realm()
-        
+
         let predicate: String
         switch round {
         case .westQuarterFinals(let series):
@@ -63,13 +63,13 @@ struct Store {
             predicate = "round = 1 AND seed = \(series) AND conference = 'e'"
             break
         }
-        
+
         let teams = realm.objects(Team.self).filter(predicate)
-        
+
         guard let team = teams.first else {
             return Series(top: nil, bottom: nil)
         }
-        
+
         let topTeam = Teams(rawValue: team.homeID)
         let bottomTeam = Teams(rawValue: team.awayID)
 

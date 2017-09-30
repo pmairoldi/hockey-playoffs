@@ -12,7 +12,7 @@ class Event: Object, Codable {
     @objc dynamic var time: String = ""
     @objc dynamic var type: String = "" //TODO: make enum
     @objc dynamic var videoLink: String = ""
-    
+
     enum CodingKeys: String, CodingKey {
         case details = "description"
         case eventID

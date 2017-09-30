@@ -28,8 +28,8 @@ extension Round: Hashable {
             return 7.hashValue ^ series.hashValue
         }
     }
-    
-    static func ==(lhs: Round, rhs: Round) -> Bool {
+
+    static func == (lhs: Round, rhs: Round) -> Bool {
         switch (lhs, rhs) {
         case (.westQuarterFinals(let lhs), .westQuarterFinals(series: let rhs)):
             return lhs == rhs

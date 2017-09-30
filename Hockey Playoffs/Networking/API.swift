@@ -1,7 +1,7 @@
 import Foundation
 
 struct API {
-    
+
     func fetchBracket(completion: @escaping (Response?) -> Void) {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
             let session = URLSession.shared
@@ -10,22 +10,22 @@ struct API {
                     completion(nil)
                     return
                 }
-                
+
                 guard let data = data else {
                     completion(nil)
                     return
                 }
-                
+
                 do {
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(Response.self, from: data)
-                    
+
                     completion(response)
                 } catch {
                     completion(nil)
                 }
             }
-            
+
             task.resume()
         }
     }

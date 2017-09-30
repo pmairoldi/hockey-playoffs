@@ -9,7 +9,7 @@ struct EventObject: Codable {
     let time: String
     let type: String  //TODO: make enum
     let videoLink: String
-    
+
     enum CodingKeys: String, CodingKey {
         case details = "description"
         case eventID

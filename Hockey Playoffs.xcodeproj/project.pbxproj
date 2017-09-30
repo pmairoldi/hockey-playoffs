@@ -219,6 +219,7 @@
 			buildConfigurationList = 06D871331F71E64900B0111C /* Build configuration list for PBXNativeTarget "Hockey Playoffs" */;
 			buildPhases = (
 				0621A5351F7F437000FF78C2 /* Setup Env.swift */,
+				0621A5381F7F62FB00FF78C2 /* Swift Lint */,
 				06D8711D1F71E64900B0111C /* Sources */,
 				06D8711E1F71E64900B0111C /* Frameworks */,
 				06D8711F1F71E64900B0111C /* Resources */,
@@ -296,6 +297,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "exec \"${SRCROOT}/Scripts/generate-env-swift.sh\" \"${SRCROOT}/Env.swift\"";
+		};
+		0621A5381F7F62FB00FF78C2 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		06E75F2B1F7C85BE00540DE3 /* Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

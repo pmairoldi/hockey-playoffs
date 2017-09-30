@@ -1,125 +1,125 @@
 import UIKit
 
 enum Teams: String {
-    case CarolineHurricanes = "car"
-    case ColumbusBlueJackets = "cbj"
-    case NewJerseyDevils = "njd"
-    case NewYorkIslanders = "nyi"
-    case NewYorkRangers = "nyr"
-    case PhiladelphiaFlyers = "phi"
-    case PittsburghPenguins = "pit"
-    case WashingtonCaptials = "wsh"
-    case BostonBruins = "bos"
-    case BuffaloSabres = "buf"
-    case DetroitRedWings = "det"
-    case FloridaPanthers = "fla"
-    case MontrealCanadiens = "mtl"
-    case OttawaSenators = "ott"
-    case TampaBayLightning = "tbl"
-    case TorontoMapleLeafs = "tor"
-    case ChicagoBlackhawks = "chi"
-    case ColoradoAvalanche = "col"
-    case DallasStars = "dal"
-    case MinnesotaWild = "min"
-    case NashvillePredators = "nsh"
-    case StLouisBlues = "stl"
-    case WinnipegJets = "wpg"
-    case AnaheimDucks = "ana"
-    case ArizonaCoyotes = "ari"
-    case CalgaryFlames = "cgy"
-    case EdmontonOilers = "edm"
-    case LosAngelesKings = "lak"
-    case SanJoseSharks = "sjs"
-    case VancouverCanucks = "van"
-    case VegasGoldenKnights = "vgk"
-    
+    case carolineHurricanes = "car"
+    case columbusBlueJackets = "cbj"
+    case newJerseyDevils = "njd"
+    case newYorkIslanders = "nyi"
+    case newYorkRangers = "nyr"
+    case philadelphiaFlyers = "phi"
+    case pittsburghPenguins = "pit"
+    case washingtonCaptials = "wsh"
+    case bostonBruins = "bos"
+    case buffaloSabres = "buf"
+    case detroitRedWings = "det"
+    case floridaPanthers = "fla"
+    case montrealCanadiens = "mtl"
+    case ottawaSenators = "ott"
+    case tampaBayLightning = "tbl"
+    case torontoMapleLeafs = "tor"
+    case chicagoBlackhawks = "chi"
+    case coloradoAvalanche = "col"
+    case dallasStars = "dal"
+    case minnesotaWild = "min"
+    case nashvillePredators = "nsh"
+    case stLouisBlues = "stl"
+    case winnipegJets = "wpg"
+    case anaheimDucks = "ana"
+    case arizonaCoyotes = "ari"
+    case calgaryFlames = "cgy"
+    case edmontonOilers = "edm"
+    case losAngelesKings = "lak"
+    case sanJoseSharks = "sjs"
+    case vancouverCanucks = "van"
+    case vegasGoldenKnights = "vgk"
+
     //Old Teams
-    case AtlantaTrashers = "atl"
-    case PhoenixCoyotes = "phx"
+    case atlantaTrashers = "atl"
+    case phoenixCoyotes = "phx"
 }
 
 extension Teams {
-    
+
     var color: UIColor {
         switch self {
-        case .CarolineHurricanes:
+        case .carolineHurricanes:
             return UIColor(red: 159, green: 19, blue: 39)
-        case .ColumbusBlueJackets:
+        case .columbusBlueJackets:
             return UIColor(red: 0, green: 26, blue: 57)
-        case .NewJerseyDevils:
+        case .newJerseyDevils:
             return UIColor(red: 159, green: 10, blue: 39)
-        case .NewYorkIslanders:
+        case .newYorkIslanders:
             return UIColor(red: 201, green: 63, blue: 16)
-        case .NewYorkRangers:
+        case .newYorkRangers:
             return UIColor(red: 0, green: 46, blue: 133)
-        case .PhiladelphiaFlyers:
+        case .philadelphiaFlyers:
             return UIColor(red: 199, green: 56, blue: 22)
-        case .PittsburghPenguins:
+        case .pittsburghPenguins:
             return UIColor(red: 167, green: 161, blue: 126)
-        case .WashingtonCaptials:
+        case .washingtonCaptials:
             return UIColor(red: 158, green: 10, blue: 38)
-        case .BostonBruins:
+        case .bostonBruins:
             return UIColor(red: 205, green: 146, blue: 14)
-        case .BuffaloSabres:
+        case .buffaloSabres:
             return UIColor(red: 0, green: 26, blue: 57)
-        case .DetroitRedWings:
+        case .detroitRedWings:
             return UIColor(red: 159, green: 10, blue: 39)
-        case .FloridaPanthers:
+        case .floridaPanthers:
             return UIColor(red: 0, green: 26, blue: 57)
-        case .MontrealCanadiens:
+        case .montrealCanadiens:
             return UIColor(red: 134, green: 20, blue: 38)
-        case .OttawaSenators:
+        case .ottawaSenators:
             return UIColor(red: 159, green: 10, blue: 39)
-        case .TampaBayLightning:
+        case .tampaBayLightning:
             return UIColor(red: 0, green: 30, blue: 80)
-        case .TorontoMapleLeafs:
+        case .torontoMapleLeafs:
             return UIColor(red: 0, green: 30, blue: 80)
-        case .ChicagoBlackhawks:
+        case .chicagoBlackhawks:
             return UIColor(red: 159, green: 10, blue: 39)
-        case .ColoradoAvalanche:
+        case .coloradoAvalanche:
             return UIColor(red: 80, green: 31, blue: 49)
-        case .DallasStars:
+        case .dallasStars:
             return UIColor(red: 2, green: 57, blue: 39)
-        case .MinnesotaWild:
+        case .minnesotaWild:
             return UIColor(red: 2, green: 57, blue: 39)
-        case .NashvillePredators:
+        case .nashvillePredators:
             return UIColor(red: 205, green: 146, blue: 14)
-        case .StLouisBlues:
+        case .stLouisBlues:
             return UIColor(red: 0, green: 41, blue: 113)
-        case .WinnipegJets:
+        case .winnipegJets:
             return UIColor(red: 0, green: 30, blue: 80)
-        case .AnaheimDucks:
+        case .anaheimDucks:
             return UIColor(red: 201, green: 63, blue: 16)
-        case .ArizonaCoyotes:
+        case .arizonaCoyotes:
             return UIColor(red: 104, green: 29, blue: 41)
-        case .CalgaryFlames:
+        case .calgaryFlames:
             return UIColor(red: 159, green: 19, blue: 39)
-        case .EdmontonOilers:
+        case .edmontonOilers:
             return UIColor(red: 0, green: 26, blue: 57)
-        case .LosAngelesKings:
+        case .losAngelesKings:
             return UIColor(red: 27, green: 6, blue: 85)
-        case .SanJoseSharks:
+        case .sanJoseSharks:
             return UIColor(red: 0, green: 83, blue: 96)
-        case .VancouverCanucks:
+        case .vancouverCanucks:
             return UIColor(red: 0, green: 106, blue: 53)
-        case .VegasGoldenKnights:
+        case .vegasGoldenKnights:
             return UIColor(red: 128, green: 114, blue: 79)
-            
+
         //Old Teams
-        case .AtlantaTrashers:
+        case .atlantaTrashers:
             return UIColor(red: 0, green: 30, blue: 80)
-        case .PhoenixCoyotes:
+        case .phoenixCoyotes:
             return UIColor(red: 104, green: 29, blue: 41)
         }
     }
-    
+
     var name: String {
         switch self {
         default:
             return "tes"
         }
     }
-    
+
     var city: String {
         switch self {
         default:
