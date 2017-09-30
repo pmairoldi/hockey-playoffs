@@ -4,39 +4,34 @@ import UIKit
 
 struct Store {
     
-    fileprivate static let endpoint = ""
+    fileprivate let api: API
     
-    init() {
-        
+    init(api: API = API()) {
+        self.api = api
     }
     
     func fetchBracket(completion: @escaping () -> Void) {
-        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
-            let session = URLSession.shared
-            let task = session.dataTask(with: URL(string: Store.endpoint)!) { (data, response, error) in
-                guard let data = data else {
-                    return
-                }
-                
-                let decoder = JSONDecoder()
-                let response = try! decoder.decode(Response.self, from: data)
-                
-                let realm = try! Realm()
-                
-                try! realm.write {
-                    realm.deleteAll()
-                    realm.add(response.events)
-                    realm.add(response.games)
-                    realm.add(response.periods)
-                    realm.add(response.teams)
-                }
-                
+        api.fetchBracket { (response) in
+            guard let response = response else {
                 DispatchQueue.main.async {
                     completion()
                 }
+                return
+            }
+        
+            let realm = try! Realm()
+            
+            try! realm.write {
+                realm.deleteAll()
+                realm.add(response.events)
+                realm.add(response.games)
+                realm.add(response.periods)
+                realm.add(response.teams)
             }
             
-            task.resume()
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
     

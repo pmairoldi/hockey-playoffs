@@ -8,8 +8,4 @@ class Team: Object, Codable {
     @objc dynamic var round: Int = 0 //TODO: make enum of rounds
     @objc dynamic var seasonID: String = ""
     @objc dynamic var seed: Int = 0 //TODO: make enum of all possible seeds
-    
-    override static func indexedProperties() -> [String] {
-        return ["seasonID", "conference", "round", "seed"]
-    }
 }
