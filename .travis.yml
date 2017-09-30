@@ -7,13 +7,15 @@ env:
   global:
     - LANG=en_US.UTF-8
 cache:
-  - bundler
+  bundler: true
+  directories:
+    - Carthage
 before_install:
   - brew update
   - brew install swiftlint
   - brew upgrade carthage || true
   - carthage version
-  - carthage bootstrap --platform $PLATFORM
+  - carthage bootstrap --verbose --platform $PLATFORM --cache-builds
   - rake env[http://localhost]
 script:
   - rake test $PLATFORM
