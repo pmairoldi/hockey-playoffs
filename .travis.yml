@@ -19,5 +19,6 @@ before_install:
 script:
   - rake test $PLATFORM
 after_success:
+  - bundle exec danger
   - bash <(curl -s https://codecov.io/bash)
   
