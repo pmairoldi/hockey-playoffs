@@ -289,14 +289,13 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)//Env.swift",
 			);
 			name = "Setup Env.swift";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if ! [ -e $SCRIPT_INPUT_FILE_0 ]\nthen\ncat > $SCRIPT_INPUT_FILE_0 << EOF\nstruct Env {\n    static let host = <#T##API Host#>\n}\nEOF\necho \"warning: Created Env.swift file. Update it to include API Host and build again.\"\nfi";
+			shellScript = "exec \"${SRCROOT}/Scripts/generate-env-swift.sh\" \"${SRCROOT}/Env.swift\"";
 		};
 		06E75F2B1F7C85BE00540DE3 /* Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
