@@ -10,4 +10,4 @@ opt_int_rules:
   - force_unwrapping
 
 included:
-  - Hockey Playoffs
+  - HockeyPlayoffs

@@ -15,7 +15,7 @@ def safe_sh(command)
 end
 
 def project
-  'Hockey Playoffs.xcodeproj'
+  'HockeyPlayoffs.xcodeproj'
 end
 
 def configuration
@@ -30,7 +30,7 @@ end
 
 def schemes
   {
-    ios: 'Hockey Playoffs'
+    ios: 'HockeyPlayoffs'
   }
 end
 
