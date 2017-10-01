@@ -83,7 +83,7 @@ task :env, [:host] do |_, args|
   script = ['Scripts/generate-env-swift.sh', 'Env.swift']
   script.push(args[:host]) if args.key?(:host)
 
-  safe_sh script.join(' ')
+  sh script.join(' ')
 end
 
 desc 'Build App.'

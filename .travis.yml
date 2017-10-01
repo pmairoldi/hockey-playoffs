@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode9
 matrix:
   include:
-    - env: PLATFORM="iOS"
+    - env: PLATFORM="ios"
 env:
   global:
     - LANG=en_US.UTF-8
@@ -18,7 +18,7 @@ before_install:
   - carthage bootstrap --verbose --platform $PLATFORM --cache-builds
   - rake env[http://localhost]
 script:
-  - rake test $PLATFORM
+  - rake test:$PLATFORM
 after_success:
   - bundle exec danger
   - bash <(curl -s https://codecov.io/bash)
