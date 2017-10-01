@@ -4,14 +4,16 @@ import RealmSwift
 struct Store {
 
     fileprivate let api: API
+    fileprivate let realm: Realm
 
     init(api: API = API()) {
         self.api = api
+        self.realm = try! Realm()
     }
 
     func update(completion: @escaping () -> Void) {
-        api.fetchBracket { (response) in
-            guard let response = response else {
+        api.fetchBracket { (bracket) in
+            guard let bracket = bracket else {
                 DispatchQueue.main.async {
                     completion()
                 }
@@ -22,10 +24,7 @@ struct Store {
 
             try! realm.write {
                 realm.deleteAll()
-                realm.add(response.events)
-                realm.add(response.games)
-                realm.add(response.periods)
-                realm.add(response.series)
+                realm.add(bracket)
             }
 
             DispatchQueue.main.async {
@@ -35,8 +34,6 @@ struct Store {
     }
 
     func fetchSeries(round: Round) -> Matchup {
-
-        let realm = try! Realm()
 
         let predicate: String
         switch round {
@@ -69,15 +66,6 @@ struct Store {
             return Matchup()
         }
 
-        matchup.games = fetchGames(matchup: matchup)
-        
         return matchup
-    }
-
-    func fetchGames(matchup: Matchup) -> [Game] {
-
-        let realm = try! Realm()
-
-        return realm.objects(Game.self).filter("gameID BEGINSWITH %@", matchup.id).map { x in x }
     }
 }

@@ -9,7 +9,7 @@ class Matchup: Object, Codable {
     @objc private dynamic var roundId: Int = 0
     @objc private dynamic var seedId: Int = 0
 
-    var games: [Game] = []
+    let games: List<Game> = List<Game>()
 
     var id: String {
         return "\(seasonId)0\(roundId)\(round.seed)"
@@ -47,14 +47,9 @@ class Matchup: Object, Codable {
             return 0
         }
 
-        let teamHasWonGame: (Game) -> Bool = { game in
-            let awayWin = game.awayID == teamId && game.awayScore > game.homeScore
-            let homeWin = game.homeID == teamId && game.homeScore > game.awayScore
+        let predicate = "(awayId = '\(teamId)' AND awayScore > homeScore) OR (homeId = '\(teamId)' AND homeScore > awayScore)"
 
-            return awayWin || homeWin
-        }
-
-        return games.filter(teamHasWonGame).count
+        return games.filter(predicate).count
     }
 
     enum CodingKeys: String, CodingKey {
