@@ -1,22 +1,29 @@
 import Foundation
 import RealmSwift
 
+struct StoreActions {
+    static let updated = Notification.Name(rawValue: "data_updated")
+}
+
 struct Store {
 
     fileprivate let api: API
-    fileprivate let realm: Realm
 
     init(api: API = API()) {
         self.api = api
-        self.realm = try! Realm()
+        update()
     }
 
-    func update(completion: @escaping () -> Void) {
+    func update() {
+
+        let completion = {
+            let notification = Notification(name: StoreActions.updated)
+            NotificationCenter.default.post(notification)
+        }
+
         api.fetchBracket { (bracket) in
             guard let bracket = bracket else {
-                DispatchQueue.main.async {
-                    completion()
-                }
+                completion()
                 return
             }
 
@@ -27,13 +34,13 @@ struct Store {
                 realm.add(bracket)
             }
 
-            DispatchQueue.main.async {
-                completion()
-            }
+            completion()
         }
     }
 
     func fetchSeries(round: Round) -> Matchup {
+
+        let realm = try! Realm()
 
         let predicate: String
         switch round {

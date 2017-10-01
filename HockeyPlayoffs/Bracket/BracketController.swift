@@ -23,6 +23,8 @@ class BracketController: UIViewController {
         bracketView.refreshView.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
 
         bracketView.treeView.dataSource = dataSource
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: StoreActions.updated, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +39,16 @@ class BracketController: UIViewController {
         return .lightContent
     }
 
+    @objc func updateData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.bracketView.state = .data
+        }
+    }
+
     @objc fileprivate func refresh() {
 
         bracketView.state = .loading
 
-        store.update { [weak self] in
-            self?.bracketView.state = .data
-        }
+        store.update()
     }
 }

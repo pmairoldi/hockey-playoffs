@@ -1,4 +1,5 @@
 //TODO: make series a type that can't be more than the actual values
+
 enum Round {
     case westQuarterFinals(series: Int)
     case westSemiFinals(series: Int)
