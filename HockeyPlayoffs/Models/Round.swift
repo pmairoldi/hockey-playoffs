@@ -7,6 +7,46 @@ enum Round {
     case eastFinals
     case eastSemiFinals(series: Int)
     case eastQuarterFinals(series: Int)
+
+    init(conference: Conference?, round: Int, series: Int) {
+        switch (conference, round, series) {
+        case (.west?, 1, 1...4):
+            self = .westQuarterFinals(series: series)
+        case (.west?, 2, 1...2):
+            self = .westSemiFinals(series: series)
+        case (.west?, 3, _):
+            self = .westFinals
+        case (_, 4, _):
+            self = .finals
+        case (.east?, 3, _):
+            self = .eastFinals
+        case (.east?, 2, 1...2):
+            self = .eastSemiFinals(series: series)
+        case (.east?, 1, 1...4):
+            self = .eastQuarterFinals(series: series)
+        default:
+            fatalError("round data is invalid")
+        }
+    }
+
+    var seed: Int {
+        switch self {
+        case .westQuarterFinals(let series):
+            return series + 4
+        case .westSemiFinals(let series):
+            return series + 2
+        case .westFinals:
+            return 2
+        case .finals:
+            return 1
+        case .eastFinals:
+            return 1
+        case .eastSemiFinals(let series):
+            return series
+        case .eastQuarterFinals(let series):
+            return series
+        }
+    }
 }
 
 extension Round: Hashable {

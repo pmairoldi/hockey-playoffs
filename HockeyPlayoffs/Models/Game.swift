@@ -8,7 +8,7 @@ class Game: Object, Codable {
     @objc dynamic var awayID: String = ""
     @objc dynamic var awayScore: Int = 0
     @objc dynamic var date: String = ""
-    @objc dynamic var gameID: Int = 0
+    @objc dynamic var gameID: String = ""
     @objc dynamic var homeCondense: String = ""
     @objc dynamic var homeHighlight: String = ""
     @objc dynamic var homeID: String = ""

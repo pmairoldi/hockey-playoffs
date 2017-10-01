@@ -5,7 +5,7 @@ protocol TreeViewDelegate: class {
 }
 
 protocol TreeViewDataSource: class {
-    func itemAt(series: Round) -> Series
+    func itemAt(series: Round) -> Matchup
 }
 
 class TreeView: UIView {

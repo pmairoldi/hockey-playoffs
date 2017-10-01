@@ -1,6 +1,5 @@
 import Foundation
 import RealmSwift
-import UIKit
 
 struct Store {
 
@@ -10,7 +9,7 @@ struct Store {
         self.api = api
     }
 
-    func fetchBracket(completion: @escaping () -> Void) {
+    func update(completion: @escaping () -> Void) {
         api.fetchBracket { (response) in
             guard let response = response else {
                 DispatchQueue.main.async {
@@ -26,7 +25,7 @@ struct Store {
                 realm.add(response.events)
                 realm.add(response.games)
                 realm.add(response.periods)
-                realm.add(response.teams)
+                realm.add(response.series)
             }
 
             DispatchQueue.main.async {
@@ -35,44 +34,50 @@ struct Store {
         }
     }
 
-    func fetchSeries(round: Round) -> Series {
+    func fetchSeries(round: Round) -> Matchup {
 
         let realm = try! Realm()
 
         let predicate: String
         switch round {
         case .westQuarterFinals(let series):
-            predicate = "round = 1 AND seed = \(series) AND conference = 'w'"
+            predicate = "roundId = 1 AND seedId = \(series) AND conferenceId = 'w'"
             break
         case .westSemiFinals(let series):
-            predicate = "round = 2 AND seed = \(series) AND conference = 'w'"
+            predicate = "roundId = 2 AND seedId = \(series) AND conferenceId = 'w'"
             break
         case .westFinals:
-            predicate = "round = 3 AND conference = 'w'"
+            predicate = "roundId = 3 AND conferenceId = 'w'"
             break
         case .finals:
-            predicate = "round = 4"
+            predicate = "roundId = 4"
             break
         case .eastFinals:
-            predicate = "round = 3 AND conference = 'e'"
+            predicate = "roundId = 3 AND conferenceId = 'e'"
             break
         case .eastSemiFinals(let series):
-            predicate = "round = 2 AND seed = \(series) AND conference = 'e'"
+            predicate = "roundId = 2 AND seedId = \(series) AND conferenceId = 'e'"
             break
         case .eastQuarterFinals(let series):
-            predicate = "round = 1 AND seed = \(series) AND conference = 'e'"
+            predicate = "roundId = 1 AND seedId = \(series) AND conferenceId = 'e'"
             break
         }
 
-        let teams = realm.objects(Team.self).filter(predicate)
+        let series = realm.objects(Matchup.self).filter(predicate)
 
-        guard let team = teams.first else {
-            return Series(top: nil, bottom: nil)
+        guard let matchup = series.first else {
+            return Matchup()
         }
 
-        let topTeam = Teams(rawValue: team.homeID)
-        let bottomTeam = Teams(rawValue: team.awayID)
+        matchup.games = fetchGames(matchup: matchup)
+        
+        return matchup
+    }
 
-        return Series(top: topTeam, bottom: bottomTeam)
+    func fetchGames(matchup: Matchup) -> [Game] {
+
+        let realm = try! Realm()
+
+        return realm.objects(Game.self).filter("gameID BEGINSWITH %@", matchup.id).map { x in x }
     }
 }

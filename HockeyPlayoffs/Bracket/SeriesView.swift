@@ -7,10 +7,10 @@ class SeriesView: UIView {
 
     let round: Round
 
-    var data: Series? {
+    var data: Matchup? {
         didSet {
-            top.data = data?.top
-            bottom.data = data?.bottom
+            top.data = data?.topTeam
+            bottom.data = data?.bottomTeam
         }
     }
 

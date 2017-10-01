@@ -3,6 +3,7 @@ import UIKit
 class BracketController: UIViewController {
 
     let store = Store()
+    var dataSource: BracketDataSource?
 
     var bracketView: BracketView {
         return view as! BracketView
@@ -17,8 +18,11 @@ class BracketController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataSource = BracketDataSource(store: store)
+
         bracketView.refreshView.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
-        bracketView.treeView.dataSource = BracketDataSource(store: store)
+
+        bracketView.treeView.dataSource = dataSource
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +41,7 @@ class BracketController: UIViewController {
 
         bracketView.state = .loading
 
-        store.fetchBracket { [weak self] in
+        store.update { [weak self] in
             self?.bracketView.state = .data
         }
     }
