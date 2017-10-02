@@ -16,9 +16,9 @@ before_install:
   - brew upgrade carthage || true
   - carthage version
   - carthage bootstrap --verbose --platform $PLATFORM --cache-builds
-  - rake env[http://localhost]
 script:
-  - rake test:$PLATFORM
+  - bundle exec rake env[http://localhost]
+  - bundle exec rake test:$PLATFORM
 after_success:
   - bundle exec danger
   - bash <(curl -s https://codecov.io/bash)
