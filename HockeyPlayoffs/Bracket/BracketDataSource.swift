@@ -1,5 +1,3 @@
-import UIKit
-
 class BracketDataSource: TreeViewDataSource {
 
     fileprivate let store: Store

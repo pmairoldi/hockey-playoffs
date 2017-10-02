@@ -21,6 +21,7 @@
 		06D871271F71E64900B0111C /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D871261F71E64900B0111C /* AppController.swift */; };
 		06D8712C1F71E64900B0111C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06D8712B1F71E64900B0111C /* Assets.xcassets */; };
 		06D8D2D11F71F7DB00F82A49 /* BracketCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */; };
+		06DD09561F81D7B0008E9824 /* MatchupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DD09551F81D7B0008E9824 /* MatchupController.swift */; };
 		06E75F281F7C81A700540DE3 /* BracketDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F271F7C81A700540DE3 /* BracketDataSource.swift */; };
 		06E75F2A1F7C822100540DE3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F291F7C822100540DE3 /* Store.swift */; };
 		06E75F2E1F7C861500540DE3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F2D1F7C861500540DE3 /* Event.swift */; };
@@ -83,6 +84,7 @@
 		06D871261F71E64900B0111C /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		06D8712B1F71E64900B0111C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketCoordinator.swift; sourceTree = "<group>"; };
+		06DD09551F81D7B0008E9824 /* MatchupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupController.swift; sourceTree = "<group>"; };
 		06E75F271F7C81A700540DE3 /* BracketDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketDataSource.swift; sourceTree = "<group>"; };
 		06E75F291F7C822100540DE3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		06E75F2D1F7C861500540DE3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -181,7 +183,9 @@
 			children = (
 				06D871241F71E64900B0111C /* AppDelegate.swift */,
 				06D871261F71E64900B0111C /* AppController.swift */,
+				06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */,
 				06D8D2CE1F71F7B700F82A49 /* Bracket */,
+				06DD09541F81D76B008E9824 /* Matchup */,
 				0604BCD01F7F30FF00BF64FC /* Models */,
 				0604BCD11F7F33BD00BF64FC /* Networking */,
 				06CEB20A1F71F97F00723709 /* Resources */,
@@ -194,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				06CEB20D1F71FF7700723709 /* BracketController.swift */,
-				06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */,
 				06E75F271F7C81A700540DE3 /* BracketDataSource.swift */,
 				06861DA21F760FFC00E8C020 /* BracketLine.swift */,
 				0669EA341F76C52400516670 /* BracketView.swift */,
@@ -203,6 +206,14 @@
 				06861D9B1F720F1B00E8C020 /* TreeView.swift */,
 			);
 			path = Bracket;
+			sourceTree = "<group>";
+		};
+		06DD09541F81D76B008E9824 /* Matchup */ = {
+			isa = PBXGroup;
+			children = (
+				06DD09551F81D7B0008E9824 /* MatchupController.swift */,
+			);
+			path = Matchup;
 			sourceTree = "<group>";
 		};
 		06E75F2C1F7C860500540DE3 /* Store */ = {
@@ -416,6 +427,7 @@
 				06D8D2D11F71F7DB00F82A49 /* BracketCoordinator.swift in Sources */,
 				06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */,
 				06D871251F71E64900B0111C /* AppDelegate.swift in Sources */,
+				06DD09561F81D7B0008E9824 /* MatchupController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,11 +1,16 @@
 import UIKit
 
-class BracketController: UIViewController {
+class BracketController: UIViewController, TreeViewDelegate {
 
-    let store = Store()
+    let store: Store
     var dataSource: BracketDataSource?
 
-    var bracketView: BracketView {
+    init(store: Store) {
+        self.store = store
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    var contentView: BracketView {
         return view as! BracketView
     }
 
@@ -20,9 +25,10 @@ class BracketController: UIViewController {
 
         dataSource = BracketDataSource(store: store)
 
-        bracketView.refreshView.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        contentView.refreshView.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
 
-        bracketView.treeView.dataSource = dataSource
+        contentView.treeView.dataSource = dataSource
+        contentView.treeView.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(updateData), name: StoreActions.updated, object: nil)
     }
@@ -39,16 +45,27 @@ class BracketController: UIViewController {
         return .lightContent
     }
 
+    func didSelect(series: Round) {
+        let matchupController = MatchupController(store: store)
+        matchupController.title = String(describing: series)
+
+        navigationController?.pushViewController(matchupController, animated: true)
+    }
+
     @objc func updateData() {
         DispatchQueue.main.async { [weak self] in
-            self?.bracketView.state = .data
+            self?.contentView.state = .data
         }
     }
 
     @objc fileprivate func refresh() {
 
-        bracketView.state = .loading
+        contentView.state = .loading
 
         store.update()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -2,10 +2,12 @@ import UIKit
 
 class AppController: UITabBarController {
 
+    let store = Store()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let bracket = BracketCoordinator()
+        let bracket = BracketCoordinator(store: store)
         let recent = UIViewController()
 
         viewControllers = [bracket, recent]

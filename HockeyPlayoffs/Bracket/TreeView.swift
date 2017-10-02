@@ -86,6 +86,12 @@ class TreeView: UIView {
 
         super.init(frame: .zero)
 
+        roundViews.forEach { (seriesView) in
+            let touchRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectSeries))
+
+            seriesView.addGestureRecognizer(touchRecognizer)
+        }
+
         let westQuarterFinalRound = stackView(axis: .horizontal, views: westQuarterFinals1, westQuarterFinals2, westQuarterFinals3, westQuarterFinals4)
         let westSemiFinalRound = stackView(axis: .horizontal, views: westSemiFinals1, westSemiFinals2)
         let westFinalRound = stackView(axis: .horizontal, views: westFinals)
@@ -136,6 +142,18 @@ class TreeView: UIView {
         roundViews.forEach { (view) in
             view.data = dataSource.itemAt(series: view.round)
         }
+    }
+
+    @objc func selectSeries(tap: UITapGestureRecognizer) {
+        guard let delegate = delegate else {
+            return
+        }
+
+        guard let seriesView = tap.view as? SeriesView else {
+            return
+        }
+
+        delegate.didSelect(series: seriesView.round)
     }
 
     fileprivate func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {
