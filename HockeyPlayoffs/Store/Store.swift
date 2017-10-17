@@ -30,8 +30,7 @@ struct Store {
             let realm = try! Realm()
 
             try! realm.write {
-                realm.deleteAll()
-                realm.add(bracket)
+                realm.add(bracket, update: true)
             }
 
             completion()
@@ -46,25 +45,18 @@ struct Store {
         switch round {
         case .westQuarterFinals(let series):
             predicate = "roundId = 1 AND seedId = \(series) AND conferenceId = 'w'"
-            break
         case .westSemiFinals(let series):
             predicate = "roundId = 2 AND seedId = \(series) AND conferenceId = 'w'"
-            break
         case .westFinals:
             predicate = "roundId = 3 AND conferenceId = 'w'"
-            break
         case .finals:
             predicate = "roundId = 4"
-            break
         case .eastFinals:
             predicate = "roundId = 3 AND conferenceId = 'e'"
-            break
         case .eastSemiFinals(let series):
             predicate = "roundId = 2 AND seedId = \(series) AND conferenceId = 'e'"
-            break
         case .eastQuarterFinals(let series):
             predicate = "roundId = 1 AND seedId = \(series) AND conferenceId = 'e'"
-            break
         }
 
         let series = realm.objects(Matchup.self).filter(predicate)

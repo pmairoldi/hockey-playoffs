@@ -2,18 +2,13 @@ import Foundation
 import RealmSwift
 
 class Matchup: Object, Codable {
-    @objc private dynamic var seasonId: String = ""
+    @objc private dynamic var id: String = ""
     @objc private dynamic var topTeamId: String?
     @objc private dynamic var bottomTeamId: String?
     @objc private dynamic var conferenceId: String = ""
     @objc private dynamic var roundId: Int = 0
     @objc private dynamic var seedId: Int = 0
-
-    let games: List<Game> = List<Game>()
-
-    var id: String {
-        return "\(seasonId)0\(roundId)\(round.seed)"
-    }
+    var games: List<Game> = List<Game>()
 
     var topTeam: Team? {
         return seriesTeam(teamId: topTeamId, wins: teamWins(teamId: topTeamId))
@@ -52,12 +47,17 @@ class Matchup: Object, Codable {
         return games.filter(predicate).count
     }
 
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
     enum CodingKeys: String, CodingKey {
-        case seasonId = "seasonID"
-        case topTeamId = "homeID"
-        case bottomTeamId = "awayID"
+        case id
+        case topTeamId
+        case bottomTeamId
         case conferenceId = "conference"
         case roundId = "round"
         case seedId = "seed"
+        case games
     }
 }

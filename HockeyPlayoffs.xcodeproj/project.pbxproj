@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0621A5371F7F458900FF78C2 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621A5361F7F458900FF78C2 /* Env.swift */; };
+		0642D0201F95B1B200172952 /* Bracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642D01F1F95B1B200172952 /* Bracket.swift */; };
+		0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642D0231F95BD9700172952 /* RealmSwift+Codable.swift */; };
 		0669EA351F76C52400516670 /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0669EA341F76C52400516670 /* BracketView.swift */; };
 		06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9B1F720F1B00E8C020 /* TreeView.swift */; };
 		06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9D1F720F4A00E8C020 /* SeriesView.swift */; };
@@ -67,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		0621A5361F7F458900FF78C2 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		0642D01F1F95B1B200172952 /* Bracket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket.swift; sourceTree = "<group>"; };
+		0642D0231F95BD9700172952 /* RealmSwift+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmSwift+Codable.swift"; sourceTree = "<group>"; };
 		0669EA341F76C52400516670 /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
 		06861D9B1F720F1B00E8C020 /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		06861D9D1F720F4A00E8C020 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				06E75F311F7C862A00540DE3 /* Period.swift */,
 				06ECEE731F806F6800782F40 /* Team.swift */,
 				06ECEE751F80730E00782F40 /* Conference.swift */,
+				0642D01F1F95B1B200172952 /* Bracket.swift */,
+				0642D0231F95BD9700172952 /* RealmSwift+Codable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				0621A5371F7F458900FF78C2 /* Env.swift in Sources */,
 				06D871271F71E64900B0111C /* AppController.swift in Sources */,
 				0669EA351F76C52400516670 /* BracketView.swift in Sources */,
+				0642D0201F95B1B200172952 /* Bracket.swift in Sources */,
 				06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */,
 				06E75F401F7C901600540DE3 /* Response.swift in Sources */,
 				06E75F301F7C861E00540DE3 /* Game.swift in Sources */,
@@ -421,6 +428,7 @@
 				06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */,
 				06E75F2A1F7C822100540DE3 /* Store.swift in Sources */,
 				06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */,
+				0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */,
 				06861DA51F76198F00E8C020 /* Round.swift in Sources */,
 				06E75F361F7C863800540DE3 /* Matchup.swift in Sources */,
 				069D3EB61F7F37E700080AA0 /* API.swift in Sources */,

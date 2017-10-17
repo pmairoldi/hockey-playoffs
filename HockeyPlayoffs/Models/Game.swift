@@ -8,7 +8,7 @@ class Game: Object, Codable {
     @objc dynamic var awayId: String = ""
     @objc dynamic var awayScore: Int = 0
     @objc dynamic var date: String = ""
-    @objc dynamic var gameId: String = ""
+    @objc dynamic var id: String = ""
     @objc dynamic var homeCondense: String = ""
     @objc dynamic var homeHighlight: String = ""
     @objc dynamic var homeId: String = ""
@@ -23,22 +23,26 @@ class Game: Object, Codable {
     let periods: List<Period> = List<Period>()
     let events: List<Event> = List<Event>()
 
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
     enum CodingKeys: String, CodingKey {
         case active
         case awayCondense
         case awayHighlight
-        case awayId = "awayID"
+        case awayId
         case awayScore
         case date
-        case gameId = "gameID"
+        case id = "gameId"
         case homeCondense
         case homeHighlight
-        case homeId = "homeID"
+        case homeId
         case homeScore
         case homeStatus
         case period
         case periodTime
-        case seasonId = "seasonID"
+        case seasonId
         case time
         case tv
     }
