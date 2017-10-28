@@ -39,7 +39,6 @@
 		06E75F401F7C901600540DE3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F3F1F7C901600540DE3 /* Response.swift */; };
 		06E75F421F7C9FFD00540DE3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F411F7C9FFD00540DE3 /* Team.swift */; };
 		06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F431F7CB3F100540DE3 /* TeamView.swift */; };
-		06ECEE761F80730E00782F40 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ECEE751F80730E00782F40 /* Conference.swift */; };
 		06FE756B1F804FB900E144A7 /* HockeyPlayoffsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +102,6 @@
 		06E75F3F1F7C901600540DE3 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		06E75F411F7C9FFD00540DE3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		06E75F431F7CB3F100540DE3 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
-		06ECEE751F80730E00782F40 /* Conference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		06FE75681F804FB900E144A7 /* HockeyPlayoffsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeyPlayoffsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyPlayoffsTests.swift; sourceTree = "<group>"; };
 		06FE756C1F804FB900E144A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				0642D01F1F95B1B200172952 /* Bracket.swift */,
-				06ECEE751F80730E00782F40 /* Conference.swift */,
 				06E75F2D1F7C861500540DE3 /* Event.swift */,
 				06E75F2F1F7C861E00540DE3 /* Game.swift */,
 				06E75F351F7C863800540DE3 /* Matchup.swift */,
@@ -432,7 +429,6 @@
 				06E75F301F7C861E00540DE3 /* Game.swift in Sources */,
 				06E75F281F7C81A700540DE3 /* BracketDataSource.swift in Sources */,
 				06E75F2E1F7C861500540DE3 /* Event.swift in Sources */,
-				06ECEE761F80730E00782F40 /* Conference.swift in Sources */,
 				06E75F321F7C862A00540DE3 /* Period.swift in Sources */,
 				06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */,
 				06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */,
