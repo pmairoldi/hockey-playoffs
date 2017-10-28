@@ -43,20 +43,14 @@ struct Store {
 
         let predicate: String
         switch round {
-        case .westQuarterFinals(let series):
-            predicate = "roundId = 1 AND seedId = \(series) AND conferenceId = 'w'"
-        case .westSemiFinals(let series):
-            predicate = "roundId = 2 AND seedId = \(series) AND conferenceId = 'w'"
-        case .westFinals:
-            predicate = "roundId = 3 AND conferenceId = 'w'"
-        case .finals:
+        case .quarterFinals(let series):
+            predicate = "roundId = 1 AND seedId = \(series)"
+        case .semiFinals(let series):
+            predicate = "roundId = 2 AND seedId = \(series)"
+        case .conferenceFinals(let series):
+            predicate = "roundId = 3 AND seedId = \(series)"
+        case .final:
             predicate = "roundId = 4"
-        case .eastFinals:
-            predicate = "roundId = 3 AND conferenceId = 'e'"
-        case .eastSemiFinals(let series):
-            predicate = "roundId = 2 AND seedId = \(series) AND conferenceId = 'e'"
-        case .eastQuarterFinals(let series):
-            predicate = "roundId = 1 AND seedId = \(series) AND conferenceId = 'e'"
         }
 
         let series = realm.objects(Matchup.self).filter(predicate)

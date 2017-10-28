@@ -10,12 +10,11 @@ class TeamView: UIView {
     fileprivate let teamLabel: UILabel
     fileprivate let scoreLabel: UILabel
 
-    var data: Team? {
+    var data: MatchTeam? {
         didSet {
-            backgroundColor = data?.team.color
-            teamLabel.text = data?.team.rawValue.uppercased()
-
-            if let wins = data?.wins {
+            if let team = data?.team, let wins = data?.wins {
+                backgroundColor = UIColor(hex: team.color)
+                teamLabel.text = team.abbreviation.uppercased()
                 scoreLabel.text = "\(wins)"
             }
         }

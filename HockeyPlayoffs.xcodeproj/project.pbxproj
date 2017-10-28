@@ -15,6 +15,8 @@
 		06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9D1F720F4A00E8C020 /* SeriesView.swift */; };
 		06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA21F760FFC00E8C020 /* BracketLine.swift */; };
 		06861DA51F76198F00E8C020 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA41F76198F00E8C020 /* Round.swift */; };
+		0698B4B11FA41E7400947FE2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */; };
+		0698B4B31FA4201000947FE2 /* MatchupTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698B4B21FA4201000947FE2 /* MatchupTeam.swift */; };
 		069D3EB61F7F37E700080AA0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D3EB51F7F37E700080AA0 /* API.swift */; };
 		06CEB2021F71F93200723709 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2041F71F93200723709 /* InfoPlist.strings */; };
 		06CEB2071F71F95300723709 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2091F71F95300723709 /* Localizable.strings */; };
@@ -35,9 +37,8 @@
 		06E75F3B1F7C8B1E00540DE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E75F381F7C8B1E00540DE3 /* Realm.framework */; };
 		06E75F3C1F7C8B1E00540DE3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06E75F381F7C8B1E00540DE3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		06E75F401F7C901600540DE3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F3F1F7C901600540DE3 /* Response.swift */; };
-		06E75F421F7C9FFD00540DE3 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F411F7C9FFD00540DE3 /* Teams.swift */; };
+		06E75F421F7C9FFD00540DE3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F411F7C9FFD00540DE3 /* Team.swift */; };
 		06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F431F7CB3F100540DE3 /* TeamView.swift */; };
-		06ECEE741F806F6800782F40 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ECEE731F806F6800782F40 /* Team.swift */; };
 		06ECEE761F80730E00782F40 /* Conference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ECEE751F80730E00782F40 /* Conference.swift */; };
 		06FE756B1F804FB900E144A7 /* HockeyPlayoffsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,8 @@
 		06861D9D1F720F4A00E8C020 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 		06861DA21F760FFC00E8C020 /* BracketLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketLine.swift; sourceTree = "<group>"; };
 		06861DA41F76198F00E8C020 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		0698B4B21FA4201000947FE2 /* MatchupTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupTeam.swift; sourceTree = "<group>"; };
 		069D3EB51F7F37E700080AA0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		06CEB1FE1F71F8EC00723709 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06CEB2031F71F93200723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -98,9 +101,8 @@
 		06E75F371F7C8B1E00540DE3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		06E75F381F7C8B1E00540DE3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		06E75F3F1F7C901600540DE3 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		06E75F411F7C9FFD00540DE3 /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
+		06E75F411F7C9FFD00540DE3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		06E75F431F7CB3F100540DE3 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
-		06ECEE731F806F6800782F40 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		06ECEE751F80730E00782F40 /* Conference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conference.swift; sourceTree = "<group>"; };
 		06FE75681F804FB900E144A7 /* HockeyPlayoffsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeyPlayoffsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyPlayoffsTests.swift; sourceTree = "<group>"; };
@@ -130,16 +132,16 @@
 		0604BCD01F7F30FF00BF64FC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				06861DA41F76198F00E8C020 /* Round.swift */,
-				06E75F411F7C9FFD00540DE3 /* Teams.swift */,
-				06E75F351F7C863800540DE3 /* Matchup.swift */,
+				0642D01F1F95B1B200172952 /* Bracket.swift */,
+				06ECEE751F80730E00782F40 /* Conference.swift */,
 				06E75F2D1F7C861500540DE3 /* Event.swift */,
 				06E75F2F1F7C861E00540DE3 /* Game.swift */,
+				06E75F351F7C863800540DE3 /* Matchup.swift */,
 				06E75F311F7C862A00540DE3 /* Period.swift */,
-				06ECEE731F806F6800782F40 /* Team.swift */,
-				06ECEE751F80730E00782F40 /* Conference.swift */,
-				0642D01F1F95B1B200172952 /* Bracket.swift */,
 				0642D0231F95BD9700172952 /* RealmSwift+Codable.swift */,
+				06861DA41F76198F00E8C020 /* Round.swift */,
+				06E75F411F7C9FFD00540DE3 /* Team.swift */,
+				0698B4B21FA4201000947FE2 /* MatchupTeam.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +153,14 @@
 				06E75F3F1F7C901600540DE3 /* Response.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		0698B4AF1FA41E5600947FE2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		06CEB20A1F71F97F00723709 /* Resources */ = {
@@ -167,11 +177,11 @@
 		06D871181F71E64900B0111C = {
 			isa = PBXGroup;
 			children = (
-				0621A5361F7F458900FF78C2 /* Env.swift */,
+				06E75F3E1F7C8B2800540DE3 /* Frameworks */,
 				06D871231F71E64900B0111C /* HockeyPlayoffs */,
 				06FE75691F804FB900E144A7 /* HockeyPlayoffsTests */,
-				06E75F3E1F7C8B2800540DE3 /* Frameworks */,
 				06D871221F71E64900B0111C /* Products */,
+				0621A5361F7F458900FF78C2 /* Env.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,15 +197,16 @@
 		06D871231F71E64900B0111C /* HockeyPlayoffs */ = {
 			isa = PBXGroup;
 			children = (
-				06D871241F71E64900B0111C /* AppDelegate.swift */,
-				06D871261F71E64900B0111C /* AppController.swift */,
-				06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */,
 				06D8D2CE1F71F7B700F82A49 /* Bracket */,
+				0698B4AF1FA41E5600947FE2 /* Extensions */,
 				06DD09541F81D76B008E9824 /* Matchup */,
 				0604BCD01F7F30FF00BF64FC /* Models */,
 				0604BCD11F7F33BD00BF64FC /* Networking */,
 				06CEB20A1F71F97F00723709 /* Resources */,
 				06E75F2C1F7C860500540DE3 /* Store */,
+				06D871261F71E64900B0111C /* AppController.swift */,
+				06D871241F71E64900B0111C /* AppDelegate.swift */,
+				06D8D2D01F71F7DB00F82A49 /* BracketCoordinator.swift */,
 			);
 			path = HockeyPlayoffs;
 			sourceTree = "<group>";
@@ -242,8 +253,8 @@
 		06FE75691F804FB900E144A7 /* HockeyPlayoffsTests */ = {
 			isa = PBXGroup;
 			children = (
-				06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */,
 				06FE75721F80514B00E144A7 /* Resources */,
+				06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */,
 			);
 			path = HockeyPlayoffsTests;
 			sourceTree = "<group>";
@@ -411,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06E75F421F7C9FFD00540DE3 /* Teams.swift in Sources */,
+				06E75F421F7C9FFD00540DE3 /* Team.swift in Sources */,
 				0621A5371F7F458900FF78C2 /* Env.swift in Sources */,
 				06D871271F71E64900B0111C /* AppController.swift in Sources */,
 				0669EA351F76C52400516670 /* BracketView.swift in Sources */,
@@ -419,7 +430,6 @@
 				06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */,
 				06E75F401F7C901600540DE3 /* Response.swift in Sources */,
 				06E75F301F7C861E00540DE3 /* Game.swift in Sources */,
-				06ECEE741F806F6800782F40 /* Team.swift in Sources */,
 				06E75F281F7C81A700540DE3 /* BracketDataSource.swift in Sources */,
 				06E75F2E1F7C861500540DE3 /* Event.swift in Sources */,
 				06ECEE761F80730E00782F40 /* Conference.swift in Sources */,
@@ -431,9 +441,11 @@
 				0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */,
 				06861DA51F76198F00E8C020 /* Round.swift in Sources */,
 				06E75F361F7C863800540DE3 /* Matchup.swift in Sources */,
+				0698B4B11FA41E7400947FE2 /* UIColor+Hex.swift in Sources */,
 				069D3EB61F7F37E700080AA0 /* API.swift in Sources */,
 				06D8D2D11F71F7DB00F82A49 /* BracketCoordinator.swift in Sources */,
 				06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */,
+				0698B4B31FA4201000947FE2 /* MatchupTeam.swift in Sources */,
 				06D871251F71E64900B0111C /* AppDelegate.swift in Sources */,
 				06DD09561F81D7B0008E9824 /* MatchupController.swift in Sources */,
 			);
