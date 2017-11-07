@@ -20,6 +20,19 @@ enum Series {
             fatalError("round data is invalid")
         }
     }
+
+    var title: String {
+        switch self {
+        case .quarterFinals:
+            return "Round 1"
+        case .semiFinals:
+            return "Round 2"
+        case .conferenceFinals:
+            return "Conference Final"
+        case .final:
+            return "Final"
+        }
+    }
 }
 
 extension Series: Hashable {

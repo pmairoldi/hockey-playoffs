@@ -46,8 +46,7 @@ class BracketController: UIViewController, TreeViewDelegate {
     }
 
     func didSelect(series: Series) {
-        let matchupController = MatchupController(store: store)
-        matchupController.title = String(describing: series)
+        let matchupController = MatchupController(store: store, series: series)
 
         navigationController?.pushViewController(matchupController, animated: true)
     }

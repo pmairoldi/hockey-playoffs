@@ -3,8 +3,8 @@ import RealmSwift
 
 class Matchup: Object, Codable {
     @objc dynamic var id: String = ""
-    @objc dynamic var topTeam: MatchTeam?
-    @objc dynamic var bottomTeam: MatchTeam?
+    @objc dynamic var topTeam: MatchupTeam?
+    @objc dynamic var bottomTeam: MatchupTeam?
     @objc private dynamic var round: Int = 0
     @objc private dynamic var seed: Int = 0
     var games: List<Game> = List<Game>()

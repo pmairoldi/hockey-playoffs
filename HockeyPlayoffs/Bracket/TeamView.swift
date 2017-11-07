@@ -10,7 +10,7 @@ class TeamView: UIView {
     fileprivate let teamLabel: UILabel
     fileprivate let scoreLabel: UILabel
 
-    var data: MatchTeam? {
+    var data: MatchupTeam? {
         didSet {
             if let team = data?.team, let wins = data?.wins {
                 backgroundColor = UIColor(hex: team.color)

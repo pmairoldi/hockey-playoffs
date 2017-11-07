@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class MatchTeam: Object, Codable {
+class MatchupTeam: Object, Codable {
     @objc dynamic var team: Team?
     @objc dynamic var wins: Int = 0
 

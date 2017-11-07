@@ -3,10 +3,14 @@ import UIKit
 class MatchupController: UIViewController {
 
     let store: Store
+    let series: Series
 
-    init(store: Store) {
+    init(store: Store, series: Series) {
         self.store = store
+        self.series = series
         super.init(nibName: nil, bundle: nil)
+
+        self.title = self.series.title
     }
 
     var contentView: UITableView {
