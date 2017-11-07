@@ -37,20 +37,20 @@ struct Store {
         }
     }
 
-    func fetchSeries(round: Round) -> Matchup {
+    func fetchSeries(series: Series) -> Matchup {
 
         let realm = try! Realm()
 
         let predicate: String
-        switch round {
-        case .quarterFinals(let series):
-            predicate = "roundId = 1 AND seedId = \(series)"
-        case .semiFinals(let series):
-            predicate = "roundId = 2 AND seedId = \(series)"
-        case .conferenceFinals(let series):
-            predicate = "roundId = 3 AND seedId = \(series)"
+        switch series {
+        case .quarterFinals(let seed):
+            predicate = "round = 1 AND seed = \(seed)"
+        case .semiFinals(let seed):
+            predicate = "round = 2 AND seed = \(seed)"
+        case .conferenceFinals(let seed):
+            predicate = "round = 3 AND seed = \(seed)"
         case .final:
-            predicate = "roundId = 4"
+            predicate = "round = 4"
         }
 
         let series = realm.objects(Matchup.self).filter(predicate)

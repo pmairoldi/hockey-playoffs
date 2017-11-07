@@ -6,7 +6,7 @@ class BracketDataSource: TreeViewDataSource {
         self.store = store
     }
 
-    func itemAt(series: Round) -> Matchup {
-        return store.fetchSeries(round: series)
+    func itemAt(series: Series) -> Matchup {
+        return store.fetchSeries(series: series)
     }
 }

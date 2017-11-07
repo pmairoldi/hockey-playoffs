@@ -1,11 +1,11 @@
 import UIKit
 
 protocol TreeViewDelegate: class {
-    func didSelect(series: Round)
+    func didSelect(series: Series)
 }
 
 protocol TreeViewDataSource: class {
-    func itemAt(series: Round) -> Matchup
+    func itemAt(series: Series) -> Matchup
 }
 
 class TreeView: UIView {
@@ -59,30 +59,30 @@ class TreeView: UIView {
 
     init() {
 
-        func seriesView(_ round: Round) -> SeriesView {
+        func seriesView(_ series: Series) -> SeriesView {
 
-            let seriesView = SeriesView(round: round)
+            let seriesView = SeriesView(series: series)
             seriesView.widthAnchor.constraint(equalToConstant: 60).isActive = true
             seriesView.heightAnchor.constraint(equalToConstant: 55).isActive = true
 
             return seriesView
         }
 
-        westQuarterFinals1 = seriesView(.quarterFinals(series: 5))
-        westQuarterFinals2 = seriesView(.quarterFinals(series: 6))
-        westQuarterFinals3 = seriesView(.quarterFinals(series: 7))
-        westQuarterFinals4 = seriesView(.quarterFinals(series: 8))
-        westSemiFinals1 = seriesView(.semiFinals(series: 3))
-        westSemiFinals2 = seriesView(.semiFinals(series: 4))
-        westFinals = seriesView(.conferenceFinals(series: 2))
+        westQuarterFinals1 = seriesView(.quarterFinals(seed: 5))
+        westQuarterFinals2 = seriesView(.quarterFinals(seed: 6))
+        westQuarterFinals3 = seriesView(.quarterFinals(seed: 7))
+        westQuarterFinals4 = seriesView(.quarterFinals(seed: 8))
+        westSemiFinals1 = seriesView(.semiFinals(seed: 3))
+        westSemiFinals2 = seriesView(.semiFinals(seed: 4))
+        westFinals = seriesView(.conferenceFinals(seed: 2))
         finals = seriesView(.final)
-        eastFinals = seriesView(.conferenceFinals(series: 1))
-        eastSemiFinals1 = seriesView(.semiFinals(series: 1))
-        eastSemiFinals2 = seriesView(.semiFinals(series: 2))
-        eastQuarterFinals1 = seriesView(.quarterFinals(series: 1))
-        eastQuarterFinals2 = seriesView(.quarterFinals(series: 2))
-        eastQuarterFinals3 = seriesView(.quarterFinals(series: 3))
-        eastQuarterFinals4 = seriesView(.quarterFinals(series: 4))
+        eastFinals = seriesView(.conferenceFinals(seed: 1))
+        eastSemiFinals1 = seriesView(.semiFinals(seed: 1))
+        eastSemiFinals2 = seriesView(.semiFinals(seed: 2))
+        eastQuarterFinals1 = seriesView(.quarterFinals(seed: 1))
+        eastQuarterFinals2 = seriesView(.quarterFinals(seed: 2))
+        eastQuarterFinals3 = seriesView(.quarterFinals(seed: 3))
+        eastQuarterFinals4 = seriesView(.quarterFinals(seed: 4))
 
         super.init(frame: .zero)
 
@@ -140,7 +140,7 @@ class TreeView: UIView {
         }
 
         roundViews.forEach { (view) in
-            view.data = dataSource.itemAt(series: view.round)
+            view.data = dataSource.itemAt(series: view.series)
         }
     }
 
@@ -153,7 +153,7 @@ class TreeView: UIView {
             return
         }
 
-        delegate.didSelect(series: seriesView.round)
+        delegate.didSelect(series: seriesView.series)
     }
 
     fileprivate func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {

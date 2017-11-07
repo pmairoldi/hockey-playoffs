@@ -45,7 +45,7 @@ class BracketController: UIViewController, TreeViewDelegate {
         return .lightContent
     }
 
-    func didSelect(series: Round) {
+    func didSelect(series: Series) {
         let matchupController = MatchupController(store: store)
         matchupController.title = String(describing: series)
 

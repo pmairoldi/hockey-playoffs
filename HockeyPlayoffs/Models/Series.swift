@@ -1,19 +1,19 @@
 //TODO: make series a type that can't be more than the actual values
 
-enum Round {
-    case quarterFinals(series: Int)
-    case semiFinals(series: Int)
-    case conferenceFinals(series: Int)
+enum Series {
+    case quarterFinals(seed: Int)
+    case semiFinals(seed: Int)
+    case conferenceFinals(seed: Int)
     case final
 
-    init(round: Int, series: Int) {
-        switch (round, series) {
+    init(round: Int, seed: Int) {
+        switch (round, seed) {
         case (1, 1...8):
-            self = .quarterFinals(series: series)
+            self = .quarterFinals(seed: seed)
         case (2, 1...4):
-            self = .semiFinals(series: series)
+            self = .semiFinals(seed: seed)
         case (3, 1...2):
-            self = .conferenceFinals(series: series)
+            self = .conferenceFinals(seed: seed)
         case (4, _):
             self = .final
         default:
@@ -22,7 +22,7 @@ enum Round {
     }
 }
 
-extension Round: Hashable {
+extension Series: Hashable {
     var hashValue: Int {
         switch self {
         case .quarterFinals(let series):
@@ -36,11 +36,11 @@ extension Round: Hashable {
         }
     }
 
-    static func == (lhs: Round, rhs: Round) -> Bool {
+    static func == (lhs: Series, rhs: Series) -> Bool {
         switch (lhs, rhs) {
-        case (.quarterFinals(let lhs), .quarterFinals(series: let rhs)):
+        case (.quarterFinals(let lhs), .quarterFinals(let rhs)):
             return lhs == rhs
-        case (.semiFinals(let lhs), .semiFinals(series: let rhs)):
+        case (.semiFinals(let lhs), .semiFinals(let rhs)):
             return lhs == rhs
         case (.conferenceFinals(let lhs), .conferenceFinals(let rhs)):
             return lhs == rhs

@@ -5,7 +5,7 @@ class SeriesView: UIView {
     fileprivate let top: TeamView
     fileprivate let bottom: TeamView
 
-    let round: Round
+    let series: Series
 
     var data: Matchup? {
         didSet {
@@ -14,9 +14,9 @@ class SeriesView: UIView {
         }
     }
 
-    init(round: Round) {
+    init(series: Series) {
 
-        self.round = round
+        self.series = series
 
         top = TeamView(position: .top)
         bottom = TeamView(position: .bottom)
