@@ -2,13 +2,14 @@ import Foundation
 import RealmSwift
 
 class Game: Object, Codable {
+    @objc dynamic var id: String = ""
+
     @objc dynamic var active: Bool = true
     @objc dynamic var awayCondense: String = ""
     @objc dynamic var awayHighlight: String = ""
     @objc dynamic var awayId: String = ""
     @objc dynamic var awayScore: Int = 0
     @objc dynamic var date: String = ""
-    @objc dynamic var id: String = ""
     @objc dynamic var homeCondense: String = ""
     @objc dynamic var homeHighlight: String = ""
     @objc dynamic var homeId: String = ""
@@ -28,13 +29,14 @@ class Game: Object, Codable {
     }
 
     enum CodingKeys: String, CodingKey {
+        case id
+
         case active
         case awayCondense
         case awayHighlight
         case awayId
         case awayScore
         case date
-        case id = "gameId"
         case homeCondense
         case homeHighlight
         case homeId

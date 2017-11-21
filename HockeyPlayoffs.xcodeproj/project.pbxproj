@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0621A5371F7F458900FF78C2 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621A5361F7F458900FF78C2 /* Env.swift */; };
+		063A2B831FC3C5A3000FE0E3 /* Realm+Cascading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B821FC3C5A3000FE0E3 /* Realm+Cascading.swift */; };
+		063A2B8B1FC3D565000FE0E3 /* MatchupDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B8A1FC3D565000FE0E3 /* MatchupDataSource.swift */; };
+		063A2B8D1FC3D5B9000FE0E3 /* MatchupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B8C1FC3D5B9000FE0E3 /* MatchupDelegate.swift */; };
+		063A2B911FC3E8AD000FE0E3 /* MatchupGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B901FC3E8AD000FE0E3 /* MatchupGameCell.swift */; };
+		063A2B941FC3E8E9000FE0E3 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B931FC3E8E9000FE0E3 /* Reusable.swift */; };
+		063A2B981FC3F010000FE0E3 /* MatchupGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B971FC3F010000FE0E3 /* MatchupGameView.swift */; };
+		063A2B9A1FC3F08F000FE0E3 /* AutoLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B991FC3F08F000FE0E3 /* AutoLayout+Extensions.swift */; };
 		0642D0201F95B1B200172952 /* Bracket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642D01F1F95B1B200172952 /* Bracket.swift */; };
 		0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642D0231F95BD9700172952 /* RealmSwift+Codable.swift */; };
 		0669EA351F76C52400516670 /* BracketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0669EA341F76C52400516670 /* BracketView.swift */; };
 		06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9B1F720F1B00E8C020 /* TreeView.swift */; };
 		06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861D9D1F720F4A00E8C020 /* SeriesView.swift */; };
-		06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA21F760FFC00E8C020 /* BracketLine.swift */; };
+		06861DA31F760FFC00E8C020 /* BracketLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA21F760FFC00E8C020 /* BracketLineView.swift */; };
 		06861DA51F76198F00E8C020 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06861DA41F76198F00E8C020 /* Series.swift */; };
 		0698B4B11FA41E7400947FE2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */; };
 		0698B4B31FA4201000947FE2 /* MatchupTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698B4B21FA4201000947FE2 /* MatchupTeam.swift */; };
@@ -36,7 +43,6 @@
 		06E75F3A1F7C8B1E00540DE3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06E75F371F7C8B1E00540DE3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		06E75F3B1F7C8B1E00540DE3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E75F381F7C8B1E00540DE3 /* Realm.framework */; };
 		06E75F3C1F7C8B1E00540DE3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06E75F381F7C8B1E00540DE3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		06E75F401F7C901600540DE3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F3F1F7C901600540DE3 /* Response.swift */; };
 		06E75F421F7C9FFD00540DE3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F411F7C9FFD00540DE3 /* Team.swift */; };
 		06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F431F7CB3F100540DE3 /* TeamView.swift */; };
 		06FE756B1F804FB900E144A7 /* HockeyPlayoffsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */; };
@@ -69,12 +75,19 @@
 
 /* Begin PBXFileReference section */
 		0621A5361F7F458900FF78C2 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		063A2B821FC3C5A3000FE0E3 /* Realm+Cascading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Cascading.swift"; sourceTree = "<group>"; };
+		063A2B8A1FC3D565000FE0E3 /* MatchupDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupDataSource.swift; sourceTree = "<group>"; };
+		063A2B8C1FC3D5B9000FE0E3 /* MatchupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupDelegate.swift; sourceTree = "<group>"; };
+		063A2B901FC3E8AD000FE0E3 /* MatchupGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupGameCell.swift; sourceTree = "<group>"; };
+		063A2B931FC3E8E9000FE0E3 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		063A2B971FC3F010000FE0E3 /* MatchupGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupGameView.swift; sourceTree = "<group>"; };
+		063A2B991FC3F08F000FE0E3 /* AutoLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoLayout+Extensions.swift"; sourceTree = "<group>"; };
 		0642D01F1F95B1B200172952 /* Bracket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bracket.swift; sourceTree = "<group>"; };
 		0642D0231F95BD9700172952 /* RealmSwift+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmSwift+Codable.swift"; sourceTree = "<group>"; };
 		0669EA341F76C52400516670 /* BracketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketView.swift; sourceTree = "<group>"; };
 		06861D9B1F720F1B00E8C020 /* TreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeView.swift; sourceTree = "<group>"; };
 		06861D9D1F720F4A00E8C020 /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
-		06861DA21F760FFC00E8C020 /* BracketLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketLine.swift; sourceTree = "<group>"; };
+		06861DA21F760FFC00E8C020 /* BracketLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BracketLineView.swift; sourceTree = "<group>"; };
 		06861DA41F76198F00E8C020 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		0698B4B21FA4201000947FE2 /* MatchupTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupTeam.swift; sourceTree = "<group>"; };
@@ -99,7 +112,6 @@
 		06E75F351F7C863800540DE3 /* Matchup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matchup.swift; sourceTree = "<group>"; };
 		06E75F371F7C8B1E00540DE3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		06E75F381F7C8B1E00540DE3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		06E75F3F1F7C901600540DE3 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		06E75F411F7C9FFD00540DE3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		06E75F431F7CB3F100540DE3 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		06FE75681F804FB900E144A7 /* HockeyPlayoffsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeyPlayoffsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,15 +159,35 @@
 			isa = PBXGroup;
 			children = (
 				069D3EB51F7F37E700080AA0 /* API.swift */,
-				06E75F3F1F7C901600540DE3 /* Response.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		063A2B871FC3D305000FE0E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06861DA21F760FFC00E8C020 /* BracketLineView.swift */,
+				06861D9B1F720F1B00E8C020 /* TreeView.swift */,
+				06E75F431F7CB3F100540DE3 /* TeamView.swift */,
+				06861D9D1F720F4A00E8C020 /* SeriesView.swift */,
+				063A2B971FC3F010000FE0E3 /* MatchupGameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		063A2B921FC3E8DA000FE0E3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				063A2B931FC3E8E9000FE0E3 /* Reusable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		0698B4AF1FA41E5600947FE2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */,
+				063A2B991FC3F08F000FE0E3 /* AutoLayout+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +226,8 @@
 		06D871231F71E64900B0111C /* HockeyPlayoffs */ = {
 			isa = PBXGroup;
 			children = (
+				063A2B921FC3E8DA000FE0E3 /* Protocols */,
+				063A2B871FC3D305000FE0E3 /* Views */,
 				06D8D2CE1F71F7B700F82A49 /* Bracket */,
 				0698B4AF1FA41E5600947FE2 /* Extensions */,
 				06DD09541F81D76B008E9824 /* Matchup */,
@@ -213,11 +247,7 @@
 			children = (
 				06CEB20D1F71FF7700723709 /* BracketController.swift */,
 				06E75F271F7C81A700540DE3 /* BracketDataSource.swift */,
-				06861DA21F760FFC00E8C020 /* BracketLine.swift */,
 				0669EA341F76C52400516670 /* BracketView.swift */,
-				06861D9D1F720F4A00E8C020 /* SeriesView.swift */,
-				06E75F431F7CB3F100540DE3 /* TeamView.swift */,
-				06861D9B1F720F1B00E8C020 /* TreeView.swift */,
 			);
 			path = Bracket;
 			sourceTree = "<group>";
@@ -226,6 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				06DD09551F81D7B0008E9824 /* MatchupController.swift */,
+				063A2B8A1FC3D565000FE0E3 /* MatchupDataSource.swift */,
+				063A2B8C1FC3D5B9000FE0E3 /* MatchupDelegate.swift */,
+				063A2B901FC3E8AD000FE0E3 /* MatchupGameCell.swift */,
 			);
 			path = Matchup;
 			sourceTree = "<group>";
@@ -234,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				06E75F291F7C822100540DE3 /* Store.swift */,
+				063A2B821FC3C5A3000FE0E3 /* Realm+Cascading.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -425,23 +459,29 @@
 				0669EA351F76C52400516670 /* BracketView.swift in Sources */,
 				0642D0201F95B1B200172952 /* Bracket.swift in Sources */,
 				06861D9E1F720F4A00E8C020 /* SeriesView.swift in Sources */,
-				06E75F401F7C901600540DE3 /* Response.swift in Sources */,
 				06E75F301F7C861E00540DE3 /* Game.swift in Sources */,
 				06E75F281F7C81A700540DE3 /* BracketDataSource.swift in Sources */,
 				06E75F2E1F7C861500540DE3 /* Event.swift in Sources */,
 				06E75F321F7C862A00540DE3 /* Period.swift in Sources */,
-				06861DA31F760FFC00E8C020 /* BracketLine.swift in Sources */,
+				06861DA31F760FFC00E8C020 /* BracketLineView.swift in Sources */,
 				06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */,
+				063A2B911FC3E8AD000FE0E3 /* MatchupGameCell.swift in Sources */,
 				06E75F2A1F7C822100540DE3 /* Store.swift in Sources */,
 				06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */,
 				0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */,
 				06861DA51F76198F00E8C020 /* Series.swift in Sources */,
+				063A2B981FC3F010000FE0E3 /* MatchupGameView.swift in Sources */,
+				063A2B8B1FC3D565000FE0E3 /* MatchupDataSource.swift in Sources */,
+				063A2B8D1FC3D5B9000FE0E3 /* MatchupDelegate.swift in Sources */,
+				063A2B831FC3C5A3000FE0E3 /* Realm+Cascading.swift in Sources */,
+				063A2B9A1FC3F08F000FE0E3 /* AutoLayout+Extensions.swift in Sources */,
 				06E75F361F7C863800540DE3 /* Matchup.swift in Sources */,
 				0698B4B11FA41E7400947FE2 /* UIColor+Hex.swift in Sources */,
 				069D3EB61F7F37E700080AA0 /* API.swift in Sources */,
 				06D8D2D11F71F7DB00F82A49 /* BracketCoordinator.swift in Sources */,
 				06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */,
 				0698B4B31FA4201000947FE2 /* MatchupTeam.swift in Sources */,
+				063A2B941FC3E8E9000FE0E3 /* Reusable.swift in Sources */,
 				06D871251F71E64900B0111C /* AppDelegate.swift in Sources */,
 				06DD09561F81D7B0008E9824 /* MatchupController.swift in Sources */,
 			);

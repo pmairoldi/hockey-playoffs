@@ -1,6 +1,8 @@
 import UIKit
 
-class MatchupController: UIViewController {
+class MatchupController: UITableViewController {
+    private let dataSource: MatchupDataSource
+    private weak var delegate: MatchupDelegate?
 
     let store: Store
     let series: Series
@@ -8,23 +10,24 @@ class MatchupController: UIViewController {
     init(store: Store, series: Series) {
         self.store = store
         self.series = series
+
+        let matchup = self.store.fetchSeries(series: series)
+
+        self.dataSource = MatchupDataSource(games: matchup.games)
+        self.delegate = MatchupDelegate()
+
         super.init(nibName: nil, bundle: nil)
 
         self.title = self.series.title
     }
 
-    var contentView: UITableView {
-        return view as! UITableView
-    }
-
-    override func loadView() {
-        let content = UITableView()
-
-        view = content
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.register(MatchupGameCell.self, forCellReuseIdentifier: MatchupGameCell.reuseIdentifier)
+        tableView.dataSource = dataSource
+        tableView.delegate = delegate
+        tableView.rowHeight = UITableViewAutomaticDimension
 
 //        dataSource = BracketDataSource(store: store)
 //

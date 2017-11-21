@@ -169,7 +169,7 @@ class TreeView: UIView {
 
     fileprivate func addLineBetween(firstView: UIView, secondView: UIView) {
 
-        let bracket = BracketLine()
+        let bracket = BracketLineView()
 
         addSubview(bracket)
 
@@ -181,7 +181,7 @@ class TreeView: UIView {
 
     fileprivate func addBracketBetween(leadingView: UIView, trailingView: UIView, bottomView: UIView, orientation: BracketOrientation) {
 
-        let bracket = BracketLine(orientation: orientation)
+        let bracket = BracketLineView(orientation: orientation)
 
         addSubview(bracket)
 

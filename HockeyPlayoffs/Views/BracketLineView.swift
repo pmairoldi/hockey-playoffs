@@ -5,7 +5,7 @@ enum BracketOrientation {
     case bottom
 }
 
-class BracketLine: UIView {
+class BracketLineView: UIView {
 
     let lineWidth: CGFloat = 2.0
 

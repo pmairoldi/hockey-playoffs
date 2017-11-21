@@ -7,6 +7,10 @@ class Team: Object, Codable {
     @objc dynamic var name: String = ""
     @objc dynamic var color: String = ""
 
+    override static func primaryKey() -> String? {
+        return "abbreviation"
+    }
+
     enum CodingKeys: String, CodingKey {
         case abbreviation
         case city
