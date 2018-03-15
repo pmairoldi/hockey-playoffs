@@ -55,10 +55,10 @@ class BracketView: UIView {
         scrollView.addSubview(refreshView)
 
         scrollView.addSubview(treeView, constraints: [
-            equal(\.leadingAnchor, scrollView.layoutMarginsGuide.leadingAnchor),
-            equal(\.trailingAnchor, scrollView.layoutMarginsGuide.trailingAnchor),
-            equal(\.topAnchor, scrollView.layoutMarginsGuide.topAnchor),
-            equal(\.bottomAnchor, scrollView.layoutMarginsGuide.bottomAnchor)
+            equal(\.leadingAnchor, \.layoutMarginsGuide.leadingAnchor),
+            equal(\.trailingAnchor, \.layoutMarginsGuide.trailingAnchor),
+            equal(\.topAnchor),
+            equal(\.heightAnchor, \.layoutMarginsGuide.heightAnchor)
             ])
     }
 }

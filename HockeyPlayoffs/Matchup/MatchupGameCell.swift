@@ -3,7 +3,7 @@ import UIKit
 class MatchupGameCell: UITableViewCell, Reusable {
     static var reuseIdentifier: String = "MatchupCell"
 
-    private let content: MatchupGameView
+    private let content: GameSummaryView
 
     var game: Game? {
         didSet {
@@ -14,15 +14,15 @@ class MatchupGameCell: UITableViewCell, Reusable {
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        content = MatchupGameView()
+        content = GameSummaryView()
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(content, constraints: [
-            equal(\.topAnchor, contentView.topAnchor),
-            equal(\.bottomAnchor, contentView.bottomAnchor),
-            equal(\.leadingAnchor, contentView.leadingAnchor),
-            equal(\.trailingAnchor, contentView.trailingAnchor)
+            equal(\.topAnchor),
+            equal(\.bottomAnchor),
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor)
             ])
     }
 

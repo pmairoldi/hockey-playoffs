@@ -3,10 +3,10 @@ import RealmSwift
 
 class MatchupDataSource: NSObject, UITableViewDataSource {
 
-    private let games: List<Game>
+    private let games: Results<Game>
 
     init(games: List<Game>) {
-        self.games = games
+        self.games = games.filter("active == true")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
