@@ -7,7 +7,7 @@ enum BracketViewState {
 
 class BracketView: UIView {
 
-    fileprivate let scrollView: UIScrollView
+    private let scrollView: UIScrollView
 
     let treeView: TreeView
     let refreshView: UIRefreshControl
@@ -33,32 +33,32 @@ class BracketView: UIView {
         state = .data
 
         scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceVertical = true
 
         refreshView = UIRefreshControl()
         refreshView.tintColor = UIColor.white
 
         treeView = TreeView()
-        treeView.translatesAutoresizingMaskIntoConstraints = false
 
         super.init(frame: .zero)
 
         backgroundColor = UIColor.darkGray
         treeView.backgroundColor = backgroundColor
 
-        addSubview(scrollView)
+        addSubview(scrollView, constraints: [
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor),
+            equal(\.topAnchor),
+            equal(\.bottomAnchor)
+            ])
+
         scrollView.addSubview(refreshView)
-        scrollView.addSubview(treeView)
 
-        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-
-        treeView.leadingAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.leadingAnchor).isActive = true
-        treeView.trailingAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.trailingAnchor).isActive = true
-        treeView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        treeView.heightAnchor.constraint(equalTo: scrollView.layoutMarginsGuide.heightAnchor).isActive = true
+        scrollView.addSubview(treeView, constraints: [
+            equal(\.leadingAnchor, scrollView.layoutMarginsGuide.leadingAnchor),
+            equal(\.trailingAnchor, scrollView.layoutMarginsGuide.trailingAnchor),
+            equal(\.topAnchor, scrollView.layoutMarginsGuide.topAnchor),
+            equal(\.bottomAnchor, scrollView.layoutMarginsGuide.bottomAnchor)
+            ])
     }
 }

@@ -3,7 +3,7 @@ import Foundation
 struct API {
 
     func fetchBracket(completion: @escaping (Bracket?) -> Void) {
-        request("/playoffs", completion: completion)
+        request("/bracket", completion: completion)
     }
 
     private func request<T: Decodable>(_ endpoint: String, completion: @escaping (T?) -> Void) {

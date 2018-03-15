@@ -7,86 +7,84 @@ enum BracketOrientation {
 
 class BracketLineView: UIView {
 
-    let lineWidth: CGFloat = 2.0
-
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-    }
+    private let lineWidth: CGFloat = 2.0
 
     init() {
         super.init(frame: .zero)
 
-        translatesAutoresizingMaskIntoConstraints = false
-
         let view = lineView()
 
-        addSubview(view)
-
-        view.widthAnchor.constraint(equalToConstant: lineWidth).isActive = true
-        view.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        view.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        addSubview(view, constraints: [
+            equal(\.widthAnchor, to: lineWidth),
+            equal(\.topAnchor),
+            equal(\.bottomAnchor),
+            equal(\.centerXAnchor)
+            ])
     }
 
     init(orientation: BracketOrientation) {
         super.init(frame: .zero)
-
-        translatesAutoresizingMaskIntoConstraints = false
 
         let topLeading = lineView()
         let topTrailing = lineView()
         let bottomMiddle = lineView()
         let horizontalMiddle = lineView()
 
-        addSubview(topLeading)
-        addSubview(topTrailing)
-        addSubview(bottomMiddle)
-        addSubview(horizontalMiddle)
+        addSubview(topLeading, constraints: [
+            equal(\.leadingAnchor),
+            equal(\.widthAnchor, to: lineWidth),
+            equal(\.heightAnchor, multiplier: 0.5),
+            equal(topKeyPath(for: orientation))
+            ])
 
-        topLeading.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        topLeading.widthAnchor.constraint(equalToConstant: lineWidth).isActive = true
-        topLeading.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
+        addSubview(topTrailing, constraints: [
+            equal(\.trailingAnchor),
+            equal(\.widthAnchor, to: lineWidth),
+            equal(\.heightAnchor, multiplier: 0.5),
+            equal(topKeyPath(for: orientation))
+            ])
 
-        switch orientation {
-        case .top:
-            topLeading.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        case .bottom:
-            topLeading.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
+        addSubview(bottomMiddle, constraints: [
+            equal(\.centerXAnchor),
+            equal(\.widthAnchor, to: lineWidth),
+            equal(\.heightAnchor, multiplier: 0.5),
+            equal(bottomKeyPath(for: orientation))
+            ])
 
-        topTrailing.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        topTrailing.widthAnchor.constraint(equalToConstant: lineWidth).isActive = true
-        topTrailing.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-
-        switch orientation {
-        case .top:
-            topTrailing.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        case .bottom:
-            topTrailing.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        }
-
-        bottomMiddle.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        bottomMiddle.widthAnchor.constraint(equalToConstant: lineWidth).isActive = true
-        bottomMiddle.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-
-        switch orientation {
-        case .top:
-            bottomMiddle.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        case .bottom:
-            bottomMiddle.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        }
-
-        horizontalMiddle.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        horizontalMiddle.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        horizontalMiddle.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        horizontalMiddle.heightAnchor.constraint(equalToConstant: lineWidth).isActive = true
+        addSubview(horizontalMiddle, constraints: [
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor),
+            equal(\.centerYAnchor),
+            equal(\.heightAnchor, to: lineWidth)
+            ])
     }
 
     func lineView() -> UIView {
         let lineView = UIView()
-        lineView.translatesAutoresizingMaskIntoConstraints = false
         lineView.backgroundColor = UIColor.white
 
         return lineView
+    }
+
+    private func topKeyPath(for orientation: BracketOrientation) -> KeyPath<UIView, NSLayoutYAxisAnchor> {
+        switch orientation {
+        case .top:
+            return \.topAnchor
+        case .bottom:
+            return \.bottomAnchor
+        }
+    }
+
+    private func bottomKeyPath(for orientation: BracketOrientation) -> KeyPath<UIView, NSLayoutYAxisAnchor> {
+        switch orientation {
+        case .top:
+            return \.bottomAnchor
+        case .bottom:
+            return \.topAnchor
+        }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

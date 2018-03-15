@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0621A5371F7F458900FF78C2 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621A5361F7F458900FF78C2 /* Env.swift */; };
+		06328EBA204E35550045DECE /* TeamAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06328EB9204E35550045DECE /* TeamAvatar.swift */; };
 		063A2B831FC3C5A3000FE0E3 /* Realm+Cascading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B821FC3C5A3000FE0E3 /* Realm+Cascading.swift */; };
 		063A2B8B1FC3D565000FE0E3 /* MatchupDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B8A1FC3D565000FE0E3 /* MatchupDataSource.swift */; };
 		063A2B8D1FC3D5B9000FE0E3 /* MatchupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063A2B8C1FC3D5B9000FE0E3 /* MatchupDelegate.swift */; };
@@ -25,6 +26,7 @@
 		0698B4B11FA41E7400947FE2 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */; };
 		0698B4B31FA4201000947FE2 /* MatchupTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0698B4B21FA4201000947FE2 /* MatchupTeam.swift */; };
 		069D3EB61F7F37E700080AA0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D3EB51F7F37E700080AA0 /* API.swift */; };
+		06A703FC2059F3D500E5D724 /* GameTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A703FB2059F3D500E5D724 /* GameTeam.swift */; };
 		06CEB2021F71F93200723709 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2041F71F93200723709 /* InfoPlist.strings */; };
 		06CEB2071F71F95300723709 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2091F71F95300723709 /* Localizable.strings */; };
 		06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CEB20D1F71FF7700723709 /* BracketController.swift */; };
@@ -75,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		0621A5361F7F458900FF78C2 /* Env.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		06328EB9204E35550045DECE /* TeamAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAvatar.swift; sourceTree = "<group>"; };
 		063A2B821FC3C5A3000FE0E3 /* Realm+Cascading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Cascading.swift"; sourceTree = "<group>"; };
 		063A2B8A1FC3D565000FE0E3 /* MatchupDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupDataSource.swift; sourceTree = "<group>"; };
 		063A2B8C1FC3D5B9000FE0E3 /* MatchupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		0698B4B21FA4201000947FE2 /* MatchupTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupTeam.swift; sourceTree = "<group>"; };
 		069D3EB51F7F37E700080AA0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		06A703FB2059F3D500E5D724 /* GameTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTeam.swift; sourceTree = "<group>"; };
 		06CEB1FE1F71F8EC00723709 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06CEB2031F71F93200723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		06CEB2081F71F95300723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				06861DA41F76198F00E8C020 /* Series.swift */,
 				06E75F411F7C9FFD00540DE3 /* Team.swift */,
 				0698B4B21FA4201000947FE2 /* MatchupTeam.swift */,
+				06A703FB2059F3D500E5D724 /* GameTeam.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				06E75F431F7CB3F100540DE3 /* TeamView.swift */,
 				06861D9D1F720F4A00E8C020 /* SeriesView.swift */,
 				063A2B971FC3F010000FE0E3 /* MatchupGameView.swift */,
+				06328EB9204E35550045DECE /* TeamAvatar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -470,11 +476,13 @@
 				06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */,
 				0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */,
 				06861DA51F76198F00E8C020 /* Series.swift in Sources */,
+				06328EBA204E35550045DECE /* TeamAvatar.swift in Sources */,
 				063A2B981FC3F010000FE0E3 /* MatchupGameView.swift in Sources */,
 				063A2B8B1FC3D565000FE0E3 /* MatchupDataSource.swift in Sources */,
 				063A2B8D1FC3D5B9000FE0E3 /* MatchupDelegate.swift in Sources */,
 				063A2B831FC3C5A3000FE0E3 /* Realm+Cascading.swift in Sources */,
 				063A2B9A1FC3F08F000FE0E3 /* AutoLayout+Extensions.swift in Sources */,
+				06A703FC2059F3D500E5D724 /* GameTeam.swift in Sources */,
 				06E75F361F7C863800540DE3 /* Matchup.swift in Sources */,
 				0698B4B11FA41E7400947FE2 /* UIColor+Hex.swift in Sources */,
 				069D3EB61F7F37E700080AA0 /* API.swift in Sources */,

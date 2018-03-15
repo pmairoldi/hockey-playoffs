@@ -57,7 +57,7 @@ class BracketController: UIViewController, TreeViewDelegate {
         }
     }
 
-    @objc fileprivate func refresh() {
+    @objc private func refresh() {
 
         contentView.state = .loading
 

@@ -5,24 +5,25 @@ class MatchupGameCell: UITableViewCell, Reusable {
 
     private let content: MatchupGameView
 
-    var game: Game {
+    var game: Game? {
         didSet {
-            content.game = game
+            if let game = game {
+                content.game = game
+            }
         }
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        game = Game()
         content = MatchupGameView()
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        contentView.addSubview(content)
-
-        content.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        content.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        content.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        contentView.addSubview(content, constraints: [
+            equal(\.topAnchor, contentView.topAnchor),
+            equal(\.bottomAnchor, contentView.bottomAnchor),
+            equal(\.leadingAnchor, contentView.leadingAnchor),
+            equal(\.trailingAnchor, contentView.trailingAnchor)
+            ])
     }
 
     required init?(coder aDecoder: NSCoder) {

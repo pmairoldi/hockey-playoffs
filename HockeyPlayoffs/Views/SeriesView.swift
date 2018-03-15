@@ -2,15 +2,15 @@ import UIKit
 
 class SeriesView: UIView {
 
-    fileprivate let top: TeamView
-    fileprivate let bottom: TeamView
+    private let top: TeamView
+    private let bottom: TeamView
 
     let series: Series
 
-    var data: Matchup? {
+    var matchup: Matchup? {
         didSet {
-            top.data = data?.topTeam
-            bottom.data = data?.bottomTeam
+            top.matchupTeam = matchup?.topTeam
+            bottom.matchupTeam = matchup?.bottomTeam
         }
     }
 
@@ -22,12 +22,10 @@ class SeriesView: UIView {
         bottom = TeamView(position: .bottom)
 
         let seperater = UIView()
-        seperater.translatesAutoresizingMaskIntoConstraints = false
         seperater.backgroundColor = UIColor.white
 
         super.init(frame: .zero)
 
-        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.darkGray
         clipsToBounds = true
 
@@ -35,25 +33,26 @@ class SeriesView: UIView {
         layer.borderWidth = 1.5
         layer.borderColor = UIColor.white.cgColor
 
-        addSubview(top)
-        addSubview(seperater)
-        addSubview(bottom)
+        addSubview(seperater, constraints: [
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor),
+            equal(\.heightAnchor, to: 1.0),
+            equal(\.centerYAnchor)
+            ])
 
-        //TODO: move to stackview?
-        top.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        top.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        top.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        top.bottomAnchor.constraint(equalTo: seperater.topAnchor).isActive = true
+        addSubview(top, constraints: [
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor),
+            equal(\.topAnchor),
+            equal(\.bottomAnchor, seperater.topAnchor)
+            ])
 
-        seperater.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        seperater.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        seperater.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
-        seperater.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
-        bottom.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        bottom.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        bottom.topAnchor.constraint(equalTo: seperater.bottomAnchor).isActive = true
-        bottom.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        addSubview(bottom, constraints: [
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor),
+            equal(\.topAnchor, seperater.bottomAnchor),
+            equal(\.bottomAnchor)
+            ])
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -1,6 +1,6 @@
 class BracketDataSource: TreeViewDataSource {
 
-    fileprivate let store: Store
+    private let store: Store
 
     init(store: Store) {
         self.store = store

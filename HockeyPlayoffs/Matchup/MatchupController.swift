@@ -2,7 +2,7 @@ import UIKit
 
 class MatchupController: UITableViewController {
     private let dataSource: MatchupDataSource
-    private weak var delegate: MatchupDelegate?
+    private let delegate: MatchupDelegate
 
     let store: Store
     let series: Series
@@ -56,7 +56,7 @@ class MatchupController: UITableViewController {
 //        }
     }
 //
-//    @objc fileprivate func refresh() {
+//    @objc private func refresh() {
 //
 //        bracketView.state = .loading
 //

@@ -7,7 +7,7 @@ struct StoreActions {
 
 struct Store {
 
-    fileprivate let api: API
+    private let api: API
 
     init(api: API = API()) {
         self.api = api

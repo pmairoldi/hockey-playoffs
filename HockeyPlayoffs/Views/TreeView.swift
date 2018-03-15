@@ -17,23 +17,23 @@ class TreeView: UIView {
         }
     }
 
-    fileprivate let westQuarterFinals1: SeriesView
-    fileprivate let westQuarterFinals2: SeriesView
-    fileprivate let westQuarterFinals3: SeriesView
-    fileprivate let westQuarterFinals4: SeriesView
-    fileprivate let westSemiFinals1: SeriesView
-    fileprivate let westSemiFinals2: SeriesView
-    fileprivate let westFinals: SeriesView
-    fileprivate let finals: SeriesView
-    fileprivate let eastFinals: SeriesView
-    fileprivate let eastSemiFinals1: SeriesView
-    fileprivate let eastSemiFinals2: SeriesView
-    fileprivate let eastQuarterFinals1: SeriesView
-    fileprivate let eastQuarterFinals2: SeriesView
-    fileprivate let eastQuarterFinals3: SeriesView
-    fileprivate let eastQuarterFinals4: SeriesView
+    private let westQuarterFinals1: SeriesView
+    private let westQuarterFinals2: SeriesView
+    private let westQuarterFinals3: SeriesView
+    private let westQuarterFinals4: SeriesView
+    private let westSemiFinals1: SeriesView
+    private let westSemiFinals2: SeriesView
+    private let westFinals: SeriesView
+    private let finals: SeriesView
+    private let eastFinals: SeriesView
+    private let eastSemiFinals1: SeriesView
+    private let eastSemiFinals2: SeriesView
+    private let eastQuarterFinals1: SeriesView
+    private let eastQuarterFinals2: SeriesView
+    private let eastQuarterFinals3: SeriesView
+    private let eastQuarterFinals4: SeriesView
 
-    fileprivate lazy var roundViews: [SeriesView] = {
+    private lazy var roundViews: [SeriesView] = {
         return [
             westQuarterFinals1,
             westQuarterFinals2,
@@ -52,10 +52,6 @@ class TreeView: UIView {
             eastQuarterFinals4
         ]
     }()
-
-    required convenience init?(coder aDecoder: NSCoder) {
-        self.init()
-    }
 
     init() {
 
@@ -102,7 +98,12 @@ class TreeView: UIView {
 
         let bracket = stackView(axis: .vertical, views: westQuarterFinalRound, westSemiFinalRound, westFinalRound, finalRound, eastFinalRound, eastSemiFinalRound, eastQuarterFinalRound)
 
-        addSubview(bracket)
+        addSubview(bracket, constraints: [
+            equal(\.topAnchor),
+            equal(\.leadingAnchor),
+            equal(\.trailingAnchor),
+            equal(\.bottomAnchor)
+            ])
 
         addBracketBetween(leadingView: westQuarterFinals1, trailingView: westQuarterFinals2, bottomView: westSemiFinals1, orientation: .top)
 
@@ -127,11 +128,6 @@ class TreeView: UIView {
         eastSemiFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor, multiplier: 0.72).isActive = true
 
         eastQuarterFinalRound.widthAnchor.constraint(equalTo: bracket.widthAnchor).isActive = true
-
-        bracket.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        bracket.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        bracket.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        bracket.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
     func reloadData() {
@@ -140,7 +136,7 @@ class TreeView: UIView {
         }
 
         roundViews.forEach { (view) in
-            view.data = dataSource.itemAt(series: view.series)
+            view.matchup = dataSource.itemAt(series: view.series)
         }
     }
 
@@ -156,10 +152,9 @@ class TreeView: UIView {
         delegate.didSelect(series: seriesView.series)
     }
 
-    fileprivate func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {
+    private func stackView(axis: UILayoutConstraintAxis, views: UIView...) -> UIStackView {
 
         let stackView = UIStackView(arrangedSubviews: views)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = axis
         stackView.distribution = .equalCentering
         stackView.alignment = .center
@@ -167,35 +162,50 @@ class TreeView: UIView {
         return stackView
     }
 
-    fileprivate func addLineBetween(firstView: UIView, secondView: UIView) {
+    private func addLineBetween(firstView: UIView, secondView: UIView) {
 
         let bracket = BracketLineView()
 
-        addSubview(bracket)
-
-        bracket.topAnchor.constraint(equalTo: firstView.bottomAnchor).isActive = true
-        bracket.bottomAnchor.constraint(equalTo: secondView.topAnchor).isActive = true
-        bracket.leadingAnchor.constraint(equalTo: firstView.leadingAnchor).isActive = true
-        bracket.trailingAnchor.constraint(equalTo: firstView.trailingAnchor).isActive = true
+        addSubview(bracket, constraints: [
+            equal(\.topAnchor, firstView.bottomAnchor),
+            equal(\.bottomAnchor, secondView.topAnchor),
+            equal(\.leadingAnchor, firstView.leadingAnchor),
+            equal(\.trailingAnchor, firstView.trailingAnchor)
+            ])
     }
 
-    fileprivate func addBracketBetween(leadingView: UIView, trailingView: UIView, bottomView: UIView, orientation: BracketOrientation) {
+    private func addBracketBetween(leadingView: UIView, trailingView: UIView, bottomView: UIView, orientation: BracketOrientation) {
 
         let bracket = BracketLineView(orientation: orientation)
 
-        addSubview(bracket)
-
-        switch orientation {
-        case .top:
-            bracket.topAnchor.constraint(equalTo: leadingView.bottomAnchor).isActive = true
-            bracket.bottomAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
-        case .bottom:
-            bracket.bottomAnchor.constraint(equalTo: leadingView.topAnchor).isActive = true
-            bracket.topAnchor.constraint(equalTo: bottomView.bottomAnchor).isActive = true
+        let topAnchorKeyPath = { (orientation: BracketOrientation) -> NSLayoutYAxisAnchor in
+            switch orientation {
+            case .top:
+                return leadingView.bottomAnchor
+            case .bottom:
+                return bottomView.bottomAnchor
+            }
         }
 
-        bracket.leadingAnchor.constraint(equalTo: leadingView.centerXAnchor).isActive = true
-        bracket.trailingAnchor.constraint(equalTo: trailingView.centerXAnchor).isActive = true
-        bracket.centerXAnchor.constraint(equalTo: bottomView.centerXAnchor).isActive = true
+        let bottomAnchorKeyPath = { (orientation: BracketOrientation) -> NSLayoutYAxisAnchor in
+            switch orientation {
+            case .top:
+                return bottomView.topAnchor
+            case .bottom:
+                return leadingView.topAnchor
+            }
+        }
+
+        addSubview(bracket, constraints: [
+            equal(\.topAnchor, topAnchorKeyPath(orientation)),
+            equal(\.bottomAnchor, bottomAnchorKeyPath(orientation)),
+            equal(\.leadingAnchor, leadingView.centerXAnchor),
+            equal(\.trailingAnchor, trailingView.centerXAnchor),
+            equal(\.centerXAnchor, bottomView.centerXAnchor)
+            ])
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
