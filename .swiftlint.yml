@@ -1,0 +1,13 @@
+disabled_rules:
+  - force_cast
+  - force_try
+  - function_body_length
+  - line_length
+  - todo
+  - identifier_name
+
+opt_int_rules:
+  - force_unwrapping
+
+included:
+  - HockeyPlayoffs

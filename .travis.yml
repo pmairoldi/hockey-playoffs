@@ -1,16 +1,25 @@
 language: objective-c
-osx_image: xcode6.4
-cache: bundler
-rvm:
-  - system
+osx_image: xcode9
+matrix:
+  include:
+    - env: PLATFORM="ios"
+env:
+  global:
+    - LANG=en_US.UTF-8
+cache:
+  bundler: true
+  directories:
+    - Carthage
 before_install:
-  - sudo gem install bundler
-  - xcrun instruments -w "iPhone 6 (8.4 Simulator)" || echo "(Pre)Launched the simulator."
-install:
-  - bundle install
-before_script:
-  - bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
+  - brew update
+  - brew upgrade swiftlint || true
+  - brew upgrade carthage || true
+  - carthage version
+  - carthage bootstrap --verbose --platform $PLATFORM --cache-builds
 script:
-  - bundle exec fastlane test
+  - bundle exec rake env[http://localhost]
+  - bundle exec rake test:$PLATFORM
 after_success:
-  - bundle exec slather  
+  - bundle exec danger
+  - bash <(curl -s https://codecov.io/bash)
+  
