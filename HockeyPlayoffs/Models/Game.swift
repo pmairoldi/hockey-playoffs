@@ -30,4 +30,64 @@ class Game: Object, Codable {
         case tv
         case active
     }
+
+//    func getGameStatus() -> String {
+//
+//        if (period == 0) {
+//            //not started show game time
+//
+//            NSString *date = [DateTimeHandler getDateForDate:_date andTime:_time]
+//            NSString *time = [DateTimeHandler getTimeForDate:_date andTime:_time]
+//
+//            return [NSString stringWithFormat:@"%@\n%@", date, time]
+//        } else {
+//            //started show period data
+//            NSString *periodTime
+//
+//            if (_periodTime.length != 0) {
+//                periodTime = NSLocalizedString(_periodTime, nil)
+//            } else {
+//                periodTime = @"20:00"
+//            }
+//
+//            NSString *periodTitle
+//
+//            switch (_period) {
+//
+//            case 0:
+//                periodTitle = NSLocalizedString(@"period.first.short", nil)
+//                break
+//
+//            case 1:
+//                periodTitle = NSLocalizedString(@"period.first.short", nil)
+//                break
+//
+//            case 2:
+//                periodTitle = NSLocalizedString(@"period.second.short", nil)
+//                break
+//
+//            case 3:
+//                periodTitle = NSLocalizedString(@"period.third.short", nil)
+//                break
+//
+//            case 4:
+//                periodTitle = NSLocalizedString(@"period.ot.short", nil)
+//                break
+//
+//            case 5:
+//                periodTitle = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"period.second.short", nil), NSLocalizedString(@"period.ot.short", nil)]
+//                break
+//
+//            case 6:
+//                periodTitle = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"period.third.short", nil), NSLocalizedString(@"period.ot.short", nil)]
+//                break
+//
+//            default:
+//                periodTitle = [NSString stringWithFormat:@"%d%@ %@", _period-3, NSLocalizedString(@"period.number.ending", nil), NSLocalizedString(@"period.ot.short", nil)]
+//                break
+//            }
+//
+//            return [NSString stringWithFormat:@"%@\n%@", periodTime, periodTitle]
+//        }
+//    }
 }

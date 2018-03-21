@@ -6,7 +6,7 @@ class MatchupDataSource: NSObject, UITableViewDataSource {
     private let games: Results<Game>
 
     init(games: List<Game>) {
-        self.games = games.filter("active == true")
+        self.games = games.filter("active == true").sorted(byKeyPath: "id")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -28,6 +28,11 @@
 		069D3EB61F7F37E700080AA0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069D3EB51F7F37E700080AA0 /* API.swift */; };
 		06A703FC2059F3D500E5D724 /* GameTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A703FB2059F3D500E5D724 /* GameTeam.swift */; };
 		06A703FF205A429300E5D724 /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A703FE205A429300E5D724 /* UIColor+CustomColors.swift */; };
+		06A704012061F7AF00E5D724 /* StringHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A704002061F7AF00E5D724 /* StringHandler.swift */; };
+		06A704032061F9EC00E5D724 /* DateTimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A704022061F9EC00E5D724 /* DateTimeHandler.swift */; };
+		06A704052061FB2A00E5D724 /* FormatterHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A704042061FB2A00E5D724 /* FormatterHandler.swift */; };
+		06A704072061FD6600E5D724 /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A704062061FD6600E5D724 /* StringHandlerTests.swift */; };
+		06A704092061FEB000E5D724 /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A704082061FEB000E5D724 /* DateTimeHandlerTests.swift */; };
 		06CEB2021F71F93200723709 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2041F71F93200723709 /* InfoPlist.strings */; };
 		06CEB2071F71F95300723709 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CEB2091F71F95300723709 /* Localizable.strings */; };
 		06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CEB20D1F71FF7700723709 /* BracketController.swift */; };
@@ -48,7 +53,6 @@
 		06E75F3C1F7C8B1E00540DE3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06E75F381F7C8B1E00540DE3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		06E75F421F7C9FFD00540DE3 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F411F7C9FFD00540DE3 /* Team.swift */; };
 		06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E75F431F7CB3F100540DE3 /* TeamView.swift */; };
-		06FE756B1F804FB900E144A7 /* HockeyPlayoffsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +102,11 @@
 		069D3EB51F7F37E700080AA0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		06A703FB2059F3D500E5D724 /* GameTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTeam.swift; sourceTree = "<group>"; };
 		06A703FE205A429300E5D724 /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
+		06A704002061F7AF00E5D724 /* StringHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHandler.swift; sourceTree = "<group>"; };
+		06A704022061F9EC00E5D724 /* DateTimeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHandler.swift; sourceTree = "<group>"; };
+		06A704042061FB2A00E5D724 /* FormatterHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterHandler.swift; sourceTree = "<group>"; };
+		06A704062061FD6600E5D724 /* StringHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHandlerTests.swift; sourceTree = "<group>"; };
+		06A704082061FEB000E5D724 /* DateTimeHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeHandlerTests.swift; sourceTree = "<group>"; };
 		06CEB1FE1F71F8EC00723709 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06CEB2031F71F93200723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		06CEB2081F71F95300723709 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -121,7 +130,6 @@
 		06E75F411F7C9FFD00540DE3 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		06E75F431F7CB3F100540DE3 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		06FE75681F804FB900E144A7 /* HockeyPlayoffsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeyPlayoffsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyPlayoffsTests.swift; sourceTree = "<group>"; };
 		06FE756C1F804FB900E144A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +205,9 @@
 				0698B4B01FA41E7400947FE2 /* UIColor+Hex.swift */,
 				063A2B991FC3F08F000FE0E3 /* AutoLayout+Extensions.swift */,
 				06A703FE205A429300E5D724 /* UIColor+CustomColors.swift */,
+				06A704002061F7AF00E5D724 /* StringHandler.swift */,
+				06A704022061F9EC00E5D724 /* DateTimeHandler.swift */,
+				06A704042061FB2A00E5D724 /* FormatterHandler.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,7 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				06FE75721F80514B00E144A7 /* Resources */,
-				06FE756A1F804FB900E144A7 /* HockeyPlayoffsTests.swift */,
+				06A704062061FD6600E5D724 /* StringHandlerTests.swift */,
+				06A704082061FEB000E5D724 /* DateTimeHandlerTests.swift */,
 			);
 			path = HockeyPlayoffsTests;
 			sourceTree = "<group>";
@@ -338,6 +350,7 @@
 				06FE75641F804FB900E144A7 /* Sources */,
 				06FE75651F804FB900E144A7 /* Frameworks */,
 				06FE75661F804FB900E144A7 /* Resources */,
+				06A7040B2062035C00E5D724 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -439,21 +452,37 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nswiftlint lint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		06E75F2B1F7C85BE00540DE3 /* Copy Frameworks */ = {
+		06A7040B2062035C00E5D724 /* Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				Realm.framework,
+				RealmSwift.framework,
 			);
 			name = "Copy Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = " exec \"${SRCROOT}/Scripts/copy-carthage-frameworks.sh\"";
+		};
+		06E75F2B1F7C85BE00540DE3 /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				Realm.framework,
+				RealmSwift.framework,
+			);
+			name = "Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = " exec \"${SRCROOT}/Scripts/copy-carthage-frameworks.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -477,10 +506,12 @@
 				06861D9C1F720F1B00E8C020 /* TreeView.swift in Sources */,
 				063A2B911FC3E8AD000FE0E3 /* MatchupGameCell.swift in Sources */,
 				06E75F2A1F7C822100540DE3 /* Store.swift in Sources */,
+				06A704012061F7AF00E5D724 /* StringHandler.swift in Sources */,
 				06E75F441F7CB3F100540DE3 /* TeamView.swift in Sources */,
 				0642D0241F95BD9700172952 /* RealmSwift+Codable.swift in Sources */,
 				06861DA51F76198F00E8C020 /* Series.swift in Sources */,
 				06328EBA204E35550045DECE /* TeamAvatar.swift in Sources */,
+				06A704032061F9EC00E5D724 /* DateTimeHandler.swift in Sources */,
 				063A2B981FC3F010000FE0E3 /* GameSummaryView.swift in Sources */,
 				063A2B8B1FC3D565000FE0E3 /* MatchupDataSource.swift in Sources */,
 				063A2B8D1FC3D5B9000FE0E3 /* MatchupDelegate.swift in Sources */,
@@ -494,6 +525,7 @@
 				06CEB20E1F71FF7700723709 /* BracketController.swift in Sources */,
 				0698B4B31FA4201000947FE2 /* MatchupTeam.swift in Sources */,
 				063A2B941FC3E8E9000FE0E3 /* Reusable.swift in Sources */,
+				06A704052061FB2A00E5D724 /* FormatterHandler.swift in Sources */,
 				06D871251F71E64900B0111C /* AppDelegate.swift in Sources */,
 				06DD09561F81D7B0008E9824 /* MatchupController.swift in Sources */,
 			);
@@ -503,7 +535,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06FE756B1F804FB900E144A7 /* HockeyPlayoffsTests.swift in Sources */,
+				06A704092061FEB000E5D724 /* DateTimeHandlerTests.swift in Sources */,
+				06A704072061FD6600E5D724 /* StringHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,9 +690,21 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
-				FRAMEWORK_SEARCH_PATHS = (
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = (
+					"$(SRCROOT)/Carthage/Build/tvOS/",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = (
+					"$(SRCROOT)/Carthage/Build/iOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(SRCROOT)/Carthage/Build/Mac/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = (
+					"$(SRCROOT)/Carthage/Build/watchOS/",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = HockeyPlayoffs/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -678,9 +723,21 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
-				FRAMEWORK_SEARCH_PATHS = (
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = (
+					"$(SRCROOT)/Carthage/Build/tvOS/",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = (
+					"$(SRCROOT)/Carthage/Build/iOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(SRCROOT)/Carthage/Build/Mac/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = (
+					"$(SRCROOT)/Carthage/Build/watchOS/",
+					"$(inherited)",
 				);
 				INFOPLIST_FILE = HockeyPlayoffs/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -698,6 +755,22 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = (
+					"$(SRCROOT)/Carthage/Build/tvOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = (
+					"$(SRCROOT)/Carthage/Build/iOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(SRCROOT)/Carthage/Build/Mac/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = (
+					"$(SRCROOT)/Carthage/Build/watchOS/",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = HockeyPlayoffsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pierremarcairoldi.hockey-playoffs-tests";
@@ -714,6 +787,22 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
+				"FRAMEWORK_SEARCH_PATHS[sdk=appletv*]" = (
+					"$(SRCROOT)/Carthage/Build/tvOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphone*]" = (
+					"$(SRCROOT)/Carthage/Build/iOS/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = (
+					"$(SRCROOT)/Carthage/Build/Mac/",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=watch*]" = (
+					"$(SRCROOT)/Carthage/Build/watchOS/",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = HockeyPlayoffsTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pierremarcairoldi.hockey-playoffs-tests";
