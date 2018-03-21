@@ -12,7 +12,7 @@ cache:
     - Carthage
 before_install:
   - brew update
-  - brew install swiftlint
+  - brew upgrade swiftlint || true
   - brew upgrade carthage || true
   - carthage version
   - carthage bootstrap --verbose --platform $PLATFORM --cache-builds
