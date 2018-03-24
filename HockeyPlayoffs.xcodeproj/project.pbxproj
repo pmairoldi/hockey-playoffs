@@ -292,11 +292,11 @@
 		0684137C18B9A0CE00A89D7C = {
 			isa = PBXGroup;
 			children = (
+				0684138718B9A0CE00A89D7C /* Frameworks */,
 				553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */,
 				06B321DB2065DCF200C4078F /* HockeyPlayoffsTests */,
-				0684138718B9A0CE00A89D7C /* Frameworks */,
-				0684138618B9A0CE00A89D7C /* Products */,
 				0D6D1895AEE81B605CD90FB6 /* Pods */,
+				0684138618B9A0CE00A89D7C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -348,8 +348,6 @@
 		553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */ = {
 			isa = PBXGroup;
 			children = (
-				553F35C51B39A65F00CCAE17 /* AppDelegate.h */,
-				553F35C61B39A65F00CCAE17 /* AppDelegate.m */,
 				553F35C71B39A65F00CCAE17 /* Constants */,
 				553F35D21B39A65F00CCAE17 /* DatabaseObjects */,
 				553F35DD1B39A65F00CCAE17 /* Handlers */,
@@ -359,6 +357,8 @@
 				553F36021B39A65F00CCAE17 /* SupportingFiles */,
 				553F360A1B39A65F00CCAE17 /* View */,
 				553F36391B39A65F00CCAE17 /* ViewController */,
+				553F35C51B39A65F00CCAE17 /* AppDelegate.h */,
+				553F35C61B39A65F00CCAE17 /* AppDelegate.m */,
 			);
 			path = HockeyPlayoffs;
 			sourceTree = "<group>";
@@ -366,10 +366,10 @@
 		553F35C71B39A65F00CCAE17 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				553F35C91B39A65F00CCAE17 /* APIIdentifiers.h */,
+				553F35C81B39A65F00CCAE17 /* Animations.h */,
 				0667D71C1B3A6611009571A6 /* Colors.h */,
 				0667D71D1B3A6611009571A6 /* Colors.m */,
-				553F35C81B39A65F00CCAE17 /* Animations.h */,
-				553F35C91B39A65F00CCAE17 /* APIIdentifiers.h */,
 				553F35CB1B39A65F00CCAE17 /* Dimensions.h */,
 				553F35CC1B39A65F00CCAE17 /* Enums.h */,
 				553F35CD1B39A65F00CCAE17 /* Images.h */,
@@ -413,10 +413,10 @@
 				553F35E71B39A65F00CCAE17 /* FileHandler.m */,
 				553F35E81B39A65F00CCAE17 /* FormatterHandler.h */,
 				553F35E91B39A65F00CCAE17 /* FormatterHandler.m */,
-				553F35EA1B39A65F00CCAE17 /* TeamHandler.h */,
-				553F35EB1B39A65F00CCAE17 /* TeamHandler.m */,
 				553F36911B39AB9300CCAE17 /* StringHandler.h */,
 				553F36921B39AB9300CCAE17 /* StringHandler.m */,
+				553F35EA1B39A65F00CCAE17 /* TeamHandler.h */,
+				553F35EB1B39A65F00CCAE17 /* TeamHandler.m */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -460,9 +460,9 @@
 		553F35FD1B39A65F00CCAE17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				553F36001B39A65F00CCAE17 /* Images.xcassets */,
 				553F35FE1B39A65F00CCAE17 /* hockey.sql */,
 				553F35FF1B39A65F00CCAE17 /* hockey.sqlite */,
-				553F36001B39A65F00CCAE17 /* Images.xcassets */,
 				553F36981B39B84100CCAE17 /* teams.json */,
 			);
 			path = Resources;
@@ -471,9 +471,9 @@
 		553F36021B39A65F00CCAE17 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				553F36071B39A65F00CCAE17 /* Info.plist */,
 				062B24952065E629005B175B /* InfoPlist.strings */,
 				062B24932065E629005B175B /* Localizable.strings */,
-				553F36071B39A65F00CCAE17 /* Info.plist */,
 				553F36081B39A65F00CCAE17 /* Prefix.pch */,
 				553F36091B39A65F00CCAE17 /* main.m */,
 			);
@@ -507,10 +507,10 @@
 				553F36201B39A65F00CCAE17 /* NoContentTableView.m */,
 				553F36211B39A65F00CCAE17 /* NoDataTableViewCell.h */,
 				553F36221B39A65F00CCAE17 /* NoDataTableViewCell.m */,
-				553F36231B39A65F00CCAE17 /* PeriodScoresView.h */,
-				553F36241B39A65F00CCAE17 /* PeriodScoresView.m */,
 				553F36251B39A65F00CCAE17 /* PeriodScoreViewHeader.h */,
 				553F36261B39A65F00CCAE17 /* PeriodScoreViewHeader.m */,
+				553F36231B39A65F00CCAE17 /* PeriodScoresView.h */,
+				553F36241B39A65F00CCAE17 /* PeriodScoresView.m */,
 				553F36271B39A65F00CCAE17 /* RecentGamesView.h */,
 				553F36281B39A65F00CCAE17 /* RecentGamesView.m */,
 				553F36291B39A65F00CCAE17 /* RefreshTableViewCell.h */,
@@ -894,6 +894,7 @@
 				062B249A2065E633005B175B /* en */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		062B24952065E629005B175B /* InfoPlist.strings */ = {
@@ -902,6 +903,7 @@
 				062B24992065E633005B175B /* en */,
 			);
 			name = InfoPlist.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

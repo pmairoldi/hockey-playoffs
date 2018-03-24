@@ -54,6 +54,7 @@ GEM
     cocoapods-try (1.1.0)
     colored (1.2)
     colored2 (3.1.2)
+    colorize (0.8.1)
     commander-fastlane (4.4.6)
       highline (~> 1.7.2)
     concurrent-ruby (1.0.5)
@@ -183,6 +184,10 @@ GEM
       clamp (~> 0.6)
       nokogiri (~> 1.8.2)
       xcodeproj (~> 1.4)
+    synx (0.2.1)
+      clamp (~> 0.6)
+      colorize (~> 0.7)
+      xcodeproj (~> 1.0)
     terminal-notifier (1.8.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -218,6 +223,7 @@ DEPENDENCIES
   cocoapods-keys
   fastlane
   slather
+  synx
 
 BUNDLED WITH
    1.16.1
