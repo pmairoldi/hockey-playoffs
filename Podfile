@@ -16,6 +16,7 @@ target "HockeyPlayoffs" do
   pod "FMDB", "~> 2.7"
   pod "AFNetworking", "~> 3.2"
   pod "LSWeekView", "~> 1.0"
+  pod 'CRToast', :git => 'https://github.com/petester42/CRToast.git', :branch => 'feature/allow-duplicates'
   pod "SimulatorStatusMagic", "~> 2.1", :configurations => ["Debug"]
 
   target "HockeyPlayoffsTests" do

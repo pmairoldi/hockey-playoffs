@@ -9,7 +9,7 @@
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 #import "APIIdentifiers.h"
-#import "CRToast.h"
+#import <CRToast/CRToast.h>
 #import "Animations.h"
 #import "Queues.h"
 #import "AFNetworkActivityIndicatorManager.h"
@@ -167,7 +167,7 @@ dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispat
                                   kCRToastStatusBarStyleKey : @([[UIApplication sharedApplication] statusBarStyle]),
                                   kCRToastAllowDuplicatesKey : @(NO)
                                   };
-        
+
         [CRToastManager showNotificationWithOptions:options completionBlock:nil];
     });
 }

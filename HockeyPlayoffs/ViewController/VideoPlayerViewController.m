@@ -7,7 +7,7 @@
 //
 
 #import "VideoPlayerViewController.h"
-#import "CRToast.h"
+#import <CRToast/CRToast.h>
 #import "Animations.h"
 #import <AFNetworking/AFNetworkReachabilityManager.h>
 
@@ -85,8 +85,6 @@
     
     if (url != nil && [url isKindOfClass:[NSURL class]] && [AFNetworkReachabilityManager sharedManager].reachable) {
     
-//        [CRToastManager preventNotifications:YES];
-
         VideoPlayerViewController *mpMoviePlayerController = [[VideoPlayerViewController alloc] initWithContentURL:url];
         
         [controller presentMoviePlayerViewControllerAnimated:mpMoviePlayerController];
@@ -95,7 +93,6 @@
     else {
         
         if ([AFNetworkReachabilityManager sharedManager].reachable) {
-            
             [VideoPlayerViewController showNotificationWithTitle:NSLocalizedString(@"error.video.title", nil)];
         }
         
@@ -107,7 +104,6 @@
 
 -(void)dismissedPlayer:(NSNotification *)notification {
     
-//    [CRToastManager preventNotifications:NO];
 }
 
 +(void)showNotificationWithTitle:(NSString *)title {
