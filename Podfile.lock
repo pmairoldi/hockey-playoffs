@@ -1,60 +1,52 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
+  - AFNetworking (3.2.0):
+    - AFNetworking/NSURLSession (= 3.2.0)
+    - AFNetworking/Reachability (= 3.2.0)
+    - AFNetworking/Security (= 3.2.0)
+    - AFNetworking/Serialization (= 3.2.0)
+    - AFNetworking/UIKit (= 3.2.0)
+  - AFNetworking/NSURLSession (3.2.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.2.0)
+  - AFNetworking/Security (3.2.0)
+  - AFNetworking/Serialization (3.2.0)
+  - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (2.4.0):
-    - CocoaLumberjack/Default (= 2.4.0)
-    - CocoaLumberjack/Extensions (= 2.4.0)
-  - CocoaLumberjack/Core (2.4.0)
-  - CocoaLumberjack/Default (2.4.0):
-    - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.4.0):
+  - CocoaLumberjack (3.4.1):
+    - CocoaLumberjack/Default (= 3.4.1)
+    - CocoaLumberjack/Extensions (= 3.4.1)
+  - CocoaLumberjack/Default (3.4.1)
+  - CocoaLumberjack/Extensions (3.4.1):
     - CocoaLumberjack/Default
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - Keys (1.0.0)
   - LSWeekView (1.0.5)
-  - SimulatorStatusMagic (1.9.4)
+  - SimulatorStatusMagic (2.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.6)
-  - CocoaLumberjack (~> 2.0)
-  - FMDB (~> 2.5)
+  - AFNetworking (~> 3.2)
+  - CocoaLumberjack (~> 3.4)
+  - FMDB (~> 2.7)
   - Keys (from `Pods/CocoaPodsKeys`)
   - LSWeekView (~> 1.0)
-  - SimulatorStatusMagic (~> 1.7)
+  - SimulatorStatusMagic (~> 2.1)
 
 EXTERNAL SOURCES:
   Keys:
     :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
   LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  SimulatorStatusMagic: db93f00d164d854cd5ed7b5c75f48fba3b698c20
+  SimulatorStatusMagic: 481558caf2b9ccb2ceba2cc193728d4db3dcac07
 
-PODFILE CHECKSUM: 84d22c846a83985172d6041e253b5f3aa7c849a6
+PODFILE CHECKSUM: 780e3914700046168791380a35db1855b9b9d67c
 
 COCOAPODS: 1.4.0

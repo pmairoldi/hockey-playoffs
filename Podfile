@@ -12,11 +12,11 @@ inhibit_all_warnings!
 use_frameworks!
 
 target "HockeyPlayoffs" do
-  pod "CocoaLumberjack", "~> 2.0"
-  pod "FMDB", "~> 2.5"
-  pod "AFNetworking", "~> 2.6"
+  pod "CocoaLumberjack", "~> 3.4"
+  pod "FMDB", "~> 2.7"
+  pod "AFNetworking", "~> 3.2"
   pod "LSWeekView", "~> 1.0"
-  pod "SimulatorStatusMagic", "~> 1.7", :configurations => ["Debug"]
+  pod "SimulatorStatusMagic", "~> 2.1", :configurations => ["Debug"]
 
   target "HockeyPlayoffsTests" do
     inherit! :search_paths

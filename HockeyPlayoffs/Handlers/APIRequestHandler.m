@@ -69,13 +69,13 @@
     
     AFHTTPSessionManager *manager = [[self sharedHandler] manager];
     
-    [manager GET:endpoint parameters:data success:^(NSURLSessionDataTask *task, id responseObject) {
+    [manager GET:endpoint parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion != nil) {
             completion(responseObject, nil, YES);
         }
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         if (completion != nil) {
             completion(nil, error, NO);
