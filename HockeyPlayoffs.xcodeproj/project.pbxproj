@@ -571,8 +571,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B321D32065DCE400C4078F /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
 			buildPhases = (
-				062B249F2065E701005B175B /* Update Build */,
 				D242C2709D3B70C5AF906CAF /* [CP] Check Pods Manifest.lock */,
+				062B249F2065E701005B175B /* Update Build */,
 				06B321BC2065DCE400C4078F /* Sources */,
 				06B321BD2065DCE400C4078F /* Frameworks */,
 				06B321BE2065DCE400C4078F /* Resources */,
@@ -1031,7 +1031,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.HockeyPlayoffs;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1060,7 +1060,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.HockeyPlayoffs;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
