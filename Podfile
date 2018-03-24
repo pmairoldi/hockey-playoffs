@@ -18,7 +18,7 @@ target "HockeyPlayoffs" do
   pod "LSWeekView", "~> 1.0"
   pod "SimulatorStatusMagic", "~> 1.7", :configurations => ["Debug"]
 
-  target "UnitTests" do
+  target "HockeyPlayoffsTests" do
     inherit! :search_paths
   end
 end

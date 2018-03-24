@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "GameModel.h"
 #import "EventObject.h"
 #import "GameObject.h"

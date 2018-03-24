@@ -14,7 +14,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "0684138418B9A0CE00A89D7C"
+                     BlueprintIdentifier = "06B321BF2065DCE400C4078F"
                      BuildableName = "HockeyPlayoffs.app"
                      BlueprintName = "HockeyPlayoffs"
                      ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
@@ -32,7 +32,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0684138418B9A0CE00A89D7C"
+               BlueprintIdentifier = "06B321BF2065DCE400C4078F"
                BuildableName = "HockeyPlayoffs.app"
                BlueprintName = "HockeyPlayoffs"
                ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
@@ -66,9 +66,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "065034C01E9F25F1003A132F"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
+               BlueprintIdentifier = "06B321D92065DCF200C4078F"
+               BuildableName = "HockeyPlayoffsTests.xctest"
+               BlueprintName = "HockeyPlayoffsTests"
                ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -76,7 +76,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0684138418B9A0CE00A89D7C"
+            BlueprintIdentifier = "06B321BF2065DCE400C4078F"
             BuildableName = "HockeyPlayoffs.app"
             BlueprintName = "HockeyPlayoffs"
             ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
@@ -100,7 +100,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0684138418B9A0CE00A89D7C"
+            BlueprintIdentifier = "06B321BF2065DCE400C4078F"
             BuildableName = "HockeyPlayoffs.app"
             BlueprintName = "HockeyPlayoffs"
             ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
@@ -124,7 +124,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0684138418B9A0CE00A89D7C"
+            BlueprintIdentifier = "06B321BF2065DCE400C4078F"
             BuildableName = "HockeyPlayoffs.app"
             BlueprintName = "HockeyPlayoffs"
             ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
