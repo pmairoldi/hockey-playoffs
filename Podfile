@@ -20,7 +20,5 @@ target "HockeyPlayoffs" do
 
   target "UnitTests" do
     inherit! :search_paths
-    pod "Quick", "~> 1.1"
-    pod "Nimble", "~> 6.1"
   end
 end

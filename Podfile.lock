@@ -33,8 +33,6 @@ PODS:
   - FMDB/standard (2.6.2)
   - Keys (1.0.0)
   - LSWeekView (1.0.5)
-  - Nimble (6.1.0)
-  - Quick (1.1.0)
   - SimulatorStatusMagic (1.9.4)
 
 DEPENDENCIES:
@@ -43,8 +41,6 @@ DEPENDENCIES:
   - FMDB (~> 2.5)
   - Keys (from `Pods/CocoaPodsKeys`)
   - LSWeekView (~> 1.0)
-  - Nimble (~> 6.1)
-  - Quick (~> 1.1)
   - SimulatorStatusMagic (~> 1.7)
 
 EXTERNAL SOURCES:
@@ -57,10 +53,8 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   Keys: af65e23feef2a047b3277b1ef0399f1209ef9d46
   LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
-  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
   SimulatorStatusMagic: db93f00d164d854cd5ed7b5c75f48fba3b698c20
 
-PODFILE CHECKSUM: 30b08a82d7637a611a69a2efe70e7b27d66b72fb
+PODFILE CHECKSUM: 1911774a60897af89cd981501f1919304fc87796
 
 COCOAPODS: 1.4.0
