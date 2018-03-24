@@ -17,7 +17,10 @@ platform :ios do
   desc "Runs all the tests"
   lane :test do
 
-    xctest scheme: "HockeyPlayoffs", destination: "OS=11.2,name=iPhone X", clean: true
+    scan(
+      workspace: "HockeyPlayoffs.xcworkspace",
+      devices: ["iPhone X"]
+    )
 
   end
 
