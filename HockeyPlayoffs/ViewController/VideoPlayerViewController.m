@@ -17,93 +17,25 @@
 
 @implementation VideoPlayerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissedPlayer:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-  
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
--(BOOL)shouldAutorotate {
-    return YES;
-}
-
-#ifdef __IPHONE_9_0
--(UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscape;
-}
-#else
--(NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskLandscape;
-}
-#endif
-
--(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return !UIInterfaceOrientationIsLandscape(toInterfaceOrientation);
-}
-
-+(void)showVideo:(NSURL *)url inController:(UIViewController *)controller {
-    
++(AVPlayerViewController *)playerWithUrl:(NSURL *)url {
     if (url != nil && [url isKindOfClass:[NSURL class]] && [AFNetworkReachabilityManager sharedManager].reachable) {
-    
-        VideoPlayerViewController *mpMoviePlayerController = [[VideoPlayerViewController alloc] initWithContentURL:url];
         
-        [controller presentMoviePlayerViewControllerAnimated:mpMoviePlayerController];
-    }
-    
-    else {
+        AVPlayerViewController *playerController = [[AVPlayerViewController alloc] init];
+        AVPlayer *player = [AVPlayer playerWithURL:url];
         
+        [playerController setPlayer:player];
+        [playerController.player play];
+        
+        return playerController;
+    } else {
         if ([AFNetworkReachabilityManager sharedManager].reachable) {
-            [VideoPlayerViewController showNotificationWithTitle:NSLocalizedString(@"error.video.title", nil)];
+            [self showNotificationWithTitle:NSLocalizedString(@"error.video.title", nil)];
+        } else {
+            [self showNotificationWithTitle:NSLocalizedString(@"offline", nil)];
         }
         
-        else {
-            [VideoPlayerViewController showNotificationWithTitle:NSLocalizedString(@"offline", nil)];
-        }
+        return nil;
     }
-}
-
--(void)dismissedPlayer:(NSNotification *)notification {
-    
 }
 
 +(void)showNotificationWithTitle:(NSString *)title {

@@ -65,6 +65,8 @@
     [_gameView addSubview:_refreshControl];
     
     [self.view addSubview:_gameView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissVideoPlayer:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -77,6 +79,10 @@
 -(void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)refresh {
@@ -261,7 +267,8 @@
     
     NSURL *videoURL = [[_gameModel.gameObject videoLinks] firstObject];
     
-    [VideoPlayerViewController showVideo:videoURL inController:self.navigationController];
+    AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
+    [self.navigationController presentViewController:playerController animated:YES completion:nil];
 }
 
 #pragma refresh data
@@ -272,6 +279,10 @@
         
         [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
+}
+
+-(void)dismissVideoPlayer:(NSNotification *)notification {
+    [self.navigationController dismissViewControllerAnimated:true completion:nil];
 }
 
 @end

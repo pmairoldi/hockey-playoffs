@@ -124,6 +124,8 @@
     };
     
     _recentGamesView.hasContent = _recentGamesModel.hasData;
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissVideoPlayer:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -135,6 +137,10 @@
     [_datePicker reloadData];
     
     [self refresh];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)refresh {
@@ -285,7 +291,8 @@
     
     NSURL *videoURL = [[game videoLinks] firstObject];
     
-    [VideoPlayerViewController showVideo:videoURL inController:self.navigationController];
+    AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
+    [self.navigationController presentViewController:playerController animated:YES completion:nil];
 }
 
 #pragma refresh data
@@ -320,6 +327,10 @@
     [border.heightAnchor constraintEqualToConstant:1.0].active = true;
     
     return visualEffectView;
+}
+
+-(void)dismissVideoPlayer:(NSNotification *)notification {
+    [self.navigationController dismissViewControllerAnimated:true completion:nil];
 }
 
 @end

@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
 
-@interface VideoPlayerViewController : MPMoviePlayerViewController
+@interface VideoPlayerViewController : NSObject
 
-+(void)showNotificationWithTitle:(NSString *)title;
-+(void)showVideo:(NSURL *)url inController:(UIViewController *)controller;
++(AVPlayerViewController *)playerWithUrl:(NSURL *)url;
 
 @end

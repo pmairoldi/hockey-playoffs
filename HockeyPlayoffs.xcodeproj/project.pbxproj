@@ -72,11 +72,11 @@
 		06B3221F2065DE1000C4078F /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065034D01E9F2617003A132F /* TeamHandlerTests.swift */; };
 		06B322202065DF6000C4078F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36091B39A65F00CCAE17 /* main.m */; };
 		06B322222065DFD800C4078F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322212065DFD800C4078F /* UIKit.framework */; };
-		06B322242065DFE500C4078F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322232065DFE500C4078F /* MediaPlayer.framework */; };
 		06B322262065E0E100C4078F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322252065E0E100C4078F /* CoreGraphics.framework */; };
 		06B322282065E0EB00C4078F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322272065E0EB00C4078F /* Foundation.framework */; };
 		06B322302065E32400C4078F /* hockey.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 553F35FF1B39A65F00CCAE17 /* hockey.sqlite */; };
 		06B322312065E32400C4078F /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 553F36981B39B84100CCAE17 /* teams.json */; };
+		06D0A719206A022900B1B0F0 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D0A718206A022900B1B0F0 /* AVKit.framework */; };
 		1EA83247F744D2371B152B2B /* Pods_HockeyPlayoffs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */; };
 		AE36B8636534A87DC6078B46 /* Pods_HockeyPlayoffsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6942ECC5B909F6E91FD56A8 /* Pods_HockeyPlayoffsTests.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +109,7 @@
 		06B322252065E0E100C4078F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		06B322272065E0EB00C4078F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		06B3222B2065E11F00C4078F /* HockeyPlayoffsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HockeyPlayoffsTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		06D0A718206A022900B1B0F0 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		0AD493D77F0A0928DF21E202 /* Pods-HockeyPlayoffs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs.debug.xcconfig"; sourceTree = "<group>"; };
 		2DC2F281EE6D83021FF56E41 /* Pods-HockeyPlayoffsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffsTests/Pods-HockeyPlayoffsTests.release.xcconfig"; sourceTree = "<group>"; };
 		512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyPlayoffs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,9 +247,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D0A719206A022900B1B0F0 /* AVKit.framework in Frameworks */,
 				06B322282065E0EB00C4078F /* Foundation.framework in Frameworks */,
 				06B322262065E0E100C4078F /* CoreGraphics.framework in Frameworks */,
-				06B322242065DFE500C4078F /* MediaPlayer.framework in Frameworks */,
 				06B322222065DFD800C4078F /* UIKit.framework in Frameworks */,
 				1EA83247F744D2371B152B2B /* Pods_HockeyPlayoffs.framework in Frameworks */,
 			);
@@ -306,6 +307,7 @@
 		0684138718B9A0CE00A89D7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06D0A718206A022900B1B0F0 /* AVKit.framework */,
 				06B322272065E0EB00C4078F /* Foundation.framework */,
 				06B322252065E0E100C4078F /* CoreGraphics.framework */,
 				06B322232065DFE500C4078F /* MediaPlayer.framework */,

@@ -71,6 +71,8 @@
     [self.view addSubview:_seriesView];
     
     _seriesView.hasContent = _seriesModel.hasData;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissVideoPlayer:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -83,6 +85,10 @@
 -(void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)refresh {
@@ -265,7 +271,9 @@
     
 //    if ([[game videoLinks] count] == 1) {
         NSURL *videoURL = [[game videoLinks] firstObject];
-        [VideoPlayerViewController showVideo:videoURL inController:self.navigationController];
+        
+        AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
+        [self.navigationController presentViewController:playerController animated:YES completion:nil];
 //    }
 //    
 //    else {
@@ -297,7 +305,9 @@
     GameObject *game = [_seriesModel getGameAtIndex:[NSIndexPath indexPathForRow:[sender tag] inSection:0]];
     
     NSURL *videoURL = [NSURL URLWithString:game.homeHighlight];
-    [VideoPlayerViewController showVideo:videoURL inController:self.navigationController];
+   
+    AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
+    [self.navigationController presentViewController:playerController animated:YES completion:nil];
 }
 
 -(void)awayHighlightsTapped:(UIButton *)sender {
@@ -309,7 +319,9 @@
     GameObject *game = [_seriesModel getGameAtIndex:[NSIndexPath indexPathForRow:[sender tag] inSection:0]];
     
     NSURL *videoURL = [NSURL URLWithString:game.awayHighlight];
-    [VideoPlayerViewController showVideo:videoURL inController:self.navigationController];
+    
+    AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
+    [self.navigationController presentViewController:playerController animated:YES completion:nil];
 }
 
 #pragma refresh data
@@ -320,6 +332,10 @@
         
         [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
+}
+
+-(void)dismissVideoPlayer:(NSNotification *)notification {
+    [self.navigationController dismissViewControllerAnimated:true completion:nil];
 }
 
 @end
