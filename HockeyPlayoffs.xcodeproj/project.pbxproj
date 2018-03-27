@@ -33,7 +33,6 @@
 		06B321F72065DDC300C4078F /* RecentGamesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35F81B39A65F00CCAE17 /* RecentGamesModel.m */; };
 		06B321F82065DDC300C4078F /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35FA1B39A65F00CCAE17 /* Rectangle.m */; };
 		06B321F92065DDC300C4078F /* SeriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35FC1B39A65F00CCAE17 /* SeriesModel.m */; };
-		06B321FA2065DDE300C4078F /* AdjustableNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F360C1B39A65F00CCAE17 /* AdjustableNavigationBar.m */; };
 		06B321FB2065DDE300C4078F /* BracketSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F360E1B39A65F00CCAE17 /* BracketSection.m */; };
 		06B321FC2065DDE300C4078F /* BracketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36101B39A65F00CCAE17 /* BracketView.m */; };
 		06B321FD2065DDE300C4078F /* ExpandedVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */; };
@@ -166,8 +165,6 @@
 		553F36071B39A65F00CCAE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553F36081B39A65F00CCAE17 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		553F36091B39A65F00CCAE17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		553F360B1B39A65F00CCAE17 /* AdjustableNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdjustableNavigationBar.h; sourceTree = "<group>"; };
-		553F360C1B39A65F00CCAE17 /* AdjustableNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdjustableNavigationBar.m; sourceTree = "<group>"; };
 		553F360D1B39A65F00CCAE17 /* BracketSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketSection.h; sourceTree = "<group>"; };
 		553F360E1B39A65F00CCAE17 /* BracketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketSection.m; sourceTree = "<group>"; };
 		553F360F1B39A65F00CCAE17 /* BracketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketView.h; sourceTree = "<group>"; };
@@ -470,8 +467,6 @@
 		553F360A1B39A65F00CCAE17 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				553F360B1B39A65F00CCAE17 /* AdjustableNavigationBar.h */,
-				553F360C1B39A65F00CCAE17 /* AdjustableNavigationBar.m */,
 				553F360D1B39A65F00CCAE17 /* BracketSection.h */,
 				553F360E1B39A65F00CCAE17 /* BracketSection.m */,
 				553F360F1B39A65F00CCAE17 /* BracketView.h */,
@@ -771,6 +766,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
 				"${BUILT_PRODUCTS_DIR}/LSWeekView/LSWeekView.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-13/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -781,6 +777,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSWeekView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,7 +797,6 @@
 				06B322022065DDE300C4078F /* GameOverviewView.m in Sources */,
 				06B322192065DDF100C4078F /* StatisticsViewController.m in Sources */,
 				06B3220D2065DDE300C4078F /* SeriesView.m in Sources */,
-				06B321FA2065DDE300C4078F /* AdjustableNavigationBar.m in Sources */,
 				06B321F02065DDAC00C4078F /* FormatterHandler.m in Sources */,
 				06B322082065DDE300C4078F /* RecentGamesView.m in Sources */,
 				06B3220A2065DDE300C4078F /* SeriesCell.m in Sources */,
@@ -1016,7 +1012,7 @@
 				GCC_PREFIX_HEADER = HockeyPlayoffs/SupportingFiles/Prefix.pch;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffs/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
@@ -1045,7 +1041,7 @@
 				GCC_PREFIX_HEADER = HockeyPlayoffs/SupportingFiles/Prefix.pch;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffs/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";

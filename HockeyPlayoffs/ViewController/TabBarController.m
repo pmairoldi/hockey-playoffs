@@ -17,7 +17,6 @@
 #import "Rotation.h"
 #import "Images.h"
 #import "BaseUINavigationController.h"
-#import "AdjustableNavigationBar.h"
 
 @interface TabBarController ()
 
@@ -49,7 +48,7 @@
         _recentGamesViewController = [[RecentGamesViewController alloc] init];
         _recentGamesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:_recentGamesViewController.title image:[UIImage imageNamed:RECENT_TAB_ICON] selectedImage:nil];
 
-        [self setViewControllers:@[[self addControllerToNavigationController:_bracketViewController navbarClass:nil], [self addControllerToNavigationController:_recentGamesViewController navbarClass:[AdjustableNavigationBar class]]]];
+        [self setViewControllers:@[[self addControllerToNavigationController:_bracketViewController navbarClass:nil], [self addControllerToNavigationController:_recentGamesViewController navbarClass:nil]]];
         
         
         /*

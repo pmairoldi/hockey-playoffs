@@ -26,7 +26,6 @@
 #import "RecentGamesView.h"
 #import "RecentGamesModel.h"
 #import <LSWeekView/LSWeekView.h>
-#import "AdjustableNavigationBar.h"
 #import "Queues.h"
 
 @interface RecentGamesViewController ()
@@ -69,25 +68,20 @@
     
     self.view.backgroundColor = [Colors backgroundColor];
     
-    AdjustableNavigationBar *navBar = (AdjustableNavigationBar *)self.navigationController.navigationBar;
-    navBar.height = NavBarHeight;
-    [self.navigationController.navigationBar sizeToFit];
+    [self.navigationController setNavigationBarHidden:true animated:false];
     
-    _datePicker = [[LSWeekView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 90) style:LSWeekViewStyleDefault];
-    _datePicker.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    UIVisualEffectView *_datePickerView = [self createDatePickerView];
+    
+    _datePicker = [[LSWeekView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight([UIApplication sharedApplication].statusBarFrame), CGRectGetWidth(self.view.frame), 90) style:LSWeekViewStyleDefault];
+    _datePicker.center = CGPointMake(self.view.center.x, _datePicker.center.y);
     _datePicker.calendar = [NSCalendar currentCalendar];
     _datePicker.tintColor = [Colors segmentTintColor];
     _datePicker.selectedDate = _recentGamesModel.date;
     
-    UIView *titleView = [UIView new];
-    titleView.frame = _datePicker.frame;
+    [_datePickerView.contentView addSubview:_datePicker];
     
-    [titleView addSubview:_datePicker];
-    
-    [self.navigationItem setTitleView:_datePicker];
-    [self.navigationItem.titleView sizeToFit];
-    
-    _recentGamesView = [[RecentGamesView alloc] initWithFrame:self.view.frame];
+    _recentGamesView = [[RecentGamesView alloc] initWithFrame:CGRectZero];
+    _recentGamesView.translatesAutoresizingMaskIntoConstraints = false;
     _recentGamesView.delegate = self;
     _recentGamesView.dataSource = self;
     
@@ -98,7 +92,18 @@
     
     [_recentGamesView addSubview:_refreshControl];
     
+    [self.view addSubview:_datePickerView];
     [self.view addSubview:_recentGamesView];
+    
+    [_datePickerView.topAnchor constraintEqualToAnchor: self.view.topAnchor].active = true;
+    [_datePickerView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
+    [_datePickerView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor].active = true;
+    [_datePickerView.bottomAnchor constraintEqualToAnchor: _datePicker.bottomAnchor constant: 8.0].active = true;
+    
+    [_recentGamesView.topAnchor constraintEqualToAnchor: _datePickerView.bottomAnchor].active = true;
+    [_recentGamesView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
+    [_recentGamesView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor].active = true;
+    [_recentGamesView.bottomAnchor constraintEqualToAnchor: self.bottomLayoutGuide.topAnchor].active = true;
     
     __weak typeof(self) weakSelf = self;
     _datePicker.didChangeSelectedDateBlock = ^(NSDate *selectedDate) {
@@ -125,59 +130,11 @@
     
     [super viewWillAppear:animated];
     
+    [self.navigationController setNavigationBarHidden:true animated:animated];
+    
     [_datePicker reloadData];
     
-    CGRect titleViewFrame = self.navigationItem.titleView.frame;
-    titleViewFrame.origin.y = 3.5;
-    self.navigationItem.titleView.frame = titleViewFrame;
-    
-    AdjustableNavigationBar *navBar = (AdjustableNavigationBar *)self.navigationController.navigationBar;
-    navBar.height = NavBarHeight;
-    
-    CGRect animatedFrame = self.recentGamesView.frame;
-    animatedFrame.origin.y = 0;
-    
-    if (animated) {
-        [UIView beginAnimations:nil context:NULL];
-    }
-    
-    [self.navigationController.navigationBar sizeToFit];
-    self.recentGamesView.frame = animatedFrame;
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-18 forBarMetrics:UIBarMetricsDefault];
-    
-    if (animated) {
-        [UIView commitAnimations];
-    }
-    
     [self refresh];
-}
-
--(void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
-    
-    //smoothen when it is quickly let go
-    AdjustableNavigationBar *navBar = (AdjustableNavigationBar *)self.navigationController.navigationBar;
-    navBar.height = 44;
-    CGRect animatedFrame = self.recentGamesView.frame;
-    animatedFrame.origin.y = -navBar.height + 3;
-    
-    if (animated) {
-        [UIView beginAnimations:nil context:NULL];
-    }
-    
-    [self.navigationController.navigationBar sizeToFit];
-    self.recentGamesView.frame = animatedFrame;
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
-    
-    if (animated) {
-        [UIView commitAnimations];
-    }
 }
 
 -(void)refresh {
@@ -339,6 +296,30 @@
         
         [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
+}
+
+-(UIVisualEffectView *)createDatePickerView {
+    
+    UIVisualEffect *effect;
+    effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+    visualEffectView.translatesAutoresizingMaskIntoConstraints = false;
+    visualEffectView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    
+    UIView *border = [[UIView alloc] initWithFrame:CGRectZero];
+    border.translatesAutoresizingMaskIntoConstraints = false;
+    border.backgroundColor = [UIColor colorWithWhite:216/255.0 alpha:1.0];
+    
+    [visualEffectView.contentView addSubview:border];
+    
+    [border.leadingAnchor constraintEqualToAnchor:visualEffectView.leadingAnchor].active = true;
+    [border.trailingAnchor constraintEqualToAnchor:visualEffectView.trailingAnchor].active = true;
+    [border.topAnchor constraintEqualToAnchor:visualEffectView.bottomAnchor constant: -1.0].active = true;
+    [border.heightAnchor constraintEqualToConstant:1.0].active = true;
+    
+    return visualEffectView;
 }
 
 @end
