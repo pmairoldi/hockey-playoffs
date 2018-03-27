@@ -28,5 +28,8 @@ fastlane/screenshots
 *.certSigningRequest
 
 *.p12
-fastlane/test_output/report.junit
-fastlane/test_output/report.html
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
