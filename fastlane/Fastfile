@@ -37,9 +37,9 @@ platform :ios do
     gym scheme: 'HockeyPlayoffs'
 
     if options[:beta]
-      deliver beta: true, skip_deploy: false
+      deliver force: true, submit_for_review: false
     else
-      deliver force: true, skip_deploy: true
+      deliver force: true, submit_for_review: true
     end
 
     clean_build_artifacts
