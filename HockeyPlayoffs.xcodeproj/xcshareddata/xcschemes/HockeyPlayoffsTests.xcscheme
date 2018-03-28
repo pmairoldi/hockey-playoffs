@@ -41,6 +41,15 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "06B321D92065DCF200C4078F"
+            BuildableName = "HockeyPlayoffsTests.xctest"
+            BlueprintName = "HockeyPlayoffsTests"
+            ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
