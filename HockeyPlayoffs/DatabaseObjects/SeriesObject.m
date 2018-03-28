@@ -27,6 +27,14 @@
 }
 
 -(NSString *)getSeriesID {
+    return [NSString stringWithFormat:@"%@0%d%d%%", _seasonID, _round, [self normalizedSeed]];
+}
+
+-(NSString *)getRelativeSeriesID {
+    return [NSString stringWithFormat:@"%d%d", _round, [self normalizedSeed]];
+}
+
+-(int)normalizedSeed {
     
     int westOffset = 0;
     
@@ -48,7 +56,7 @@
         }
     }
     
-    return [NSString stringWithFormat:@"%@0%d%d%%", _seasonID, _round, _seed + westOffset];
+    return _seed + westOffset;
 }
 
 -(NSString *)description {

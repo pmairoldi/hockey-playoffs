@@ -58,8 +58,10 @@
         [self setPropertiesForStatusLabel:_gameStatusLabel];
         
         _videoButton = [[VideoButton alloc] init];
+
+        [_videoButton setAccessibilityIdentifier:[NSString stringWithFormat:@"Play Highlights"]];
         
-//        _videoView = [[ExpandedVideoView alloc] initWithFrame:CGRectMake(0, [[self class] height], CGRectGetWidth(self.frame), SHOW_VIDEO_OFFSET)];
+        //        _videoView = [[ExpandedVideoView alloc] initWithFrame:CGRectMake(0, [[self class] height], CGRectGetWidth(self.frame), SHOW_VIDEO_OFFSET)];
 
         _gameLabel = [[UILabel alloc] init];
         [self setPropertiesForGameLabel:_gameLabel];

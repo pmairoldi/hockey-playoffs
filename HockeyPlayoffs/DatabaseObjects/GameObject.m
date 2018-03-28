@@ -226,6 +226,10 @@
     return array;
 }
 
+-(NSString *)getRelativeGameID {
+    return [_gameID stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@""];
+}
+
 -(NSString *)description {
     return [self pm_description];
 }

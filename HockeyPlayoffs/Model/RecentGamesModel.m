@@ -29,7 +29,7 @@
     if (self) {
         
         _games = [NSArray array];
-        _date = [NSDate date];
+        _date = [DateTimeHandler now];
         
 //        [self refresh:nil];
     }

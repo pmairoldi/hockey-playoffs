@@ -1,19 +1,26 @@
 # A list of devices you want to take the screenshots from
 devices([
-  'iPhone 6',
-  'iPhone 6 Plus',
-  'iPhone 5',
-  'iPhone 4s'
+  "iPhone 8",
+  "iPhone 8 Plus",
+  "iPhone SE",
+  "iPhone X"
 ])
 
 languages([
-  'en-US'
+  "en-US",
 ])
 
+# The name of the scheme which contains the UI Tests
+scheme("Screenshots")
+
 # Where should the resulting screenshots be stored?
-screenshots_path './screenshots'
+# output_directory("./screenshots")
 
-clear_previous_screenshots # remove the '#'' to clear all previously generated screenshots before creating new ones
+# remove the '#' to clear all previously generated screenshots before creating new ones
+clear_previous_screenshots(true)
 
-# The name of the project's scheme
-scheme 'HockeyPlayoffs'
+# Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/#launch-arguments
+launch_arguments(["-date \"2017-04-12 00:00:00\""])
+
+# For more information about all available options run
+# fastlane action snapshot

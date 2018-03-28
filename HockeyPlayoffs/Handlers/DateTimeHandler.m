@@ -14,6 +14,23 @@
 
 #pragma Public Methods
 
++(NSDate *)now {
+#ifdef DEBUG
+    // runtime check that we are in snapshot mode
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"FASTLANE_SNAPSHOT"]) {
+        NSString* dateString = [[NSUserDefaults standardUserDefaults] stringForKey:@"date"];
+        if (dateString != nil) {
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            
+            return [formatter dateFromString:dateString];
+        }
+    }
+#endif
+    
+    return [NSDate date];
+}
+
 +(NSString *)getDateForDate:(NSString *)date andTime:(NSString *)time {
     
     if (![StringHandler compareString:date withRegex:@"\\d{4}-\\d{2}-\\d{2}"]) {
@@ -56,9 +73,9 @@
 #pragma Private Methods
 
 +(NSDate *)convertToTimeZoneForDate:(NSString *)date andTime:(NSString *)time {
-
+    
     NSDateFormatter *formatter = [FormatterHandler fullDateTimeFormatter];
-
+    
     if (date.length == 0) {
         date = @"1970-01-01";
     }
@@ -69,8 +86,8 @@
     
     NSDate * sourceDate = [formatter dateFromString:[NSString stringWithFormat:@"%@ %@", date, time]];
     
-	NSTimeZone *sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
-	NSTimeZone *destinationTimeZone = [NSTimeZone defaultTimeZone];
+    NSTimeZone *sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+    NSTimeZone *destinationTimeZone = [NSTimeZone defaultTimeZone];
     
     NSInteger sourceGMTOffset = [sourceTimeZone secondsFromGMTForDate:sourceDate];
     NSInteger destinationGMTOffset = [destinationTimeZone secondsFromGMTForDate:sourceDate];
@@ -83,8 +100,8 @@
 
 +(NSDate *)convertFromTimeZoneForDate:(NSDate *)date {
     
-	NSTimeZone *sourceTimeZone = [NSTimeZone defaultTimeZone];
-	NSTimeZone *destinationTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+    NSTimeZone *sourceTimeZone = [NSTimeZone defaultTimeZone];
+    NSTimeZone *destinationTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
     
     NSInteger sourceGMTOffset = [sourceTimeZone secondsFromGMTForDate:date];
     NSInteger destinationGMTOffset = [destinationTimeZone secondsFromGMTForDate:date];

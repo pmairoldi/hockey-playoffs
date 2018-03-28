@@ -352,7 +352,7 @@
     
     NSString *likeString = [object getSeriesID];
     
-    NSString *currentDate = [DateTimeHandler getStringForDate:[NSDate date]];
+    NSString *currentDate = [DateTimeHandler getStringForDate:[DateTimeHandler now]];
     
     FMResultSet *series = [db executeQuery: @"SELECT t1.season_id AS season_id, CASE WHEN t1.home_id = '' THEN t2.home_id ELSE t1.home_id END AS home_id, CASE WHEN t1.away_id = '' THEN t2.away_id ELSE t1.away_id END AS away_id, conference, round, seed, isToday FROM (SELECT * FROM playoff_seeds WHERE round = ? AND seed = ? AND conference = ? AND season_id = ?) AS t1 LEFT JOIN (SELECT season_id, away_id, home_id FROM games WHERE game_id LIKE ? LIMIT 1) AS t2 ON t1.season_id = t2.season_id LEFT JOIN (SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END AS isToday, season_id, period_time FROM games WHERE game_id LIKE ? AND date <= ? AND period_time <> ? LIMIT 1) AS t3 ON t1.season_id = t3.season_id" withArgumentsInArray:@[@(object.round), @(object.seed), object.conference, object.seasonID, likeString, likeString, currentDate, @"FINAL"]];
     

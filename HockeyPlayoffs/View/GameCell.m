@@ -90,6 +90,8 @@
 -(void)setGame:(GameObject *)game {
 
     [_gameOverview setGame:game];
+    
+    [self setAccessibilityIdentifier:[NSString stringWithFormat:@"Game-%@", [game getRelativeGameID]]];
 }
 
 //-(void)isExpanded:(int)expandedIndex {

@@ -10,6 +10,7 @@
 
 @interface DateTimeHandler : NSObject
 
++(NSDate *)now;
 +(NSString *)getDateForDate:(NSString *)date andTime:(NSString *)time;
 +(NSString *)getTimeForDate:(NSString *)date andTime:(NSString *)time;
 +(NSString *)getStringForDate:(NSDate *)date;

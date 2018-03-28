@@ -21,5 +21,6 @@
 @property BOOL hasGameToday;
 
 -(NSString *)getSeriesID;
+-(NSString *)getRelativeSeriesID;
 
 @end

@@ -46,9 +46,9 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "065034C01E9F25F1003A132F"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
+               BlueprintIdentifier = "06D0A71F206A0DDA00B1B0F0"
+               BuildableName = "Screenshots.xctest"
+               BlueprintName = "Screenshots"
                ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -69,6 +69,16 @@
                BlueprintIdentifier = "06B321D92065DCF200C4078F"
                BuildableName = "HockeyPlayoffsTests.xctest"
                BlueprintName = "HockeyPlayoffsTests"
+               ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "06D0A71F206A0DDA00B1B0F0"
+               BuildableName = "Screenshots.xctest"
+               BlueprintName = "Screenshots"
                ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
             </BuildableReference>
          </TestableReference>

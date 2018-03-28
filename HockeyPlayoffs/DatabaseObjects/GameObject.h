@@ -43,5 +43,6 @@
 -(NSString *)getGameStatus;
 -(NSArray *)getEnabledVideos;
 -(NSString *)getGameText;
+-(NSString *)getRelativeGameID;
 
 @end

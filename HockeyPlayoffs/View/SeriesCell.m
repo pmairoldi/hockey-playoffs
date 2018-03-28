@@ -93,6 +93,8 @@
         _bottomTeamWinsLabel.text = [NSString stringWithFormat:@"%ld", (long)series.bottomWins];
     }
     
+    [self setAccessibilityIdentifier:[NSString stringWithFormat:@"Series-%@", [series getRelativeSeriesID]]];
+    
     [self layoutSubviews];
 }
 
