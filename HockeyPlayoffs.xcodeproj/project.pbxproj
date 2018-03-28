@@ -79,6 +79,7 @@
 		06D0A719206A022900B1B0F0 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D0A718206A022900B1B0F0 /* AVKit.framework */; };
 		06D0A723206A0DDB00B1B0F0 /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A722206A0DDB00B1B0F0 /* Screenshots.swift */; };
 		06D0A72B206A0EBD00B1B0F0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A72A206A0EBD00B1B0F0 /* SnapshotHelper.swift */; };
+		06D422BD206B5F1B004768B9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06D422BC206B5F1B004768B9 /* Launch Screen.storyboard */; };
 		1EA83247F744D2371B152B2B /* Pods_HockeyPlayoffs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */; };
 		AE36B8636534A87DC6078B46 /* Pods_HockeyPlayoffsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6942ECC5B909F6E91FD56A8 /* Pods_HockeyPlayoffsTests.framework */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		06D0A722206A0DDB00B1B0F0 /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
 		06D0A724206A0DDB00B1B0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06D0A72A206A0EBD00B1B0F0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		06D422BC206B5F1B004768B9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0AD493D77F0A0928DF21E202 /* Pods-HockeyPlayoffs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs.debug.xcconfig"; sourceTree = "<group>"; };
 		2DC2F281EE6D83021FF56E41 /* Pods-HockeyPlayoffsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffsTests/Pods-HockeyPlayoffsTests.release.xcconfig"; sourceTree = "<group>"; };
 		512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyPlayoffs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -482,6 +484,7 @@
 				553F35FE1B39A65F00CCAE17 /* hockey.sql */,
 				553F35FF1B39A65F00CCAE17 /* hockey.sqlite */,
 				553F36981B39B84100CCAE17 /* teams.json */,
+				06D422BC206B5F1B004768B9 /* Launch Screen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06D422BD206B5F1B004768B9 /* Launch Screen.storyboard in Resources */,
 				062B24832065E42E005B175B /* Images.xcassets in Resources */,
 				062B24972065E629005B175B /* Localizable.strings in Resources */,
 				06B322302065E32400C4078F /* hockey.sqlite in Resources */,
