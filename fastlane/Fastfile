@@ -1,49 +1,40 @@
-fastlane_version "0.12.4"
+fastlane_version '0.12.4'
 
 default_platform :ios
 
 platform :ios do
-
   before_all do
     clean_build_artifacts
     sh 'cd .. && bundle exec pod install'
   end
 
-  desc "Sets up project"
+  desc 'Sets up project'
   lane :setup do
-
   end
 
-  desc "Runs all the tests"
+  desc 'Runs all the tests'
   lane :test do
-
     scan(
-      workspace: "HockeyPlayoffs.xcworkspace",
-      devices: ["iPhone X"],
-      scheme: "HockeyPlayoffsTests"
+      workspace: 'HockeyPlayoffs.xcworkspace',
+      devices: ['iPhone X'],
+      scheme: 'HockeyPlayoffsTests'
     )
-
   end
 
-  desc "Runs all the tests and generates a coverage report"
+  desc 'Runs all the tests and generates a coverage report'
   lane :coverage do
-
     test
     sh 'cd .. && bundle exec slather coverage --html --output-directory build/coverage --show'
-
   end
 
-  desc "Builds app and packages it"
+  desc 'Builds app and packages it'
 
   private_lane :build do |options|
-
-    if options[:screenshots]
-      snapshot
-    end
+    snapshot if options[:screenshots]
 
     cert
     sigh
-    gym scheme: "HockeyPlayoffs"
+    gym scheme: 'HockeyPlayoffs'
 
     if options[:beta]
       deliver beta: true, skip_deploy: false
@@ -52,21 +43,15 @@ platform :ios do
     end
 
     clean_build_artifacts
-
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
+  desc 'Submit a new Beta Build to Apple TestFlight'
   lane :beta do |options|
-
     build(beta: true, screenshots: options[:screenshots])
-
   end
 
-  desc "Deploy a new version to the App Store"
+  desc 'Deploy a new version to the App Store'
   lane :deploy do |options|
-
     build(screenshots: options[:screenshots])
-
   end
-
 end
