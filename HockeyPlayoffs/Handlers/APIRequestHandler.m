@@ -15,8 +15,8 @@
 #import "AFNetworkActivityIndicatorManager.h"
 @import Keys.HockeyPlayoffsKeys;
 
-#define SYNCHRONIZE_REFRESH_TIME 10ull
-#define SYNCHRONIZE_REFRESH_TIME_LEEWAY 1ull
+#define SYNCHRONIZE_REFRESH_TIME 30ull
+#define SYNCHRONIZE_REFRESH_TIME_LEEWAY 30ull
 
 @interface APIRequestHandler ()
 
@@ -87,8 +87,8 @@
     
      dispatch_async([[[self class] sharedHandler] synchronizeQueue], ^{
         
-        [[self class] sendRequestToAPI:kPlayoffEndpoint withData:data completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-            
+         [[self class] sendRequestToAPI:kPlayoffEndpoint withData:data completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+        
             if (error != nil) {
                 
                 [[self class] showNotificationForError:error];
