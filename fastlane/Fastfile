@@ -19,7 +19,8 @@ platform :ios do
 
     scan(
       workspace: "HockeyPlayoffs.xcworkspace",
-      devices: ["iPhone X"]
+      devices: ["iPhone X"],
+      scheme: "HockeyPlayoffsTests"
     )
 
   end
@@ -28,7 +29,7 @@ platform :ios do
   lane :coverage do
 
     test
-    sh 'cd .. && bundle exec slather coverage -h --output-directory build/coverage --show'
+    sh 'cd .. && bundle exec slather coverage --html --output-directory build/coverage --show'
 
   end
 
