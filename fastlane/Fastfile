@@ -5,7 +5,7 @@ default_platform :ios
 platform :ios do
   before_all do
     clean_build_artifacts
-    sh 'cd .. && bundle exec pod install --repo-update'
+    cocoapods
   end
 
   desc 'Sets up project'
@@ -24,7 +24,7 @@ platform :ios do
   desc 'Runs all the tests and generates a coverage report'
   lane :coverage do
     test
-    sh 'cd .. && bundle exec slather coverage --html --output-directory build/coverage --show'
+    slather(output_directory: 'build/coverage', html: true, show: true)
   end
 
   desc 'Builds app and packages it'
