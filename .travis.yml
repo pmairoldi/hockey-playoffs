@@ -2,14 +2,9 @@ language: objective-c
 osx_image: xcode9
 cache:
   - bundler
-before_install:
-  - sudo gem install bundler		
-  - xcrun instruments -w "iPhone X (11.2 Simulator)" || echo "(Pre)Launched the simulator."
-install:
-  - bundle install
 before_script:
   - bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
 script:
   - bundle exec fastlane test
 after_success:
-  - bundle exec slather  
+  - bundle exec slather 

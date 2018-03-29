@@ -7,7 +7,7 @@ class Screenshots: XCTestCase {
         
         let app = XCUIApplication()
         app.launchArguments += ["-date", "\"2017-04-12 00:00:00\""]
-
+        
         setupSnapshot(app)
         app.launch()
     }
@@ -18,7 +18,6 @@ class Screenshots: XCTestCase {
     }
     
     func testExample() {
-        
         let app = XCUIApplication()
         
         app.tabBars.buttons["Recent"].tap()
@@ -32,12 +31,11 @@ class Screenshots: XCTestCase {
         
         app.tables.element.cells["Game-245"].tap()
         snapshot("3-Game")
-
+        
         app.tables.element.buttons["Play Highlights"].tap()
         XCUIDevice.shared.orientation = .landscapeRight
-        sleep(6)
-        app.otherElements["Video"].tap()
-        
-        snapshot("4-Video")
+        sleep(4)
+        app.otherElements["Video"].tap();
+        snapshot("4-Video", timeWaitingForIdle: 0)
     }
 }
