@@ -2,9 +2,13 @@ language: objective-c
 osx_image: xcode9.2
 
 cache:
-  - cocoapods
+  #- cocoapods
   #- bundler
-  
+
+install:
+  - bundle install
+  - bundle exec pod repo update
+
 before_script:
   - bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
 
