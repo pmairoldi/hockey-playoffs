@@ -27,7 +27,7 @@ FULL_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/"
 # Use the latest tag for short version (You'll have to make sure that all your tags are of the format 0.0.0,
 # this is to satisfy Apple's rule that short version be three integers separated by dots)
 # using git tag for version also encourages you to create tags that match your releases
-SHORT_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" describe --abbrev=0 | sed -e 's/^v//' -e 's/g//')
+SHORT_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" describe --abbrev=0 --tags | sed -e 's/^v//' -e 's/g//')
 
 # I'd like to use the Git commit hash for CFBundleVersion.
 # VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-parse --short HEAD)
