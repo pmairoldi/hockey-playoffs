@@ -39,6 +39,15 @@ DEPENDENCIES:
   - Reveal-SDK
   - SimulatorStatusMagic (~> 2.1)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - CocoaLumberjack
+    - FMDB
+    - LSWeekView
+    - Reveal-SDK
+    - SimulatorStatusMagic
+
 EXTERNAL SOURCES:
   CRToast:
     :branch: feature/allow-duplicates
@@ -63,4 +72,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 112f2b374c6aabac61bc6a55554ad1652bfc16cd
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
