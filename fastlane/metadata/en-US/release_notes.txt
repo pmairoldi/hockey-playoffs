@@ -1,3 +1,5 @@
 - Support for iPhone X
 - Improved video player
 - Enhanced data syncing to be more battery friendly
+- Adds new teams
+- Add power play and empty net statuses
