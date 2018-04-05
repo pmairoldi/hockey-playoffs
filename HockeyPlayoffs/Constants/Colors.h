@@ -46,5 +46,7 @@
 +(UIColor *)seriesCellBackgroundColor;
 +(UIColor *)expandedVideoBackgroundColor;
 +(UIColor *)gameLabelTextColor;
++(UIColor *)powerplayColor;
++(UIColor *)emptyNetColor;
 
 @end

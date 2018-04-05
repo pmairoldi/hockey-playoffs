@@ -150,4 +150,12 @@
     return [[self class] lightGrayColor];
 }
 
++(UIColor *)powerplayColor {
+    return [UIColor colorWithRed:245.0/255.0 green:32.0/255.0 blue:50.0/255.0 alpha:1.0];
+}
+
++(UIColor *)emptyNetColor {
+    return [UIColor colorWithRed:248.0/255.0 green:179.0/255.0 blue:65.0/255.0 alpha:1.0];
+}
+
 @end
