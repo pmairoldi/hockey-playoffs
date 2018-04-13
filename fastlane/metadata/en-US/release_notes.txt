@@ -3,3 +3,4 @@
 - Enhanced data syncing to be more battery friendly
 - Adds new teams
 - Add power play and empty net statuses
+- Fix duplicate goals and penalites

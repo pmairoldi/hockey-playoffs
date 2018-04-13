@@ -126,7 +126,8 @@
         NSMutableArray *periodsToInsert = [[NSMutableArray alloc] init];
         NSMutableArray *teamsToInsert = [[NSMutableArray alloc] init];
         NSMutableArray *eventsToInsert = [[NSMutableArray alloc] init];
-
+        NSMutableArray *eventsIds = [[NSMutableArray alloc] init];
+        
         NSDictionary *playoffData = (NSDictionary *)data;
         
         if ([[playoffData allKeys] containsObject:kGamesJSONKey]) {
@@ -172,8 +173,9 @@
             for (NSDictionary *dictionary in events) {
                 
                 EventObject *event = [EventObject objectFromDictionary:dictionary];
-
+                
                 [eventsToInsert addObject:event];
+                [eventsIds addObject:event.gameID];
             }
         }
         
@@ -200,6 +202,10 @@
                 [db executeUpdate:@"INSERT OR REPLACE INTO playoff_seeds (season_id,home_id,away_id,conference,round,seed) VALUES (?,?,?,?,?,?)" withArgumentsInArray:[team arguments]];
             }
             
+            if (eventsIds.count > 0) {
+                [db executeUpdate:@"DELETE FROM events WHERE game_id NOT IN (?)" withArgumentsInArray:@[[eventsIds componentsJoinedByString:@", "]]];
+            }
+            
             for (EventObject *event in eventsToInsert) {
                 
                 [db executeUpdate:@"INSERT OR REPLACE INTO events (id, game_id, team_id, period, time, type, description, video_link, formal_id, strength) VALUES (?,?,?,?,?,?,?,?,?,?)" withArgumentsInArray:[event arguments]];
@@ -221,7 +227,7 @@
     FMDatabaseQueue *databaseQueue = [[self class] getDatabaseQueue];
     
     [databaseQueue inDatabase:^(FMDatabase *db) {
-   
+        
         NSMutableArray *teams = [[NSMutableArray alloc] init];
         
         //get all teams
@@ -324,7 +330,7 @@
         
         array = teams;
     }];
-        
+    
     return array;
 }
 
@@ -438,7 +444,7 @@
 }
 
 +(void)getWinsForSeries:(SeriesObject *)series inDB:(FMDatabase *)db {
-
+    
     NSString *likeString = [series getSeriesID];
     
     FMResultSet *wins = [db executeQuery:@"SELECT SUM(CASE WHEN home_id = ? THEN CASE WHEN home_goals > away_goals THEN 1 ELSE 0 END ELSE CASE WHEN home_goals < away_goals THEN 1 ELSE 0 END END) AS top_team, SUM(CASE WHEN home_id = ? THEN CASE WHEN home_goals > away_goals THEN 1 ELSE 0 END ELSE CASE WHEN home_goals < away_goals THEN 1 ELSE 0 END END) AS bottom_team FROM (SELECT t1.game_id, home_id, a.goals AS home_goals, away_id, b.goals AS away_goals FROM (SELECT game_id, home_id, away_id FROM games WHERE game_id LIKE ? AND period_time = ?) AS t1 JOIN (SELECT game_id, team_id, sum(goals) as goals FROM periods GROUP BY game_id, team_id) a ON a.game_id = t1.game_id AND a.team_id = t1.home_id JOIN (SELECT game_id, team_id, sum(goals) as goals FROM periods GROUP BY game_id, team_id) b ON b.game_id = t1.game_id AND b.team_id = t1.away_id GROUP BY t1.game_id)" withArgumentsInArray:@[series.topTeam, series.bottomTeam, likeString, @"FINAL"]];
