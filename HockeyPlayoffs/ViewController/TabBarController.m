@@ -101,8 +101,4 @@
 }
 #endif
 
--(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return SHOULD_ROTATE(toInterfaceOrientation);
-}
-
 @end
