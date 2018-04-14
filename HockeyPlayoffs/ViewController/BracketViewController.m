@@ -94,15 +94,14 @@
     
     [super refresh];
     
+    __weak BracketViewController *weakSelf = self;
     [_bracketModel refresh:^(BOOL reload) {
-        
-        [_bracketView reloadData];
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        [weakSelf.bracketView reloadData];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 
--(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {    
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [_bracketView reloadData];
 }
 
@@ -278,10 +277,9 @@
 #pragma refresh data
 
 -(void)reloadData:(id)sender {
-    
+    __weak BracketViewController *weakSelf = self;
     [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 

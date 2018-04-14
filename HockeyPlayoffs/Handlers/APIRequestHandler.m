@@ -49,7 +49,7 @@
         static dispatch_once_t onceToken;
         
         dispatch_once(&onceToken, ^{
-            _synchronizeQueue = SYNCHRONIZE_QUEUE;
+            self.synchronizeQueue = SYNCHRONIZE_QUEUE;
         });
         
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];

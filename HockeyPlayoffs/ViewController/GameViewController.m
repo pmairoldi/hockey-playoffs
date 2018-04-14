@@ -89,11 +89,10 @@
     
     [super refresh];
     
+    __weak GameViewController *weakSelf = self;
     [_gameModel refresh:^(BOOL reload) {
-        
-        [_gameView reloadData];
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        [weakSelf.gameView reloadData];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 
@@ -274,10 +273,9 @@
 #pragma refresh data
 
 -(void)reloadData:(id)sender {
-    
+    __weak GameViewController *weakSelf = self;
     [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 

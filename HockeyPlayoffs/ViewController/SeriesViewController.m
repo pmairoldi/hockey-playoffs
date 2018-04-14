@@ -95,12 +95,11 @@
     
     [super refresh];
     
+    __weak SeriesViewController *weakSelf = self;
     [_seriesModel refresh:^(BOOL reload) {
-        
-        _seriesView.hasContent = _seriesModel.hasData;
-        [_seriesView reloadData];
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        weakSelf.seriesView.hasContent = weakSelf.seriesModel.hasData;
+        [weakSelf.seriesView reloadData];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 
@@ -327,10 +326,9 @@
 #pragma refresh data
 
 -(void)reloadData:(id)sender {
-    
+    __weak SeriesViewController *weakSelf = self;
     [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 

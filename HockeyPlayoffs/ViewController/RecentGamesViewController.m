@@ -51,7 +51,7 @@
         static dispatch_once_t onceToken;
         
         dispatch_once(&onceToken, ^{
-            _datepickerQueue = DATE_PICKER_QUEUE;
+            self.datepickerQueue = DATE_PICKER_QUEUE;
         });
         
         _recentGamesModel = [[RecentGamesModel alloc] init];
@@ -147,12 +147,11 @@
     
     [super refresh];
     
+    __weak RecentGamesViewController *weakSelf = self;
     [_recentGamesModel refresh:^(BOOL reload) {
-        
-        _recentGamesView.hasContent = _recentGamesModel.hasData;
-        [_recentGamesView reloadData];
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        weakSelf.recentGamesView.hasContent = weakSelf.recentGamesModel.hasData;
+        [weakSelf.recentGamesView reloadData];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 
@@ -298,10 +297,9 @@
 #pragma refresh data
 
 -(void)reloadData:(id)sender {
-    
+    __weak RecentGamesViewController *weakSelf = self;
     [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
-        [_refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
+        [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
 

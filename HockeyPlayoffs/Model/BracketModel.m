@@ -256,7 +256,7 @@
             
             [self refresh];
             
-            _isRefreshing = NO;
+            self.isRefreshing = NO;
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(YES);
