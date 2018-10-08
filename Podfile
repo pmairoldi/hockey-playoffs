@@ -1,4 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/cocoapods/specs.git'
 
 plugin 'cocoapods-keys', project: 'HockeyPlayoffs',
                          keys: [
