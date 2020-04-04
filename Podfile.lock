@@ -34,7 +34,7 @@ DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
   - LSWeekView (~> 1.0)
   - Reveal-SDK
-  - SimulatorStatusMagic (~> 2.1)
+  - SimulatorStatusMagic (~> 2.4)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -67,6 +67,6 @@ SPEC CHECKSUMS:
   Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
   SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
 
-PODFILE CHECKSUM: 8a5982ae6a2f53826a4ece92af84516ae6c9d22c
+PODFILE CHECKSUM: 4e851b336f817703100020750287bcda9df4e689
 
 COCOAPODS: 1.9.1

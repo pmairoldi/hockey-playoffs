@@ -15,7 +15,7 @@ target 'HockeyPlayoffs' do
   pod 'AFNetworking', '~> 3.2'
   pod 'LSWeekView', '~> 1.0'
   pod 'CRToast', git: 'https://github.com/petester42/CRToast.git', branch: 'feature/allow-duplicates'
-  pod 'SimulatorStatusMagic', '~> 2.1', configurations: ['Debug']
+  pod 'SimulatorStatusMagic', '~> 2.4', configurations: ['Debug']
   pod 'Reveal-SDK', configurations: ['Debug']
 
   target 'HockeyPlayoffsTests' do
