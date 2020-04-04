@@ -20,7 +20,7 @@ scheme('Screenshots')
 clear_previous_screenshots(true)
 
 # Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/#launch-arguments
-launch_arguments(['-date "2017-04-12 00:00:00"'])
+launch_arguments(['-date "2019-04-15 00:00:00"'])
 
 # For more information about all available options run
 # fastlane action snapshot
