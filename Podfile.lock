@@ -14,20 +14,17 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
+  - CocoaLumberjack (3.6.1):
+    - CocoaLumberjack/Core (= 3.6.1)
+  - CocoaLumberjack/Core (3.6.1)
   - CRToast (0.0.9)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - Keys (1.0.1)
   - LSWeekView (1.0.5)
-  - Reveal-SDK (18)
-  - SimulatorStatusMagic (2.3)
+  - Reveal-SDK (24)
+  - SimulatorStatusMagic (2.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2)
@@ -40,7 +37,7 @@ DEPENDENCIES:
   - SimulatorStatusMagic (~> 2.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - CocoaLumberjack
     - FMDB
@@ -62,14 +59,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  Reveal-SDK: cce79388da3fd0bbb6ae19d769b906cfc3a33a89
-  SimulatorStatusMagic: 631fe6e4195a8a8d587ad8744af9015126526cc2
+  Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
+  SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
 
 PODFILE CHECKSUM: 8a5982ae6a2f53826a4ece92af84516ae6c9d22c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1
