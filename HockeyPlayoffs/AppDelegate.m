@@ -6,16 +6,15 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
+@import AFNetworking.AFNetworkReachabilityManager;
 #import "AppDelegate.h"
 #import "TabBarController.h"
 #import "Colors.h"
-
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
-#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 #ifdef DEBUG
-#import <SimulatorStatusMagic/SDStatusBarManager.h>
+@import SimulatorStatusMagic;
 #endif
 
 @implementation AppDelegate
@@ -26,8 +25,12 @@
     [[SDStatusBarManager sharedInstance] enableOverrides];
 #endif
     
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    if (@available(iOS 10.0, *)) {
+        [DDLog addLogger:[DDOSLogger sharedInstance]];
+    } else {
+        [DDLog addLogger:[DDASLLogger sharedInstance]];
+        [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    }
     
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Pierre-Marc Airoldi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+@import Foundation;
+@import UIKit;
 
 @interface TeamHandler : NSObject
 

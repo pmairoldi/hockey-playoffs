@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <FMDB/FMDatabase.h>
-#import <FMDB/FMDatabaseQueue.h>
+@import Foundation;
+@import FMDB.FMDatabase;
+@import FMDB.FMDatabaseQueue;
 
 @class SeriesObject, GameObject;
 

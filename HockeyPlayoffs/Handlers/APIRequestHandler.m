@@ -5,15 +5,15 @@
 //  Created by Pierre-Marc Airoldi on 2014-04-02.
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
-
+@import AFNetworking.AFHTTPSessionManager;
+@import AFNetworking.AFNetworkActivityIndicatorManager;
+@import CRToast;
+@import Keys.HockeyPlayoffsKeys;
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 #import "APIIdentifiers.h"
-#import <CRToast/CRToast.h>
 #import "Animations.h"
 #import "Queues.h"
-#import "AFNetworkActivityIndicatorManager.h"
-@import Keys.HockeyPlayoffsKeys;
 
 #define SYNCHRONIZE_REFRESH_TIME 30ull
 #define SYNCHRONIZE_REFRESH_TIME_LEEWAY 30ull

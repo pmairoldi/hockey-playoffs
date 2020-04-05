@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
+@import LSWeekView;
 #import "RecentGamesViewController.h"
 #import "Colors.h"
 #import "Rotation.h"
@@ -25,7 +26,6 @@
 #import "APIRequestHandler.h"
 #import "RecentGamesView.h"
 #import "RecentGamesModel.h"
-#import <LSWeekView/LSWeekView.h>
 #import "Queues.h"
 
 @interface RecentGamesViewController ()

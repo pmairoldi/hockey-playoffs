@@ -28,7 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2)
-  - CocoaLumberjack (~> 3.4)
+  - CocoaLumberjack (~> 3.6)
   - CRToast (from `https://github.com/petester42/CRToast.git`, branch `feature/allow-duplicates`)
   - FMDB (~> 2.7)
   - Keys (from `Pods/CocoaPodsKeys`)
@@ -67,6 +67,6 @@ SPEC CHECKSUMS:
   Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
   SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
 
-PODFILE CHECKSUM: 4e851b336f817703100020750287bcda9df4e689
+PODFILE CHECKSUM: ba80165c3d65e465709e9e06a2e8fe042807e9f1
 
 COCOAPODS: 1.9.1

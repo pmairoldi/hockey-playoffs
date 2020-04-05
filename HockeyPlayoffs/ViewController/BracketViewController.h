@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "BaseViewController.h"
 
 @interface BracketViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
+@import CRToast;
+@import AFNetworking.AFNetworkReachabilityManager;
 #import "VideoPlayerViewController.h"
-#import <CRToast/CRToast.h>
 #import "Animations.h"
-#import <AFNetworking/AFNetworkReachabilityManager.h>
 
 @interface VideoPlayerViewController ()
 

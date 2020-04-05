@@ -14,9 +14,8 @@
 
 #ifdef __OBJC__
 
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-
+    @import UIKit;
+    @import Foundation;
     @import CocoaLumberjack;
 
     #ifdef DEBUG
@@ -25,7 +24,7 @@
 
     #else
 
-    static const int ddLogLevel = DDLogLevelOff;
+    static const int ddLogLevel = DDLogLevelDebug;
 
     #endif
 

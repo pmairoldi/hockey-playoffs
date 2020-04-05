@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-#import <AVKit/AVKit.h>
+@import AVKit;
 
 @interface VideoPlayerViewController : NSObject
 
