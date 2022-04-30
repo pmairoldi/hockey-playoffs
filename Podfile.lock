@@ -23,7 +23,6 @@ PODS:
   - FMDB/standard (2.7.5)
   - Keys (1.0.1)
   - LSWeekView (1.0.5)
-  - Reveal-SDK (24)
   - SimulatorStatusMagic (2.4.1)
 
 DEPENDENCIES:
@@ -33,16 +32,14 @@ DEPENDENCIES:
   - FMDB (~> 2.7)
   - Keys (from `Pods/CocoaPodsKeys`)
   - LSWeekView (~> 1.0)
-  - Reveal-SDK
   - SimulatorStatusMagic (~> 2.4)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - CocoaLumberjack
     - FMDB
     - LSWeekView
-    - Reveal-SDK
     - SimulatorStatusMagic
 
 EXTERNAL SOURCES:
@@ -64,9 +61,8 @@ SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  Reveal-SDK: 5d7e56b8f018c0a88b3a2c10bf68d598bbd3b071
   SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
 
-PODFILE CHECKSUM: ba80165c3d65e465709e9e06a2e8fe042807e9f1
+PODFILE CHECKSUM: 0459e5837ce5ef1b7f2b05b857ff42994f47eb2c
 
 COCOAPODS: 1.9.1

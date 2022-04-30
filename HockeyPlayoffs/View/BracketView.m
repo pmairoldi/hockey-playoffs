@@ -246,11 +246,7 @@
 }
 
 -(CGFloat)getHeightForView:(UIView *)view {
-    if (@available(iOS 11.0, *)) {
-        return view.safeAreaLayoutGuide.layoutFrame.size.height;
-    } else {
-        return view.frame.size.height - TOOLBAR_HEIGHT - STATUS_BAR_HEIGHT;
-    }
+    return view.safeAreaLayoutGuide.layoutFrame.size.height;
 }
 
 @end

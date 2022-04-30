@@ -12,6 +12,7 @@
 		062B24982065E629005B175B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 062B24952065E629005B175B /* InfoPlist.strings */; };
 		062B249D2065E6AF005B175B /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 065034D51E9F264D003A132F /* bad_teams.json */; };
 		062B249E2065E6AF005B175B /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 065034D61E9F264D003A132F /* good_teams.json */; };
+		0684C1052439879000A6B813 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0684C1042439879000A6B813 /* Colors.xcassets */; };
 		068FA82324392BF70046C8FC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068FA82524392BF70046C8FC /* Launch Screen.storyboard */; };
 		06B321E42065DD8300C4078F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35C61B39A65F00CCAE17 /* AppDelegate.m */; };
 		06B321E52065DD8E00C4078F /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667D71D1B3A6611009571A6 /* Colors.m */; };
@@ -111,6 +112,7 @@
 		065034D61E9F264D003A132F /* good_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_teams.json; sourceTree = "<group>"; };
 		0667D71C1B3A6611009571A6 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		0667D71D1B3A6611009571A6 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		0684C1042439879000A6B813 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		068FA82824392CE80046C8FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		068FA82C24394BF40046C8FC /* HockeyPlayoffs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HockeyPlayoffs.entitlements; sourceTree = "<group>"; };
 		06B321C02065DCE400C4078F /* HockeyPlayoffs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyPlayoffs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -482,6 +484,7 @@
 		553F35FD1B39A65F00CCAE17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0684C1042439879000A6B813 /* Colors.xcassets */,
 				553F36001B39A65F00CCAE17 /* Images.xcassets */,
 				553F35FE1B39A65F00CCAE17 /* hockey.sql */,
 				553F35FF1B39A65F00CCAE17 /* hockey.sqlite */,
@@ -652,7 +655,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
 				TargetAttributes = {
 					06B321BF2065DCE400C4078F = {
@@ -687,6 +690,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 0684137C18B9A0CE00A89D7C;
 			productRefGroup = 0684138618B9A0CE00A89D7C /* Products */;
@@ -711,6 +715,7 @@
 				06B322302065E32400C4078F /* hockey.sqlite in Resources */,
 				06B322312065E32400C4078F /* teams.json in Resources */,
 				062B24982065E629005B175B /* InfoPlist.strings in Resources */,
+				0684C1052439879000A6B813 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +801,6 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/LSWeekView/LSWeekView.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -807,7 +811,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSWeekView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -968,6 +971,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1022,6 +1026,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1067,7 +1072,7 @@
 				GCC_PREFIX_HEADER = HockeyPlayoffs/SupportingFiles/Prefix.pch;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffs/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
@@ -1100,7 +1105,7 @@
 				GCC_PREFIX_HEADER = HockeyPlayoffs/SupportingFiles/Prefix.pch;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffs/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
@@ -1128,7 +1133,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffsTests/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.HockeyPlayoffsTests;
@@ -1161,7 +1166,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffsTests/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.HockeyPlayoffsTests;
@@ -1189,7 +1194,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = Screenshots/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.Screenshots;
@@ -1219,7 +1224,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = Screenshots/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.Screenshots;

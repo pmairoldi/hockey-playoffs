@@ -75,8 +75,10 @@
     _datePicker = [[LSWeekView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight([UIApplication sharedApplication].statusBarFrame), CGRectGetWidth(self.view.frame), 90) style:LSWeekViewStyleDefault];
     _datePicker.center = CGPointMake(self.view.center.x, _datePicker.center.y);
     _datePicker.calendar = [NSCalendar currentCalendar];
-    _datePicker.tintColor = [Colors segmentTintColor];
     _datePicker.selectedDate = _recentGamesModel.date;
+    _datePicker.tintColor = [Colors segmentTintColor];
+    _datePicker.darkTextColor = [Colors lightColor];
+    _datePicker.grayTextColor = [Colors lightGrayColor];
     
     [_datePickerView.contentView addSubview:_datePicker];
     
@@ -103,7 +105,7 @@
     [_recentGamesView.topAnchor constraintEqualToAnchor: _datePickerView.bottomAnchor].active = true;
     [_recentGamesView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
     [_recentGamesView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor].active = true;
-    [_recentGamesView.bottomAnchor constraintEqualToAnchor: self.bottomLayoutGuide.topAnchor].active = true;
+    [_recentGamesView.bottomAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.bottomAnchor].active = true;
     
     __weak typeof(self) weakSelf = self;
     _datePicker.didChangeSelectedDateBlock = ^(NSDate *selectedDate) {
@@ -305,17 +307,17 @@
 
 -(UIVisualEffectView *)createDatePickerView {
     
-    UIVisualEffect *effect;
-    effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffect *effect = [UIBlurEffect effectWithStyle: UIBlurEffectStyleRegular];
     
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:effect];
     visualEffectView.translatesAutoresizingMaskIntoConstraints = false;
-    visualEffectView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    visualEffectView.backgroundColor = [Colors navigationBarColor];
     
     UIView *border = [[UIView alloc] initWithFrame:CGRectZero];
     border.translatesAutoresizingMaskIntoConstraints = false;
     border.backgroundColor = [UIColor colorWithWhite:216/255.0 alpha:1.0];
+    border.backgroundColor = [Colors navigationBarBorderColor];
     
     [visualEffectView.contentView addSubview:border];
     

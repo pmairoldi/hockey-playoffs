@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1320"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -59,6 +59,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "06B321BF2065DCE400C4078F"
+            BuildableName = "HockeyPlayoffs.app"
+            BlueprintName = "HockeyPlayoffs"
+            ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -81,17 +90,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06B321BF2065DCE400C4078F"
-            BuildableName = "HockeyPlayoffs.app"
-            BlueprintName = "HockeyPlayoffs"
-            ReferencedContainer = "container:HockeyPlayoffs.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

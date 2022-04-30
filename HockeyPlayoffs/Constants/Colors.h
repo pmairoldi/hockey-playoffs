@@ -30,6 +30,7 @@
 +(UIColor *)gameCellTeamTextColor;
 +(UIColor *)tableViewSeperatorColor;
 +(UIColor *)navigationBarColor;
++(UIColor *)navigationBarBorderColor;
 +(UIColor *)gameDetailCellTextColor;
 +(UIColor *)gameDetailCellTimeColor;
 +(UIColor *)gameDetailHeaderTextColor;

@@ -11,15 +11,15 @@
 @implementation Colors
 
 +(UIColor *)tintColor {
-    return [UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0];
-}
+    return [UIColor colorNamed:@"tintColor"];
+ }
 
 +(UIColor *)darkGrayColor {
-    return [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
+    return [UIColor colorNamed:@"darkGrayColor"];
 }
 
 +(UIColor *)lightGrayColor {
-    return [UIColor colorWithRed:92.0/255.0 green:92.0/255.0 blue:92.0/255.0 alpha:1.0];
+    return [UIColor colorNamed:@"lightGrayColor"];
 }
 
 +(UIColor *)lightColor {
@@ -83,7 +83,11 @@
 }
 
 +(UIColor *)navigationBarColor {
-    return [UIColor whiteColor];
+    return [UIColor colorNamed:@"navigationBarColor"];
+}
+
++(UIColor *)navigationBarBorderColor {
+    return [UIColor colorNamed:@"navigationBarBorderColor"];
 }
 
 +(UIColor *)gameDetailCellTextColor {

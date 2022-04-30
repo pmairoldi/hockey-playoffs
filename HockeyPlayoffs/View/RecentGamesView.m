@@ -23,7 +23,7 @@
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];
-        self.separatorStyle = UITableViewCellSelectionStyleNone;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         [self registerClass:[GameCell class] forCellReuseIdentifier:GAME_CELL_REUSE_IDENTIFIER];
         [self registerClass:[RefreshTableViewCell class] forCellReuseIdentifier:REFRESH_CELL_REUSE_IDENTIFIER];

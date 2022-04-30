@@ -25,13 +25,8 @@
     [[SDStatusBarManager sharedInstance] enableOverrides];
 #endif
     
-    if (@available(iOS 10.0, *)) {
-        [DDLog addLogger:[DDOSLogger sharedInstance]];
-    } else {
-        [DDLog addLogger:[DDASLLogger sharedInstance]];
-        [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    }
-    
+    [DDLog addLogger:[DDOSLogger sharedInstance]];
+ 
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
         
