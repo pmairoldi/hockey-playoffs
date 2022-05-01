@@ -9,16 +9,14 @@
 @import UIKit;
 #import "GameOverviewView.h"
 
-@class GameObject, VideoButton, ExpandedVideoView;
+@class GameObject, VideoButton;
 
 @interface GameCell : UITableViewCell
 
 @property (weak) VideoButton *videoButton;
-@property (weak) ExpandedVideoView *videoView;
 @property UIView *seperatorView;
 
 +(CGFloat)height;
 -(void)setGame:(GameObject *)game;
-//-(void)isExpanded:(int)expandedIndex;
 
 @end

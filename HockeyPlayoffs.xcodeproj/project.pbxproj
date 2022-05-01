@@ -12,6 +12,7 @@
 		062B24982065E629005B175B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 062B24952065E629005B175B /* InfoPlist.strings */; };
 		062B249D2065E6AF005B175B /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 065034D51E9F264D003A132F /* bad_teams.json */; };
 		062B249E2065E6AF005B175B /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 065034D61E9F264D003A132F /* good_teams.json */; };
+		06650840281F01BA008A6CB9 /* LSWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0665083F281F01BA008A6CB9 /* LSWeekView.m */; };
 		0684C1052439879000A6B813 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0684C1042439879000A6B813 /* Colors.xcassets */; };
 		068FA82324392BF70046C8FC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068FA82524392BF70046C8FC /* Launch Screen.storyboard */; };
 		06B321E42065DD8300C4078F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35C61B39A65F00CCAE17 /* AppDelegate.m */; };
@@ -37,7 +38,6 @@
 		06B321F92065DDC300C4078F /* SeriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35FC1B39A65F00CCAE17 /* SeriesModel.m */; };
 		06B321FB2065DDE300C4078F /* BracketSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F360E1B39A65F00CCAE17 /* BracketSection.m */; };
 		06B321FC2065DDE300C4078F /* BracketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36101B39A65F00CCAE17 /* BracketView.m */; };
-		06B321FD2065DDE300C4078F /* ExpandedVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */; };
 		06B321FE2065DDE300C4078F /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36141B39A65F00CCAE17 /* GameCell.m */; };
 		06B321FF2065DDE300C4078F /* GameDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36161B39A65F00CCAE17 /* GameDetailCell.m */; };
 		06B322002065DDE300C4078F /* GameDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36181B39A65F00CCAE17 /* GameDetailHeader.m */; };
@@ -110,6 +110,8 @@
 		065034D01E9F2617003A132F /* TeamHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamHandlerTests.swift; sourceTree = "<group>"; };
 		065034D51E9F264D003A132F /* bad_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_teams.json; sourceTree = "<group>"; };
 		065034D61E9F264D003A132F /* good_teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_teams.json; sourceTree = "<group>"; };
+		0665083E281F01BA008A6CB9 /* LSWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSWeekView.h; sourceTree = "<group>"; };
+		0665083F281F01BA008A6CB9 /* LSWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSWeekView.m; sourceTree = "<group>"; };
 		0667D71C1B3A6611009571A6 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		0667D71D1B3A6611009571A6 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		0684C1042439879000A6B813 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -188,8 +190,6 @@
 		553F360E1B39A65F00CCAE17 /* BracketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketSection.m; sourceTree = "<group>"; };
 		553F360F1B39A65F00CCAE17 /* BracketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketView.h; sourceTree = "<group>"; };
 		553F36101B39A65F00CCAE17 /* BracketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketView.m; sourceTree = "<group>"; };
-		553F36111B39A65F00CCAE17 /* ExpandedVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandedVideoView.h; sourceTree = "<group>"; };
-		553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedVideoView.m; sourceTree = "<group>"; };
 		553F36131B39A65F00CCAE17 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
 		553F36141B39A65F00CCAE17 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 		553F36151B39A65F00CCAE17 /* GameDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailCell.h; sourceTree = "<group>"; };
@@ -458,6 +458,8 @@
 		553F35EC1B39A65F00CCAE17 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				0665083E281F01BA008A6CB9 /* LSWeekView.h */,
+				0665083F281F01BA008A6CB9 /* LSWeekView.m */,
 				553F35F01B39A65F00CCAE17 /* NSObject+PMDescription.h */,
 				553F35F11B39A65F00CCAE17 /* NSObject+PMDescription.m */,
 			);
@@ -513,8 +515,6 @@
 				553F360E1B39A65F00CCAE17 /* BracketSection.m */,
 				553F360F1B39A65F00CCAE17 /* BracketView.h */,
 				553F36101B39A65F00CCAE17 /* BracketView.m */,
-				553F36111B39A65F00CCAE17 /* ExpandedVideoView.h */,
-				553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */,
 				553F36131B39A65F00CCAE17 /* GameCell.h */,
 				553F36141B39A65F00CCAE17 /* GameCell.m */,
 				553F36151B39A65F00CCAE17 /* GameDetailCell.h */,
@@ -800,7 +800,6 @@
 				"${BUILT_PRODUCTS_DIR}/CRToast/CRToast.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/LSWeekView/LSWeekView.framework",
 				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -810,7 +809,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSWeekView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -837,6 +835,7 @@
 				06B321FB2065DDE300C4078F /* BracketSection.m in Sources */,
 				06B321E72065DD9800C4078F /* GameObject.m in Sources */,
 				06B322122065DDF100C4078F /* BaseViewController.m in Sources */,
+				06650840281F01BA008A6CB9 /* LSWeekView.m in Sources */,
 				06B321F72065DDC300C4078F /* RecentGamesModel.m in Sources */,
 				06B321EF2065DDAC00C4078F /* FileHandler.m in Sources */,
 				06B322092065DDE300C4078F /* RefreshTableViewCell.m in Sources */,
@@ -880,7 +879,6 @@
 				06B3220B2065DDE300C4078F /* SeriesHeader.m in Sources */,
 				06B322132065DDF100C4078F /* BracketViewController.m in Sources */,
 				06B322012065DDE300C4078F /* GameHeader.m in Sources */,
-				06B321FD2065DDE300C4078F /* ExpandedVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

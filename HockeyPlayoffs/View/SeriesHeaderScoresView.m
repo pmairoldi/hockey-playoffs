@@ -77,13 +77,11 @@
         label.text = [NSString stringWithFormat:@"%lu", (unsigned long)[game getScoreForTeam:team]];
         
         if ([game hasWonGame:team]) {
-    
             label.backgroundColor = [TeamHandler getTeamColor:team];
         }
         
         else {
-            
-            label.backgroundColor = [Colors lightGrayColor];
+            label.backgroundColor = [Colors seriesTeamNameBackgroundColor];
         }
     }
     
@@ -152,11 +150,10 @@
 }
 
 -(void)setGameLabelProperties:(UILabel *)label {
-    
     label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [Colors lightGrayColor];
+    label.backgroundColor = [Colors seriesTeamNameBackgroundColor];
 }
 
 /*

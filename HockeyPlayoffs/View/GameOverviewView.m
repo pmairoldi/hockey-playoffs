@@ -13,8 +13,6 @@
 #import "Colors.h"
 #import "Dimensions.h"
 #import "TeamHandler.h"
-//#import "MPFoldTransition.h"
-#import "ExpandedVideoView.h"
 
 @interface GameOverviewView ()
 
@@ -27,7 +25,6 @@
 @property UILabel *leftScoreLabel;
 @property UILabel *rightStatusIndicatorLabel;
 @property UILabel *leftStatusIndicatorLabel;
-@property UILabel *gameLabel;
 
 @end
 
@@ -66,14 +63,8 @@
         [self setPropertiesForStatusLabel:_gameStatusLabel];
         
         _videoButton = [[VideoButton alloc] init];
-        
         [_videoButton setAccessibilityIdentifier:[NSString stringWithFormat:@"Play Highlights"]];
-        
-        //        _videoView = [[ExpandedVideoView alloc] initWithFrame:CGRectMake(0, [[self class] height], CGRectGetWidth(self.frame), SHOW_VIDEO_OFFSET)];
-        
-        _gameLabel = [[UILabel alloc] init];
-        [self setPropertiesForGameLabel:_gameLabel];
-        
+                        
         [self addSubview:_leftTeamImage];
         [self addSubview:_leftTeamLabel];
         [self addSubview:_rightTeamImage];
@@ -84,9 +75,6 @@
         [self addSubview:_rightScoreLabel];
         [self addSubview:_rightStatusIndicatorLabel];
         [self addSubview:_leftStatusIndicatorLabel];
-        //        [self addSubview:_gameLabel];
-        
-        //        [self addSubview:_videoView];
     }
     
     return self;
@@ -95,10 +83,8 @@
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     if (!_videoButton.enabled) {
-        
         if (selected) {
             _videoButton.tintColor = [Colors videoButtonSelectedColor];
-            self.backgroundColor = [Colors lightGrayColor];
         }
         
         else {
@@ -107,7 +93,7 @@
     }
     
     if (selected) {
-        self.backgroundColor = [Colors ultraLightGrayColor];
+        self.backgroundColor = [Colors gameBackgroundSelectedColor];
     }
     
     else {
@@ -120,7 +106,6 @@
     if (!_videoButton.enabled) {
         
         if (highlighted) {
-            
             _videoButton.tintColor = [Colors videoButtonSelectedColor];
         }
         
@@ -130,7 +115,7 @@
     }
     
     if (highlighted) {
-        self.backgroundColor = [Colors ultraLightGrayColor];
+        self.backgroundColor = [Colors gameBackgroundSelectedColor];
     }
     
     else {
@@ -141,12 +126,7 @@
 -(void)layoutSubviews {
     
     [super layoutSubviews];
-    
-    //    _gameLabel.frame = CGRectMake(0, 0, 120, 12);
-    //    _gameLabel.center = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(_gameLabel.frame)/2);
-    
-    //    _videoView.frame = CGRectMake(0, [[self class] height], CGRectGetWidth(self.frame), SHOW_VIDEO_OFFSET);
-    
+        
     _leftTeamImage.frame = CGRectMake(IMAGE_X_OFFSET, 5, TEAM_IMAGE_SIZE, TEAM_IMAGE_SIZE);
     
     _rightTeamImage.frame = CGRectMake(CGRectGetWidth(self.frame) - TEAM_IMAGE_SIZE - IMAGE_X_OFFSET, 5, TEAM_IMAGE_SIZE, TEAM_IMAGE_SIZE);
@@ -244,7 +224,6 @@
     [self setTeam:game.homeID withImage:_rightTeamImage andLabel:_rightTeamLabel];
     [self setTeam:game.awayID withImage:_leftTeamImage andLabel:_leftTeamLabel];
     
-    //    _gameLabel.text = [game getGameText];
     _gameStatusLabel.text = [game getGameStatus];
     
     _rightScoreLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[game getScoreForTeam:game.homeID]];
@@ -260,9 +239,7 @@
     _leftStatusIndicatorLabel.hidden = awayStatus.length == 0;
     
     [_videoButton setEnabled:[game hasVideo]];
-    
-    //    [_videoView setEnabled:[game getEnabledVideos] withHomeTeam:game.homeID andAwayTeam:game.awayID];
-    
+        
     [self layoutSubviews];
 }
 
@@ -308,39 +285,5 @@
         
     return statusText;
 }
-
-//-(void)isExpanded:(int)expandedIndex {
-//
-//    if (expandedIndex != -1) {
-//        _videoView.alpha = 0.0;
-//        _videoView.isExpanded = YES;
-//    }
-//
-//    else {
-//        _videoView.isExpanded = NO;
-//    }
-//
-//    [UIView animateWithDuration:0.3 animations:^{
-//
-//        if (expandedIndex != -1) {
-//            _videoView.alpha = 1.0;
-//        }
-//
-//        else {
-//            _videoView.alpha = 0.0;
-//        }
-//
-//    } completion:^(BOOL finished) {
-//
-//        if (expandedIndex != -1) {
-//            _videoView.isExpanded = YES;
-//        }
-//
-//        else {
-//            _videoView.isExpanded = NO;
-//        }
-//
-//    }];
-//}
 
 @end

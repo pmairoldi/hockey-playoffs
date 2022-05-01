@@ -30,21 +30,8 @@
     GameModel *gameModel = [[GameModel alloc] init];
     
     gameModel.gameObject = game;
-    
-    gameModel.expandedIndex = -1;
-    
+        
     return gameModel;
-}
-
--(void)setExpandedIndex:(int)index {
-    
-    if (_expandedIndex == index) {
-        _expandedIndex = -1;
-    }
-    
-    else {
-        _expandedIndex = index;
-    }
 }
 
 -(NSInteger)numberOfSections {

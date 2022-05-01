@@ -53,7 +53,7 @@
         [self.contentView addSubview:_strength];
         
         _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = [Colors ultraLightGrayColor];
+        _seperatorView.backgroundColor = [Colors gameSeperatorColor];
         
         [self.contentView addSubview:_seperatorView];
     }
@@ -64,8 +64,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)prepareForReuse {
@@ -94,7 +92,7 @@
     
     _textLabel.frame = CGRectMake(remainder.origin.x, floorf(1.5*DETAIL_GAME_Y_OFFSET), remainder.size.width - DETAIL_GAME_X_OFFSET, MIN(_textLabel.frame.size.height,remainder.size.height - 2*floorf(1.5*DETAIL_GAME_Y_OFFSET)));
 
-//TODO:add implement of strength
+    //TODO: add implement of strength
     _strength.frame = CGRectZero;
     
     _seperatorView.frame = CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale]);

@@ -33,8 +33,6 @@
         
         _seriesObject = [[SeriesObject alloc] init];
         _games = [NSArray array];
-        
-        _expandedIndex = -1;
     }
     
     return self;
@@ -67,17 +65,6 @@
     }
     
     return YES;
-}
-
--(void)setExpandedIndex:(int)index {
-    
-    if (_expandedIndex == index) {
-        _expandedIndex = -1;
-    }
-    
-    else {
-        _expandedIndex = index;
-    }
 }
 
 -(NSInteger)numberOfSections {
@@ -116,14 +103,7 @@
     }
     
     else {
-        
-        CGFloat offset = 0;
-        
-        if (_expandedIndex != -1 && _expandedIndex < [self numberOfRowsInSection:indexPath.section] && _expandedIndex == indexPath.row) {
-            offset = SHOW_VIDEO_OFFSET;
-        }
-        
-        return [GameCell height] + offset;
+        return [GameCell height];
     }
 }
 

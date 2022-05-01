@@ -8,17 +8,15 @@
 
 @import UIKit;
 
-@class VideoButton, GameObject, ExpandedVideoView;
+@class VideoButton, GameObject;
 
 @interface GameOverviewView : UIView
 
 @property VideoButton *videoButton;
-//@property ExpandedVideoView *videoView;
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated;
 +(CGFloat)height;
 -(void)setGame:(GameObject *)game;
-//-(void)isExpanded:(int)expandedIndex;
 
 @end

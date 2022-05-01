@@ -8,16 +8,14 @@
 
 @import UIKit;
 
-@class GameModel, VideoButton, ExpandedVideoView;
+@class GameModel, VideoButton;
 
 @interface GameHeader : UITableViewHeaderFooterView
 
 @property UISegmentedControl *sectionControl;
 @property (weak) VideoButton *videoButton;
-//@property (weak) ExpandedVideoView *videoView;
 
 +(CGFloat)height;
 -(void)setGame:(GameModel *)game;
-//-(void)isExpanded:(int)expandedIndex;
 
 @end

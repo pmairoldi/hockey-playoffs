@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-@import LSWeekView;
+#import "LSWeekView.h"
 #import "RecentGamesViewController.h"
 #import "Colors.h"
 #import "Rotation.h"
@@ -77,9 +77,10 @@
     _datePicker.calendar = [NSCalendar currentCalendar];
     _datePicker.selectedDate = _recentGamesModel.date;
     _datePicker.tintColor = [Colors segmentTintColor];
-    _datePicker.darkTextColor = [Colors lightColor];
-    _datePicker.grayTextColor = [Colors lightGrayColor];
-    
+    _datePicker.darkTextColor = [Colors datePickerTextColor];
+    _datePicker.grayTextColor = [Colors datePickerLightTextColor];
+    _datePicker.lightTextColor = [Colors datePickerTextSelectedColor];
+
     [_datePickerView.contentView addSubview:_datePicker];
     
     _recentGamesView = [[RecentGamesView alloc] initWithFrame:CGRectZero];

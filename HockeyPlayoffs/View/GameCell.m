@@ -37,12 +37,11 @@
         _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame))];
         
         _videoButton = _gameOverview.videoButton;
-//        _videoView = _gameOverview.videoView;
         
         [self.contentView addSubview:_gameOverview];
         
         _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - 2 * EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = [Colors ultraLightGrayColor];
+        _seperatorView.backgroundColor = [Colors gameSeperatorColor];
         
         [self.contentView addSubview:_seperatorView];
     }
@@ -93,11 +92,6 @@
     
     [self setAccessibilityIdentifier:[NSString stringWithFormat:@"Game-%@", [game getRelativeGameID]]];
 }
-
-//-(void)isExpanded:(int)expandedIndex {
-//
-//    [_gameOverview isExpanded:expandedIndex];
-//}
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];

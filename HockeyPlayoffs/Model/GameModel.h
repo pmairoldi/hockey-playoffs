@@ -15,7 +15,6 @@
 @property NSInteger sectionIndex;
 @property GameObject *gameObject;
 @property BOOL isRefreshing;
-@property (nonatomic) int expandedIndex;
 
 +(instancetype)initWithGame:(GameObject *)game;
 

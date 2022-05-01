@@ -12,10 +12,6 @@
 @interface Colors : NSObject
 
 +(UIColor *)tintColor;
-+(UIColor *)darkGrayColor;
-+(UIColor *)lightGrayColor;
-+(UIColor *)lightColor;
-+(UIColor *)ultraLightGrayColor;
 +(UIColor *)backgroundColor;
 +(UIColor *)seriesBackgroundColor;
 +(UIColor *)seriesBorderColor;
@@ -45,9 +41,17 @@
 +(UIColor *)videoButtonUnselectedColor;
 +(UIColor *)videoButtonSelectedColor;
 +(UIColor *)seriesCellBackgroundColor;
-+(UIColor *)expandedVideoBackgroundColor;
 +(UIColor *)gameLabelTextColor;
 +(UIColor *)powerplayColor;
 +(UIColor *)emptyNetColor;
++(UIColor *)blankTeamColor;
++(UIColor *)seriesTeamNameBackgroundColor;
++(UIColor *)gameSeperatorColor;
++(UIColor *)gameBackgroundSelectedColor;
++(UIColor *)teamImageDefaultColor;
++(UIColor *)teamImageStrokeColor;
++(UIColor *)datePickerLightTextColor;
++(UIColor *)datePickerTextColor;
++(UIColor *)datePickerTextSelectedColor;
 
 @end

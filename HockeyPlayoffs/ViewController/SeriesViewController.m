@@ -23,7 +23,6 @@
 #import "RefreshTableViewCell.h"
 #import "NoDataTableViewCell.h"
 #import "APIRequestHandler.h"
-#import "ExpandedVideoView.h"
 
 @interface SeriesViewController ()
 
@@ -177,15 +176,8 @@
         
         GameCell *cell = [tableView dequeueReusableCellWithIdentifier:GAME_CELL_REUSE_IDENTIFIER];
         cell.videoButton.tag = indexPath.row;
-        cell.videoView.homeHighlights.tag = indexPath.row;
-        cell.videoView.awayHighlights.tag = indexPath.row;
-
         [cell setGame:[_seriesModel getGameAtIndex:indexPath]];
-        
         [cell.videoButton addTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-//        [cell.videoView.homeHighlights addTarget:self action:@selector(homeHighlightsTapped:) forControlEvents:UIControlEventTouchUpInside];
-//        [cell.videoView.awayHighlights addTarget:self action:@selector(awayHighlightsTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         if(indexPath.row == 0){
             cell.seperatorView.hidden = YES;
@@ -268,31 +260,10 @@
     
     GameObject *game = [_seriesModel getGameAtIndex:[NSIndexPath indexPathForRow:index inSection:0]];
     
-//    if ([[game videoLinks] count] == 1) {
-        NSURL *videoURL = [[game videoLinks] firstObject];
+    NSURL *videoURL = [[game videoLinks] firstObject];
         
-        AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
-        [self.navigationController presentViewController:playerController animated:YES completion:nil];
-//    }
-//    
-//    else {
-//        
-//        int currentExpanded = _seriesModel.expandedIndex;
-//        
-//        [_seriesModel setExpandedIndex:index];
-//        
-//        [_seriesView beginUpdates];
-//        
-//        GameCell *currentCell = (GameCell *)[_seriesView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currentExpanded inSection:1]];
-//        
-//        [currentCell isExpanded:-1];
-//        
-//        GameCell *nextCell = (GameCell *)[_seriesView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_seriesModel.expandedIndex inSection:1]];
-//        
-//        [nextCell isExpanded:_seriesModel.expandedIndex];
-//        
-//        [_seriesView endUpdates];
-//    }
+    AVPlayerViewController *playerController = [VideoPlayerViewController playerWithUrl:videoURL];
+    [self.navigationController presentViewController:playerController animated:YES completion:nil];
 }
 
 -(void)homeHighlightsTapped:(UIButton *)sender {

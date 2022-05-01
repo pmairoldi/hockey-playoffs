@@ -42,7 +42,7 @@
     
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    self.contentView.backgroundColor = [Colors lightColor];
+    self.contentView.backgroundColor = [Colors seriesHeaderBackgroundColor];
     
     _topTeamLabel = [[UILabel alloc] init];
     [self setTeamLabelProperties:_topTeamLabel];
@@ -104,11 +104,10 @@
 }
 
 -(void)setTeamLabelProperties:(UILabel *)label {
-    
     label.textColor = [Colors seriesTeamNameColor];
     label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
     label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [Colors lightGrayColor];
+    label.backgroundColor = [Colors seriesTeamNameBackgroundColor];
 }
 
 -(void)setSeries:(SeriesModel *)series {

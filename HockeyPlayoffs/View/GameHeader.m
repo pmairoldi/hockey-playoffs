@@ -17,7 +17,6 @@
 #import "VideoButton.h"
 #import "GameObject.h"
 #import "GameOverviewView.h"
-#import "ExpandedVideoView.h"
 
 @interface GameHeader ()
 
@@ -67,7 +66,6 @@
     _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), [GameOverviewView height])];
     
     _videoButton = _gameOverview.videoButton;
-    //        _videoView = _gameOverview.videoView;
     
     _seperatorView = [[UIView alloc] init];
     _seperatorView.backgroundColor = [Colors periodScoreSeperatorColor];
@@ -95,15 +93,7 @@
     
     [super layoutSubviews];
     
-    CGFloat height;
-    
-//    if (_gameOverview.videoView.isExpanded) {
-//        height = [GameOverviewView height] + SHOW_VIDEO_OFFSET;
-//    }
-//    
-//    else {
-        height = [GameOverviewView height];
-//    }
+    CGFloat height = [GameOverviewView height];
     
     _gameOverview.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), height);
     [_gameOverview layoutSubviews];
@@ -149,10 +139,5 @@
 
     [self layoutSubviews];
 }
-
-//-(void)isExpanded:(int)expandedIndex {
-//    
-//    [_gameOverview isExpanded:expandedIndex];
-//}
 
 @end
