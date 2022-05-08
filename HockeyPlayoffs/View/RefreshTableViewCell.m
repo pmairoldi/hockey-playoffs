@@ -27,7 +27,7 @@
 
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleMedium];
         [_activityIndicator startAnimating];
         
         [self.contentView addSubview:_activityIndicator];

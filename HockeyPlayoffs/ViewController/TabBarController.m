@@ -42,6 +42,12 @@
         
         self.tabBar.barTintColor = [Colors navigationBarColor];
         
+        if (@available(iOS 15.0, *)) {
+            self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
+        } else {
+            // Fallback on earlier versions
+        }
+        
         _bracketViewController = [[BracketViewController alloc] init];
         _bracketViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:_bracketViewController.title image:[UIImage imageNamed:BRACKET_TAB_ICON] selectedImage:nil];
 
@@ -71,6 +77,7 @@
     [navigationController pushViewController:rootController animated:NO];
     
     navigationController.navigationBar.barTintColor = [Colors navigationBarColor];
+    navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance;
     
     return navigationController;
 }

@@ -24,6 +24,10 @@
         return nil;
     }
 
+    if (@available(iOS 15.0, *)) {
+        self.sectionHeaderTopPadding = 0.0f;
+    }
+    
     _noContentLabel = [UILabel new];
     _noContentLabel.frame = CGRectMake(10, 10, CGRectGetWidth(frame) - 20, CGRectGetHeight(frame) - 20);
     _noContentLabel.font = [UIFont systemFontOfSize:18.0];
