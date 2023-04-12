@@ -46,10 +46,7 @@
 }
 
 -(void)viewDidLoad {
-    
-    //blur top of colection view to hide cells
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
     self.view.backgroundColor = [Colors backgroundColor];
     
@@ -61,8 +58,9 @@
     _refreshControl.tintColor = [UIColor whiteColor];
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
-    CGFloat topGradientPercent = (CGRectGetHeight([UIApplication sharedApplication].statusBarFrame) - 2.0) / CGRectGetHeight(self.view.bounds);
-    CGFloat bottomGradientPercent = (CGRectGetHeight([UIApplication sharedApplication].statusBarFrame) + 8.0) / CGRectGetHeight(self.view.bounds);
+    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+    CGFloat topGradientPercent = (CGRectGetHeight(statusBarFrame) - 2.0) / CGRectGetHeight(self.view.bounds);
+    CGFloat bottomGradientPercent = (CGRectGetHeight(statusBarFrame) + 8.0) / CGRectGetHeight(self.view.bounds);
 
     _gradient = [CAGradientLayer layer];
     _gradient.frame = self.view.bounds;

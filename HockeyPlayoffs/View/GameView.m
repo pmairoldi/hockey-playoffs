@@ -26,6 +26,10 @@
         self.backgroundColor = [UIColor clearColor];
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         
+        if (@available(iOS 15.0, *)) {
+            self.sectionHeaderTopPadding = 0.0f;
+        }
+        
         [self registerClass:[GameDetailCell class] forCellReuseIdentifier:GAME_DETAIL_CELL_REUSE_IDENTIFIER];
         [self registerClass:[GameHeader class] forHeaderFooterViewReuseIdentifier:GAME_HEADER_REUSE_IDENTIFIER];
         [self registerClass:[GameDetailHeader class] forHeaderFooterViewReuseIdentifier:GAME_DETAIL_HEADER_REUSE_IDENTIFIER];

@@ -66,7 +66,7 @@
         NSNumber *blue = [DictionaryHandler numberInDictionary:colors withKey:@"blue"];
         
         if ([red integerValue] == 0 && [green integerValue] == 0 && [blue integerValue] == 0) {
-            return [Colors lightGrayColor];
+            return [Colors blankTeamColor];
         }
         
         else {
@@ -75,7 +75,7 @@
     }
     
     else {
-        return [Colors lightGrayColor];
+        return [Colors blankTeamColor];
     }
 }
 

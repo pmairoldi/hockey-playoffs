@@ -14,16 +14,15 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (3.6.1):
-    - CocoaLumberjack/Core (= 3.6.1)
-  - CocoaLumberjack/Core (3.6.1)
+  - CocoaLumberjack (3.8.0):
+    - CocoaLumberjack/Core (= 3.8.0)
+  - CocoaLumberjack/Core (3.8.0)
   - CRToast (0.0.9)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - Keys (1.0.1)
-  - LSWeekView (1.0.5)
-  - SimulatorStatusMagic (2.4.1)
+  - SimulatorStatusMagic (2.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2)
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - CRToast (from `https://github.com/petester42/CRToast.git`, branch `feature/allow-duplicates`)
   - FMDB (~> 2.7)
   - Keys (from `Pods/CocoaPodsKeys`)
-  - LSWeekView (~> 1.0)
   - SimulatorStatusMagic (~> 2.4)
 
 SPEC REPOS:
@@ -39,7 +37,6 @@ SPEC REPOS:
     - AFNetworking
     - CocoaLumberjack
     - FMDB
-    - LSWeekView
     - SimulatorStatusMagic
 
 EXTERNAL SOURCES:
@@ -55,14 +52,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/petester42/CRToast.git
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
+  AFNetworking: cb604b1c2bded0871f5f61f5d53653739e841d6b
+  CocoaLumberjack: 78abfb691154e2a9df8ded4350d504ee19d90732
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
-  LSWeekView: 81fb7560de79861d65be0a51a4944a6832493402
-  SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
+  SimulatorStatusMagic: 4e15e56530b367e90dcd3b94fd272e833e9d8a44
 
-PODFILE CHECKSUM: 0459e5837ce5ef1b7f2b05b857ff42994f47eb2c
+PODFILE CHECKSUM: 45be3107a9ba2cb82b6dd191ec54e589ab6ac360
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.12.0

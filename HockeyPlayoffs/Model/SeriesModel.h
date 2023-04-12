@@ -13,7 +13,6 @@
 @interface SeriesModel : NSObject
 
 @property BOOL isRefreshing;
-@property (nonatomic) int expandedIndex;
 
 +(instancetype)initWithSeries:(SeriesObject *)series;
 

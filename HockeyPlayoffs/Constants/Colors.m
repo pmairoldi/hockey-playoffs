@@ -12,154 +12,150 @@
 
 +(UIColor *)tintColor {
     return [UIColor colorNamed:@"tintColor"];
- }
-
-+(UIColor *)darkGrayColor {
-    return [UIColor colorNamed:@"darkGrayColor"];
-}
-
-+(UIColor *)lightGrayColor {
-    return [UIColor colorNamed:@"lightGrayColor"];
-}
-
-+(UIColor *)lightColor {
-    return [UIColor whiteColor];
-}
-
-+(UIColor *)ultraLightGrayColor {
-    return [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
 }
 
 +(UIColor *)backgroundColor {
-    return [[self class] darkGrayColor];
+    return [UIColor colorNamed:@"backgroundColor"];
 }
 
 +(UIColor *)seriesBackgroundColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"seriesBackgroundColor"];
 }
 
 +(UIColor *)seriesBorderColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"seriesBorderColor"];
 }
 
 +(UIColor *)seriesBorderTodayColor {
-    return [[self class] tintColor];
+    return [UIColor colorNamed:@"seriesBorderTodayColor"];
 }
 
 +(UIColor *)seriesSelectedColor {
-    return [UIColor colorWithWhite:0.7 alpha:0.7];
+    return [UIColor colorNamed:@"seriesSelectedColor"];
 }
 
 +(UIColor *)bracketLineColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"bracketLineColor"];
 }
 
 +(UIColor *)seriesTeamNameColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"seriesTeamNameColor"];
 }
 
 +(UIColor *)seriesTeamWinsColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"seriesTeamWinsColor"];
 }
 
 +(UIColor *)seriesHeaderBackgroundColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"seriesHeaderBackgroundColor"];
 }
 
 +(UIColor *)gameBackgroundColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"gameBackgroundColor"];
 }
 
 +(UIColor *)gameCellStatusTextColor {
-    return [[self class] darkGrayColor];
+    return [UIColor colorNamed:@"gameCellStatusTextColor"];
 }
 
 +(UIColor *)gameCellTeamTextColor {
-    return [[self class] lightGrayColor];
+    return [UIColor colorNamed:@"gameCellTeamTextColor"];
 }
 
 +(UIColor *)tableViewSeperatorColor {
-    return [[self class] ultraLightGrayColor];
+    return [UIColor colorNamed:@"tableViewSeperatorColor"];
 }
 
 +(UIColor *)navigationBarColor {
     return [UIColor colorNamed:@"navigationBarColor"];
 }
 
-+(UIColor *)navigationBarBorderColor {
-    return [UIColor colorNamed:@"navigationBarBorderColor"];
-}
-
 +(UIColor *)gameDetailCellTextColor {
-    return [[self class] darkGrayColor];
+    return [UIColor colorNamed:@"gameDetailCellTextColor"];
 }
 
 +(UIColor *)gameDetailCellTimeColor {
-    return [[self class] lightGrayColor];
+    return [UIColor colorNamed:@"gameDetailCellTimeColor"];
 }
 
 +(UIColor *)gameDetailHeaderTextColor {
-    return [[self class] darkGrayColor];
+    return [UIColor colorNamed:@"gameDetailHeaderTextColor"];
 }
 
 +(UIColor *)gameDetailHeaderBackgroundColor {
-    return [[self class] ultraLightGrayColor];
+    return [UIColor colorNamed:@"gameDetailHeaderBackgroundColor"];
 }
 
 +(UIColor *)gameCellScoreColor {
-    return [[self class] darkGrayColor];
+    return [UIColor colorNamed:@"gameCellScoreColor"];
 }
 
 +(UIColor *)periodScoreBackgroundColor {
-    return [[self class] darkGrayColor];
+    return [UIColor colorNamed:@"periodScoreBackgroundColor"];
 }
 
 +(UIColor *)periodScoreSeperatorColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"periodScoreSeperatorColor"];
 }
 
 +(UIColor *)segmentBackgroundColor {
-    return [UIColor clearColor];
-}
-
-+(UIColor *)segmentTintColor {
-    return [[self class] tintColor];
+    return [UIColor colorNamed:@"segmentBackgroundColor"];
 }
 
 +(UIColor *)periodScoreViewHeaderFontColor {
-    return [[self class] lightGrayColor];
+    return [UIColor colorNamed:@"periodScoreViewHeaderFontColor"];
 }
 
 +(UIColor *)videoButtonDisabledColor {
-    return [[self class] ultraLightGrayColor];
+    return [UIColor colorNamed:@"videoButtonDisabledColor"];
 }
 
 +(UIColor *)videoButtonUnselectedColor {
-    return [[self class] tintColor];
+    return [UIColor colorNamed:@"videoButtonUnselectedColor"];
 }
 
 +(UIColor *)videoButtonSelectedColor {
-    return [[self class] lightGrayColor];
+    return [UIColor colorNamed:@"videoButtonSelectedColor"];
 }
 
 +(UIColor *)seriesCellBackgroundColor {
-    return [UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:1.0];
-}
-
-+(UIColor *)expandedVideoBackgroundColor {
-    return [[self class] lightColor];
+    return [UIColor colorNamed:@"seriesCellBackgroundColor"];
 }
 
 +(UIColor *)gameLabelTextColor {
-    return [[self class] lightGrayColor];
+    return [UIColor colorNamed:@"gameLabelTextColor"];
 }
 
 +(UIColor *)powerplayColor {
-    return [UIColor colorWithRed:245.0/255.0 green:32.0/255.0 blue:50.0/255.0 alpha:1.0];
+    return [UIColor colorNamed:@"powerplayColor"];
 }
 
 +(UIColor *)emptyNetColor {
-    return [UIColor colorWithRed:248.0/255.0 green:179.0/255.0 blue:65.0/255.0 alpha:1.0];
+    return [UIColor colorNamed:@"emptyNetColor"];
+}
+
++(UIColor *)blankTeamColor {
+    return [UIColor colorNamed:@"blankTeamColor"];
+}
+
++(UIColor *)seriesTeamNameBackgroundColor {
+    return [UIColor colorNamed:@"seriesTeamNameBackgroundColor"];
+}
+
++(UIColor *)gameSeperatorColor {
+    return [UIColor colorNamed:@"gameSeperatorColor"];
+}
+
++(UIColor *)gameBackgroundSelectedColor {
+    return [UIColor colorNamed:@"gameBackgroundSelectedColor"];
+}
+
++(UIColor *)teamImageDefaultColor {
+    return [UIColor colorNamed:@"teamImageDefaultColor"];
+}
+
++(UIColor *)teamImageStrokeColor {
+    return [UIColor colorNamed:@"teamImageStrokeColor"];
 }
 
 @end

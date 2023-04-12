@@ -26,7 +26,7 @@
     
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        _color = [Colors lightGrayColor];
+        _color = [Colors teamImageDefaultColor];
     }
     
     return self;
@@ -93,7 +93,7 @@
     
     CGContextSaveGState(context);
     
-    CGColorRef strokeColor = CGColorRetain([[Colors lightGrayColor] CGColor]);
+    CGColorRef strokeColor = CGColorRetain([[Colors teamImageStrokeColor] CGColor]);
     
     CGContextSetStrokeColorWithColor(context, strokeColor);
     CGContextSetLineWidth(context, 0.7);

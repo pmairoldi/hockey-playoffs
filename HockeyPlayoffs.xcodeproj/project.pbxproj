@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,7 +37,6 @@
 		06B321F92065DDC300C4078F /* SeriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35FC1B39A65F00CCAE17 /* SeriesModel.m */; };
 		06B321FB2065DDE300C4078F /* BracketSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F360E1B39A65F00CCAE17 /* BracketSection.m */; };
 		06B321FC2065DDE300C4078F /* BracketView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36101B39A65F00CCAE17 /* BracketView.m */; };
-		06B321FD2065DDE300C4078F /* ExpandedVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */; };
 		06B321FE2065DDE300C4078F /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36141B39A65F00CCAE17 /* GameCell.m */; };
 		06B321FF2065DDE300C4078F /* GameDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36161B39A65F00CCAE17 /* GameDetailCell.m */; };
 		06B322002065DDE300C4078F /* GameDetailHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36181B39A65F00CCAE17 /* GameDetailHeader.m */; };
@@ -81,8 +80,8 @@
 		06D0A719206A022900B1B0F0 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06D0A718206A022900B1B0F0 /* AVKit.framework */; };
 		06D0A723206A0DDB00B1B0F0 /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A722206A0DDB00B1B0F0 /* Screenshots.swift */; };
 		06D0A72B206A0EBD00B1B0F0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A72A206A0EBD00B1B0F0 /* SnapshotHelper.swift */; };
-		1EA83247F744D2371B152B2B /* Pods_HockeyPlayoffs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */; };
-		AE36B8636534A87DC6078B46 /* Pods_HockeyPlayoffsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6942ECC5B909F6E91FD56A8 /* Pods_HockeyPlayoffsTests.framework */; };
+		1755CAE5B5140D2EF20225A4 /* Pods_HockeyPlayoffs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCCEC5385528BEF52ABD0FD /* Pods_HockeyPlayoffs.framework */; };
+		FBF9542556FF43F2E3BE8AA9 /* Pods_HockeyPlayoffsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49F4BDE0DD9D05BAE730329 /* Pods_HockeyPlayoffsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,9 +127,8 @@
 		06D0A722206A0DDB00B1B0F0 /* Screenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshots.swift; sourceTree = "<group>"; };
 		06D0A724206A0DDB00B1B0F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06D0A72A206A0EBD00B1B0F0 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		0AD493D77F0A0928DF21E202 /* Pods-HockeyPlayoffs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs.debug.xcconfig"; sourceTree = "<group>"; };
-		2DC2F281EE6D83021FF56E41 /* Pods-HockeyPlayoffsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffsTests/Pods-HockeyPlayoffsTests.release.xcconfig"; sourceTree = "<group>"; };
-		512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyPlayoffs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21E3C14E72610B6C93A2BDBF /* Pods-HockeyPlayoffsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffsTests.debug.xcconfig"; path = "Target Support Files/Pods-HockeyPlayoffsTests/Pods-HockeyPlayoffsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3DCCEC5385528BEF52ABD0FD /* Pods_HockeyPlayoffs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyPlayoffs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553F35C51B39A65F00CCAE17 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		553F35C61B39A65F00CCAE17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		553F35C81B39A65F00CCAE17 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
@@ -188,8 +186,6 @@
 		553F360E1B39A65F00CCAE17 /* BracketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketSection.m; sourceTree = "<group>"; };
 		553F360F1B39A65F00CCAE17 /* BracketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketView.h; sourceTree = "<group>"; };
 		553F36101B39A65F00CCAE17 /* BracketView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketView.m; sourceTree = "<group>"; };
-		553F36111B39A65F00CCAE17 /* ExpandedVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandedVideoView.h; sourceTree = "<group>"; };
-		553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedVideoView.m; sourceTree = "<group>"; };
 		553F36131B39A65F00CCAE17 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
 		553F36141B39A65F00CCAE17 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 		553F36151B39A65F00CCAE17 /* GameDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDetailCell.h; sourceTree = "<group>"; };
@@ -255,9 +251,10 @@
 		553F36911B39AB9300CCAE17 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
 		553F36921B39AB9300CCAE17 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
 		553F36981B39B84100CCAE17 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
-		A6A0C3002AE6BD9F62B0DD9B /* Pods-HockeyPlayoffs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffs.release.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs.release.xcconfig"; sourceTree = "<group>"; };
-		AF56C314D83B90281949FF1B /* Pods-HockeyPlayoffsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HockeyPlayoffsTests/Pods-HockeyPlayoffsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E6942ECC5B909F6E91FD56A8 /* Pods_HockeyPlayoffsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyPlayoffsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E9AF2B59C5E9FF00843F967 /* Pods-HockeyPlayoffs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffs.debug.xcconfig"; path = "Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs.debug.xcconfig"; sourceTree = "<group>"; };
+		D49F4BDE0DD9D05BAE730329 /* Pods_HockeyPlayoffsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HockeyPlayoffsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA02F778E905E505331C69E0 /* Pods-HockeyPlayoffsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffsTests.release.xcconfig"; path = "Target Support Files/Pods-HockeyPlayoffsTests/Pods-HockeyPlayoffsTests.release.xcconfig"; sourceTree = "<group>"; };
+		F2F3B7307E90C35526D4321A /* Pods-HockeyPlayoffs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HockeyPlayoffs.release.xcconfig"; path = "Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,7 +266,7 @@
 				06B322282065E0EB00C4078F /* Foundation.framework in Frameworks */,
 				06B322262065E0E100C4078F /* CoreGraphics.framework in Frameworks */,
 				06B322222065DFD800C4078F /* UIKit.framework in Frameworks */,
-				1EA83247F744D2371B152B2B /* Pods_HockeyPlayoffs.framework in Frameworks */,
+				1755CAE5B5140D2EF20225A4 /* Pods_HockeyPlayoffs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +274,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE36B8636534A87DC6078B46 /* Pods_HockeyPlayoffsTests.framework in Frameworks */,
+				FBF9542556FF43F2E3BE8AA9 /* Pods_HockeyPlayoffsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,8 +313,8 @@
 				0684138718B9A0CE00A89D7C /* Frameworks */,
 				553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */,
 				06B321DB2065DCF200C4078F /* HockeyPlayoffsTests */,
-				0D6D1895AEE81B605CD90FB6 /* Pods */,
 				0684138618B9A0CE00A89D7C /* Products */,
+				F71C70CEFA3A1F210A7ED2D3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,8 +336,8 @@
 				06B322252065E0E100C4078F /* CoreGraphics.framework */,
 				06B322232065DFE500C4078F /* MediaPlayer.framework */,
 				06B322212065DFD800C4078F /* UIKit.framework */,
-				512637E7198F45B00CA73FD5 /* Pods_HockeyPlayoffs.framework */,
-				E6942ECC5B909F6E91FD56A8 /* Pods_HockeyPlayoffsTests.framework */,
+				3DCCEC5385528BEF52ABD0FD /* Pods_HockeyPlayoffs.framework */,
+				D49F4BDE0DD9D05BAE730329 /* Pods_HockeyPlayoffsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -365,17 +362,6 @@
 				06D0A724206A0DDB00B1B0F0 /* Info.plist */,
 			);
 			path = Screenshots;
-			sourceTree = "<group>";
-		};
-		0D6D1895AEE81B605CD90FB6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0AD493D77F0A0928DF21E202 /* Pods-HockeyPlayoffs.debug.xcconfig */,
-				A6A0C3002AE6BD9F62B0DD9B /* Pods-HockeyPlayoffs.release.xcconfig */,
-				AF56C314D83B90281949FF1B /* Pods-HockeyPlayoffsTests.debug.xcconfig */,
-				2DC2F281EE6D83021FF56E41 /* Pods-HockeyPlayoffsTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		553F35C41B39A65F00CCAE17 /* HockeyPlayoffs */ = {
@@ -513,8 +499,6 @@
 				553F360E1B39A65F00CCAE17 /* BracketSection.m */,
 				553F360F1B39A65F00CCAE17 /* BracketView.h */,
 				553F36101B39A65F00CCAE17 /* BracketView.m */,
-				553F36111B39A65F00CCAE17 /* ExpandedVideoView.h */,
-				553F36121B39A65F00CCAE17 /* ExpandedVideoView.m */,
 				553F36131B39A65F00CCAE17 /* GameCell.h */,
 				553F36141B39A65F00CCAE17 /* GameCell.m */,
 				553F36151B39A65F00CCAE17 /* GameDetailCell.h */,
@@ -588,6 +572,17 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		F71C70CEFA3A1F210A7ED2D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E9AF2B59C5E9FF00843F967 /* Pods-HockeyPlayoffs.debug.xcconfig */,
+				F2F3B7307E90C35526D4321A /* Pods-HockeyPlayoffs.release.xcconfig */,
+				21E3C14E72610B6C93A2BDBF /* Pods-HockeyPlayoffsTests.debug.xcconfig */,
+				DA02F778E905E505331C69E0 /* Pods-HockeyPlayoffsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -595,12 +590,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B321D32065DCE400C4078F /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
 			buildPhases = (
-				D242C2709D3B70C5AF906CAF /* [CP] Check Pods Manifest.lock */,
+				0CC4899419AFCF2EA7BA38C1 /* [CP] Check Pods Manifest.lock */,
 				062B249F2065E701005B175B /* Update Build */,
 				06B321BC2065DCE400C4078F /* Sources */,
 				06B321BD2065DCE400C4078F /* Frameworks */,
 				06B321BE2065DCE400C4078F /* Resources */,
-				F6D4AEF46422F41986AA97DB /* [CP] Embed Pods Frameworks */,
+				63814BEF8324DEDDCD15C96B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -615,7 +610,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B321E12065DCF200C4078F /* Build configuration list for PBXNativeTarget "HockeyPlayoffsTests" */;
 			buildPhases = (
-				49DD27249B4FD519F42DA49E /* [CP] Check Pods Manifest.lock */,
+				DEA09D78594EEDC007F751E8 /* [CP] Check Pods Manifest.lock */,
 				06B321D62065DCF200C4078F /* Sources */,
 				06B321D72065DCF200C4078F /* Frameworks */,
 				06B321D82065DCF200C4078F /* Resources */,
@@ -654,8 +649,9 @@
 		0684137D18B9A0CE00A89D7C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
 				TargetAttributes = {
 					06B321BF2065DCE400C4078F = {
@@ -752,34 +748,20 @@
 			shellPath = /bin/sh;
 			shellScript = "exec \"${SRCROOT}/Scripts/update-build.sh\"";
 		};
-		49DD27249B4FD519F42DA49E /* [CP] Check Pods Manifest.lock */ = {
+		0CC4899419AFCF2EA7BA38C1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HockeyPlayoffsTests-checkManifestLockResult.txt",
+			outputFileListPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D242C2709D3B70C5AF906CAF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-HockeyPlayoffs-checkManifestLockResult.txt",
 			);
@@ -788,7 +770,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F6D4AEF46422F41986AA97DB /* [CP] Embed Pods Frameworks */ = {
+		63814BEF8324DEDDCD15C96B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -800,7 +782,6 @@
 				"${BUILT_PRODUCTS_DIR}/CRToast/CRToast.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/LSWeekView/LSWeekView.framework",
 				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -810,12 +791,33 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRToast.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSWeekView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HockeyPlayoffs/Pods-HockeyPlayoffs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEA09D78594EEDC007F751E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HockeyPlayoffsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -880,7 +882,6 @@
 				06B3220B2065DDE300C4078F /* SeriesHeader.m in Sources */,
 				06B322132065DDF100C4078F /* BracketViewController.m in Sources */,
 				06B322012065DDE300C4078F /* GameHeader.m in Sources */,
-				06B321FD2065DDE300C4078F /* ExpandedVideoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,14 +1048,15 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		06B321D42065DCE400C4078F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AD493D77F0A0928DF21E202 /* Pods-HockeyPlayoffs.debug.xcconfig */;
+			baseConfigurationReference = 6E9AF2B59C5E9FF00843F967 /* Pods-HockeyPlayoffs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1072,8 +1074,11 @@
 				GCC_PREFIX_HEADER = HockeyPlayoffs/SupportingFiles/Prefix.pch;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffs/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1084,7 +1089,7 @@
 		};
 		06B321D52065DCE400C4078F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6A0C3002AE6BD9F62B0DD9B /* Pods-HockeyPlayoffs.release.xcconfig */;
+			baseConfigurationReference = F2F3B7307E90C35526D4321A /* Pods-HockeyPlayoffs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1105,8 +1110,11 @@
 				GCC_PREFIX_HEADER = HockeyPlayoffs/SupportingFiles/Prefix.pch;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffs/SupportingFiles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peteappdesigns.hockey-playoffs-14";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1117,7 +1125,7 @@
 		};
 		06B321E22065DCF200C4078F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF56C314D83B90281949FF1B /* Pods-HockeyPlayoffsTests.debug.xcconfig */;
+			baseConfigurationReference = 21E3C14E72610B6C93A2BDBF /* Pods-HockeyPlayoffsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1134,7 +1142,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffsTests/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.HockeyPlayoffsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1149,7 +1161,7 @@
 		};
 		06B321E32065DCF200C4078F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DC2F281EE6D83021FF56E41 /* Pods-HockeyPlayoffsTests.release.xcconfig */;
+			baseConfigurationReference = DA02F778E905E505331C69E0 /* Pods-HockeyPlayoffsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1167,7 +1179,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = HockeyPlayoffsTests/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.HockeyPlayoffsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1195,7 +1211,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = Screenshots/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1225,7 +1245,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = Screenshots/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pierremarcairoldi.Screenshots;
 				PRODUCT_NAME = "$(TARGET_NAME)";

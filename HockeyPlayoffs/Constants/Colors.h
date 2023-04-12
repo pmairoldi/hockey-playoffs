@@ -12,10 +12,6 @@
 @interface Colors : NSObject
 
 +(UIColor *)tintColor;
-+(UIColor *)darkGrayColor;
-+(UIColor *)lightGrayColor;
-+(UIColor *)lightColor;
-+(UIColor *)ultraLightGrayColor;
 +(UIColor *)backgroundColor;
 +(UIColor *)seriesBackgroundColor;
 +(UIColor *)seriesBorderColor;
@@ -30,7 +26,6 @@
 +(UIColor *)gameCellTeamTextColor;
 +(UIColor *)tableViewSeperatorColor;
 +(UIColor *)navigationBarColor;
-+(UIColor *)navigationBarBorderColor;
 +(UIColor *)gameDetailCellTextColor;
 +(UIColor *)gameDetailCellTimeColor;
 +(UIColor *)gameDetailHeaderTextColor;
@@ -39,15 +34,19 @@
 +(UIColor *)periodScoreBackgroundColor;
 +(UIColor *)periodScoreSeperatorColor;
 +(UIColor *)segmentBackgroundColor;
-+(UIColor *)segmentTintColor;
 +(UIColor *)periodScoreViewHeaderFontColor;
 +(UIColor *)videoButtonDisabledColor;
 +(UIColor *)videoButtonUnselectedColor;
 +(UIColor *)videoButtonSelectedColor;
 +(UIColor *)seriesCellBackgroundColor;
-+(UIColor *)expandedVideoBackgroundColor;
 +(UIColor *)gameLabelTextColor;
 +(UIColor *)powerplayColor;
 +(UIColor *)emptyNetColor;
++(UIColor *)blankTeamColor;
++(UIColor *)seriesTeamNameBackgroundColor;
++(UIColor *)gameSeperatorColor;
++(UIColor *)gameBackgroundSelectedColor;
++(UIColor *)teamImageDefaultColor;
++(UIColor *)teamImageStrokeColor;
 
 @end

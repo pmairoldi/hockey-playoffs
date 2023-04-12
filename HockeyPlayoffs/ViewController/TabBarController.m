@@ -40,7 +40,12 @@
         
         self.delegate = self;
         
-        self.tabBar.barTintColor = [Colors navigationBarColor];
+        if (@available(iOS 13.0, *)) {    
+            self.tabBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
+            self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
+        } else {
+            self.tabBar.barTintColor = [Colors navigationBarColor];
+        }
         
         _bracketViewController = [[BracketViewController alloc] init];
         _bracketViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:_bracketViewController.title image:[UIImage imageNamed:BRACKET_TAB_ICON] selectedImage:nil];
@@ -49,17 +54,6 @@
         _recentGamesViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:_recentGamesViewController.title image:[UIImage imageNamed:RECENT_TAB_ICON] selectedImage:nil];
 
         [self setViewControllers:@[[self addControllerToNavigationController:_bracketViewController navbarClass:nil], [self addControllerToNavigationController:_recentGamesViewController navbarClass:nil]]];
-        
-        
-        /*
-        _recentGamesViewController = [[RecentGamesViewController alloc] init];
-        _newsViewController = [[NewsViewController alloc] init];
-        _statsisticsViewController = [[StatisticsViewController alloc] init];
-        _teamsViewController = [[TeamsViewController alloc] init];
-//        _settingsViewController = [[SettingsViewController alloc] init];
-        
-        [self setViewControllers:@[[self addControllerToNavigationController:_bracketViewController], [self addControllerToNavigationController:_recentGamesViewController], [self addControllerToNavigationController:_newsViewController], [self addControllerToNavigationController:_statsisticsViewController], [self addControllerToNavigationController:_teamsViewController]]];
-     */
     }
     
     return self;
@@ -70,15 +64,19 @@
     BaseUINavigationController *navigationController = [[BaseUINavigationController alloc] initWithNavigationBarClass:navbarClass toolbarClass:nil];
     [navigationController pushViewController:rootController animated:NO];
     
-    navigationController.navigationBar.barTintColor = [Colors navigationBarColor];
-    
+    if (@available(iOS 13.0, *)) {
+        navigationController.navigationBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
+        navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance;
+    } else {
+        navigationController.navigationBar.barTintColor = [Colors navigationBarColor];
+    }
     return navigationController;
 }
 
 -(void)viewDidLoad {
     
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 }
 
 -(void)didReceiveMemoryWarning {
