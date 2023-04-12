@@ -226,9 +226,9 @@
   },
   "sea": {
     "color": {
-      "red": 99,
-      "green": 159,
-      "blue": 182
+      "red": 113,
+      "green": 157,
+      "blue": 179
     },
     "city": "seattle",
     "name": "kraken"
