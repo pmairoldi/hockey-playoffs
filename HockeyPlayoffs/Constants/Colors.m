@@ -70,10 +70,6 @@
     return [UIColor colorNamed:@"navigationBarColor"];
 }
 
-+(UIColor *)navigationBarBorderColor {
-    return [UIColor colorNamed:@"navigationBarBorderColor"];
-}
-
 +(UIColor *)gameDetailCellTextColor {
     return [UIColor colorNamed:@"gameDetailCellTextColor"];
 }
@@ -104,10 +100,6 @@
 
 +(UIColor *)segmentBackgroundColor {
     return [UIColor colorNamed:@"segmentBackgroundColor"];
-}
-
-+(UIColor *)segmentTintColor {
-    return [UIColor colorNamed:@"segmentTintColor"];
 }
 
 +(UIColor *)periodScoreViewHeaderFontColor {
@@ -164,18 +156,6 @@
 
 +(UIColor *)teamImageStrokeColor {
     return [UIColor colorNamed:@"teamImageStrokeColor"];
-}
-
-+(UIColor *)datePickerLightTextColor {
-    return [UIColor colorNamed:@"datePickerLightTextColor"];
-}
-
-+(UIColor *)datePickerTextColor {
-    return [UIColor colorNamed:@"datePickerTextColor"];
-}
-
-+(UIColor *)datePickerTextSelectedColor {
-    return [UIColor colorNamed:@"datePickerTextSelectedColor"];
 }
 
 @end

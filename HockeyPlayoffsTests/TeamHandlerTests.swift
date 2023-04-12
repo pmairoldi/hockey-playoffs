@@ -167,7 +167,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamColorForNilName() {
         
         let actualResult = TeamHandler.getTeamColor(nil)
-        let expectedResult = Colors.lightGrayColor()
+        let expectedResult = Colors.blankTeamColor()
         
         XCTAssertEqual(actualResult, expectedResult)
     }
@@ -175,7 +175,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamColorForEmptyName() {
         
         let actualResult = TeamHandler.getTeamColor("")
-        let expectedResult = Colors.lightGrayColor()
+        let expectedResult = Colors.blankTeamColor()
         
         XCTAssertEqual(actualResult, expectedResult)
     }
@@ -183,7 +183,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamColorForNonDefinedName() {
         
         let actualResult = TeamHandler.getTeamColor("ttyl")
-        let expectedResult = Colors.lightGrayColor()
+        let expectedResult = Colors.blankTeamColor()
         
         XCTAssertEqual(actualResult, expectedResult)
     }
@@ -191,7 +191,7 @@ class TeamHandlerTests: XCTestCase {
     func testGetTeamColorForNonDefinedUppercaseName() {
         
         let actualResult = TeamHandler.getTeamColor("TTYL")
-        let expectedResult = Colors.lightGrayColor()
+        let expectedResult = Colors.blankTeamColor()
         
         XCTAssertEqual(actualResult, expectedResult)
     }

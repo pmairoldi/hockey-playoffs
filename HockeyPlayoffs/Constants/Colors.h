@@ -26,7 +26,6 @@
 +(UIColor *)gameCellTeamTextColor;
 +(UIColor *)tableViewSeperatorColor;
 +(UIColor *)navigationBarColor;
-+(UIColor *)navigationBarBorderColor;
 +(UIColor *)gameDetailCellTextColor;
 +(UIColor *)gameDetailCellTimeColor;
 +(UIColor *)gameDetailHeaderTextColor;
@@ -35,7 +34,6 @@
 +(UIColor *)periodScoreBackgroundColor;
 +(UIColor *)periodScoreSeperatorColor;
 +(UIColor *)segmentBackgroundColor;
-+(UIColor *)segmentTintColor;
 +(UIColor *)periodScoreViewHeaderFontColor;
 +(UIColor *)videoButtonDisabledColor;
 +(UIColor *)videoButtonUnselectedColor;
@@ -50,8 +48,5 @@
 +(UIColor *)gameBackgroundSelectedColor;
 +(UIColor *)teamImageDefaultColor;
 +(UIColor *)teamImageStrokeColor;
-+(UIColor *)datePickerLightTextColor;
-+(UIColor *)datePickerTextColor;
-+(UIColor *)datePickerTextSelectedColor;
 
 @end

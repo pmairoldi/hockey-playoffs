@@ -58,7 +58,7 @@
     _periodScoresHeader = [[PeriodScoreViewHeader alloc] init];
     
     _sectionControl = [[UISegmentedControl alloc] initWithItems:[GameModel getSectionItems]];
-    _sectionControl.tintColor = [Colors segmentTintColor];
+    _sectionControl.tintColor = [Colors tintColor];
     
     _segmentBackground = [[UIView alloc] init];
     _segmentBackground.backgroundColor = [Colors segmentBackgroundColor];
