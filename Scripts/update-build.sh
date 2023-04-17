@@ -22,21 +22,21 @@ INFO_PLIST="${INFOPLIST_FILE}"
 echo "$INFO_PLIST"
 
 # Get git tag and hash in the FullVersion
-FULL_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" describe --dirty | sed -e 's/^v//' -e 's/g//')
+FULL_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" describe --tags --dirty | sed -e 's/^v//' -e 's/g//')
 
 # Use the latest tag for short version (You'll have to make sure that all your tags are of the format 0.0.0,
 # this is to satisfy Apple's rule that short version be three integers separated by dots)
 # using git tag for version also encourages you to create tags that match your releases
-SHORT_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" describe --abbrev=0 --tags | sed -e 's/^v//' -e 's/g//')
+SHORT_VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" describe --tags --abbrev=0 | sed -e 's/^v//' -e 's/g//')
 
 # I'd like to use the Git commit hash for CFBundleVersion.
 # VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}" rev-parse --short HEAD)
 
 # But Apple wants this value to be a monotonically increasing integer, so
-# instead use the number of commits on the master branch. If you like to
+# instead use the number of commits on the main branch. If you like to
 # play fast and loose with your Git history, this may cause you problems.
 # Thanks to @amrox for pointing out the issue and fix.
-VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" rev-list master | wc -l)
+VERSION=$(git --git-dir="${PROJECT_DIR}/.git" --work-tree="${PROJECT_DIR}/" rev-list main | wc -l)
 
 /usr/libexec/PlistBuddy -c "Set CFBundleShortVersionString $SHORT_VERSION" $INFO_PLIST
 /usr/libexec/PlistBuddy -c "Set CFBundleVersion $VERSION" $INFO_PLIST

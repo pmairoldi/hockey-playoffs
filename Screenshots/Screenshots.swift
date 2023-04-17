@@ -6,14 +6,13 @@ class Screenshots: XCTestCase {
         super.setUp()
         
         let app = XCUIApplication()
-        app.launchArguments += ["-date", "\"2019-04-15 00:00:00\""]
+        app.launchArguments += ["-date", "\"2023-04-17 00:00:00\""]
         
         setupSnapshot(app)
         app.launch()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
@@ -26,16 +25,16 @@ class Screenshots: XCTestCase {
         app.tabBars.buttons["Bracket"].tap()
         snapshot("1-Bracket")
         
-        app.collectionViews.children(matching: .cell)["Series-41"].tap()
+        app.collectionViews.children(matching: .cell)["Series-11"].tap()
         snapshot("2-Series")
         
-        app.tables.element.cells["Game-411"].tap()
+        app.tables.element.cells["Game-111"].tap()
         snapshot("3-Game")
         
-        app.tables.element.buttons["Play Highlights"].tap()
-        XCUIDevice.shared.orientation = .landscapeRight
-        sleep(4)
-        app.otherElements["Video"].tap();
-        snapshot("4-Video", timeWaitingForIdle: 0)
+//        app.tables.element.buttons["Play Highlights"].tap()
+//        XCUIDevice.shared.orientation = .landscapeRight
+//        sleep(4)
+//        app.otherElements["Video"].tap();
+//        snapshot("4-Video", timeWaitingForIdle: 0)
     }
 }

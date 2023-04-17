@@ -5,11 +5,11 @@ default_platform :ios
 platform :ios do
   before_all do
     clean_build_artifacts
-    cocoapods
   end
 
   desc 'Sets up project'
   lane :setup do
+    cocoapods
   end
 
   desc 'Runs all the tests'
@@ -28,7 +28,6 @@ platform :ios do
   end
 
   desc 'Builds app and packages it'
-
   private_lane :build do |options|
     snapshot if options[:screenshots]
 
