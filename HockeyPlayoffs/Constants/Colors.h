@@ -38,7 +38,6 @@
 +(UIColor *)videoButtonDisabledColor;
 +(UIColor *)videoButtonUnselectedColor;
 +(UIColor *)videoButtonSelectedColor;
-+(UIColor *)seriesCellBackgroundColor;
 +(UIColor *)gameLabelTextColor;
 +(UIColor *)powerplayColor;
 +(UIColor *)emptyNetColor;

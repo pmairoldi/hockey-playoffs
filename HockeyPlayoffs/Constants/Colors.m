@@ -118,10 +118,6 @@
     return [UIColor colorNamed:@"videoButtonSelectedColor"];
 }
 
-+(UIColor *)seriesCellBackgroundColor {
-    return [UIColor colorNamed:@"seriesCellBackgroundColor"];
-}
-
 +(UIColor *)gameLabelTextColor {
     return [UIColor colorNamed:@"gameLabelTextColor"];
 }
