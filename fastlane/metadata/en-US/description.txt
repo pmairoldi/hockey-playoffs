@@ -1,6 +1,7 @@
-It's back for the spring time tournament. This is the go to app for all your hockey playoffs needs during the off season. Never skip a beat by keeping track of the scores and watching highlights of the games you missed.
+Introducing the ultimate app for hockey fans, designed specifically for the playoffs! This app is your go-to source for all the latest scores, and highlights throughout the playoffs.
 
-Key Features:
--Video Highlights
--Interactive Bracket
--Full Score Summary
+The app features an interactive bracket that lets you follow all the action as it unfolds. You can see which teams are playing, what the scores are, and where each team stands in the overall playoff picture. Whether you're rooting for your favorite team or just keeping tabs on the competition, the interactive bracket makes it easy to stay up to date on all the playoff action.
+
+In addition to the interactive bracket, the app also provides a full score breakdown for every game throughout the playoffs. This feature gives you a quick and easy way to see the final scores of each game, as well as key statistics and player performance data. Whether you missed a game or just want to catch up on the details, the full score breakdown has you covered.
+
+But that's not all! The app also includes video highlights for every game throughout the playoffs. With this feature, you can watch all the best moments from every game, including the top goals, saves, and plays. Whether you're a die-hard fan or just love exciting hockey action, the video highlights feature is sure to keep you entertained throughout the playoffs.
