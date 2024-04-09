@@ -276,7 +276,7 @@
 
 -(void)reloadData:(id)sender {
     __weak BracketViewController *weakSelf = self;
-    [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+    [APIRequestHandler getPlayoffs:^(id responseObject, NSError *error, BOOL hasNewData) {
         [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }

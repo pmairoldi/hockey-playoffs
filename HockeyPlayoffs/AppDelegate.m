@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-@import AFNetworking.AFNetworkReachabilityManager;
+//@import AFNetworking.AFNetworkReachabilityManager;
 #import "AppDelegate.h"
 #import "TabBarController.h"
 #import "Colors.h"
@@ -27,8 +27,8 @@
     
     [DDLog addLogger:[DDOSLogger sharedInstance]];
  
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+//    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
+//    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
         
     [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
         
@@ -83,7 +83,7 @@
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+    [APIRequestHandler getPlayoffs:^(id responseObject, NSError *error, BOOL hasNewData) {
         
         if (error) {
             completionHandler(UIBackgroundFetchResultFailed);
@@ -100,11 +100,11 @@
     }];
 }
 
--(void (^)(AFNetworkReachabilityStatus status))reachabilityChanged {
-
-    return ^(AFNetworkReachabilityStatus status) {
-        DDLogDebug(@"reachable %d", [AFNetworkReachabilityManager sharedManager].reachable);
-    };
-}
+//-(void (^)(AFNetworkReachabilityStatus status))reachabilityChanged {
+//
+//    return ^(AFNetworkReachabilityStatus status) {
+//        DDLogDebug(@"reachable %d", [AFNetworkReachabilityManager sharedManager].reachable);
+//    };
+//}
 
 @end

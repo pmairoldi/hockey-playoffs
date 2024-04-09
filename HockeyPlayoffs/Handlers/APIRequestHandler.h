@@ -12,8 +12,7 @@
 
 +(instancetype)sharedHandler;
 
-+(void)sendRequestToAPI:(NSString *)endpoint withData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion;
-+(void)getPlayoffsWithData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion;
++(void)getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion;
 
 -(void)startSyncTimer;
 -(void)stopSyncTimer;

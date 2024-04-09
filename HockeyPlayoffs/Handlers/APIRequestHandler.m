@@ -5,10 +5,11 @@
 //  Created by Pierre-Marc Airoldi on 2014-04-02.
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
-@import AFNetworking.AFHTTPSessionManager;
-@import AFNetworking.AFNetworkActivityIndicatorManager;
-@import CRToast;
-@import Keys.HockeyPlayoffsKeys;
+//@import AFNetworking.AFHTTPSessionManager;
+//@import AFNetworking.AFNetworkActivityIndicatorManager;
+//@import CRToast;
+//@import Keys.HockeyPlayoffsKeys;
+
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 #import "APIIdentifiers.h"
@@ -20,7 +21,9 @@
 
 @interface APIRequestHandler ()
 
-@property AFHTTPSessionManager *manager;
+@property NSURLSession *manager;
+@property NSURL *baseUrl;
+
 @property dispatch_source_t synchronizeTimer;
 @property dispatch_queue_t synchronizeQueue;
 
@@ -52,14 +55,16 @@
             self.synchronizeQueue = SYNCHRONIZE_QUEUE;
         });
         
-        [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+        //        [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
         
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForResource = 20;
-        HockeyPlayoffsKeys *keys = [HockeyPlayoffsKeys new];
+                
+        _baseUrl = [NSURL URLWithString: @"https://hockey-playoffs-api.onrender.com/Hockey/"];
+        _manager = [NSURLSession sessionWithConfiguration: configuration];
         
-        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:keys.hockeyAPIPath] sessionConfiguration:configuration];
-        [_manager setCompletionQueue:_synchronizeQueue];
+        //        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:keys.hockeyAPIPath] sessionConfiguration:configuration];
+        //        [_manager setCompletionQueue:_synchronizeQueue];
     }
     
     return self;
@@ -67,28 +72,40 @@
 
 +(void)sendRequestToAPI:(NSString *)endpoint withData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
     
-    AFHTTPSessionManager *manager = [[self sharedHandler] manager];
+    NSURLSession *manager = [[self sharedHandler] manager];
+    NSURL *baseUrl = [[self sharedHandler] baseUrl];
     
-    [manager GET:endpoint parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        if (completion != nil) {
-            completion(responseObject, nil, YES);
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        if (completion != nil) {
-            completion(nil, error, NO);
+    NSURL *url  = [[NSURL alloc] initWithString: endpoint relativeToURL: baseUrl];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL: url];
+    //TODO: handle data
+    
+    NSURLSessionDataTask *task = [manager dataTaskWithRequest: request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error != nil) {
+            if (completion != nil) {
+                completion(nil, error, NO);
+            }
+        } else {
+            if (completion != nil) {
+                NSError *error;
+                id responseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error: &error];
+                if (error != nil) {
+                    completion(nil, error, NO);
+                } else {
+                    completion(responseObject, nil, YES);
+                }
+            }
         }
     }];
+    
+    [task resume];
 }
 
-+(void)getPlayoffsWithData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
++(void)getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
     
-     dispatch_async([[[self class] sharedHandler] synchronizeQueue], ^{
+    dispatch_async([[[self class] sharedHandler] synchronizeQueue], ^{
         
-         [[self class] sendRequestToAPI:kPlayoffEndpoint withData:data completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
+        [[self class] sendRequestToAPI:kPlayoffEndpoint withData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+            
             if (error != nil) {
                 
                 [[self class] showNotificationForError:error];
@@ -114,7 +131,7 @@
     
     _synchronizeTimer = CreateDispatchTimer(SYNCHRONIZE_REFRESH_TIME * NSEC_PER_SEC, SYNCHRONIZE_REFRESH_TIME_LEEWAY * NSEC_PER_SEC, _synchronizeQueue, ^{
         
-        [[self class] getPlayoffsWithData:nil completion:nil];
+        [[self class] getPlayoffs:nil];
     });
 }
 
@@ -140,36 +157,36 @@ dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispat
 
 +(void)showNotificationForError:(NSError *)error {
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        NSString *message;
-        
-        if (error != nil) {
-            
-            message = [error localizedDescription];
-        }
-        
-        else {
-            
-            message = @"";
-        }
-        
-        NSDictionary *options = @{
-                                  kCRToastTextKey : message,
-                                  kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
-                                  kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
-                                  kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
-                                  kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
-                                  kCRToastNotificationTypeKey : @(CRToastTypeStatusBar),
-                                  kCRToastTimeIntervalKey : @(kAnimationDuration),
-                                  kCRToastStatusBarStyleKey : @([[UIApplication sharedApplication] statusBarStyle]),
-                                  kCRToastAllowDuplicatesKey : @(NO)
-                                  };
-
-        [CRToastManager showNotificationWithOptions:options completionBlock:nil];
-    });
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //
+    //        NSString *message;
+    //
+    //        if (error != nil) {
+    //
+    //            message = [error localizedDescription];
+    //        }
+    //
+    //        else {
+    //
+    //            message = @"";
+    //        }
+    //
+    //        NSDictionary *options = @{
+    //                                  kCRToastTextKey : message,
+    //                                  kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
+    //                                  kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
+    //                                  kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
+    //                                  kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
+    //                                  kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
+    //                                  kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
+    //                                  kCRToastNotificationTypeKey : @(CRToastTypeStatusBar),
+    //                                  kCRToastTimeIntervalKey : @(kAnimationDuration),
+    //                                  kCRToastStatusBarStyleKey : @([[UIApplication sharedApplication] statusBarStyle]),
+    //                                  kCRToastAllowDuplicatesKey : @(NO)
+    //                                  };
+    //
+    //        [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+    //    });
 }
 
 @end
