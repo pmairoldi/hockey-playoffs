@@ -13,17 +13,9 @@
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 
-#ifdef DEBUG
-@import SimulatorStatusMagic;
-#endif
-
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-#ifdef DEBUG
-    [[SDStatusBarManager sharedInstance] enableOverrides];
-#endif
     
     [DDLog addLogger:[DDOSLogger sharedInstance]];
  

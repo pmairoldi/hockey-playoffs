@@ -7,13 +7,13 @@
 //
 @import AFNetworking.AFHTTPSessionManager;
 @import AFNetworking.AFNetworkActivityIndicatorManager;
-@import CRToast;
 @import Keys.HockeyPlayoffsKeys;
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 #import "APIIdentifiers.h"
 #import "Animations.h"
 #import "Queues.h"
+#import "HockeyPlayoffs-Swift.h"
 
 #define SYNCHRONIZE_REFRESH_TIME 30ull
 #define SYNCHRONIZE_REFRESH_TIME_LEEWAY 30ull
@@ -91,7 +91,7 @@
         
             if (error != nil) {
                 
-                [[self class] showNotificationForError:error];
+                [ToastHandler showError:error];
             }
             
             else {
@@ -138,38 +138,6 @@ dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispat
     return timer;
 }
 
-+(void)showNotificationForError:(NSError *)error {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        NSString *message;
-        
-        if (error != nil) {
-            
-            message = [error localizedDescription];
-        }
-        
-        else {
-            
-            message = @"";
-        }
-        
-        NSDictionary *options = @{
-                                  kCRToastTextKey : message,
-                                  kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
-                                  kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
-                                  kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
-                                  kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
-                                  kCRToastNotificationTypeKey : @(CRToastTypeStatusBar),
-                                  kCRToastTimeIntervalKey : @(kAnimationDuration),
-                                  kCRToastStatusBarStyleKey : @([[UIApplication sharedApplication] statusBarStyle]),
-                                  kCRToastAllowDuplicatesKey : @(NO)
-                                  };
 
-        [CRToastManager showNotificationWithOptions:options completionBlock:nil];
-    });
-}
 
 @end
