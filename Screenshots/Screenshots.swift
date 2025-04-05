@@ -1,5 +1,6 @@
 import XCTest
 
+@MainActor
 class Screenshots: XCTestCase {
     
     override func setUp() {
