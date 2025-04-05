@@ -22,7 +22,6 @@
 
 @property AFHTTPSessionManager *manager;
 @property dispatch_source_t synchronizeTimer;
-@property dispatch_queue_t synchronizeQueue;
 
 @end
 
@@ -49,7 +48,7 @@
         static dispatch_once_t onceToken;
         
         dispatch_once(&onceToken, ^{
-            self.synchronizeQueue = SYNCHRONIZE_QUEUE;
+            self.queue = SYNCHRONIZE_QUEUE;
         });
         
         [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
@@ -59,17 +58,17 @@
         HockeyPlayoffsKeys *keys = [HockeyPlayoffsKeys new];
         
         _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:keys.hockeyAPIPath] sessionConfiguration:configuration];
-        [_manager setCompletionQueue:_synchronizeQueue];
+        [_manager setCompletionQueue:_queue];
     }
     
     return self;
 }
 
-+(void)sendRequestToAPI:(NSString *)endpoint withData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
++(NSURLSessionDataTask *)sendRequestToAPI:(NSString *)endpoint withData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
     
     AFHTTPSessionManager *manager = [[self sharedHandler] manager];
     
-    [manager GET:endpoint parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [manager GET:endpoint parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion != nil) {
             completion(responseObject, nil, YES);
@@ -83,38 +82,43 @@
     }];
 }
 
-+(void)getPlayoffsWithData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
-    
-     dispatch_async([[[self class] sharedHandler] synchronizeQueue], ^{
++(NSURLSessionDataTask *) _getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
+    return [[self class] sendRequestToAPI:kPlayoffEndpoint withData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
         
-         [[self class] sendRequestToAPI:kPlayoffEndpoint withData:data completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
-            if (error != nil) {
-                
-                [ToastHandler showError:error];
-            }
+        if (error != nil) {
             
-            else {
-                
-                [DatabaseHandler updatePlayoffData:responseObject];
-            }
-            
-            if (completion != nil) {
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(responseObject, error, hasNewData);
-                });
-            }
-        }];
+            [ToastHandler showError:error];
+        }
         
+        else {
+            
+            [DatabaseHandler updatePlayoffData:responseObject];
+        }
+        
+        if (completion != nil) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(responseObject, error, hasNewData);
+            });
+        }
+    }];
+}
+
++(void)getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
+    dispatch_async([[[self class] sharedHandler] queue], ^{
+        [[self class] _getPlayoffs: completion];
     });
+}
+
++(NSURLSessionDataTask *)backgroundRefresh:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
+    return [[self class] _getPlayoffs: completion];
 }
 
 -(void)startSyncTimer {
     
-    _synchronizeTimer = CreateDispatchTimer(SYNCHRONIZE_REFRESH_TIME * NSEC_PER_SEC, SYNCHRONIZE_REFRESH_TIME_LEEWAY * NSEC_PER_SEC, _synchronizeQueue, ^{
+    _synchronizeTimer = CreateDispatchTimer(SYNCHRONIZE_REFRESH_TIME * NSEC_PER_SEC, SYNCHRONIZE_REFRESH_TIME_LEEWAY * NSEC_PER_SEC, _queue, ^{
         
-        [[self class] getPlayoffsWithData:nil completion:nil];
+        [[self class] getPlayoffs:nil];
     });
 }
 
@@ -137,7 +141,5 @@ dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispat
     
     return timer;
 }
-
-
 
 @end

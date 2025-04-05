@@ -1,11 +1,8 @@
-source 'https://github.com/cocoapods/specs.git'
+source 'https://cdn.cocoapods.org/'
 
-plugin 'cocoapods-keys', project: 'HockeyPlayoffs',
-                         keys: [
-                           'HockeyAPIPath'
-                         ]
+plugin 'cocoapods-keys', project: 'HockeyPlayoffs', keys: ['HockeyAPIPath']
 
-platform :ios, '15.5'
+platform :ios, '16.0'
 inhibit_all_warnings!
 use_frameworks!
 
@@ -22,7 +19,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |t|
       t.build_configurations.each do |config|
-          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.5'
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
           config.build_settings['CODE_SIGN_IDENTITY'] = ''
       end
   end

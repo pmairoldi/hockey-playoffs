@@ -7,23 +7,31 @@
 //
 
 @import AFNetworking.AFNetworkReachabilityManager;
+@import BackgroundTasks;
 #import "AppDelegate.h"
 #import "TabBarController.h"
 #import "Colors.h"
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 
+#define kBackgroundTaskId @"com.peteappdesigns.hockey-playoffs-14.background-refresh"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [DDLog addLogger:[DDOSLogger sharedInstance]];
- 
+
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-        
-    [application setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
-        
+
+    [[BGTaskScheduler sharedScheduler]
+     registerForTaskWithIdentifier:kBackgroundTaskId
+     usingQueue: [[APIRequestHandler sharedHandler] queue]
+     launchHandler:^(__kindof BGTask * _Nonnull task) {
+        [self handleAppRefreshTask:(BGAppRefreshTask *)task];
+    }];
+                
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
@@ -50,6 +58,7 @@
     
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self scheduleAppRefresh];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -73,23 +82,42 @@
     [DatabaseHandler closeDatabase];
 }
 
--(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+# pragma background refresh
+
+- (void)handleAppRefreshTask:(BGAppRefreshTask *)task {
+    DDLogDebug(@"BACKGROUND: Performing background app refresh...");
     
-    [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
-        
+    NSURLSessionDataTask *refresh = [APIRequestHandler backgroundRefresh:^(id responseObject, NSError *error, BOOL hasNewData) {
         if (error) {
-            completionHandler(UIBackgroundFetchResultFailed);
+            [task setTaskCompletedWithSuccess:false];
+            [self scheduleAppRefresh];
             return;
         }
         
         if (hasNewData) {
-            completionHandler(UIBackgroundFetchResultNewData);
+            [task setTaskCompletedWithSuccess:true];
+            [self scheduleAppRefresh];
         }
-        
         else {
-            completionHandler(UIBackgroundFetchResultNoData);
+            [task setTaskCompletedWithSuccess:false];
+            [self scheduleAppRefresh];
         }
     }];
+    
+    task.expirationHandler = ^{
+        [refresh cancel];
+    };
+}
+
+- (void)scheduleAppRefresh {    
+    BGAppRefreshTaskRequest *request = [[BGAppRefreshTaskRequest alloc] initWithIdentifier: kBackgroundTaskId];
+
+    NSError *error = nil;
+    if (![[BGTaskScheduler sharedScheduler] submitTaskRequest:request error:&error]) {
+        DDLogDebug(@"BACKGROUND: Could not schedule app refresh: %@", error);
+    } else {
+        DDLogDebug(@"BACKGROUND: Background refresh task scheduled.");
+    }
 }
 
 -(void (^)(AFNetworkReachabilityStatus status))reachabilityChanged {

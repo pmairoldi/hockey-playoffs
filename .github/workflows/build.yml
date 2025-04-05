@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Build and analyse default scheme using xcodebuild command
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install
+        run: |
+          bundle install
+
+      - name: Setup
+        run: |
+          bundle exec pod repo update
+          bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
+          bundle exec pod install
+
+      - name: Test
+        run: |
+          bundle exec fastlane test
+
+      - name: Publish Coverage
+        run: |
+          bundle exec slather

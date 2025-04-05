@@ -31,7 +31,7 @@ DEPENDENCIES:
   - Keys (from `Pods/CocoaPodsKeys`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - CocoaLumberjack
     - FMDB
@@ -46,6 +46,6 @@ SPEC CHECKSUMS:
   FMDB: 728731dd336af3936ce00f91d9d8495f5718a0e6
   Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
 
-PODFILE CHECKSUM: be07b27df738e44bc466b18342beadaffe5c43b2
+PODFILE CHECKSUM: c4673050b792af7f53b60942ecbe837763e3eb09
 
 COCOAPODS: 1.16.2

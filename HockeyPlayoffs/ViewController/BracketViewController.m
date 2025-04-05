@@ -65,9 +65,10 @@
     [_contentView addSubview:_bracketView];
     [self.view addSubview:_contentView];
 
-    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    CGFloat topGradientPercent = (CGRectGetHeight(statusBarFrame) - 2.0) / CGRectGetHeight(_contentView.bounds);
-    CGFloat bottomGradientPercent = (CGRectGetHeight(statusBarFrame) + 8.0) / CGRectGetHeight(_contentView.bounds);
+    UIWindow *window = [self getKeyWindow];
+    CGFloat statusBarHeight = window.safeAreaInsets.top;
+    CGFloat topGradientPercent = (statusBarHeight - 2.0) / CGRectGetHeight(_contentView.bounds);
+    CGFloat bottomGradientPercent = (statusBarHeight + 8.0) / CGRectGetHeight(_contentView.bounds);
     
     _gradient = [CAGradientLayer layer];
     _gradient.frame = _contentView.bounds;
@@ -112,6 +113,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+}
+
+#pragma window methods
+
+-(UIWindow *)getKeyWindow {
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        UIWindowScene *windowScene = (UIWindowScene *)scene;
+        for (UIWindow *window in windowScene.windows) {
+            if (window.isKeyWindow) {
+                return window;
+            }
+        }
+    }
+    return nil;
 }
 
 #pragma status bar methods
@@ -280,7 +295,7 @@
 
 -(void)reloadData:(id)sender {
     __weak BracketViewController *weakSelf = self;
-    [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+    [APIRequestHandler getPlayoffs:^(id responseObject, NSError *error, BOOL hasNewData) {
         [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
