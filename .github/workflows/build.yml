@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and analyse default scheme using xcodebuild command
+    name: Build
     runs-on: macos-latest
 
     steps:
@@ -33,7 +33,3 @@ jobs:
       - name: Test
         run: |
           bundle exec fastlane test
-
-      - name: Publish Coverage
-        run: |
-          bundle exec slather

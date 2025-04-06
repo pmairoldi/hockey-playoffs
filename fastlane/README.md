@@ -31,14 +31,6 @@ Sets up project
 
 Runs all the tests
 
-### ios coverage
-
-```sh
-[bundle exec] fastlane ios coverage
-```
-
-Runs all the tests and generates a coverage report
-
 ### ios beta
 
 ```sh

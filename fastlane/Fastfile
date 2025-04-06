@@ -16,15 +16,9 @@ platform :ios do
   lane :test do
     scan(
       workspace: 'HockeyPlayoffs.xcworkspace',
-      device: 'iPhone 16 Pro',
+      device: 'iPhone 16 Pro (18.1)',
       scheme: 'HockeyPlayoffsTests'
     )
-  end
-
-  desc 'Runs all the tests and generates a coverage report'
-  lane :coverage do
-    test
-    slather(output_directory: 'build/coverage', html: true, show: true)
   end
 
   desc 'Builds app and packages it'

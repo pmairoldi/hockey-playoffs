@@ -4,7 +4,6 @@ source "https://rubygems.org"
 gem "fastlane"
 gem "cocoapods"
 gem "cocoapods-keys"
-gem "slather"
 
 # temporary workaround 
 gem "abbrev"

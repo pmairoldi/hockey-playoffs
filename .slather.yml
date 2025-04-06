@@ -1,9 +1,0 @@
-coverage_service: coveralls
-xcodeproj: HockeyPlayoffs.xcodeproj
-workspace: HockeyPlayoffs.xcworkspace
-scheme: HockeyPlayoffs
-source_directory: HockeyPlayoffs
-ignore:
-  - HockeyPlayoffsTests/*
-  - Screenshots/*
-  - Pods/*
