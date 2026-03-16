@@ -17,6 +17,7 @@
 #import "EventObject.h"
 #import "Queues.h"
 #import "DateTimeHandler.h"
+#import "DictionaryHandler.h"
 
 #define DATABASE_FILE_NAME @"hockey.sqlite"
 
@@ -68,6 +69,7 @@
     if (![handler.database open]) {
         NSCAssert(0, @"Failed to open database");
     }
+    [[self class] migrateTeamsColorIfNeededInDB:handler.database];
     
     return handler.database;
 }
@@ -94,6 +96,7 @@
         }
         
         handler.databaseQueue = [FMDatabaseQueue databaseQueueWithPath:documentsDirectoryPath];
+        [[self class] runMigrationsIfNeededOnQueue:handler.databaseQueue];
     }
     
     return handler.databaseQueue;
@@ -113,6 +116,55 @@
     if ([handler databaseQueue] != nil) {
         
         [handler.databaseQueue close];
+    }
+}
+
+#pragma mark - Migrations
+
++(void)runMigrationsIfNeededOnQueue:(FMDatabaseQueue *)queue {
+    [queue inDatabase:^(FMDatabase *db) {
+        [[self class] migrateTeamsColorIfNeededInDB:db];
+    }];
+}
+
++(BOOL)column:(NSString *)columnName existsInTable:(NSString *)tableName inDB:(FMDatabase *)db {
+    NSString *pragma = [NSString stringWithFormat:@"PRAGMA table_info(%@)", tableName];
+    FMResultSet *result = [db executeQuery:pragma];
+    BOOL exists = NO;
+    while ([result next]) {
+        NSString *name = [result stringForColumn:@"name"];
+        if ([name isEqualToString:columnName]) {
+            exists = YES;
+            break;
+        }
+    }
+    [result close];
+    return exists;
+}
+
++(void)migrateTeamsColorIfNeededInDB:(FMDatabase *)db {
+    BOOL hasRed = [[self class] column:@"red" existsInTable:@"teams" inDB:db];
+    BOOL hasGreen = [[self class] column:@"green" existsInTable:@"teams" inDB:db];
+    BOOL hasBlue = [[self class] column:@"blue" existsInTable:@"teams" inDB:db];
+
+    if (!hasRed) {
+        [db executeUpdate:@"ALTER TABLE teams ADD COLUMN red TINYINT NOT NULL DEFAULT 0"];
+    }
+    if (!hasGreen) {
+        [db executeUpdate:@"ALTER TABLE teams ADD COLUMN green TINYINT NOT NULL DEFAULT 0"];
+    }
+    if (!hasBlue) {
+        [db executeUpdate:@"ALTER TABLE teams ADD COLUMN blue TINYINT NOT NULL DEFAULT 0"];
+    }
+
+    NSDictionary *teamsJSON = [DictionaryHandler JSONDictionaryAtFile:@"teams"];
+    for (NSString *teamID in teamsJSON) {
+        NSDictionary *team = [teamsJSON objectForKey:teamID];
+        NSDictionary *color = [DictionaryHandler dictionaryInDictionary:team withKey:@"color"];
+        NSNumber *red = [DictionaryHandler numberInDictionary:color withKey:@"red"] ?: @(0);
+        NSNumber *green = [DictionaryHandler numberInDictionary:color withKey:@"green"] ?: @(0);
+        NSNumber *blue = [DictionaryHandler numberInDictionary:color withKey:@"blue"] ?: @(0);
+        [db executeUpdate:@"UPDATE teams SET red = ?, green = ?, blue = ? WHERE team_id = ?" withArgumentsInArray:@[red, green, blue, teamID]];
     }
 }
 

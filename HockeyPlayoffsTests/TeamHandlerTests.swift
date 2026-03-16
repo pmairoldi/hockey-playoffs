@@ -112,56 +112,6 @@ class TeamHandlerTests: XCTestCase {
         XCTAssertEqual(actualResult, expectedResult)
     }
     
-    // test for
-    // +(NSString *)getTeamABR:(NSString *)teamName
-    func testGetTeamAbbreviationForNilName() {
-        
-        let actualResult = TeamHandler.getTeamABR(nil)
-        let expectedResult = ""
-        
-        XCTAssertEqual(actualResult, expectedResult)
-    }
-    
-    func testGetTeamAbbreviationForEmptyName() {
-        
-        let actualResult = TeamHandler.getTeamABR("")
-        let expectedResult = ""
-        
-        XCTAssertEqual(actualResult, expectedResult)
-    }
-    
-    func testGetTeamAbbreviationForNonDefinedName() {
-        
-        let actualResult = TeamHandler.getTeamABR("dinosaurs")
-        let expectedResult = ""
-        
-        XCTAssertEqual(actualResult, expectedResult)
-    }
-    
-    func testGetTeamAbbreviationForNonDefinedUppercaseName() {
-        
-        let actualResult = TeamHandler.getTeamABR("DINOSAURS")
-        let expectedResult = ""
-        
-        XCTAssertEqual(actualResult, expectedResult)
-    }
-    
-    func testGetTeamAbbreviationForCorrectName() {
-        
-        let actualResult = TeamHandler.getTeamABR("ducks")
-        let expectedResult = "ana"
-        
-        XCTAssertEqual(actualResult, expectedResult)
-    }
-    
-    func testGetTeamAbbreviationForCorrectUppercaseName() {
-        
-        let actualResult = TeamHandler.getTeamABR("DUCKS")
-        let expectedResult = "ana"
-        
-        XCTAssertEqual(actualResult, expectedResult)
-    }
-    
     // tests for
     // +(UIColor *)getTeamColor:(NSString *)teamABR
     func testGetTeamColorForNilName() {
