@@ -7,11 +7,6 @@ platform :ios do
     clean_build_artifacts
   end
 
-  desc 'Sets up project'
-  lane :setup do
-    cocoapods
-  end
-
   desc 'Runs all the tests'
   lane :test do
     scan(

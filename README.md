@@ -9,6 +9,4 @@ iOS application that keeps track of the NHL playoffs
 
 ```sh
 bundle install
-bundle exec pod keys set HockeyAPIPath [URL_PATH] HockeyPlayoffs
-bundle exec pod install
 ```

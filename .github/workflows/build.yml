@@ -24,12 +24,6 @@ jobs:
         run: |
           bundle install
 
-      - name: Setup
-        run: |
-          bundle exec pod repo update
-          bundle exec pod keys set HockeyAPIPath $HockeyAPIPath HockeyPlayoffs
-          bundle exec pod install
-
       - name: Test
         run: |
           bundle exec fastlane test

@@ -7,8 +7,7 @@
 //
 
 @import Foundation;
-@import FMDB.FMDatabase;
-@import FMDB.FMDatabaseQueue;
+@import FMDB;
 
 @class SeriesObject, GameObject;
 
