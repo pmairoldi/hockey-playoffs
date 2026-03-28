@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-@import AFNetworking.AFNetworkReachabilityManager;
+@import AFNetworking;
 #import "VideoPlayerViewController.h"
 #import "HockeyPlayoffs-Swift.h"
 

@@ -5,9 +5,7 @@
 //  Created by Pierre-Marc Airoldi on 2014-04-02.
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
-@import AFNetworking.AFHTTPSessionManager;
-@import AFNetworking.AFNetworkActivityIndicatorManager;
-@import Keys.HockeyPlayoffsKeys;
+@import AFNetworking;
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 #import "APIIdentifiers.h"
@@ -51,13 +49,15 @@
             self.queue = SYNCHRONIZE_QUEUE;
         });
         
-        [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+        NSString *baseUrl = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"API_BASE_URL"];
+        if (baseUrl == nil) {
+            [NSException raise:@"InitNotImplemented" format:@"no API_BASE_URL set"];
+        }
         
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForResource = 20;
-        HockeyPlayoffsKeys *keys = [HockeyPlayoffsKeys new];
         
-        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:keys.hockeyAPIPath] sessionConfiguration:configuration];
+        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: baseUrl] sessionConfiguration:configuration];
         [_manager setCompletionQueue:_queue];
     }
     
@@ -68,7 +68,7 @@
     
     AFHTTPSessionManager *manager = [[self sharedHandler] manager];
     
-    return [manager GET:endpoint parameters:data progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    return [manager GET:endpoint parameters:data headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (completion != nil) {
             completion(responseObject, nil, YES);

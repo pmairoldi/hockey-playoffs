@@ -8,7 +8,7 @@
 
 //ENDPOINTS
 
-#define kPlayoffEndpoint @"Playoffs"
+#define kPlayoffEndpoint @"/Hockey/Playoffs"
 
 //JSON_KEYS
 
