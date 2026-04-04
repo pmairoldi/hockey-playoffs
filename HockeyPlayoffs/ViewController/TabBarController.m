@@ -40,7 +40,9 @@
         
         self.delegate = self;
         
-        if (@available(iOS 13.0, *)) {    
+        if (@available(iOS 26.0, *)) {
+            // Let the system apply Liquid Glass — no backgroundColor override
+        } else if (@available(iOS 13.0, *)) {
             self.tabBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
             self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
         } else {
@@ -64,7 +66,9 @@
     BaseUINavigationController *navigationController = [[BaseUINavigationController alloc] initWithNavigationBarClass:navbarClass toolbarClass:nil];
     [navigationController pushViewController:rootController animated:NO];
     
-    if (@available(iOS 13.0, *)) {
+    if (@available(iOS 26.0, *)) {
+        // Let the system apply Liquid Glass — no backgroundColor override
+    } else if (@available(iOS 13.0, *)) {
         navigationController.navigationBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
         navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance;
     } else {
