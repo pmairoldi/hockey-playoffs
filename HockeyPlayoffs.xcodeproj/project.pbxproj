@@ -593,7 +593,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B321D32065DCE400C4078F /* Build configuration list for PBXNativeTarget "HockeyPlayoffs" */;
 			buildPhases = (
-				062B249F2065E701005B175B /* Update Build */,
 				06B321BC2065DCE400C4078F /* Sources */,
 				06B321BD2065DCE400C4078F /* Frameworks */,
 				06B321BE2065DCE400C4078F /* Resources */,
@@ -735,24 +734,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		062B249F2065E701005B175B /* Update Build */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Update Build";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "exec \"${SRCROOT}/Scripts/update-build.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		06B321BC2065DCE400C4078F /* Sources */ = {
@@ -1002,6 +983,7 @@
 				CODE_SIGN_ENTITLEMENTS = HockeyPlayoffs/HockeyPlayoffs.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
@@ -1027,6 +1009,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1044,6 +1027,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = W78ZZKUER7;
@@ -1070,6 +1054,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "HockeyPlayoffs/SupportingFiles/HockeyPlayoffs-Bridging-Header.h";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1296,6 +1281,7 @@
 				CODE_SIGN_ENTITLEMENTS = HockeyPlayoffs/HockeyPlayoffs.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
@@ -1321,6 +1307,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = "Debug (Localhost)";
 		};

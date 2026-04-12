@@ -27,3 +27,15 @@ jobs:
       - name: Test
         run: |
           bundle exec fastlane test
+
+      - name: Build & Archive
+        run: |
+          bundle exec fastlane beta
+
+      - name: Commit version
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "[skip ci] update version" || echo "no changes to commit"
+          git push

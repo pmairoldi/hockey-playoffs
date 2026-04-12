@@ -27,9 +27,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>118</string>
+	<string>9</string>
 	<key>FullVersion</key>
-	<string>1.0.12-34-b60b5f1-dirty</string>
+	<string>1.1.0</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
