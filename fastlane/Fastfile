@@ -11,7 +11,7 @@ platform :ios do
   lane :test do
     scan(
       workspace: 'HockeyPlayoffs.xcworkspace',
-      device: 'iPhone 17 Pro (26.3)',
+      device: 'iPhone 17 Pro (26.2)',
       scheme: 'HockeyPlayoffsTests'
     )
   end
