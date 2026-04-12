@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-@import CRToast;
-@import AFNetworking.AFNetworkReachabilityManager;
+@import AFNetworking;
 #import "VideoPlayerViewController.h"
-#import "Animations.h"
+#import "HockeyPlayoffs-Swift.h"
 
 @interface VideoPlayerViewController ()
 
@@ -29,35 +28,13 @@
         return playerController;
     } else {
         if ([AFNetworkReachabilityManager sharedManager].reachable) {
-            [self showNotificationWithTitle:NSLocalizedString(@"error.video.title", nil)];
+            [ToastHandler show:NSLocalizedString(@"error.video.title", nil)];
         } else {
-            [self showNotificationWithTitle:NSLocalizedString(@"offline", nil)];
+            [ToastHandler show:NSLocalizedString(@"offline", nil)];
         }
         
         return nil;
     }
-}
-
-+(void)showNotificationWithTitle:(NSString *)title {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        NSDictionary *options = @{
-                                  kCRToastTextKey : title,
-                                  kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
-                                  kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
-                                  kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
-                                  kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastNotificationPresentationTypeKey: @(CRToastPresentationTypeCover),
-                                  kCRToastNotificationTypeKey : @(CRToastTypeStatusBar),
-                                  kCRToastTimeIntervalKey : @(kAnimationDuration),
-                                  kCRToastStatusBarStyleKey : @([[UIApplication sharedApplication] statusBarStyle]),
-                                  kCRToastAllowDuplicatesKey : @(NO)
-                                  };
-        
-        [CRToastManager showNotificationWithOptions:options completionBlock:nil];
-    });
 }
 
 @end

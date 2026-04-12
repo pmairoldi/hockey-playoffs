@@ -16,14 +16,14 @@
 
 +(NSString *)getTeamCity:(NSString *)teamABR {
     
-    NSDictionary *team = [[self class] getTeamForAbbreavation:teamABR];
+    NSDictionary *team = [[self class] getTeamForAbbreviation:teamABR];
     
     return [[DictionaryHandler stringInDictionary:team withKey:@"city"] capitalizedString];
 }
 
 +(NSString *)getTeamName:(NSString *)teamABR {
     
-    NSDictionary *team = [[self class] getTeamForAbbreavation:teamABR];
+    NSDictionary *team = [[self class] getTeamForAbbreviation:teamABR];
     
     return [[DictionaryHandler stringInDictionary:team withKey:@"name"] capitalizedString];
 }
@@ -57,7 +57,7 @@
         
         NSString *trimmedAbr = [teamABR substringToIndex:3];
         
-        NSDictionary *team = [[self class] getTeamForAbbreavation:trimmedAbr];
+        NSDictionary *team = [[self class] getTeamForAbbreviation:trimmedAbr];
         
         NSDictionary *colors = [DictionaryHandler dictionaryInDictionary:team withKey:@"color"];
         
@@ -91,7 +91,7 @@
     return [DictionaryHandler JSONDictionaryAtFile:@"teams"];
 }
 
-+(NSDictionary *)getTeamForAbbreavation:(NSString *)teamABR {
++(NSDictionary *)getTeamForAbbreviation:(NSString *)teamABR {
     
     teamABR = [teamABR lowercaseString];
     

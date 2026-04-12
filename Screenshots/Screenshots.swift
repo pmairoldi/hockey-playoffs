@@ -1,12 +1,13 @@
 import XCTest
 
+@MainActor
 class Screenshots: XCTestCase {
     
     override func setUp() {
         super.setUp()
         
         let app = XCUIApplication()
-        app.launchArguments += ["-date", "\"2023-04-17 00:00:00\""]
+        app.launchArguments += ["-date", "\"2024-04-22 00:00:00\""]
         
         setupSnapshot(app)
         app.launch()

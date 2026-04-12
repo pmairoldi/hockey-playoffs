@@ -53,19 +53,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kUpdatePlayoffs object:nil];
 }
 
--(BOOL)shouldAutorotate {
-    return YES;
-}
-
-#ifdef __IPHONE_9_0
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return SUPPORTED_ORIENTATIONS;
 }
-#else
--(NSUInteger)supportedInterfaceOrientations {
-    return SUPPORTED_ORIENTATIONS;
-}
-#endif
 
 -(void)refresh {
     

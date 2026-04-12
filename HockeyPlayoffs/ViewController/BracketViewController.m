@@ -22,6 +22,7 @@
 @interface BracketViewController ()
 
 @property UIRefreshControl *refreshControl;
+@property UIView *contentView;
 @property BracketView *bracketView;
 @property BracketModel *bracketModel;
 @property CAGradientLayer *gradient;
@@ -50,28 +51,32 @@
     
     self.view.backgroundColor = [Colors backgroundColor];
     
-    _bracketView = [[BracketView alloc] initWithFrame:self.view.frame];
+    _contentView = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    _bracketView = [[BracketView alloc] initWithFrame:_contentView.frame];
     _bracketView.delegate = self;
     _bracketView.dataSource = self;
-    
+
     _refreshControl = [[UIRefreshControl alloc] init];
     _refreshControl.tintColor = [UIColor whiteColor];
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
-    CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
-    CGFloat topGradientPercent = (CGRectGetHeight(statusBarFrame) - 2.0) / CGRectGetHeight(self.view.bounds);
-    CGFloat bottomGradientPercent = (CGRectGetHeight(statusBarFrame) + 8.0) / CGRectGetHeight(self.view.bounds);
+    [_bracketView addSubview:_refreshControl];
+    [_contentView addSubview:_bracketView];
+    [self.view addSubview:_contentView];
 
+    UIWindow *window = [self getKeyWindow];
+    CGFloat statusBarHeight = window.safeAreaInsets.top;
+    CGFloat topGradientPercent = (statusBarHeight - 2.0) / CGRectGetHeight(_contentView.bounds);
+    CGFloat bottomGradientPercent = (statusBarHeight + 8.0) / CGRectGetHeight(_contentView.bounds);
+    
     _gradient = [CAGradientLayer layer];
-    _gradient.frame = self.view.bounds;
+    _gradient.frame = _contentView.bounds;
     _gradient.colors = @[(id)[[UIColor clearColor] CGColor], (id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], (id)[[UIColor blackColor] CGColor]];
     _gradient.locations = @[@(0.0), @(topGradientPercent), @(bottomGradientPercent), @(1.0)];
     _gradient.opacity = 1.0;
-    
-    [_bracketView addSubview:_refreshControl];
-    self.view.layer.mask = _gradient;
-    
-    [self.view addSubview:_bracketView];
+
+    _contentView.layer.mask = _gradient;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -108,6 +113,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+}
+
+#pragma window methods
+
+-(UIWindow *)getKeyWindow {
+    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
+        UIWindowScene *windowScene = (UIWindowScene *)scene;
+        for (UIWindow *window in windowScene.windows) {
+            if (window.isKeyWindow) {
+                return window;
+            }
+        }
+    }
+    return nil;
 }
 
 #pragma status bar methods
@@ -276,7 +295,7 @@
 
 -(void)reloadData:(id)sender {
     __weak BracketViewController *weakSelf = self;
-    [APIRequestHandler getPlayoffsWithData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+    [APIRequestHandler getPlayoffs:^(id responseObject, NSError *error, BOOL hasNewData) {
         [weakSelf.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.3];
     }];
 }
