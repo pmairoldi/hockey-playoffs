@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rDI-8A-CMA">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recent-->
+        <scene sceneID="TuM-2c-ZTR">
+            <objects>
+                <viewController id="9GB-b8-EXP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="syj-05-M8A">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="c3m-nR-5N1"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Recent" image="Recent" id="jjz-94-CTk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6N7-7C-wg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303" y="-302"/>
+        </scene>
+        <!--Bracket-->
+        <scene sceneID="xfS-fg-Dtl">
+            <objects>
+                <viewController id="d04-dt-UPN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="01m-LL-1PA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5X9-Bu-7iU"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bracket" image="Bracket" id="9xY-1q-mRu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qld-i9-iBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-973" y="-302"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="eVA-uN-GL5">
+            <objects>
+                <tabBarController id="rDI-8A-CMA" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bAO-R5-Z98">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="d04-dt-UPN" kind="relationship" relationship="viewControllers" id="JAD-ds-va3"/>
+                        <segue destination="9GB-b8-EXP" kind="relationship" relationship="viewControllers" id="MUj-Sg-ID8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1TR-cI-869" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1824" y="-370"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Bracket" width="35" height="35"/>
+        <image name="Recent" width="35" height="35"/>
+        <namedColor name="backgroundColor">
+            <color red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -154,4 +154,8 @@
     return [UIColor colorNamed:@"teamImageStrokeColor"];
 }
 
++(UIColor *)noDataTextColor {
+    return [UIColor colorNamed:@"noDataTextColor"];
+}
+
 @end

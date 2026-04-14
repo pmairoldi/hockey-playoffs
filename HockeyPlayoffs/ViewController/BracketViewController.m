@@ -131,9 +131,9 @@
 
 #pragma status bar methods
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
+//-(UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
 
 #pragma Scoll View Mehtods
 

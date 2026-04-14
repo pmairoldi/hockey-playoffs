@@ -40,9 +40,14 @@
         
         self.delegate = self;
         
-        self.tabBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
-        self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
-       
+        if (@available(iOS 26, *)) {
+            
+        }
+        else {
+            self.tabBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
+            self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance;
+        }
+        
         _bracketViewController = [[BracketViewController alloc] init];
         _bracketViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:_bracketViewController.title image:[UIImage imageNamed:BRACKET_TAB_ICON] selectedImage:nil];
 
@@ -60,9 +65,14 @@
     BaseUINavigationController *navigationController = [[BaseUINavigationController alloc] initWithNavigationBarClass:navbarClass toolbarClass:nil];
     [navigationController pushViewController:rootController animated:NO];
     
-    navigationController.navigationBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
-    navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance;
-
+    if (@available(iOS 26, *)) {
+        
+    }
+    else {
+        navigationController.navigationBar.standardAppearance.backgroundColor = [Colors navigationBarColor];
+        navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance;
+    }
+    
     return navigationController;
 }
 

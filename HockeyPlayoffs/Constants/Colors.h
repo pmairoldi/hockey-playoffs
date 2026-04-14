@@ -47,5 +47,6 @@
 +(UIColor *)gameBackgroundSelectedColor;
 +(UIColor *)teamImageDefaultColor;
 +(UIColor *)teamImageStrokeColor;
++(UIColor *)noDataTextColor;
 
 @end

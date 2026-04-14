@@ -15,7 +15,6 @@
 		062B249D2065E6AF005B175B /* bad_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 065034D51E9F264D003A132F /* bad_teams.json */; };
 		062B249E2065E6AF005B175B /* good_teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 065034D61E9F264D003A132F /* good_teams.json */; };
 		0684C1052439879000A6B813 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0684C1042439879000A6B813 /* Colors.xcassets */; };
-		068FA82324392BF70046C8FC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 068FA82524392BF70046C8FC /* Launch Screen.storyboard */; };
 		06B321E42065DD8300C4078F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35C61B39A65F00CCAE17 /* AppDelegate.m */; };
 		06B321E52065DD8E00C4078F /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 0667D71D1B3A6611009571A6 /* Colors.m */; };
 		06B321E62065DD9400C4078F /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F35D41B39A65F00CCAE17 /* EventObject.m */; };
@@ -73,7 +72,6 @@
 		06B3221D2065DE1000C4078F /* DateTimeHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065034CE1E9F2617003A132F /* DateTimeHandlerTests.swift */; };
 		06B3221E2065DE1000C4078F /* StringHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065034CF1E9F2617003A132F /* StringHandlerTests.swift */; };
 		06B3221F2065DE1000C4078F /* TeamHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065034D01E9F2617003A132F /* TeamHandlerTests.swift */; };
-		06B322202065DF6000C4078F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553F36091B39A65F00CCAE17 /* main.m */; };
 		06B322222065DFD800C4078F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322212065DFD800C4078F /* UIKit.framework */; };
 		06B322262065E0E100C4078F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322252065E0E100C4078F /* CoreGraphics.framework */; };
 		06B322282065E0EB00C4078F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B322272065E0EB00C4078F /* Foundation.framework */; };
@@ -87,6 +85,9 @@
 		553749B12F777275006797D4 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = 553749B02F777275006797D4 /* FMDB */; };
 		553749C22F7780BB006797D4 /* Localhost.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 553749BF2F7780BB006797D4 /* Localhost.xcconfig */; };
 		553749C32F7780BB006797D4 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 553749C02F7780BB006797D4 /* Production.xcconfig */; };
+		55BA30A42F8DF06100D058E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */; };
+		55BA30AE2F8DF76500D058E7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */; };
+		55BA30B02F8DFAFD00D058E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA30AF2F8DFAFD00D058E7 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +120,6 @@
 		0667D71C1B3A6611009571A6 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		0667D71D1B3A6611009571A6 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		0684C1042439879000A6B813 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		068FA82824392CE80046C8FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		068FA82C24394BF40046C8FC /* HockeyPlayoffs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HockeyPlayoffs.entitlements; sourceTree = "<group>"; };
 		06B321C02065DCE400C4078F /* HockeyPlayoffs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyPlayoffs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B321DA2065DCF200C4078F /* HockeyPlayoffsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HockeyPlayoffsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +188,6 @@
 		553F36001B39A65F00CCAE17 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		553F36071B39A65F00CCAE17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553F36081B39A65F00CCAE17 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		553F36091B39A65F00CCAE17 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553F360D1B39A65F00CCAE17 /* BracketSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketSection.h; sourceTree = "<group>"; };
 		553F360E1B39A65F00CCAE17 /* BracketSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BracketSection.m; sourceTree = "<group>"; };
 		553F360F1B39A65F00CCAE17 /* BracketView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BracketView.h; sourceTree = "<group>"; };
@@ -258,6 +257,10 @@
 		553F36911B39AB9300CCAE17 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
 		553F36921B39AB9300CCAE17 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
 		553F36981B39B84100CCAE17 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
+		55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		55BA30AC2F8DF76500D058E7 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		55BA30AF2F8DFAFD00D058E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +394,8 @@
 				553F36391B39A65F00CCAE17 /* ViewController */,
 				553F35C51B39A65F00CCAE17 /* AppDelegate.h */,
 				553F35C61B39A65F00CCAE17 /* AppDelegate.m */,
+				55BA30AC2F8DF76500D058E7 /* SceneDelegate.h */,
+				55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */,
 			);
 			path = HockeyPlayoffs;
 			sourceTree = "<group>";
@@ -488,7 +493,7 @@
 				553F35FE1B39A65F00CCAE17 /* hockey.sql */,
 				553F35FF1B39A65F00CCAE17 /* hockey.sqlite */,
 				553F36981B39B84100CCAE17 /* teams.json */,
-				068FA82524392BF70046C8FC /* Launch Screen.storyboard */,
+				55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -496,11 +501,11 @@
 		553F36021B39A65F00CCAE17 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				55BA30AF2F8DFAFD00D058E7 /* main.m */,
 				553F36071B39A65F00CCAE17 /* Info.plist */,
 				062B24952065E629005B175B /* InfoPlist.strings */,
 				062B24932065E629005B175B /* Localizable.strings */,
 				553F36081B39A65F00CCAE17 /* Prefix.pch */,
-				553F36091B39A65F00CCAE17 /* main.m */,
 				061285572D7AC00D00B55044 /* HockeyPlayoffs-Bridging-Header.h */,
 			);
 			path = SupportingFiles;
@@ -705,9 +710,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				068FA82324392BF70046C8FC /* Launch Screen.storyboard in Resources */,
 				062B24832065E42E005B175B /* Images.xcassets in Resources */,
 				062B24972065E629005B175B /* Localizable.strings in Resources */,
+				55BA30A42F8DF06100D058E7 /* LaunchScreen.storyboard in Resources */,
 				553749C22F7780BB006797D4 /* Localhost.xcconfig in Resources */,
 				553749C32F7780BB006797D4 /* Production.xcconfig in Resources */,
 				06B322302065E32400C4078F /* hockey.sqlite in Resources */,
@@ -773,7 +778,6 @@
 				06B322042065DDE300C4078F /* NoContentTableView.m in Sources */,
 				06B321FC2065DDE300C4078F /* BracketView.m in Sources */,
 				06B321E52065DD8E00C4078F /* Colors.m in Sources */,
-				06B322202065DF6000C4078F /* main.m in Sources */,
 				06B322162065DDF100C4078F /* RecentGamesViewController.m in Sources */,
 				06B321F92065DDC300C4078F /* SeriesModel.m in Sources */,
 				06B322112065DDF100C4078F /* BaseUINavigationController.m in Sources */,
@@ -782,10 +786,12 @@
 				06B321F52065DDBC00C4078F /* BracketModel.m in Sources */,
 				06B3220C2065DDE300C4078F /* SeriesHeaderScoresView.m in Sources */,
 				06B321E92065DD9D00C4078F /* SeriesObject.m in Sources */,
+				55BA30AE2F8DF76500D058E7 /* SceneDelegate.m in Sources */,
 				06B322152065DDF100C4078F /* NewsViewController.m in Sources */,
 				06B322142065DDF100C4078F /* GameViewController.m in Sources */,
 				06B321EE2065DDAC00C4078F /* DictionaryHandler.m in Sources */,
 				06B322032065DDE300C4078F /* GameView.m in Sources */,
+				55BA30B02F8DFAFD00D058E7 /* main.m in Sources */,
 				06B321FF2065DDE300C4078F /* GameDetailCell.m in Sources */,
 				06B322062065DDE300C4078F /* PeriodScoresView.m in Sources */,
 				06B321EB2065DDA400C4078F /* APIRequestHandler.m in Sources */,
@@ -850,14 +856,6 @@
 			);
 			name = InfoPlist.strings;
 			path = .;
-			sourceTree = "<group>";
-		};
-		068FA82524392BF70046C8FC /* Launch Screen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				068FA82824392CE80046C8FC /* en */,
-			);
-			name = "Launch Screen.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

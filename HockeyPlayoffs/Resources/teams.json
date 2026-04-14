@@ -269,6 +269,15 @@
     "city": "toronto",
     "name": "maple leafs"
   },
+  "uta": {
+    "color": {
+      "red": 83,
+      "green": 146,
+      "blue": 201
+    },
+    "city": "utah",
+    "name": "mammoth"
+  },
   "van": {
     "color": {
       "red": 0,

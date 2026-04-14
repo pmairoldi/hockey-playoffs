@@ -7,6 +7,7 @@
 //
 
 #import "NoContentTableView.h"
+#import "Colors.h"
 
 @interface NoContentTableView ()
 
@@ -29,7 +30,7 @@
     _noContentLabel = [UILabel new];
     _noContentLabel.frame = CGRectMake(10, 10, CGRectGetWidth(frame) - 20, CGRectGetHeight(frame) - 20);
     _noContentLabel.font = [UIFont systemFontOfSize:18.0];
-    _noContentLabel.textColor = [UIColor whiteColor];
+    _noContentLabel.textColor = [Colors noDataTextColor];
     _noContentLabel.textAlignment = NSTextAlignmentCenter;
     
     [self insertSubview:_noContentLabel atIndex:0];
