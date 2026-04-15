@@ -18,15 +18,16 @@
 
 - (id)initWithFrame:(CGRect)frame {
     
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame style:UITableViewStyleGrouped];
     
     if (self) {
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.sectionHeaderTopPadding = 0.0f;
-            
+        self.sectionHeaderTopPadding = CGFLOAT_MIN;
+        self.sectionFooterHeight = CGFLOAT_MIN;
+        
         [self registerClass:[GameDetailCell class] forCellReuseIdentifier:GAME_DETAIL_CELL_REUSE_IDENTIFIER];
         [self registerClass:[GameHeader class] forHeaderFooterViewReuseIdentifier:GAME_HEADER_REUSE_IDENTIFIER];
         [self registerClass:[GameDetailHeader class] forHeaderFooterViewReuseIdentifier:GAME_DETAIL_HEADER_REUSE_IDENTIFIER];

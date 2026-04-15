@@ -128,7 +128,7 @@
     }
     
     else {
-        return 0.0;
+        return CGFLOAT_MIN;
     }
 }
 
@@ -140,7 +140,7 @@
     }
     
     else {
-        return 0.0;
+        return CGFLOAT_MIN;
     }
 }
 
