@@ -20,7 +20,7 @@ platform :ios do
   private_lane :build do |options|
     snapshot if options[:screenshots]
 
-    match(type: "appstore", readonly: true)
+    match(readonly: true)
     build_app(scheme: "HockeyPlayoffs", xcargs: "-allowProvisioningUpdates")
 
     if options[:beta]
