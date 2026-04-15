@@ -20,14 +20,13 @@ platform :ios do
   private_lane :build do |options|
     snapshot if options[:screenshots]
 
-    cert
-    sigh
-    gym scheme: 'HockeyPlayoffs'
+    match(type: "appstore", readonly: true)
+    gym(scheme: 'HockeyPlayoffs')
 
     if options[:beta]
-      deliver force: true, submit_for_review: false
+      deliver(force: true, submit_for_review: false)
     else
-      deliver force: true, submit_for_review: true
+      deliver(force: true, submit_for_review: true)
     end
 
     clean_build_artifacts
