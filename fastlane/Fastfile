@@ -20,7 +20,7 @@ platform :ios do
   private_lane :build do |options|
     snapshot if options[:screenshots]
 
-    match(readonly: true)
+    match(type: "appstore", readonly: true)
     gym(scheme: 'HockeyPlayoffs')
 
     if options[:beta]
