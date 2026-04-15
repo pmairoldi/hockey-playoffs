@@ -20,8 +20,9 @@ platform :ios do
   private_lane :build do |options|
     snapshot if options[:screenshots]
 
-    match(readonly: true)
-    build_app(scheme: "HockeyPlayoffs", xcargs: "-allowProvisioningUpdates")
+    cert
+    sigh
+    gym(scheme: 'HockeyPlayoffs')
 
     if options[:beta]
       deliver(force: true, submit_for_review: false)
