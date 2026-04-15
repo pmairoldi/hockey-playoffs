@@ -48,5 +48,6 @@
 +(UIColor *)teamImageDefaultColor;
 +(UIColor *)teamImageStrokeColor;
 +(UIColor *)noDataTextColor;
++(UIColor *)refreshControlColor;
 
 @end
