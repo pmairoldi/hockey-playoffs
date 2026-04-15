@@ -61,8 +61,8 @@
     _seriesView.dataSource = self;
     
     _refreshControl = [[UIRefreshControl alloc] init];
-    _refreshControl.tintColor = [UIColor whiteColor];
-    
+    _refreshControl.tintColor = Colors.refreshControlColor;
+
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
     [_seriesView addSubview:_refreshControl];

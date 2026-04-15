@@ -158,4 +158,8 @@
     return [UIColor colorNamed:@"noDataTextColor"];
 }
 
++(UIColor *)refreshControlColor {
+    return [UIColor colorNamed:@"refreshControlColor"];
+}
+
 @end
