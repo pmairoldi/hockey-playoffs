@@ -5,7 +5,6 @@
 //  Created by Pierre-Marc Airoldi on 2014-04-02.
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
-@import AFNetworking;
 #import "APIRequestHandler.h"
 #import "DatabaseHandler.h"
 #import "APIIdentifiers.h"
@@ -18,7 +17,8 @@
 
 @interface APIRequestHandler ()
 
-@property AFHTTPSessionManager *manager;
+@property NSURLSession *session;
+@property NSURL *baseURL;
 @property dispatch_source_t synchronizeTimer;
 
 @end
@@ -26,60 +26,86 @@
 @implementation APIRequestHandler
 
 +(instancetype)sharedHandler {
-    
+
     static APIRequestHandler *sharedHandler = nil;
     static dispatch_once_t onceToken;
-    
+
     dispatch_once(&onceToken, ^{
         sharedHandler = [[self alloc] init];
     });
-    
+
     return sharedHandler;
 }
 
 -(id)init {
-    
+
     self = [super init];
-    
+
     if (self) {
-        
+
         static dispatch_once_t onceToken;
-        
+
         dispatch_once(&onceToken, ^{
             self.queue = SYNCHRONIZE_QUEUE;
         });
-        
+
         NSString *baseUrl = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"API_BASE_URL"];
         if (baseUrl == nil) {
             [NSException raise:@"InitNotImplemented" format:@"no API_BASE_URL set"];
         }
-        
+
+        _baseURL = [NSURL URLWithString:baseUrl];
+
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForResource = 20;
-        
-        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString: baseUrl] sessionConfiguration:configuration];
-        [_manager setCompletionQueue:_queue];
+
+        _session = [NSURLSession sessionWithConfiguration:configuration];
     }
-    
+
     return self;
 }
 
 +(NSURLSessionDataTask *)sendRequestToAPI:(NSString *)endpoint withData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
-    
-    AFHTTPSessionManager *manager = [[self sharedHandler] manager];
-    
-    return [manager GET:endpoint parameters:data headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+
+    APIRequestHandler *handler = [self sharedHandler];
+    NSURL *url = [NSURL URLWithString:endpoint relativeToURL:handler.baseURL];
+
+    if (data != nil) {
+        NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
+        NSMutableArray *queryItems = [NSMutableArray array];
+        for (NSString *key in data) {
+            [queryItems addObject:[NSURLQueryItem queryItemWithName:key value:[data[key] description]]];
+        }
+        components.queryItems = queryItems;
+        url = components.URL;
+    }
+
+    NSURLSessionDataTask *task = [handler.session dataTaskWithURL:url completionHandler:^(NSData *responseData, NSURLResponse *response, NSError *error) {
+
+        if (error != nil) {
+            if (completion != nil) {
+                completion(nil, error, NO);
+            }
+            return;
+        }
+
+        NSError *jsonError = nil;
+        id responseObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+
+        if (jsonError != nil) {
+            if (completion != nil) {
+                completion(nil, jsonError, NO);
+            }
+            return;
+        }
+
         if (completion != nil) {
             completion(responseObject, nil, YES);
         }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        if (completion != nil) {
-            completion(nil, error, NO);
-        }
     }];
+
+    [task resume];
+    return task;
 }
 
 +(NSURLSessionDataTask *) _getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {

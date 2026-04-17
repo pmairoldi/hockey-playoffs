@@ -11,8 +11,8 @@ platform :ios do
   lane :test do
     scan(
       workspace: 'HockeyPlayoffs.xcworkspace',
-      device: 'iPhone 17 Pro (26.2)',
-      scheme: 'HockeyPlayoffsTests'
+      scheme: 'HockeyPlayoffsTests',
+      device: 'iPhone 17 Pro (26.4)',
     )
   end
 
@@ -20,8 +20,23 @@ platform :ios do
   private_lane :build do |options|
     snapshot if options[:screenshots]
 
-    match(type: "appstore", readonly: true)
-    gym(scheme: 'HockeyPlayoffs')
+    create_keychain(
+      name: "CI_Keychain",
+      password: ENV["KEYCHAIN_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false
+    )
+
+    match(
+      type: "appstore", 
+      keychain_name: "CI_Keychain",
+      keychain_password: ENV["KEYCHAIN_PASSWORD"],  
+      readonly: true
+    )
+
+    gym( workspace: 'HockeyPlayoffs.xcworkspace', scheme: 'HockeyPlayoffs')
 
     if options[:beta]
       deliver(force: true, submit_for_review: false)
@@ -41,5 +56,9 @@ platform :ios do
   desc 'Deploy a new version to the App Store'
   lane :deploy do |options|
     build(screenshots: options[:screenshots])
+  end
+
+  after_all do
+    delete_keychain(name: "CI_Keychain") if File.exist?(File.expand_path("~/Library/Keychains/CI_Keychain-db"))
   end
 end

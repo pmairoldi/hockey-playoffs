@@ -81,10 +81,7 @@
 		06D0A723206A0DDB00B1B0F0 /* Screenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A722206A0DDB00B1B0F0 /* Screenshots.swift */; };
 		06D0A72B206A0EBD00B1B0F0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A72A206A0EBD00B1B0F0 /* SnapshotHelper.swift */; };
 		553749AB2F737267006797D4 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 553749AA2F737267006797D4 /* CocoaLumberjack */; };
-		553749AF2F776FE9006797D4 /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 553749AE2F776FE9006797D4 /* AFNetworking */; };
 		553749B12F777275006797D4 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = 553749B02F777275006797D4 /* FMDB */; };
-		553749C22F7780BB006797D4 /* Localhost.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 553749BF2F7780BB006797D4 /* Localhost.xcconfig */; };
-		553749C32F7780BB006797D4 /* Production.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 553749C02F7780BB006797D4 /* Production.xcconfig */; };
 		55BA30A42F8DF06100D058E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */; };
 		55BA30AE2F8DF76500D058E7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */; };
 		55BA30B02F8DFAFD00D058E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA30AF2F8DFAFD00D058E7 /* main.m */; };
@@ -271,7 +268,6 @@
 				061285562D7ABE3000B55044 /* Toast in Frameworks */,
 				06D0A719206A022900B1B0F0 /* AVKit.framework in Frameworks */,
 				553749AB2F737267006797D4 /* CocoaLumberjack in Frameworks */,
-				553749AF2F776FE9006797D4 /* AFNetworking in Frameworks */,
 				06B322282065E0EB00C4078F /* Foundation.framework in Frameworks */,
 				553749B12F777275006797D4 /* FMDB in Frameworks */,
 				06B322262065E0E100C4078F /* CoreGraphics.framework in Frameworks */,
@@ -655,7 +651,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2640;
 				ORGANIZATIONNAME = "Pierre-Marc Airoldi";
 				TargetAttributes = {
 					06B321BF2065DCE400C4078F = {
@@ -692,7 +688,6 @@
 				061285542D7ABE3000B55044 /* XCRemoteSwiftPackageReference "toast-swift" */,
 				553749A92F737267006797D4 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 				553749AC2F776DF2006797D4 /* XCRemoteSwiftPackageReference "fmdb" */,
-				553749AD2F776FE9006797D4 /* XCRemoteSwiftPackageReference "AFNetworking" */,
 			);
 			productRefGroup = 0684138618B9A0CE00A89D7C /* Products */;
 			projectDirPath = "";
@@ -713,8 +708,6 @@
 				062B24832065E42E005B175B /* Images.xcassets in Resources */,
 				062B24972065E629005B175B /* Localizable.strings in Resources */,
 				55BA30A42F8DF06100D058E7 /* LaunchScreen.storyboard in Resources */,
-				553749C22F7780BB006797D4 /* Localhost.xcconfig in Resources */,
-				553749C32F7780BB006797D4 /* Production.xcconfig in Resources */,
 				06B322302065E32400C4078F /* hockey.sqlite in Resources */,
 				06B322312065E32400C4078F /* teams.json in Resources */,
 				062B24982065E629005B175B /* InfoPlist.strings in Resources */,
@@ -866,6 +859,7 @@
 			baseConfigurationReference = 553749C02F7780BB006797D4 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -895,6 +889,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -914,6 +909,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Debug;
 		};
@@ -922,6 +918,7 @@
 			baseConfigurationReference = 553749C02F7780BB006797D4 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -951,6 +948,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
@@ -962,6 +960,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -981,7 +980,7 @@
 				CODE_SIGN_ENTITLEMENTS = HockeyPlayoffs/HockeyPlayoffs.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
@@ -1026,7 +1025,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
@@ -1218,6 +1217,7 @@
 			baseConfigurationReference = 553749BF2F7780BB006797D4 /* Localhost.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1247,6 +1247,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -1266,6 +1267,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = "Debug (Localhost)";
 		};
@@ -1282,7 +1284,7 @@
 				CODE_SIGN_ENTITLEMENTS = HockeyPlayoffs/HockeyPlayoffs.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = W78ZZKUER7;
@@ -1460,14 +1462,6 @@
 				minimumVersion = 2.7.12;
 			};
 		};
-		553749AD2F776FE9006797D4 /* XCRemoteSwiftPackageReference "AFNetworking" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AFNetworking/AFNetworking.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1480,11 +1474,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 553749A92F737267006797D4 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
 			productName = CocoaLumberjack;
-		};
-		553749AE2F776FE9006797D4 /* AFNetworking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 553749AD2F776FE9006797D4 /* XCRemoteSwiftPackageReference "AFNetworking" */;
-			productName = AFNetworking;
 		};
 		553749B02F777275006797D4 /* FMDB */ = {
 			isa = XCSwiftPackageProductDependency;

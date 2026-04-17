@@ -1,22 +1,13 @@
 {
-  "originHash" : "231a9de221fb05c7b2ffb6dc4479711fac6b9f623f4cd36a907f9d24e0466f58",
+  "originHash" : "d42dadb416831b7fb138c46ee615373f548b8f61f45f41611b649f97896f7a90",
   "pins" : [
-    {
-      "identity" : "afnetworking",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AFNetworking/AFNetworking.git",
-      "state" : {
-        "revision" : "ffae2391ab0c29dc88eb0a58d2f5b2c2c27cadbf",
-        "version" : "4.0.1"
-      }
-    },
     {
       "identity" : "cocoalumberjack",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
       "state" : {
-        "revision" : "a9ed4b6f9bdedce7d77046f43adfb8ce1fd54114",
-        "version" : "3.9.0"
+        "revision" : "c5f2ed4d219866117e135cf648180dc7b66739d3",
+        "version" : "3.9.1"
       }
     },
     {
@@ -33,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log",
       "state" : {
-        "revision" : "bbd81b6725ae874c69e9b8c8804d462356b55523",
-        "version" : "1.10.1"
+        "revision" : "5073617dac96330a486245e4c0179cb0a6fd2256",
+        "version" : "1.12.0"
       }
     },
     {

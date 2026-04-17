@@ -1,5 +1,4 @@
 @import BackgroundTasks;
-@import AFNetworking;
 #import "SceneDelegate.h"
 #import "TabBarController.h"
 #import "Colors.h"
@@ -11,9 +10,6 @@
 @implementation SceneDelegate
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:[self reachabilityChanged]];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     [[BGTaskScheduler sharedScheduler]
      registerForTaskWithIdentifier:kBackgroundTaskId
@@ -102,13 +98,6 @@
     } else {
         DDLogDebug(@"BACKGROUND: Background refresh task scheduled.");
     }
-}
-
--(void (^)(AFNetworkReachabilityStatus status))reachabilityChanged {
-    
-    return ^(AFNetworkReachabilityStatus status) {
-        DDLogDebug(@"reachable %d", [AFNetworkReachabilityManager sharedManager].reachable);
-    };
 }
 
 @end

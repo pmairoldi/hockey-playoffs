@@ -15,9 +15,11 @@
 +(instancetype)sharedHandler;
 
 +(void)getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion;
+
 +(NSURLSessionDataTask *)backgroundRefresh:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion;
 
 -(void)startSyncTimer;
+
 -(void)stopSyncTimer;
 
 @end

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-@import AFNetworking;
 #import "VideoPlayerViewController.h"
 #import "HockeyPlayoffs-Swift.h"
 
@@ -17,7 +16,7 @@
 @implementation VideoPlayerViewController
 
 +(AVPlayerViewController *)playerWithUrl:(NSURL *)url {
-    if (url != nil && [url isKindOfClass:[NSURL class]] && [AFNetworkReachabilityManager sharedManager].reachable) {
+    if (url != nil && [url isKindOfClass:[NSURL class]]) {
         
         AVPlayerViewController *playerController = [[AVPlayerViewController alloc] init];
         AVPlayer *player = [AVPlayer playerWithURL:url];
@@ -27,12 +26,7 @@
         
         return playerController;
     } else {
-        if ([AFNetworkReachabilityManager sharedManager].reachable) {
-            [ToastHandler show:NSLocalizedString(@"error.video.title", nil)];
-        } else {
-            [ToastHandler show:NSLocalizedString(@"offline", nil)];
-        }
-        
+        [ToastHandler show:NSLocalizedString(@"error.video.title", nil)];
         return nil;
     }
 }
