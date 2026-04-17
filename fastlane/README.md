@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Runs all the tests
 
+### ios marketing
+
+```sh
+[bundle exec] fastlane ios marketing
+```
+
+Update metadata
+
 ### ios beta
 
 ```sh
