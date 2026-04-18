@@ -1,4 +1,5 @@
-ios_version '18.1'
+ios_version '26.4'
+skip_open_summary true,
 
 # A list of devices you want to take the screenshots from
 devices([
@@ -19,10 +20,10 @@ scheme('Screenshots')
 # output_directory("./screenshots")
 
 # remove the '#' to clear all previously generated screenshots before creating new ones
-# clear_previous_screenshots(true)
+clear_previous_screenshots(true)
 
 # Arguments to pass to the app on launch. See https://docs.fastlane.tools/actions/snapshot/#launch-arguments
-# launch_arguments(['-date "2019-04-15 00:00:00"'])
+# launch_arguments(['-date "2025-05-01 00:00:00"'])
 
 # For more information about all available options run
 # fastlane action snapshot

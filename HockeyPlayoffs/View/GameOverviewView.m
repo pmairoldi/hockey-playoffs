@@ -82,16 +82,6 @@
 
 -(void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
-    if (!_videoButton.enabled) {
-        if (selected) {
-            _videoButton.tintColor = [Colors videoButtonSelectedColor];
-        }
-        
-        else {
-            [_videoButton setSelected:selected];
-        }
-    }
-    
     if (selected) {
         self.backgroundColor = [Colors gameBackgroundSelectedColor];
     }
@@ -102,17 +92,6 @@
 }
 
 -(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    
-    if (!_videoButton.enabled) {
-        
-        if (highlighted) {
-            _videoButton.tintColor = [Colors videoButtonSelectedColor];
-        }
-        
-        else {
-            [_videoButton setHighlighted:highlighted];
-        }
-    }
     
     if (highlighted) {
         self.backgroundColor = [Colors gameBackgroundSelectedColor];
