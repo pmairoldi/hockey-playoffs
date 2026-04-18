@@ -17,41 +17,37 @@ class Screenshots: XCTestCase {
         super.tearDown()
     }
     
-    func testLight() {
-        XCUIDevice.shared.appearance = .light
-        takeScreenshots()
-    }
-    
-    func testDark() {
-        XCUIDevice.shared.appearance = .dark
-        takeScreenshots()
-    }
-    
-    func takeScreenshots() {
+    func testScreenshots() {
         let round = 1
         let series = 3;
         let game = 3;
-        let appearance = XCUIDevice.shared.appearance.toString();
-        
+            
         let app = XCUIApplication()
 
         app.tabBars.buttons["Recent"].tap()
-        snapshot("5-Recent-\(appearance)")
+        screenshot("5-Recent")
         
         app.tabBars.buttons["Bracket"].tap()
-        snapshot("1-Bracket-\(appearance)")
+        screenshot("1-Bracket")
                 
         app.collectionViews.children(matching: .cell)["Series-\(round)\(series)"].tap()
-        snapshot("2-Series-\(appearance)")
+        screenshot("2-Series")
         
         app.tables.element.cells["Game-\(round)\(series)\(game)"].tap()
-        snapshot("3-Game-\(appearance)")
+        screenshot("3-Game")
 
         app.buttons.matching(identifier: "Play Highlights").allElementsBoundByIndex.first(where: { $0.isHittable })!.tap()
         XCUIDevice.shared.orientation = .landscapeRight
         sleep(4)
         app.otherElements["Video"].tap();
-        snapshot("4-Video-\(appearance)")
+        snapshot("4-Video")
+    }
+    
+    func screenshot(_ name: String) {
+        XCUIDevice.shared.appearance = .light
+        snapshot("\(name)-\(XCUIDevice.shared.appearance.toString())")
+        XCUIDevice.shared.appearance = .dark
+        snapshot("\(name)-\(XCUIDevice.shared.appearance.toString())")
     }
 }
 
