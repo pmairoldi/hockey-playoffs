@@ -37,7 +37,7 @@
         [_fullDateTimeFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         
         _longDateFormatter = [[NSDateFormatter alloc] init];
-        [_longDateFormatter setDateFormat:@"MMM d, yyyy"];
+        [_longDateFormatter setDateFormat:@"EEE, MMM d, yyyy"];
         
         _timeFormatter = [[NSDateFormatter alloc] init];
         [_timeFormatter setDateFormat:@"h:mm a"];
