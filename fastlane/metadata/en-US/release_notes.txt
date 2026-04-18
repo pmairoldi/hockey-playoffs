@@ -1,1 +1,5 @@
-- Support Liquid Glass
+Ready for the 2026 Stanley Cup Playoffs.
+
+• Refreshed UI for Liquid Glass
+
+Thanks for using Hockey Playoffs. Go team!
