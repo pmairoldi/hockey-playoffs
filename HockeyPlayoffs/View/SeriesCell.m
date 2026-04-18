@@ -41,13 +41,13 @@
         
         _topTeamWinsLabel = [[UILabel alloc] init];
         [self setWinLabelProperties:_topTeamWinsLabel];
-
+        
         _bottomTeamLabel = [[UILabel alloc] init];
         [self setTeamLabelProperties:_bottomTeamLabel];
-
+        
         _bottomTeamWinsLabel = [[UILabel alloc] init];
         [self setWinLabelProperties:_bottomTeamWinsLabel];
-    
+        
         [self.contentView addSubview:_topTeamLabel];
         [self.contentView addSubview:_topTeamWinsLabel];
         
@@ -74,10 +74,10 @@
 }
 
 -(void)setSeries:(SeriesObject *)series {
-
-//    if (series.seasonID.length != 0 || series.topTeam.length != 0 || series.bottomTeam.length != 0) {
-//        [_activityIndicator stopAnimating];
-//    }
+    
+    //    if (series.seasonID.length != 0 || series.topTeam.length != 0 || series.bottomTeam.length != 0) {
+    //        [_activityIndicator stopAnimating];
+    //    }
     
     _topTeamLabel.text = [series.topTeam uppercaseString];
     _bottomTeamLabel.text = [series.bottomTeam uppercaseString];
@@ -137,10 +137,10 @@
     
     _topTeamLabel.frame = CGRectMake(sliceRect.origin.x + margin, sliceRect.origin.y, sliceRect.size.width - _topTeamWinsLabel.frame.size.width - 2*margin, sliceRect.size.height);
     _topTeamWinsLabel.frame = CGRectMake(sliceRect.origin.x + sliceRect.size.width - _topTeamWinsLabel.frame.size.width - margin, sliceRect.origin.y, _topTeamWinsLabel.frame.size.width, sliceRect.size.height);
-
+    
     _bottomTeamLabel.frame = CGRectMake(remainderRect.origin.x + margin, remainderRect.origin.y, remainderRect.size.width - _bottomTeamWinsLabel.frame.size.width - 2*margin, remainderRect.size.height);
     _bottomTeamWinsLabel.frame = CGRectMake(remainderRect.origin.x + remainderRect.size.width - _bottomTeamWinsLabel.frame.size.width - margin, remainderRect.origin.y, _bottomTeamWinsLabel.frame.size.width, remainderRect.size.height);
-
+    
     _activityIndicator.center = CGPointMake(CGRectGetWidth(self.contentView.frame)/2, CGRectGetHeight(self.contentView.frame)/2);
 }
 
@@ -156,24 +156,29 @@
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-
+    
     UIRectCorner cornersToRound = UIRectCornerAllCorners; //UIRectCornerBottomLeft | UIRectCornerTopRight
-    CGFloat strokeWidth = SERIES_STROKE_SIZE;
+    CGFloat strokeWidth;
+    if (_hasGameToday) {
+        strokeWidth = SERIES_TODAY_STROKE_SIZE;
+    } else {
+        strokeWidth = SERIES_STROKE_SIZE;
+    }
     CGSize cornerRadius = CGSizeMake(CORNER_RADIUS - strokeWidth, CORNER_RADIUS - strokeWidth);
     CGSize outerCornerRadius = CGSizeMake(CORNER_RADIUS, CORNER_RADIUS);
-
+    
     CGRect insetRect = CGRectInset(rect, strokeWidth, strokeWidth);
     
     CGRect sliceRect;
     CGRect remainderRect;
-
+    
     CGRectDivide(insetRect, &sliceRect, &remainderRect, insetRect.size.height/2, CGRectMinYEdge);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-
+    
     //draw border
     CGContextSaveGState(context);
-
+    
     if (_hasGameToday) {
         CGContextSetFillColorWithColor(context, [[Colors seriesBorderTodayColor] CGColor]);
     }
@@ -183,7 +188,7 @@
     }
     
     [[UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:cornersToRound cornerRadii:outerCornerRadius] fill];
-
+    
     CGContextRestoreGState(context);
     
     //draw fill inside border
@@ -222,7 +227,7 @@
     //draw overlay
     
     if (self.selected || self.highlighted) {
-     
+        
         CGContextSaveGState(context);
         
         CGContextSetFillColorWithColor(context, [[Colors seriesSelectedColor] CGColor]);

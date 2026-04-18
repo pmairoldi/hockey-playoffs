@@ -25,7 +25,7 @@
     if (self) {
         
         self.backgroundColor = [UIColor clearColor];
-        self.tintColor = [Colors videoButtonUnselectedColor];
+        self.tintColor = [Colors videoButtonDisabledColor];
     }
     
     return self;
@@ -39,12 +39,8 @@
         self.tintColor = [Colors videoButtonDisabledColor];
     }
     
-    else if (self.selected) {
-        self.tintColor = [Colors videoButtonSelectedColor];
-    }
-    
     else {
-        self.tintColor = [Colors videoButtonUnselectedColor];
+        self.tintColor = [Colors videoButtonEnabledColor];
     }
 
     [self setNeedsDisplay];
@@ -58,12 +54,8 @@
         self.tintColor = [Colors videoButtonDisabledColor];
     }
     
-    else if (self.selected) {
-        self.tintColor = [Colors videoButtonSelectedColor];
-    }
-    
     else {
-        self.tintColor = [Colors videoButtonUnselectedColor];
+        self.tintColor = [Colors videoButtonEnabledColor];
     }
 }
 
@@ -75,12 +67,8 @@
         self.tintColor = [Colors videoButtonDisabledColor];
     }
     
-    else if (self.highlighted) {
-        self.tintColor = [Colors videoButtonSelectedColor];
-    }
-    
     else {
-        self.tintColor = [Colors videoButtonUnselectedColor];
+        self.tintColor = [Colors videoButtonEnabledColor];
     }
 }
 

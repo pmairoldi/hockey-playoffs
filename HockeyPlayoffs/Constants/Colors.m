@@ -110,12 +110,8 @@
     return [UIColor colorNamed:@"videoButtonDisabledColor"];
 }
 
-+(UIColor *)videoButtonUnselectedColor {
-    return [UIColor colorNamed:@"videoButtonUnselectedColor"];
-}
-
-+(UIColor *)videoButtonSelectedColor {
-    return [UIColor colorNamed:@"videoButtonSelectedColor"];
++(UIColor *)videoButtonEnabledColor {
+    return [UIColor colorNamed:@"videoButtonEnabledColor"];
 }
 
 +(UIColor *)gameLabelTextColor {

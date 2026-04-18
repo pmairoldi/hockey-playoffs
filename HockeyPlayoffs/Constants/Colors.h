@@ -36,8 +36,7 @@
 +(UIColor *)segmentBackgroundColor;
 +(UIColor *)periodScoreViewHeaderFontColor;
 +(UIColor *)videoButtonDisabledColor;
-+(UIColor *)videoButtonUnselectedColor;
-+(UIColor *)videoButtonSelectedColor;
++(UIColor *)videoButtonEnabledColor;
 +(UIColor *)gameLabelTextColor;
 +(UIColor *)powerplayColor;
 +(UIColor *)emptyNetColor;
