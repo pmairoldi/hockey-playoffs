@@ -101,5 +101,5 @@ VALUES
   ('wsh', 'Washington', 'Capitals', 158, 10, 38),
   ('wpg', 'Winnipeg', 'Jets', 0, 30, 80),
   ('atl', 'Atlanta', 'Thrashers', 0, 0, 0),
-  ('uta', 'Utah', 'Mammoth', 0, 0, 0),
+  ('uta', 'Utah', 'Mammoth', 83, 146, 201),
   ('sea', 'Seattle', 'Kraken', 113, 157, 179);

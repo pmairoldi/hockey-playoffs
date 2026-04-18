@@ -272,3 +272,11 @@ SET
   blue = 179
 WHERE
   team_id = 'sea';
+
+UPDATE teams
+SET
+  red = 83,
+  green = 146,
+  blue = 201
+WHERE
+  team_id = 'uta';
