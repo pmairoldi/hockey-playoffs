@@ -70,7 +70,7 @@ class DateTimeHandlerTests: XCTestCase {
     func testDateFromWellFormattedDateAndNilTime() {
         
         let actualResult = DateTimeHandler.getDateForDate("2015-06-22", andTime: nil)
-        let expectedResult = "Jun 22, 2015"
+        let expectedResult = "Mon, Jun 22, 2015"
         
         XCTAssertEqual(actualResult, expectedResult)
     }
@@ -78,7 +78,7 @@ class DateTimeHandlerTests: XCTestCase {
     func testDateFromWellFormattedDateAndEmptyTime() {
         
         let actualResult = DateTimeHandler.getDateForDate("2015-06-22", andTime: "")
-        let expectedResult = "Jun 22, 2015"
+        let expectedResult = "Mon, Jun 22, 2015"
         
         XCTAssertEqual(actualResult, expectedResult)
     }
@@ -86,7 +86,7 @@ class DateTimeHandlerTests: XCTestCase {
     func testDateFromWellFormattedDateAndTime() {
         
         let actualResult = DateTimeHandler.getDateForDate("2015-06-22", andTime: "10:53:00")
-        let expectedResult = "Jun 22, 2015"
+        let expectedResult = "Mon, Jun 22, 2015"
         
         XCTAssertEqual(actualResult, expectedResult)
     }
