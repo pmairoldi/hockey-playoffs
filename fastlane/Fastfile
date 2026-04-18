@@ -17,8 +17,8 @@ platform :ios do
   end
 
   desc 'Update metadata'
-  lane :marketing do 
-    snapshot
+  lane :marketing do |options|
+    snapshot if options[:screenshots]
     deliver force: true, submit_for_review: false, skip_binary_upload: true
   end
 

@@ -10,3 +10,39 @@ iOS application that keeps track of the NHL playoffs
 ```sh
 bundle install
 ```
+
+## Run tests
+
+```sh
+bundle exec fastlane test
+```
+
+## Update App Store Metadata
+
+```sh
+# without regenerating screenshots
+bundle exec fastlane marketing
+
+# with regenerating screenshots
+bundle exec fastlane marketing screenshots:true
+```
+
+## Publish a beta build
+
+```sh
+# without regenerating screenshots
+bundle exec fastlane beta
+
+# with regenerating screenshots
+bundle exec fastlane beta screenshots:true
+```
+
+## Publish an AppStore build
+
+```sh
+# without regenerating screenshots
+bundle exec fastlane deploy
+
+# with regenerating screenshots
+bundle exec fastlane deploy screenshots:true
+```
