@@ -17,6 +17,12 @@ bundle install
 bundle exec fastlane test
 ```
 
+## Regenerate screenshots
+
+```sh
+bundle exec fastlane snapshot
+```
+
 ## Update App Store Metadata
 
 ```sh
