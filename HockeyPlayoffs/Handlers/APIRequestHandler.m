@@ -26,50 +26,64 @@
 @implementation APIRequestHandler
 
 +(instancetype)sharedHandler {
-
+    
     static APIRequestHandler *sharedHandler = nil;
     static dispatch_once_t onceToken;
-
+    
     dispatch_once(&onceToken, ^{
         sharedHandler = [[self alloc] init];
     });
-
+    
     return sharedHandler;
 }
 
 -(id)init {
-
+    
     self = [super init];
-
+    
     if (self) {
-
+        
         static dispatch_once_t onceToken;
-
+        
         dispatch_once(&onceToken, ^{
             self.queue = SYNCHRONIZE_QUEUE;
         });
-
+        
         NSString *baseUrl = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"API_BASE_URL"];
         if (baseUrl == nil) {
             [NSException raise:@"InitNotImplemented" format:@"no API_BASE_URL set"];
         }
-
+        
         _baseURL = [NSURL URLWithString:baseUrl];
-
+        
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         configuration.timeoutIntervalForResource = 20;
-
+        
+        NSDictionary *info = [NSBundle mainBundle].infoDictionary;
+        UIDevice *device = [UIDevice currentDevice];
+        
+        NSString *appName = info[@"CFBundleName"];
+        NSString *version = info[@"CFBundleShortVersionString"];
+        NSString *build = info[@"CFBundleVersion"];
+        NSString *model = [device model];
+        NSString *systemName = [device systemName];
+        NSString *systemVersion = [device systemVersion];
+        CGFloat scale = [UIScreen mainScreen].scale;
+        
+        NSString *userAgent = [NSString stringWithFormat:@"%@/%@(%@) (%@; %@ %@; Scale/%.2f)", appName, version, build, model, systemName, systemVersion, scale];
+        configuration.HTTPAdditionalHeaders = @{@"User-Agent": userAgent};
+        
         _session = [NSURLSession sessionWithConfiguration:configuration];
     }
-
+    
     return self;
 }
 
 +(NSURLSessionDataTask *)sendRequestToAPI:(NSString *)endpoint withData:(NSDictionary *)data completion:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
-
+    
     APIRequestHandler *handler = [self sharedHandler];
     NSURL *url = [NSURL URLWithString:endpoint relativeToURL:handler.baseURL];
-
+    
     if (data != nil) {
         NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
         NSMutableArray *queryItems = [NSMutableArray array];
@@ -79,31 +93,31 @@
         components.queryItems = queryItems;
         url = components.URL;
     }
-
+    
     NSURLSessionDataTask *task = [handler.session dataTaskWithURL:url completionHandler:^(NSData *responseData, NSURLResponse *response, NSError *error) {
-
+        
         if (error != nil) {
             if (completion != nil) {
                 completion(nil, error, NO);
             }
             return;
         }
-
+        
         NSError *jsonError = nil;
         id responseObject = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
-
+        
         if (jsonError != nil) {
             if (completion != nil) {
                 completion(nil, jsonError, NO);
             }
             return;
         }
-
+        
         if (completion != nil) {
             completion(responseObject, nil, YES);
         }
     }];
-
+    
     [task resume];
     return task;
 }
