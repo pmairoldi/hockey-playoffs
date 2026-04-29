@@ -82,6 +82,8 @@
 		06D0A72B206A0EBD00B1B0F0 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D0A72A206A0EBD00B1B0F0 /* SnapshotHelper.swift */; };
 		553749AB2F737267006797D4 /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 553749AA2F737267006797D4 /* CocoaLumberjack */; };
 		553749B12F777275006797D4 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = 553749B02F777275006797D4 /* FMDB */; };
+		55A1C5572FA2203C0048B826 /* AppBackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1C5562FA2203C0048B826 /* AppBackgroundTasks.swift */; };
+		55A1C5592FA2264A0048B826 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55A1C5582FA2264A0048B826 /* CocoaLumberjackSwift */; };
 		55BA30A42F8DF06100D058E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */; };
 		55BA30AE2F8DF76500D058E7 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */; };
 		55BA30B02F8DFAFD00D058E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55BA30AF2F8DFAFD00D058E7 /* main.m */; };
@@ -254,6 +256,7 @@
 		553F36911B39AB9300CCAE17 /* StringHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHandler.h; sourceTree = "<group>"; };
 		553F36921B39AB9300CCAE17 /* StringHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHandler.m; sourceTree = "<group>"; };
 		553F36981B39B84100CCAE17 /* teams.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
+		55A1C5562FA2203C0048B826 /* AppBackgroundTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundTasks.swift; sourceTree = "<group>"; };
 		55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55BA30AC2F8DF76500D058E7 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
@@ -271,6 +274,7 @@
 				06B322282065E0EB00C4078F /* Foundation.framework in Frameworks */,
 				553749B12F777275006797D4 /* FMDB in Frameworks */,
 				06B322262065E0E100C4078F /* CoreGraphics.framework in Frameworks */,
+				55A1C5592FA2264A0048B826 /* CocoaLumberjackSwift in Frameworks */,
 				06B322222065DFD800C4078F /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +396,7 @@
 				553F35C61B39A65F00CCAE17 /* AppDelegate.m */,
 				55BA30AC2F8DF76500D058E7 /* SceneDelegate.h */,
 				55BA30AD2F8DF76500D058E7 /* SceneDelegate.m */,
+				55A1C5562FA2203C0048B826 /* AppBackgroundTasks.swift */,
 			);
 			path = HockeyPlayoffs;
 			sourceTree = "<group>";
@@ -742,6 +747,7 @@
 				06B322002065DDE300C4078F /* GameDetailHeader.m in Sources */,
 				06B322022065DDE300C4078F /* GameOverviewView.m in Sources */,
 				06B322192065DDF100C4078F /* StatisticsViewController.m in Sources */,
+				55A1C5572FA2203C0048B826 /* AppBackgroundTasks.swift in Sources */,
 				06B3220D2065DDE300C4078F /* SeriesView.m in Sources */,
 				06B321F02065DDAC00C4078F /* FormatterHandler.m in Sources */,
 				06B322082065DDE300C4078F /* RecentGamesView.m in Sources */,
@@ -1476,6 +1482,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 553749AC2F776DF2006797D4 /* XCRemoteSwiftPackageReference "fmdb" */;
 			productName = FMDB;
+		};
+		55A1C5582FA2264A0048B826 /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 553749A92F737267006797D4 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
