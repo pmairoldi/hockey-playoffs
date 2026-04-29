@@ -146,7 +146,7 @@
     BOOL hasRed = [[self class] column:@"red" existsInTable:@"teams" inDB:db];
     BOOL hasGreen = [[self class] column:@"green" existsInTable:@"teams" inDB:db];
     BOOL hasBlue = [[self class] column:@"blue" existsInTable:@"teams" inDB:db];
-
+    
     if (!hasRed) {
         [db executeUpdate:@"ALTER TABLE teams ADD COLUMN red TINYINT NOT NULL DEFAULT 0"];
     }
@@ -156,7 +156,7 @@
     if (!hasBlue) {
         [db executeUpdate:@"ALTER TABLE teams ADD COLUMN blue TINYINT NOT NULL DEFAULT 0"];
     }
-
+    
     NSDictionary *teamsJSON = [DictionaryHandler JSONDictionaryAtFile:@"teams"];
     for (NSString *teamID in teamsJSON) {
         NSDictionary *team = [teamsJSON objectForKey:teamID];
@@ -178,6 +178,7 @@
         NSMutableArray *periodsToInsert = [[NSMutableArray alloc] init];
         NSMutableArray *teamsToInsert = [[NSMutableArray alloc] init];
         NSMutableArray *eventsToInsert = [[NSMutableArray alloc] init];
+        NSMutableArray *gameIds = [[NSMutableArray alloc] init];
         NSMutableArray *eventsIds = [[NSMutableArray alloc] init];
         
         NSDictionary *playoffData = (NSDictionary *)data;
@@ -191,6 +192,7 @@
                 GameObject *game = [GameObject objectFromDictionary:dictionary];
                 
                 [gamesToInsert addObject:game];
+                [gameIds addObject:game.gameID];
             }
         }
         
@@ -232,6 +234,10 @@
         }
         
         [databaseQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+    
+            if (gameIds.count > 0) {
+                [db executeUpdate:@"DELETE FROM games WHERE game_id NOT IN (?)" withArgumentsInArray:@[[gameIds componentsJoinedByString:@", "]]];
+            }
             
             for (GameObject *game in gamesToInsert) {
                 

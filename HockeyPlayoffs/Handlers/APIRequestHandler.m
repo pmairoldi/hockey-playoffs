@@ -109,7 +109,8 @@
 }
 
 +(NSURLSessionDataTask *) _getPlayoffs:(void(^)(id responseObject, NSError *error, BOOL hasNewData))completion {
-    return [[self class] sendRequestToAPI:kPlayoffEndpoint withData:nil completion:^(id responseObject, NSError *error, BOOL hasNewData) {
+    NSDictionary *dictionary = @{ @"include_inactive" : @false };
+    return [[self class] sendRequestToAPI:kPlayoffEndpoint withData:dictionary completion:^(id responseObject, NSError *error, BOOL hasNewData) {
         
         if (error != nil) {
             
