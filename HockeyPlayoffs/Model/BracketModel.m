@@ -196,7 +196,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"conference MATCHES %@ AND seed == %d AND round == %d", conference, seed, round];
     
     if (predicate) {
-        SeriesObject *object = [[_seriesArray filteredArrayUsingPredicate:predicate] firstObject];
+        SeriesObject *object = [[self.seriesArray filteredArrayUsingPredicate:predicate] firstObject];
         return object;
     }
     
@@ -227,7 +227,7 @@
 
 -(void)refresh {
     
-    _seriesArray = [DatabaseHandler getPlayoffsTree];
+    self.seriesArray = [DatabaseHandler getPlayoffsTree];
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
