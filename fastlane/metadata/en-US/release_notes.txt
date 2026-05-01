@@ -1,5 +1,7 @@
 Ready for the 2026 playoffs.
 
 • Refreshed UI for Liquid Glass
+• Updates to video player to support sound even on mute (don't worry videos still start muted)
+• Fix crashes reported by users 
 
 Thanks for using Hockey Playoffs. Go team!
