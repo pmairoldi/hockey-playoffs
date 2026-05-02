@@ -231,23 +231,23 @@
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
-    
-    _isRefreshing = YES;
+
+    self.isRefreshing = YES;
 
     if (completion == nil) {
-        
+
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        
+
         dispatch_async(DB_FETCH_QUEUE, ^{
-            
+
             [self refresh];
-            
+
             dispatch_semaphore_signal(semaphore);
         });
-        
+
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
-        _isRefreshing = NO;
+
+        self.isRefreshing = NO;
     }
     
     else {

@@ -48,11 +48,11 @@
 }
 
 -(BOOL)hasData {
-    
-    if ([_games count] > 0) {
+
+    if ([self.games count] > 0) {
         return YES;
     }
-    
+
     else {
         return NO;
     }
@@ -73,192 +73,198 @@
 }
 
 -(NSInteger)numberOfRowsInSection:(NSInteger)section {
-    
+
     if (section == 0) {
-        
-        if (_isRefreshing) {
+
+        if (self.isRefreshing) {
             return 1;
         }
-        
+
         else {
             return 0;
         }
     }
-    
+
     else {
-        return [_games count];
+        return [self.games count];
     }
 }
 
 -(CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0 && _isRefreshing && self.games.count <= 0) {
-        
+
+    if (indexPath.section == 0 && self.isRefreshing && self.games.count <= 0) {
+
         return [RefreshTableViewCell height];
     }
-    
-    else if (indexPath.section == 0 && !_isRefreshing) {
-        
+
+    else if (indexPath.section == 0 && !self.isRefreshing) {
+
         return [NoDataTableViewCell height];
     }
-    
+
     else {
         return [GameCell height];
     }
 }
 
 -(CGFloat)estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0 && _isRefreshing && self.games.count <= 0) {
-        
+
+    if (indexPath.section == 0 && self.isRefreshing && self.games.count <= 0) {
+
         return [RefreshTableViewCell height];
     }
-    
-    else if (indexPath.section == 0 && !_isRefreshing) {
-        
+
+    else if (indexPath.section == 0 && !self.isRefreshing) {
+
         return [NoDataTableViewCell height];
     }
-    
+
     else {
         return [GameCell height];
     }
 }
 
 -(NSUInteger)topWins {
-    
-    return _seriesObject.topWins;
+
+    return self.seriesObject.topWins;
 }
 
 -(NSUInteger)bottomWins {
-    
-    return _seriesObject.bottomWins;
+
+    return self.seriesObject.bottomWins;
 }
 
 -(GameObject *)getGameAtIndex:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row < _games.count) {
-        
-        return [_games objectAtIndex:indexPath.row];
+
+    NSArray *games = self.games;
+
+    if (indexPath.row < games.count) {
+
+        return [games objectAtIndex:indexPath.row];
     }
-    
+
     else {
-        
+
         return [[GameObject alloc] init];
     }
 }
 
 -(NSString *)getControllerTitle {
-    
+
+    SeriesObject *series = self.seriesObject;
     NSString *localizedRoundTitle;
-    
-    switch (_seriesObject.round) {
-            
+
+    switch (series.round) {
+
         case 1:
-            
-            if ([_seriesObject.conference isEqualToString:@"w"]) {
-                
+
+            if ([series.conference isEqualToString:@"w"]) {
+
                 localizedRoundTitle = @"controller.bracket.quarter.west";
             }
-            
-            else if ([_seriesObject.conference isEqualToString:@"e"]) {
-                
+
+            else if ([series.conference isEqualToString:@"e"]) {
+
                 localizedRoundTitle = @"controller.bracket.quarter.east";
             }
-            
+
             else {
                 localizedRoundTitle = @"";
             }
-            
+
             break;
-            
+
         case 2:
-            
-            if ([_seriesObject.conference isEqualToString:@"w"]) {
-                
+
+            if ([series.conference isEqualToString:@"w"]) {
+
                 localizedRoundTitle = @"controller.bracket.semi.west";
             }
-            
-            else if ([_seriesObject.conference isEqualToString:@"e"]) {
-                
+
+            else if ([series.conference isEqualToString:@"e"]) {
+
                 localizedRoundTitle = @"controller.bracket.semi.east";
             }
-            
+
             else {
                 localizedRoundTitle = @"";
             }
-            
+
             break;
-            
+
         case 3:
-            
-            if ([_seriesObject.conference isEqualToString:@"w"]) {
-                
+
+            if ([series.conference isEqualToString:@"w"]) {
+
                 localizedRoundTitle = @"controller.bracket.final.west";
             }
-            
-            else if ([_seriesObject.conference isEqualToString:@"e"]) {
-                
+
+            else if ([series.conference isEqualToString:@"e"]) {
+
                 localizedRoundTitle = @"controller.bracket.final.east";
             }
-            
+
             else {
                 localizedRoundTitle = @"";
             }
-            
+
             break;
-            
+
         case 4:
-            
+
             localizedRoundTitle = @"controller.bracket.final";
             break;
-            
+
         default:
             localizedRoundTitle = @"";
             break;
     }
-    
+
     return NSLocalizedString(localizedRoundTitle, nil);
 }
 
 -(NSString *)topTeam {
-    
-    return _seriesObject.topTeam;
+
+    return self.seriesObject.topTeam;
 }
 
 -(NSString *)bottomTeam {
-    
-    return _seriesObject.bottomTeam;
+
+    return self.seriesObject.bottomTeam;
 }
 
 -(NSArray *)getGames {
-    
-    return _games;
+
+    return self.games;
 }
 
 -(void)refresh {
 
-    _seriesObject = [DatabaseHandler getSeriesForRound:_seriesObject.round seed:_seriesObject.seed conference:_seriesObject.conference seasonID:_seriesObject.seasonID];
-    _games = [DatabaseHandler getGamesForSeries:_seriesObject];
+    SeriesObject *current = self.seriesObject;
+    SeriesObject *updated = [DatabaseHandler getSeriesForRound:current.round seed:current.seed conference:current.conference seasonID:current.seasonID];
+
+    self.seriesObject = updated;
+    self.games = [DatabaseHandler getGamesForSeries:updated];
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
-    
-    _isRefreshing = YES;
-    
+
+    self.isRefreshing = YES;
+
     if (completion == nil) {
-        
+
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        
+
         dispatch_async(DB_FETCH_QUEUE, ^{
-            
+
             [self refresh];
-            
+
             dispatch_semaphore_signal(semaphore);
         });
-        
+
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        
-        _isRefreshing = NO;
+
+        self.isRefreshing = NO;
     }
     
     else {
