@@ -38,7 +38,7 @@
     }
 
     if ([date isEqualToString:@"9999-12-31"]) {
-        return NSLocalizedString(@"date.tbd", nil);
+        return @"";
     }
 
     NSDate *formattedDate = [[self class] convertToTimeZoneForDate:date andTime:time];
