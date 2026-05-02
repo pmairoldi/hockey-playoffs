@@ -29,9 +29,17 @@
     if (self) {
         
         _games = [NSArray array];
-        _date = [DateTimeHandler now];
+        NSDate *now = [DateTimeHandler now];
         
-//        [self refresh:nil];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:now];
+        NSInteger hour = [components hour];
+        
+        if (hour < 12) {
+            _date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:now options:0];
+        } else {
+            _date = now;
+        }
     }
     
     return self;

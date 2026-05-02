@@ -36,13 +36,13 @@
     if (![StringHandler compareString:date withRegex:@"\\d{4}-\\d{2}-\\d{2}"]) {
         return @"";
     }
-
+    
     if ([date isEqualToString:@"9999-12-31"]) {
         return @"";
     }
-
+    
     NSDate *formattedDate = [[self class] convertToTimeZoneForDate:date andTime:time];
-
+    
     NSDateFormatter *formatter = [FormatterHandler longDateFormatter];
     
     return [formatter stringFromDate:formattedDate];

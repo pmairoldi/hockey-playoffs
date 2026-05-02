@@ -145,6 +145,10 @@
         NSString *date = [DateTimeHandler getDateForDate:_date andTime:_time];
         NSString *time = [DateTimeHandler getTimeForDate:_date andTime:_time];
         
+        if (date.length == 0) {
+            return time;
+        }
+        
         return [NSString stringWithFormat:@"%@\n%@", date, time];
     }
     
