@@ -131,9 +131,9 @@
 }
 
 -(NSString *)getGameText {
-    
-    NSString *gameID = [_gameID stringByReplacingCharactersInRange:NSMakeRange(0, 9) withString:@""];
-  
+
+    NSString *gameID = _gameID.length > 9 ? [_gameID substringFromIndex:9] : @"";
+
     return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"game", nil) , gameID];
 }
 
@@ -231,7 +231,7 @@
 }
 
 -(NSString *)getRelativeGameID {
-    return [_gameID stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@""];
+    return _gameID.length > 7 ? [_gameID substringFromIndex:7] : @"";
 }
 
 -(NSString *)description {

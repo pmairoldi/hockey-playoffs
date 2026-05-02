@@ -69,19 +69,19 @@
         }
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type MATCHES %@ AND period = %d", type, section];
-        
+
         if (predicate) {
-            NSArray *array = [_eventObjects filteredArrayUsingPredicate:predicate];
-            
+            NSArray *array = [self.eventObjects filteredArrayUsingPredicate:predicate];
+
             if (array.count > 0) {
                 return [array count];
             }
-            
+
             else {
                 return 1;
             }
         }
-        
+
         else {
             return 1;
         }
@@ -110,9 +110,9 @@
     if (period == 4) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"period >= %d AND teamID MATCHES %@", period, team];
-        
+
         if (predicate) {
-            PeriodObject *periodObject = [[_periodObjects filteredArrayUsingPredicate:predicate] lastObject];
+            PeriodObject *periodObject = [[self.periodObjects filteredArrayUsingPredicate:predicate] lastObject];
             return periodObject;
         }
         
@@ -124,9 +124,9 @@
     else {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"period = %d AND teamID MATCHES %@", period, team];
-        
+
         if (predicate) {
-            PeriodObject *periodObject = [[_periodObjects filteredArrayUsingPredicate:predicate] firstObject];
+            PeriodObject *periodObject = [[self.periodObjects filteredArrayUsingPredicate:predicate] firstObject];
             return periodObject;
         }
         
@@ -278,17 +278,17 @@
     }
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type MATCHES %@ AND period = %d", type, section];
-    
+
     if (predicate) {
-        NSArray *events = [_eventObjects filteredArrayUsingPredicate:predicate];
-        
+        NSArray *events = [self.eventObjects filteredArrayUsingPredicate:predicate];
+
         if (events == nil) {
             return [NSArray array];
         }
-        
+
         return events;
     }
-    
+
     else {
         return @[];
     }
@@ -410,14 +410,16 @@
 }
 
 -(void)refresh {
-    
-    _gameObject = [DatabaseHandler getGameForID:_gameObject.gameID];
-    
-    _periodObjects = [DatabaseHandler getPeriodsForGameID:_gameObject.gameID];
-    
-    _eventObjects = [DatabaseHandler getEventsForGameID:_gameObject.gameID];
-    
-    _periods = [DatabaseHandler getNumberOfPeriodsForGameID:_gameObject.gameID];
+
+    NSString *gameID = self.gameObject.gameID;
+
+    self.gameObject = [DatabaseHandler getGameForID:gameID];
+
+    self.periodObjects = [DatabaseHandler getPeriodsForGameID:gameID];
+
+    self.eventObjects = [DatabaseHandler getEventsForGameID:gameID];
+
+    self.periods = [DatabaseHandler getNumberOfPeriodsForGameID:gameID];
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
