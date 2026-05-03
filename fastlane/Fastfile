@@ -18,8 +18,14 @@ platform :ios do
 
   desc 'Update metadata'
   lane :marketing do |options|
-    snapshot if options[:screenshots]
-    deliver force: true, submit_for_review: false, skip_binary_upload: true, overwrite_screenshots: true
+    overwrite_screenshots = false
+    
+    if options[:screenshots]
+      snapshot
+      overwrite_screenshots = true
+    end
+
+    deliver force: true, submit_for_review: false, skip_binary_upload: true, overwrite_screenshots: overwrite_screenshots
   end
 
   desc 'Builds app and packages it'
