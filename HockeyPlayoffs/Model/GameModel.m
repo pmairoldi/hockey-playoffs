@@ -42,11 +42,11 @@
 -(NSInteger)numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        
-        if (_isRefreshing) {
+
+        if (self.isRefreshing) {
             return 1;
         }
-        
+
         else {
             return 0;
         }
@@ -69,19 +69,19 @@
         }
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type MATCHES %@ AND period = %d", type, section];
-        
+
         if (predicate) {
-            NSArray *array = [_eventObjects filteredArrayUsingPredicate:predicate];
-            
+            NSArray *array = [self.eventObjects filteredArrayUsingPredicate:predicate];
+
             if (array.count > 0) {
                 return [array count];
             }
-            
+
             else {
                 return 1;
             }
         }
-        
+
         else {
             return 1;
         }
@@ -89,17 +89,19 @@
 }
 
 -(NSUInteger)getScoreForTeam:(NSString *)team {
-    
-    if ([team isEqualToString:[self homeTeam]]) {
-        
-        return _gameObject.homeScore;
+
+    GameObject *game = self.gameObject;
+
+    if ([team isEqualToString:game.homeID]) {
+
+        return game.homeScore;
     }
-    
-    else if ([team isEqualToString:[self awayTeam]]){
-        
-        return _gameObject.awayScore;
+
+    else if ([team isEqualToString:game.awayID]){
+
+        return game.awayScore;
     }
-    
+
     else {
         return 0;
     }
@@ -110,9 +112,9 @@
     if (period == 4) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"period >= %d AND teamID MATCHES %@", period, team];
-        
+
         if (predicate) {
-            PeriodObject *periodObject = [[_periodObjects filteredArrayUsingPredicate:predicate] lastObject];
+            PeriodObject *periodObject = [[self.periodObjects filteredArrayUsingPredicate:predicate] lastObject];
             return periodObject;
         }
         
@@ -124,9 +126,9 @@
     else {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"period = %d AND teamID MATCHES %@", period, team];
-        
+
         if (predicate) {
-            PeriodObject *periodObject = [[_periodObjects filteredArrayUsingPredicate:predicate] firstObject];
+            PeriodObject *periodObject = [[self.periodObjects filteredArrayUsingPredicate:predicate] firstObject];
             return periodObject;
         }
         
@@ -137,23 +139,25 @@
 }
 
 -(BOOL)hasOTPeriod {
-    
-    if (_gameObject.period >= 4) {
+
+    if (self.gameObject.period >= 4) {
         return YES;
     }
-    
+
     else {
         return NO;
     }
 }
 
 -(short)otPeriod {
-    
-    if (_gameObject.period >= 4) {
-        
-        return _gameObject.period - 3;
+
+    short period = self.gameObject.period;
+
+    if (period >= 4) {
+
+        return period - 3;
     }
-    
+
     else {
         return 0;
     }
@@ -174,17 +178,19 @@
 }
 
 -(NSUInteger)getShotsForTeam:(NSString *)team {
-    
-    if ([team isEqualToString:[self homeTeam]]) {
-        
-        return _gameObject.homeShots;
+
+    GameObject *game = self.gameObject;
+
+    if ([team isEqualToString:game.homeID]) {
+
+        return game.homeShots;
     }
-    
-    else if ([team isEqualToString:[self awayTeam]]){
-        
-        return _gameObject.awayShots;
+
+    else if ([team isEqualToString:game.awayID]){
+
+        return game.awayShots;
     }
-    
+
     else {
         return 0;
     }
@@ -278,17 +284,17 @@
     }
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type MATCHES %@ AND period = %d", type, section];
-    
+
     if (predicate) {
-        NSArray *events = [_eventObjects filteredArrayUsingPredicate:predicate];
-        
+        NSArray *events = [self.eventObjects filteredArrayUsingPredicate:predicate];
+
         if (events == nil) {
             return [NSArray array];
         }
-        
+
         return events;
     }
-    
+
     else {
         return @[];
     }
@@ -351,23 +357,25 @@
 }
 
 -(NSString *)getTitle {
-    
-    if (_gameObject.gameID.length == 10) {
-        
-        unichar gameID = [_gameObject.gameID characterAtIndex:9];
-        
-        _game = [[NSString stringWithFormat:@"%c", gameID] integerValue];
+
+    NSString *gameID = self.gameObject.gameID;
+
+    if (gameID.length == 10) {
+
+        unichar game = [gameID characterAtIndex:9];
+
+        _game = [[NSString stringWithFormat:@"%c", game] integerValue];
     }
-    
+
     else {
         _game = NSNotFound;
     }
-    
+
     if (_game == NSNotFound || _game == 0) {
-        
+
         return NSLocalizedString(@"game.title", nil);
     }
-    
+
     else {
         return [NSString stringWithFormat:@"%@ %ld", NSLocalizedString(@"game.title", nil), (unsigned long)_game];
     }
@@ -379,75 +387,77 @@
 }
 
 -(BOOL)isVideoAvailable {
-    
-    return [_gameObject hasVideo];
+
+    return [self.gameObject hasVideo];
 }
 
 -(NSURL *)getVideoLink {
-    
-    NSArray *videoLinks = [_gameObject videoLinks];
-    
+
+    NSArray *videoLinks = [self.gameObject videoLinks];
+
     if (videoLinks.count > 0) {
-        
+
         NSString *videoLink = [videoLinks firstObject];
-        
+
         return [NSURL URLWithString:videoLink];
     }
-    
+
     else {
         return nil;
     }
 }
 
 -(NSString *)homeTeam {
-    
-    return _gameObject.homeID;
+
+    return self.gameObject.homeID;
 }
 
 -(NSString *)awayTeam {
-    
-    return _gameObject.awayID;
+
+    return self.gameObject.awayID;
 }
 
 -(void)refresh {
-    
-    _gameObject = [DatabaseHandler getGameForID:_gameObject.gameID];
-    
-    _periodObjects = [DatabaseHandler getPeriodsForGameID:_gameObject.gameID];
-    
-    _eventObjects = [DatabaseHandler getEventsForGameID:_gameObject.gameID];
-    
-    _periods = [DatabaseHandler getNumberOfPeriodsForGameID:_gameObject.gameID];
+
+    NSString *gameID = self.gameObject.gameID;
+
+    self.gameObject = [DatabaseHandler getGameForID:gameID];
+
+    self.periodObjects = [DatabaseHandler getPeriodsForGameID:gameID];
+
+    self.eventObjects = [DatabaseHandler getEventsForGameID:gameID];
+
+    self.periods = [DatabaseHandler getNumberOfPeriodsForGameID:gameID];
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
-    
-    _isRefreshing = YES;
-    
+
+    self.isRefreshing = YES;
+
     if (completion == nil) {
-        
+
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        
+
         dispatch_async(DB_FETCH_QUEUE, ^{
-            
+
             [self refresh];
-            
+
             dispatch_semaphore_signal(semaphore);
         });
-        
+
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        
-        _isRefreshing = NO;
+
+        self.isRefreshing = NO;
     }
-    
+
     else {
-        
+
         dispatch_async(DB_FETCH_QUEUE, ^{
-            
+
             [self refresh];
-            
+
             self.isRefreshing = NO;
-            
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(YES);
             });

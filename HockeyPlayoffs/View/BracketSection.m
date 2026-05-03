@@ -87,31 +87,24 @@
         CGContextRestoreGState(context);
     }
     
-    Rectangle *startRect;
-    Rectangle *endRect;
-    
-    if (_toFrames.count >= _fromFrames.count) {
-        
-        startRect = [_toFrames firstObject];
-        endRect = [_toFrames lastObject];
+    NSArray *pairFrames = (_toFrames.count >= _fromFrames.count) ? _toFrames : _fromFrames;
+
+    for (NSUInteger i = 0; i + 1 < pairFrames.count; i += 2) {
+
+        Rectangle *leftRect = [pairFrames objectAtIndex:i];
+        Rectangle *rightRect = [pairFrames objectAtIndex:i + 1];
+
+        CGContextSaveGState(context);
+
+        CGContextBeginPath(context);
+
+        CGContextMoveToPoint(context, leftRect.x + leftRect.width/2 - LINE_WIDTH/2, rect.size.height/2);
+        CGContextAddLineToPoint(context, rightRect.x + rightRect.width/2 + LINE_WIDTH/2, rect.size.height/2);
+
+        CGContextStrokePath(context);
+
+        CGContextRestoreGState(context);
     }
-    
-    else {
-        
-        startRect = [_fromFrames firstObject];
-        endRect = [_fromFrames lastObject];
-    }
-    
-    CGContextSaveGState(context);
-    
-    CGContextBeginPath(context);
-    
-    CGContextMoveToPoint(context, startRect.x + startRect.width/2 - LINE_WIDTH/2, rect.size.height/2);
-    CGContextAddLineToPoint(context, endRect.x + endRect.width/2 + LINE_WIDTH/2, rect.size.height/2);
-    
-    CGContextStrokePath(context);
-    
-    CGContextRestoreGState(context);
 }
 
 

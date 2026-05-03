@@ -1,12 +1,24 @@
+#import "HockeyPlayoffs-Swift.h"
+
 #import "AppDelegate.h"
+#import "APIRequestHandler.h"
+#import "DatabaseHandler.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        
+
     [DDLog addLogger:[DDOSLogger sharedInstance]];
 
+    [AppBackgroundTasks registerTasks];
+    
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [[APIRequestHandler sharedHandler] stopSyncTimer];
+    
+    [DatabaseHandler closeDatabase];
 }
 
 // MARK: UISceneSession Lifecycle

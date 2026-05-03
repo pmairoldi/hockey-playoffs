@@ -196,7 +196,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"conference MATCHES %@ AND seed == %d AND round == %d", conference, seed, round];
     
     if (predicate) {
-        SeriesObject *object = [[_seriesArray filteredArrayUsingPredicate:predicate] firstObject];
+        SeriesObject *object = [[self.seriesArray filteredArrayUsingPredicate:predicate] firstObject];
         return object;
     }
     
@@ -227,27 +227,27 @@
 
 -(void)refresh {
     
-    _seriesArray = [DatabaseHandler getPlayoffsTree];
+    self.seriesArray = [DatabaseHandler getPlayoffsTree];
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
-    
-    _isRefreshing = YES;
+
+    self.isRefreshing = YES;
 
     if (completion == nil) {
-        
+
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        
+
         dispatch_async(DB_FETCH_QUEUE, ^{
-            
+
             [self refresh];
-            
+
             dispatch_semaphore_signal(semaphore);
         });
-        
+
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
-        _isRefreshing = NO;
+
+        self.isRefreshing = NO;
     }
     
     else {

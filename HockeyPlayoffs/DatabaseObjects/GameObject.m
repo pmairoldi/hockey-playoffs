@@ -131,9 +131,9 @@
 }
 
 -(NSString *)getGameText {
-    
-    NSString *gameID = [_gameID stringByReplacingCharactersInRange:NSMakeRange(0, 9) withString:@""];
-  
+
+    NSString *gameID = _gameID.length > 9 ? [_gameID substringFromIndex:9] : @"";
+
     return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"game", nil) , gameID];
 }
 
@@ -144,6 +144,10 @@
         
         NSString *date = [DateTimeHandler getDateForDate:_date andTime:_time];
         NSString *time = [DateTimeHandler getTimeForDate:_date andTime:_time];
+        
+        if (date.length == 0) {
+            return time;
+        }
         
         return [NSString stringWithFormat:@"%@\n%@", date, time];
     }
@@ -227,7 +231,7 @@
 }
 
 -(NSString *)getRelativeGameID {
-    return [_gameID stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@""];
+    return _gameID.length > 7 ? [_gameID substringFromIndex:7] : @"";
 }
 
 -(NSString *)description {

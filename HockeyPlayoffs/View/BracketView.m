@@ -76,21 +76,34 @@
             break;
             
         case west_semi:
-        case east_semi:
-            
-            if (rows <= 1) {
+        case east_semi: {
+
+            enum round quarterRound = (section == west_semi) ? west_quarter : east_quarter;
+            NSArray *quarterFrames = [self getFramesForRound:quarterRound];
+
+            if (rows >= 2 && quarterFrames.count >= 4) {
+
+                Rectangle *q0 = [quarterFrames objectAtIndex:0];
+                Rectangle *q1 = [quarterFrames objectAtIndex:1];
+                Rectangle *q2 = [quarterFrames objectAtIndex:2];
+                Rectangle *q3 = [quarterFrames objectAtIndex:3];
+
+                CGFloat firstSemiCenter = ((q0.x + q0.width/2) + (q1.x + q1.width/2)) / 2.0;
+                CGFloat secondSemiCenter = ((q2.x + q2.width/2) + (q3.x + q3.width/2)) / 2.0;
+
+                interItemSpacing = secondSemiCenter - firstSemiCenter - itemWidth;
+            }
+
+            else {
                 interItemSpacing = 10.0;
             }
-            
-            else {
-                interItemSpacing = ((width - (rows * itemWidth)) / (rows - 1)) - (itemWidth / (rows - 1));
-                
-                if (interItemSpacing < 10.0) {
-                    interItemSpacing = 10.0;
-                }
+
+            if (interItemSpacing < 10.0) {
+                interItemSpacing = 10.0;
             }
-            
+
             break;
+        }
             
         case west_final:
         case east_final:
@@ -157,10 +170,26 @@
     switch (section) {
             
         case west_semi:
-        case east_semi:
-            
-            marginOffset = itemWidth/2 + [self layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:west_quarter]/MAX(1, [BracketModel numberOfRowsInSection:section]);
+        case east_semi: {
+
+            enum round quarterRound = (section == west_semi) ? west_quarter : east_quarter;
+            NSArray *quarterFrames = [self getFramesForRound:quarterRound];
+
+            if (quarterFrames.count >= 2) {
+
+                Rectangle *q0 = [quarterFrames objectAtIndex:0];
+                Rectangle *q1 = [quarterFrames objectAtIndex:1];
+
+                CGFloat firstSemiCenter = ((q0.x + q0.width/2) + (q1.x + q1.width/2)) / 2.0;
+                marginOffset = firstSemiCenter - itemWidth/2 - SIDE_MARGIN;
+            }
+
+            else {
+                marginOffset = itemWidth/2;
+            }
+
             break;
+        }
             
         case west_final:
         case east_final:

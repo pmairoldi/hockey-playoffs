@@ -1,1 +1,1 @@
-stanley,cup,postseason,tracker,schedule,standings,highlights,games,ice,hockey,stats,teams,sport
+postseason,tracker,schedule,standings,highlights,games,ice,hockey,stats,teams,sport

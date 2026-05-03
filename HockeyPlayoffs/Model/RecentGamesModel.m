@@ -29,9 +29,17 @@
     if (self) {
         
         _games = [NSArray array];
-        _date = [DateTimeHandler now];
+        NSDate *now = [DateTimeHandler now];
         
-//        [self refresh:nil];
+        NSCalendar *calendar = [NSCalendar currentCalendar];
+        NSDateComponents *components = [calendar components:NSCalendarUnitHour fromDate:now];
+        NSInteger hour = [components hour];
+        
+        if (hour < 12) {
+            _date = [calendar dateByAddingUnit:NSCalendarUnitDay value:-1 toDate:now options:0];
+        } else {
+            _date = now;
+        }
     }
     
     return self;
@@ -56,10 +64,10 @@
 }
 
 -(NSArray *)getGamesForDate {
-    
+
     [self refresh];
-    
-    return _games;
+
+    return self.games;
 }
 
 -(NSInteger)numberOfSections {
@@ -70,11 +78,11 @@
 -(NSInteger)numberOfRowsInSection:(NSInteger)section {
     
     if (section == 0) {
-        
-        if (_isRefreshing) {
+
+        if (self.isRefreshing) {
             return 1;
         }
-        
+
         else {
             return 0;
         }
@@ -113,27 +121,27 @@
 
 -(void)refresh {
 
-    _games = [DatabaseHandler getGamesForDate:_date];
+    self.games = [DatabaseHandler getGamesForDate:_date];
 }
 
 -(void)refresh:(void(^)(BOOL reload))completion {
-    
-    _isRefreshing = YES;
-    
+
+    self.isRefreshing = YES;
+
     if (completion == nil) {
-        
+
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        
+
         dispatch_async(DB_FETCH_QUEUE, ^{
-            
+
             [self refresh];
-            
+
             dispatch_semaphore_signal(semaphore);
         });
-        
+
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-        
-        _isRefreshing = NO;
+
+        self.isRefreshing = NO;
     }
     
     else {
