@@ -7,7 +7,7 @@ class Screenshots: XCTestCase {
         super.setUp()
         
         let app = XCUIApplication()
-        app.launchArguments += ["-date", "\"2025-05-01 00:00:00\""]
+        app.launchArguments += ["-date", "\"2026-04-21 12:00:00\""]
         
         setupSnapshot(app)
         app.launch()
@@ -19,8 +19,8 @@ class Screenshots: XCTestCase {
     
     func testScreenshots() {
         let round = 1
-        let series = 3;
-        let game = 3;
+        let series = 2;
+        let game = 1;
             
         let app = XCUIApplication()
 
