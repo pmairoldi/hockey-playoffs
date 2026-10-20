@@ -10,6 +10,9 @@
 
 @interface SeriesHeaderScoresView : UIView
 
+/// Space after the score text, filled with the final score's background color.
+@property (nonatomic) CGFloat trailingContentInset;
+
 -(void)setScores:(NSArray *)scores ForTeam:(NSString *)team;
 
 @end

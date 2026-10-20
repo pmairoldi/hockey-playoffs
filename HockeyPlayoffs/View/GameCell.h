@@ -14,7 +14,7 @@
 @interface GameCell : UITableViewCell
 
 @property (weak) VideoButton *videoButton;
-@property UIView *seperatorView;
+@property (nonatomic) BOOL showsBottomSeparator;
 
 +(CGFloat)height;
 -(void)setGame:(GameObject *)game;

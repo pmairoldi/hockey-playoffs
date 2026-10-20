@@ -7,6 +7,7 @@
 //
 
 #import "PeriodScoresView.h"
+#import "ScoreGridLayout.h"
 #import "Dimensions.h"
 #import "Colors.h"
 #import "GameModel.h"
@@ -102,7 +103,7 @@
         
         label.backgroundColor = [TeamHandler getTeamColor:team];
     }
-    
+    [self setNeedsLayout];
 }
 
 -(UILabel *)getLabelAtIndex:(NSInteger)index {
@@ -139,48 +140,31 @@
     
     [super layoutSubviews];
     
-    CGFloat labelWidth = GAME_HEADER_SCORE_LABEL_WIDTH;
-    CGFloat labelSpacing = SCORE_SPACEING;
-    
-    //1.0/[[UIScreen mainScreen] scale]
-    CGFloat yOffset = 0;
-    CGFloat labelHeight = self.frame.size.height - 2 * yOffset;
-    
-    _total.frame = CGRectMake(CGRectGetWidth(self.frame) - labelWidth, yOffset, labelWidth, labelHeight);
-    
-    if (_periodOT.text.length == 0) {
-        
-        _periodOT.frame = CGRectMake(CGRectGetMinX(_total.frame), yOffset, 0, 0);
+    BOOL overtime = _periodOT.text.length > 0;
+    _periodOT.hidden = !overtime;
+    NSArray<UILabel *> *labels = overtime ?
+        @[_teamLabel, _shotsLabel, _periodOne, _periodTwo, _periodThree, _periodOT, _total] :
+        @[_teamLabel, _shotsLabel, _periodOne, _periodTwo, _periodThree, _total];
+    ScoreGridLayout layout = ScoreGridLayoutMake(CGRectGetWidth(self.bounds), labels.count - 1,
+                                                 44, 80, self.traitCollection);
+    _teamLabel.frame = CGRectMake(0, 0, layout.teamWidth, CGRectGetHeight(self.bounds));
+    for (NSUInteger i = 1; i < labels.count; i++) {
+        labels[i].frame = ScoreGridNumericFrame(layout, i - 1, CGRectGetHeight(self.bounds));
     }
-    
-    else {
-        _periodOT.frame = CGRectMake(CGRectGetMinX(_total.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    }
-    
-    _periodThree.frame = CGRectMake(CGRectGetMinX(_periodOT.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _periodTwo.frame = CGRectMake(CGRectGetMinX(_periodThree.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _periodOne.frame = CGRectMake(CGRectGetMinX(_periodTwo.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _shotsLabel.frame = CGRectMake(CGRectGetMinX(_periodOne.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _teamLabel.frame = CGRectMake(0, yOffset, CGRectGetMinX(_shotsLabel.frame) - labelSpacing, labelHeight);
     
 }
 
 -(void)setGameLabelProperties:(UILabel *)label {
-    
     label.textColor = [Colors seriesTeamNameColor];
-    label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    label.adjustsFontForContentSizeCategory = YES;
+    label.adjustsFontSizeToFitWidth = YES;
+    label.minimumScaleFactor = 0.5;
     label.textAlignment = NSTextAlignmentCenter;
 }
 
 -(void)setTeamLabelProperties:(UILabel *)label {
-    
-    label.textColor = [Colors seriesTeamNameColor];
-    label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
-    label.textAlignment = NSTextAlignmentCenter;
+    [self setGameLabelProperties:label];
 }
 
 @end

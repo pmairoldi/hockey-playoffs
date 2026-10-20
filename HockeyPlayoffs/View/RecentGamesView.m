@@ -17,13 +17,16 @@
 
 - (id)initWithFrame:(CGRect)frame {
     
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:frame style:UITableViewStyleInsetGrouped];
     
     if (self) {
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = UIColor.clearColor;
+        self.separatorColor = [Colors gameSeperatorColor];
+        // Game cells draw inset dividers only between rows, never around the group.
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.cellLayoutMarginsFollowReadableWidth = YES;
         
         [self registerClass:[GameCell class] forCellReuseIdentifier:GAME_CELL_REUSE_IDENTIFIER];
         [self registerClass:[RefreshTableViewCell class] forCellReuseIdentifier:REFRESH_CELL_REUSE_IDENTIFIER];

@@ -14,8 +14,6 @@
 
 @property VideoButton *videoButton;
 
--(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
--(void)setSelected:(BOOL)selected animated:(BOOL)animated;
 +(CGFloat)height;
 -(void)setGame:(GameObject *)game;
 

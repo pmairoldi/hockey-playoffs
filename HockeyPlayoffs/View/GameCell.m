@@ -1,101 +1,80 @@
-//
-//  GameCell.m
-//  Hockey Playoffs
-//
-//  Created by Pierre-Marc Airoldi on 2014-03-08.
-//  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
-//
-
 #import "GameCell.h"
-#import "TeamImage.h"
 #import "GameObject.h"
-#import "TeamHandler.h"
-#import "Colors.h"
-#import "Dimensions.h"
 #import "VideoButton.h"
+#import "Colors.h"
 
 @interface GameCell ()
-
 @property GameOverviewView *gameOverview;
-
+@property UIView *rowSeparator;
 @end
-
-#define EDGE_OFFSET 11
 
 @implementation GameCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-    if (self) {
-        
-        
-        self.contentView.backgroundColor = [Colors gameBackgroundColor];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame))];
-        
-        _videoButton = _gameOverview.videoButton;
-        
-        [self.contentView addSubview:_gameOverview];
-        
-        _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - 2 * EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = [Colors gameSeperatorColor];
-        
-        [self.contentView addSubview:_seperatorView];
-    }
-    
+    if (!self) return nil;
+    self.backgroundColor = UIColor.clearColor;
+    self.contentView.backgroundColor = UIColor.clearColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    _gameOverview = [[GameOverviewView alloc] initWithFrame:CGRectZero];
+    _videoButton = _gameOverview.videoButton;
+    _gameOverview.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:_gameOverview];
+    _rowSeparator = [[UIView alloc] init];
+    _rowSeparator.backgroundColor = [Colors gameSeperatorColor];
+    _rowSeparator.hidden = YES;
+    _rowSeparator.userInteractionEnabled = NO;
+    [self.contentView addSubview:_rowSeparator];
+    [NSLayoutConstraint activateConstraints:@[
+        [_gameOverview.topAnchor constraintEqualToAnchor:self.contentView.topAnchor],
+        [_gameOverview.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor],
+        [_gameOverview.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor],
+        [_gameOverview.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor]
+    ]];
     return self;
 }
 
--(void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    
-    [super setSelected:selected animated:animated];
-    
-    [_gameOverview setSelected:selected animated:animated];
+- (void)setShowsBottomSeparator:(BOOL)showsBottomSeparator {
+    _showsBottomSeparator = showsBottomSeparator;
+    _rowSeparator.hidden = !showsBottomSeparator;
+    [self setNeedsLayout];
 }
 
--(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    
-    [super setHighlighted:highlighted animated:animated];
-    
-    [_gameOverview setHighlighted:highlighted animated:animated];
-}
-
-
--(void)layoutSubviews {
-    
+- (void)layoutSubviews {
     [super layoutSubviews];
-    
-    _gameOverview.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.frame), CGRectGetHeight(self.contentView.frame));
-    [_gameOverview layoutSubviews];
-    
-    _seperatorView.frame = CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - 2 * EDGE_OFFSET, 1/[[UIScreen mainScreen] scale]);
+    CGFloat pixel = 1.0 / MAX(self.traitCollection.displayScale, 1.0);
+    CGFloat width = CGRectGetWidth(self.contentView.bounds);
+    // Custom overview cells have zero content margins; match Series' 20-point dividers.
+    CGFloat inset = MIN(20, width / 2);
+    _rowSeparator.frame = CGRectMake(inset, CGRectGetHeight(self.contentView.bounds) - pixel,
+                                     MAX(0, width - 2 * inset), pixel);
 }
 
-- (void)prepareForReuse {
-    
-    [super prepareForReuse];
-    
-    [self layoutSubviews];
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    if (selected) self.accessibilityTraits |= UIAccessibilityTraitSelected;
+    else self.accessibilityTraits &= ~UIAccessibilityTraitSelected;
 }
 
-+(CGFloat)height {
-    
-    return [GameOverviewView height];
+- (void)updateConfigurationUsingState:(UICellConfigurationState *)state {
+    // Let UIKit round the section, rather than covering its corners with an opaque overview.
+    UIBackgroundConfiguration *background = [UIBackgroundConfiguration listGroupedCellConfiguration];
+    background.backgroundColor = state.isSelected || state.isHighlighted ?
+        [Colors gameBackgroundSelectedColor] : [Colors gameBackgroundColor];
+    self.backgroundConfiguration = background;
 }
 
--(void)setGame:(GameObject *)game {
-
-    [_gameOverview setGame:game];
-    
-    [self setAccessibilityIdentifier:[NSString stringWithFormat:@"Game-%@", [game getRelativeGameID]]];
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self.nextResponder touchesBegan:touches withEvent:event];
 }
 
++ (CGFloat)height {
+    return [GameOverviewView height];
+}
+
+- (void)setGame:(GameObject *)game {
+    [_gameOverview setGame:game];
+    self.accessibilityIdentifier = [NSString stringWithFormat:@"Game-%@", [game getRelativeGameID]];
+}
 @end

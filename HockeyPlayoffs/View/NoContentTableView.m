@@ -1,60 +1,45 @@
-//
-//  NoContentTableView.m
-//  HockeyPlayoffs
-//
-//  Created by Pierre-Marc Airoldi on 2015-04-14.
-//  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
-//
-
 #import "NoContentTableView.h"
 #import "Colors.h"
 
 @interface NoContentTableView ()
-
 @property UILabel *noContentLabel;
-
 @end
 
 @implementation NoContentTableView
 
-- (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    
-    if (!self) {
-        return nil;
-    }
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [self initWithFrame:frame style:UITableViewStyleInsetGrouped];
+}
 
-    self.sectionHeaderTopPadding = 0.0f;
-    
-    _noContentLabel = [UILabel new];
-    _noContentLabel.frame = CGRectMake(10, 10, CGRectGetWidth(frame) - 20, CGRectGetHeight(frame) - 20);
-    _noContentLabel.font = [UIFont systemFontOfSize:18.0];
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    self = [super initWithFrame:frame style:style];
+    if (!self) return nil;
+    UIView *emptyView = [[UIView alloc] init];
+    _noContentLabel = [[UILabel alloc] init];
+    _noContentLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    _noContentLabel.adjustsFontForContentSizeCategory = YES;
     _noContentLabel.textColor = [Colors noDataTextColor];
+    _noContentLabel.numberOfLines = 0;
     _noContentLabel.textAlignment = NSTextAlignmentCenter;
-    
-    [self insertSubview:_noContentLabel atIndex:0];
-    
+    _noContentLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [emptyView addSubview:_noContentLabel];
+    [NSLayoutConstraint activateConstraints:@[
+        [_noContentLabel.centerYAnchor constraintEqualToAnchor:emptyView.centerYAnchor],
+        [_noContentLabel.leadingAnchor constraintEqualToAnchor:emptyView.layoutMarginsGuide.leadingAnchor],
+        [_noContentLabel.trailingAnchor constraintEqualToAnchor:emptyView.layoutMarginsGuide.trailingAnchor]
+    ]];
+    self.backgroundView = emptyView;
     self.hasContent = NO;
-
     return self;
 }
 
--(void)layoutSubviews {
-    
-    [super layoutSubviews];
-    
-    _noContentLabel.frame = self.bounds;
-}
-
--(void)setNoContentText:(NSString *)noContentText {
+- (void)setNoContentText:(NSString *)noContentText {
     _noContentText = noContentText;
-    _noContentLabel.text = _noContentText;
+    _noContentLabel.text = noContentText;
 }
 
--(void)setHasContent:(BOOL)hasContent {
+- (void)setHasContent:(BOOL)hasContent {
     _hasContent = hasContent;
-    _noContentLabel.alpha = hasContent ? 0.0 : 1.0;
+    self.backgroundView.hidden = hasContent;
 }
-
 @end

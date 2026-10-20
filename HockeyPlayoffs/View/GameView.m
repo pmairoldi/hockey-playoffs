@@ -13,20 +13,22 @@
 #import "GameDetailHeader.h"
 #import "RefreshTableViewCell.h"
 #import "NoDataTableViewCell.h"
+#import "Colors.h"
 
 @implementation GameView
 
 - (id)initWithFrame:(CGRect)frame {
     
-    self = [super initWithFrame:frame style:UITableViewStyleGrouped];
+    self = [super initWithFrame:frame style:UITableViewStyleInsetGrouped];
     
     if (self) {
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        self.backgroundColor = [UIColor clearColor];
-        self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.sectionHeaderTopPadding = CGFLOAT_MIN;
-        self.sectionFooterHeight = CGFLOAT_MIN;
+        self.backgroundColor = UIColor.clearColor;
+        self.separatorColor = [Colors gameSeperatorColor];
+        self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.cellLayoutMarginsFollowReadableWidth = YES;
+        self.sectionFooterHeight = 16;
         
         [self registerClass:[GameDetailCell class] forCellReuseIdentifier:GAME_DETAIL_CELL_REUSE_IDENTIFIER];
         [self registerClass:[GameHeader class] forHeaderFooterViewReuseIdentifier:GAME_HEADER_REUSE_IDENTIFIER];

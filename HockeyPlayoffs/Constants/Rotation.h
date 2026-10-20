@@ -6,5 +6,4 @@
 //  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
 //
 
-#define SUPPORTED_ORIENTATIONS UIInterfaceOrientationMaskPortrait
-#define SHOULD_ROTATE(x) !UIInterfaceOrientationIsPortrait(x)
+#define SUPPORTED_ORIENTATIONS UIInterfaceOrientationMaskAllButUpsideDown

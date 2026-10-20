@@ -22,6 +22,7 @@
 @property UILabel *gameFive;
 @property UILabel *gameSix;
 @property UILabel *gameSeven;
+@property UIView *trailingBackground;
 
 @end
 
@@ -61,6 +62,9 @@
         [self addSubview:_gameFive];
         [self addSubview:_gameSix];
         [self addSubview:_gameSeven];
+        _trailingBackground = [[UIView alloc] init];
+        _trailingBackground.backgroundColor = _gameSeven.backgroundColor;
+        [self addSubview:_trailingBackground];
     }
     
     return self;
@@ -68,7 +72,13 @@
 
 -(void)setScores:(NSArray *)scores ForTeam:(NSString *)team {
 
-    for (int i = 0; i < [scores count]; ++i) {
+    for (NSInteger i = 0; i < 7; i++) {
+        UILabel *label = [self getLabelAtIndex:i];
+        label.text = @"";
+        label.backgroundColor = [Colors seriesTeamNameBackgroundColor];
+        label.textColor = [Colors seriesTeamNameColor];
+    }
+    for (NSInteger i = 0; i < MIN(scores.count, 7); ++i) {
         
         GameObject *game = [scores objectAtIndex:i];
         
@@ -78,13 +88,16 @@
         
         if ([game hasWonGame:team]) {
             label.backgroundColor = [TeamHandler getTeamColor:team];
+            label.textColor = [Colors seriesTeamNameColor];
         }
         
         else {
             label.backgroundColor = [Colors seriesTeamNameBackgroundColor];
+            label.textColor = [Colors seriesTeamNameColor];
         }
     }
-    
+    _trailingBackground.backgroundColor = _gameSeven.backgroundColor;
+    [self setNeedsLayout];
 }
 
 -(UILabel *)getLabelAtIndex:(NSInteger)index {
@@ -129,29 +142,24 @@
     
     [super layoutSubviews];
     
-    CGFloat labelWidth = SERIES_GAME_LABEL_WIDTH;
-    CGFloat labelSpacing = SCORE_SPACEING;
-    
-    CGFloat labelHeight = self.frame.size.height;
-    
-    _gameOne.frame = CGRectMake(0, 0, labelWidth, labelHeight);
-    
-    _gameTwo.frame = CGRectMake(_gameOne.frame.origin.x + _gameOne.frame.size.width + labelSpacing, 0, labelWidth, labelHeight);
-    
-    _gameThree.frame = CGRectMake(_gameTwo.frame.origin.x + _gameTwo.frame.size.width + labelSpacing, 0, labelWidth, labelHeight);
-    
-    _gameFour.frame = CGRectMake(_gameThree.frame.origin.x + _gameThree.frame.size.width + labelSpacing, 0, labelWidth, labelHeight);
-    
-    _gameFive.frame = CGRectMake(_gameFour.frame.origin.x + _gameFour.frame.size.width + labelSpacing, 0, labelWidth, labelHeight);
-    
-    _gameSix.frame = CGRectMake(_gameFive.frame.origin.x + _gameFive.frame.size.width + labelSpacing, 0, labelWidth, labelHeight);
-    
-    _gameSeven.frame = CGRectMake(_gameSix.frame.origin.x + _gameSix.frame.size.width + labelSpacing, 0, labelWidth, labelHeight);
+    CGFloat scale = MAX(self.traitCollection.displayScale, 1.0);
+    CGFloat width = CGRectGetWidth(self.bounds);
+    CGFloat inset = MIN(width, MAX(0, round(self.trailingContentInset * scale) / scale));
+    CGFloat usablePixels = MAX(0, round((width - inset) * scale) - 6);
+    for (NSUInteger i = 0; i < 7; i++) {
+        CGFloat start = round(i * usablePixels / 7) + i;
+        CGFloat end = round((i + 1) * usablePixels / 7) + i;
+        [self getLabelAtIndex:i].frame = CGRectMake(start / scale, 0, (end - start) / scale, CGRectGetHeight(self.bounds));
+    }
+    _trailingBackground.frame = CGRectMake(width - inset, 0, inset, CGRectGetHeight(self.bounds));
 }
 
 -(void)setGameLabelProperties:(UILabel *)label {
     label.textColor = [Colors seriesTeamNameColor];
-    label.font = [UIFont boldSystemFontOfSize:SERIES_NAME_FONT_SIZE];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    label.adjustsFontForContentSizeCategory = YES;
+    label.adjustsFontSizeToFitWidth = YES;
+    label.minimumScaleFactor = 0.6;
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [Colors seriesTeamNameBackgroundColor];
 }

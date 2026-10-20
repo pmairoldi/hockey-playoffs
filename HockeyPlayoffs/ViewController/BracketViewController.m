@@ -22,10 +22,8 @@
 @interface BracketViewController ()
 
 @property UIRefreshControl *refreshControl;
-@property UIView *contentView;
 @property BracketView *bracketView;
 @property BracketModel *bracketModel;
-@property CAGradientLayer *gradient;
 
 @end
 
@@ -51,9 +49,8 @@
     
     self.view.backgroundColor = [Colors backgroundColor];
     
-    _contentView = [[UIView alloc] initWithFrame:self.view.frame];
-    
-    _bracketView = [[BracketView alloc] initWithFrame:_contentView.frame];
+    _bracketView = [[BracketView alloc] initWithFrame:CGRectZero];
+    _bracketView.translatesAutoresizingMaskIntoConstraints = NO;
     _bracketView.delegate = self;
     _bracketView.dataSource = self;
 
@@ -62,21 +59,14 @@
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
     [_bracketView addSubview:_refreshControl];
-    [_contentView addSubview:_bracketView];
-    [self.view addSubview:_contentView];
-
-    UIWindow *window = [self getKeyWindow];
-    CGFloat statusBarHeight = window.safeAreaInsets.top;
-    CGFloat topGradientPercent = (statusBarHeight - 2.0) / CGRectGetHeight(_contentView.bounds);
-    CGFloat bottomGradientPercent = (statusBarHeight + 8.0) / CGRectGetHeight(_contentView.bounds);
-    
-    _gradient = [CAGradientLayer layer];
-    _gradient.frame = _contentView.bounds;
-    _gradient.colors = @[(id)[[UIColor clearColor] CGColor], (id)[[UIColor clearColor] CGColor], (id)[[UIColor blackColor] CGColor], (id)[[UIColor blackColor] CGColor]];
-    _gradient.locations = @[@(0.0), @(topGradientPercent), @(bottomGradientPercent), @(1.0)];
-    _gradient.opacity = 1.0;
-
-    _contentView.layer.mask = _gradient;
+    [self.view addSubview:_bracketView];
+    UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+    [NSLayoutConstraint activateConstraints:@[
+        [_bracketView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [_bracketView.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor],
+        [_bracketView.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor],
+        [_bracketView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -104,55 +94,12 @@
     }];
 }
 
--(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    [_bracketView reloadData];
-}
-
 -(void)didReceiveMemoryWarning {
     
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
 }
-
-#pragma window methods
-
--(UIWindow *)getKeyWindow {
-    for (UIScene *scene in [UIApplication sharedApplication].connectedScenes) {
-        UIWindowScene *windowScene = (UIWindowScene *)scene;
-        for (UIWindow *window in windowScene.windows) {
-            if (window.isKeyWindow) {
-                return window;
-            }
-        }
-    }
-    return nil;
-}
-
-#pragma status bar methods
-
-//-(UIStatusBarStyle)preferredStatusBarStyle{
-//    return UIStatusBarStyleLightContent;
-//}
-
-#pragma Scoll View Mehtods
-
-//-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    
-//    CGFloat offset = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame) - 10.0;
-//
-//    [UIView beginAnimations:nil context:NULL];
-//    
-//    if (scrollView.contentOffset.y > 0) {
-//        _gradient.opacity = scrollView.contentOffset.y > offset ? 1.0 : (scrollView.contentOffset.y / offset);
-//    }
-//    
-//    else {
-//        _gradient.opacity = 0.0;
-//    }
-//    
-//    [UIView commitAnimations];
-//}
 
 #pragma collection view methods
 

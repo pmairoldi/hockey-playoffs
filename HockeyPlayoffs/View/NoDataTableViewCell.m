@@ -18,6 +18,7 @@
     
     if (self) {
         
+        self.backgroundColor = [Colors gameBackgroundColor];
         self.contentView.backgroundColor = [Colors gameBackgroundColor];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -26,8 +27,9 @@
         
         self.textLabel.textColor = [Colors gameCellStatusTextColor];
         self.textLabel.textAlignment = NSTextAlignmentCenter;
-        self.textLabel.font = [UIFont systemFontOfSize:DETAIL_GAME_STATUS_FONT_SIZE];
-        self.textLabel.numberOfLines = 1;
+        self.textLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        self.textLabel.adjustsFontForContentSizeCategory = YES;
+        self.textLabel.numberOfLines = 0;
         self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
@@ -56,7 +58,7 @@
 
 +(CGFloat)height {
     
-    return 44;
+    return ceil([[UIFontMetrics metricsForTextStyle:UIFontTextStyleBody] scaledValueForValue:44]);
 }
 
 @end

@@ -16,6 +16,9 @@
 
 @property NSArray *fromFrames;
 @property NSArray *toFrames;
+@property (weak) BracketView *collectionView;
+@property enum round fromRound;
+@property enum round toRound;
 
 @end
 
@@ -35,8 +38,17 @@
 
 -(void)createBracketFromRound:(enum round)fromRound toRound:(enum round)toRound inCollectionView:(BracketView *)collectionView {
 
-    _fromFrames = [collectionView getFramesForRound:fromRound];
-    _toFrames = [collectionView getFramesForRound:toRound];
+    _collectionView = collectionView;
+    _fromRound = fromRound;
+    _toRound = toRound;
+    [self setNeedsLayout];
+}
+
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    _fromFrames = [_collectionView getFramesForRound:_fromRound];
+    _toFrames = [_collectionView getFramesForRound:_toRound];
+    [self setNeedsDisplay];
 }
 
 - (void)prepareForReuse {

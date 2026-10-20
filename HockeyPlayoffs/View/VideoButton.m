@@ -1,110 +1,69 @@
-//
-//  VideoButton.m
-//  Hockey Playoffs
-//
-//  Created by Pierre-Marc Airoldi on 2014-03-26.
-//  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
-//
-
+// Original TV-style highlights control, with the existing enabled/disabled palette.
 #import "VideoButton.h"
 #import "Colors.h"
 #import "Dimensions.h"
-
-@interface VideoButton ()
-
-@end
 
 @implementation VideoButton
 
 @synthesize tintColor = _tintColor;
 
-- (id)initWithFrame:(CGRect)frame {
-    
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    
-    if (self) {
-        
-        self.backgroundColor = [UIColor clearColor];
-        self.tintColor = [Colors videoButtonDisabledColor];
-    }
-    
+    if (!self) return nil;
+    self.backgroundColor = UIColor.clearColor;
+    self.tintColor = [Colors videoButtonDisabledColor];
+    self.contentMode = UIViewContentModeRedraw;
+    [self registerForTraitChanges:@[[UITraitUserInterfaceStyle class]]
+                     withHandler:^(__kindof VideoButton *button, UITraitCollection *previousTraits) {
+        [button setNeedsDisplay];
+    }];
     return self;
 }
 
--(void)setEnabled:(BOOL)enabled {
-    
+- (void)updateTint {
+    self.tintColor = self.enabled ? [Colors videoButtonEnabledColor] : [Colors videoButtonDisabledColor];
+    [self setNeedsDisplay];
+}
+
+- (void)setEnabled:(BOOL)enabled {
     [super setEnabled:enabled];
-    
-    if (!self.enabled) {
-        self.tintColor = [Colors videoButtonDisabledColor];
-    }
-    
-    else {
-        self.tintColor = [Colors videoButtonEnabledColor];
-    }
-
-    [self setNeedsDisplay];
+    [self updateTint];
 }
 
--(void)setSelected:(BOOL)selected {
-
+- (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
-    
-    if (!self.enabled) {
-        self.tintColor = [Colors videoButtonDisabledColor];
-    }
-    
-    else {
-        self.tintColor = [Colors videoButtonEnabledColor];
-    }
+    [self updateTint];
 }
 
--(void)setHighlighted:(BOOL)highlighted {
-    
+- (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
-    
-    if (!self.enabled) {
-        self.tintColor = [Colors videoButtonDisabledColor];
-    }
-    
-    else {
-        self.tintColor = [Colors videoButtonEnabledColor];
-    }
+    [self updateTint];
 }
 
--(void)setTintColor:(UIColor *)tintColor {
-
+- (void)setTintColor:(UIColor *)tintColor {
     _tintColor = tintColor;
-    
     [self setNeedsDisplay];
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+- (void)tintColorDidChange {
+    [super tintColorDidChange];
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect {
-    
-    // Drawing code
-    
+    // Retain the original 30-point icon inside the larger accessible hit target.
+    CGRect icon = CGRectMake((CGRectGetWidth(self.bounds) - VIDEO_BUTTON_WIDTH) / 2,
+                             (CGRectGetHeight(self.bounds) - VIDEO_BUTTON_HEIGHT) / 2,
+                             VIDEO_BUTTON_WIDTH, VIDEO_BUTTON_HEIGHT);
+    CGRect screenRect, lineRect;
+    CGRectDivide(icon, &lineRect, &screenRect, icon.size.height * 0.3, CGRectMaxYEdge);
     CGContextRef context = UIGraphicsGetCurrentContext();
-
-    CGRect screenRect;
-    CGRect lineRect;
-    
-    CGRectDivide(rect, &lineRect, &screenRect, rect.size.height * 0.3, CGRectMaxYEdge);
-
-    CGRect screenRectInset = CGRectInset(screenRect, VIDEO_LINE_HEIGHT, VIDEO_LINE_HEIGHT);
-    
     CGContextAddRect(context, screenRect);
-    CGContextAddRect(context, screenRectInset);
-    
-    CGRect lineRectInset = CGRectInset(lineRect, rect.size.width * 0.2, 0.0);
-    CGRect lineRectFinal = CGRectMake(CGRectGetMinX(lineRectInset), CGRectGetMidY(lineRectInset) - VIDEO_LINE_HEIGHT/2, CGRectGetWidth(lineRectInset), VIDEO_LINE_HEIGHT);
-    
-    CGContextAddRect(context, lineRectFinal);
-
-    CGContextSetFillColorWithColor(context, [self.tintColor CGColor]);
+    CGContextAddRect(context, CGRectInset(screenRect, VIDEO_LINE_HEIGHT, VIDEO_LINE_HEIGHT));
+    CGRect lineInset = CGRectInset(lineRect, icon.size.width * 0.2, 0);
+    CGContextAddRect(context, CGRectMake(CGRectGetMinX(lineInset), CGRectGetMidY(lineInset) - VIDEO_LINE_HEIGHT / 2,
+                                        CGRectGetWidth(lineInset), VIDEO_LINE_HEIGHT));
+    CGContextSetFillColorWithColor(context, self.tintColor.CGColor);
     CGContextEOFillPath(context);
 }
-
-
 @end

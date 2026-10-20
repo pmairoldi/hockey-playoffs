@@ -16,6 +16,8 @@
 
 @interface BracketView ()
 
+@property CGSize layoutSize;
+
 @end
 
 @implementation BracketView
@@ -38,6 +40,22 @@
     return self;
 }
 
+-(void)layoutSubviews {
+    // Folding can resize the view without a rotation callback.
+    if (!CGSizeEqualToSize(_layoutSize, self.bounds.size)) {
+        _layoutSize = self.bounds.size;
+        [self.collectionViewLayout invalidateLayout];
+    }
+    [super layoutSubviews];
+}
+
+- (void)safeAreaInsetsDidChange {
+    [super safeAreaInsetsDidChange];
+    // Bar changes can resize the usable bracket without changing its bounds.
+    [self.collectionViewLayout invalidateLayout];
+    [self setNeedsLayout];
+}
+
 +(UICollectionViewLayout *)getLayout {
     
     return [[UICollectionViewFlowLayout alloc] init];
@@ -51,7 +69,7 @@
     
     NSUInteger rows = [BracketModel numberOfRowsInSection:section];
     
-    CGFloat width = CGRectGetWidth(self.frame) - inset.left - inset.right;
+    CGFloat width = CGRectGetWidth(self.bounds) - inset.left - inset.right;
     
     CGFloat interItemSpacing;
     
@@ -132,12 +150,14 @@
 
 -(CGSize)layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    int width = (self.frame.size.width - 2 * SIDE_MARGIN - [BracketModel numberOfRowsInSection:indexPath.section] * 10.0)/[BracketModel numberOfRowsInSection:indexPath.section];
+    NSInteger rows = [BracketModel numberOfRowsInSection:indexPath.section];
+    CGFloat width = floor((CGRectGetWidth(self.bounds) - 2 * SIDE_MARGIN - (rows - 1) * 10.0) / rows);
     
     
     int height = ([self getHeightForView: self] - TOP_MARGIN - BOTTOM_MARGIN - ([BracketModel numberOfSections] - 1) * MIN_SECTION_HEADER_HEIGHT)/[BracketModel numberOfSections];
     
-    return CGSizeMake(MIN(width, 60.0), MIN(height, 55.0));
+    // Keep series tappable on short windows; scroll rather than shrink them.
+    return CGSizeMake(MAX(1.0, MIN(width, 60.0)), MAX(44.0, MIN(height, 55.0)));
 }
 
 -(UIEdgeInsets)layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
@@ -165,7 +185,7 @@
         bottomOffset = 0.0;
     }
     
-    int marginOffset;
+    CGFloat marginOffset;
     
     switch (section) {
             
@@ -181,7 +201,8 @@
                 Rectangle *q1 = [quarterFrames objectAtIndex:1];
 
                 CGFloat firstSemiCenter = ((q0.x + q0.width/2) + (q1.x + q1.width/2)) / 2.0;
-                marginOffset = firstSemiCenter - itemWidth/2 - SIDE_MARGIN;
+                // Leave room for flow layout's pixel rounding between the pair.
+                marginOffset = floor(firstSemiCenter - itemWidth/2 - SIDE_MARGIN);
             }
 
             else {
@@ -195,7 +216,9 @@
         case east_final:
         case final:
             
-            marginOffset = MAX((self.frame.size.width - 2 * SIDE_MARGIN - itemWidth)/2,[self layout:collectionViewLayout minimumInteritemSpacingForSectionAtIndex:west_semi]);
+            // A single matchup and its connector share the content centerline.
+            // Semifinal spacing is unrelated to this inset on wide displays.
+            marginOffset = (CGRectGetWidth(self.bounds) - 2 * SIDE_MARGIN - itemWidth)/2;
             break;
             
         default:
@@ -218,7 +241,7 @@
         
         CGFloat lineSpacing = (viewHeight - (itemHeight * numberOfSections)) / (numberOfSections - 1);
         
-        return CGSizeMake(self.frame.size.width, ceilf(lineSpacing));
+        return CGSizeMake(CGRectGetWidth(self.bounds), MAX(MIN_SECTION_HEADER_HEIGHT, floor(lineSpacing)));
     }
     
     else {
@@ -232,7 +255,7 @@
     
     UIEdgeInsets edgeInset = [self layout:nil insetForSectionAtIndex:round];
     
-    CGSize itemSize = [self layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathWithIndex:0]];
+    CGSize itemSize = [self layout:nil sizeForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:round]];
     
     CGFloat minItemSpacing = [self layout:nil minimumInteritemSpacingForSectionAtIndex:round];
     
@@ -247,7 +270,7 @@
     
     else {
         
-        itemSpacing = MAX((self.frame.size.width - edgeInset.left - edgeInset.right - numberOfItems * itemSize.width)/MAX(1, numberOfItems-1), minItemSpacing);
+        itemSpacing = MAX((CGRectGetWidth(self.bounds) - edgeInset.left - edgeInset.right - numberOfItems * itemSize.width)/MAX(1, numberOfItems-1), minItemSpacing);
     }
     
     for (int i = 0; i < numberOfItems; ++i) {

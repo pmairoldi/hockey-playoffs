@@ -1,268 +1,178 @@
-//
-//  GameOverviewView.m
-//  Hockey Playoffs
-//
-//  Created by Pierre-Marc Airoldi on 2014-04-27.
-//  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
-//
-
+// Shared compact scoreboard used by game rows and the game summary.
 #import "GameOverviewView.h"
 #import "TeamImage.h"
 #import "VideoButton.h"
 #import "GameObject.h"
-#import "Colors.h"
-#import "Dimensions.h"
 #import "TeamHandler.h"
+#import "Colors.h"
 
 @interface GameOverviewView ()
-
 @property UILabel *leftTeamLabel;
 @property UILabel *rightTeamLabel;
 @property TeamImage *leftTeamImage;
 @property TeamImage *rightTeamImage;
 @property UILabel *gameStatusLabel;
-@property UILabel *rightScoreLabel;
 @property UILabel *leftScoreLabel;
-@property UILabel *rightStatusIndicatorLabel;
+@property UILabel *rightScoreLabel;
 @property UILabel *leftStatusIndicatorLabel;
-
+@property UILabel *rightStatusIndicatorLabel;
 @end
 
 @implementation GameOverviewView
 
-- (id)initWithFrame:(CGRect)frame {
-    
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    
-    if (self) {
-        
-        self.clipsToBounds = YES;
-        
-        _leftTeamImage = [[TeamImage alloc] init];
-        _rightTeamImage = [[TeamImage alloc] init];
-        
-        _leftTeamLabel = [[UILabel alloc] init];
-        [self setPropertiesForTeamLabel:_leftTeamLabel];
-        
-        _rightTeamLabel = [[UILabel alloc] init];
-        [self setPropertiesForTeamLabel:_rightTeamLabel];
-        
-        _leftScoreLabel = [[UILabel alloc] init];
-        [self setPropertiesForScoreLabel:_leftScoreLabel];
-        
-        _rightScoreLabel = [[UILabel alloc] init];
-        [self setPropertiesForScoreLabel:_rightScoreLabel];
-        
-        _rightStatusIndicatorLabel = [[UILabel alloc] init];
-        [self setPropertiesForStatusIndicatorLabel:_rightStatusIndicatorLabel];
-        
-        _leftStatusIndicatorLabel = [[UILabel alloc] init];
-        [self setPropertiesForStatusIndicatorLabel:_leftStatusIndicatorLabel];
-        
-        _gameStatusLabel = [[UILabel alloc] init];
-        [self setPropertiesForStatusLabel:_gameStatusLabel];
-        
-        _videoButton = [[VideoButton alloc] init];
-        [_videoButton setAccessibilityIdentifier:[NSString stringWithFormat:@"Play Highlights"]];
-                        
-        [self addSubview:_leftTeamImage];
-        [self addSubview:_leftTeamLabel];
-        [self addSubview:_rightTeamImage];
-        [self addSubview:_rightTeamLabel];
-        [self addSubview:_gameStatusLabel];
-        [self addSubview:_videoButton];
-        [self addSubview:_leftScoreLabel];
-        [self addSubview:_rightScoreLabel];
-        [self addSubview:_rightStatusIndicatorLabel];
-        [self addSubview:_leftStatusIndicatorLabel];
+    if (!self) return nil;
+    self.backgroundColor = UIColor.clearColor;
+    _leftTeamImage = [[TeamImage alloc] init];
+    _rightTeamImage = [[TeamImage alloc] init];
+    _leftTeamLabel = [self labelWithStyle:UIFontTextStyleSubheadline color:[Colors gameCellTeamTextColor]];
+    _rightTeamLabel = [self labelWithStyle:UIFontTextStyleSubheadline color:[Colors gameCellTeamTextColor]];
+    UIFont *teamFont = [[UIFontMetrics metricsForTextStyle:UIFontTextStyleSubheadline]
+                        scaledFontForFont:[UIFont systemFontOfSize:14]];
+    _leftTeamLabel.font = teamFont;
+    _rightTeamLabel.font = teamFont;
+    _leftScoreLabel = [self labelWithStyle:UIFontTextStyleLargeTitle color:[Colors gameCellScoreColor]];
+    _rightScoreLabel = [self labelWithStyle:UIFontTextStyleLargeTitle color:[Colors gameCellScoreColor]];
+    UIFont *scoreFont = [self.class scoreFont];
+    _leftScoreLabel.font = scoreFont;
+    _rightScoreLabel.font = scoreFont;
+    _gameStatusLabel = [self labelWithStyle:UIFontTextStyleCaption1 color:[Colors gameCellStatusTextColor]];
+    _leftStatusIndicatorLabel = [self labelWithStyle:UIFontTextStyleCaption2 color:[Colors gameLabelTextColor]];
+    _rightStatusIndicatorLabel = [self labelWithStyle:UIFontTextStyleCaption2 color:[Colors gameLabelTextColor]];
+    _leftStatusIndicatorLabel.numberOfLines = 0;
+    _rightStatusIndicatorLabel.numberOfLines = 0;
+    _videoButton = [[VideoButton alloc] init];
+    _videoButton.accessibilityIdentifier = @"Play Highlights";
+    _videoButton.accessibilityLabel = NSLocalizedString(@"Highlights", nil);
+    for (UIView *view in @[_leftTeamImage, _rightTeamImage, _leftTeamLabel, _rightTeamLabel,
+                          _leftScoreLabel, _rightScoreLabel, _gameStatusLabel,
+                          _leftStatusIndicatorLabel, _rightStatusIndicatorLabel, _videoButton]) {
+        [self addSubview:view];
     }
-    
+    [self registerForTraitChanges:@[[UITraitPreferredContentSizeCategory class]]
+                     withHandler:^(__kindof GameOverviewView *view, UITraitCollection *previousTraits) {
+        view.leftScoreLabel.font = [view.class scoreFont];
+        view.rightScoreLabel.font = [view.class scoreFont];
+        [view setNeedsLayout];
+    }];
     return self;
 }
 
--(void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    
-    if (selected) {
-        self.backgroundColor = [Colors gameBackgroundSelectedColor];
-    }
-    
-    else {
-        self.backgroundColor = [Colors gameBackgroundColor];
-    }
++ (UIFont *)scoreFont {
+    return [[UIFontMetrics metricsForTextStyle:UIFontTextStyleLargeTitle]
+            scaledFontForFont:[UIFont monospacedDigitSystemFontOfSize:35 weight:UIFontWeightSemibold]];
 }
 
--(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    
-    if (highlighted) {
-        self.backgroundColor = [Colors gameBackgroundSelectedColor];
-    }
-    
-    else {
-        self.backgroundColor = [Colors gameBackgroundColor];
-    }
+- (UILabel *)labelWithStyle:(UIFontTextStyle)style color:(UIColor *)color {
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont preferredFontForTextStyle:style];
+    label.adjustsFontForContentSizeCategory = YES;
+    label.textColor = color;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.numberOfLines = 2;
+    label.adjustsFontSizeToFitWidth = YES;
+    label.minimumScaleFactor = 0.65;
+    return label;
 }
 
--(void)layoutSubviews {
-    
+- (void)layoutSubviews {
     [super layoutSubviews];
-        
-    _leftTeamImage.frame = CGRectMake(IMAGE_X_OFFSET, 5, TEAM_IMAGE_SIZE, TEAM_IMAGE_SIZE);
-    
-    _rightTeamImage.frame = CGRectMake(CGRectGetWidth(self.frame) - TEAM_IMAGE_SIZE - IMAGE_X_OFFSET, 5, TEAM_IMAGE_SIZE, TEAM_IMAGE_SIZE);
-    
-    [_rightTeamLabel sizeToFit];
-    
-    _rightTeamLabel.frame = CGRectMake(CGRectGetWidth(self.frame) - CGRectGetWidth(_rightTeamLabel.frame) - LABEL_X_OFFSET, CGRectGetMaxY(_rightTeamImage.frame) + 2, CGRectGetWidth(_rightTeamLabel.frame), CGRectGetHeight(_rightTeamLabel.frame));
-    _rightTeamLabel.textAlignment = NSTextAlignmentRight;
-    
-    [_leftTeamLabel sizeToFit];
-    
-    _leftTeamLabel.frame = CGRectMake(LABEL_X_OFFSET, CGRectGetMaxY(_leftTeamImage.frame) + 2, CGRectGetWidth(_leftTeamLabel.frame), CGRectGetHeight(_leftTeamLabel.frame));
-    _leftTeamLabel.textAlignment = NSTextAlignmentLeft;
-    
-    [_leftScoreLabel sizeToFit];
-    
-    _leftScoreLabel.frame = CGRectMake(CGRectGetMaxX(_leftTeamImage.frame) + 5, CGRectGetMinY(_leftTeamImage.frame), MIN(SCORE_LABEL_WIDTH, _leftScoreLabel.frame.size.width), CGRectGetHeight(_leftTeamImage.frame));
-    
-    [_rightScoreLabel sizeToFit];
-    
-    _rightScoreLabel.frame = CGRectMake(CGRectGetMinX(_rightTeamImage.frame) - MIN(SCORE_LABEL_WIDTH, _rightScoreLabel.frame.size.width) - 5, CGRectGetMinY(_rightTeamImage.frame), MIN(SCORE_LABEL_WIDTH, _rightScoreLabel.frame.size.width), CGRectGetHeight(_rightTeamImage.frame));
-    
-    [_leftStatusIndicatorLabel sizeToFit];
-    
-    _leftStatusIndicatorLabel.frame = CGRectMake(CGRectGetMaxX(_leftScoreLabel.frame) + 5, CGRectGetMinY(_leftScoreLabel.frame), MIN(SCORE_LABEL_WIDTH, _leftStatusIndicatorLabel.frame.size.width), CGRectGetHeight(_leftScoreLabel.frame));
-    
-    [_rightStatusIndicatorLabel sizeToFit];
-    
-    _rightStatusIndicatorLabel.frame = CGRectMake(CGRectGetMinX(_rightScoreLabel.frame) - MIN(SCORE_LABEL_WIDTH, _rightStatusIndicatorLabel.frame.size.width) - 5, CGRectGetMinY(_rightScoreLabel.frame), MIN(SCORE_LABEL_WIDTH, _rightStatusIndicatorLabel.frame.size.width), CGRectGetHeight(_rightScoreLabel.frame));
-    
-    _gameStatusLabel.frame = CGRectMake(0, 5, CGRectGetMinX(_rightStatusIndicatorLabel.frame) - CGRectGetMaxX(_leftStatusIndicatorLabel.frame) - 2*2, TEAM_IMAGE_SIZE);
-    _gameStatusLabel.center = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(_gameStatusLabel.frame)/2 + 5);
-    
-    _videoButton.frame = CGRectMake(0, 0, VIDEO_BUTTON_WIDTH, VIDEO_BUTTON_HEIGHT);
-    _videoButton.center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(_leftTeamLabel.frame));
-    
-}
-
-+(CGFloat)height {
-    
-    return 96;
-}
-
--(void)setPropertiesForScoreLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameCellScoreColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont boldSystemFontOfSize:SCORE_LABEL_FONT_SIZE];
-    label.adjustsFontSizeToFitWidth = YES;
-    label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-}
-
--(void)setPropertiesForStatusLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameCellStatusTextColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:DETAIL_GAME_STATUS_FONT_SIZE];
-    label.numberOfLines = 2;
-    label.adjustsFontSizeToFitWidth = YES;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-}
-
--(void)setPropertiesForTeamLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameCellTeamTextColor];
-    label.font = [UIFont systemFontOfSize:TEAM_LABEL_FONT_SIZE];
-    label.numberOfLines = 2;
-    label.adjustsFontSizeToFitWidth = YES;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-}
-
--(void)setPropertiesForGameLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameLabelTextColor];
-    label.font = [UIFont systemFontOfSize:GAME_LABEL_FONT_SIZE];
-    label.numberOfLines = 1;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.adjustsFontSizeToFitWidth = YES;
-    label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-}
-
--(void)setPropertiesForStatusIndicatorLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameLabelTextColor];
-    label.font = [UIFont boldSystemFontOfSize:TEAM_LABEL_FONT_SIZE];
-    label.numberOfLines = 0;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.adjustsFontSizeToFitWidth = YES;
-    label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-}
-
--(void)setGame:(GameObject *)game {
-    
-    [self setTeam:game.homeID withImage:_rightTeamImage andLabel:_rightTeamLabel];
-    [self setTeam:game.awayID withImage:_leftTeamImage andLabel:_leftTeamLabel];
-    
-    _gameStatusLabel.text = [game getGameStatus];
-    
-    _rightScoreLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[game getScoreForTeam:game.homeID]];
-    _leftScoreLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[game getScoreForTeam:game.awayID]];
-    
-    NSString *homeStatus = [[game homeStatus] uppercaseString];
-    NSString *awayStatus = [[game awayStatus] uppercaseString];
-    
-    _rightStatusIndicatorLabel.attributedText = [self statusIndicatorString:homeStatus];
-    _rightStatusIndicatorLabel.hidden = homeStatus.length == 0;
-    
-    _leftStatusIndicatorLabel.attributedText = [self statusIndicatorString:awayStatus];
-    _leftStatusIndicatorLabel.hidden = awayStatus.length == 0;
-    
-    [_videoButton setEnabled:[game hasVideo]];
-        
-    [self layoutSubviews];
-}
-
--(void)setTeam:(NSString *)team withImage:(TeamImage *)image andLabel:(UILabel *)label {
-    
-    NSString *text = [NSString stringWithFormat:@"%@\n%@", [TeamHandler getTeamCity:team], [TeamHandler getTeamName:team]];
-    
-    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [style setAlignment:label.textAlignment];
-    [style setLineBreakMode:label.lineBreakMode];
-    
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys: label.font, NSFontAttributeName, label.textColor, NSForegroundColorAttributeName, style, NSParagraphStyleAttributeName, nil];
-    
-    [label setFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMinY(label.frame), [text sizeWithAttributes:attributes].width, CGRectGetHeight(label.frame))];
-    
-    [image setLargeImage:team];
-    [label setText:text];
-}
-
--(NSAttributedString *)statusIndicatorString:(NSString *)statuses {
-    
-    NSMutableAttributedString *statusText = [[NSMutableAttributedString alloc] init];
-    
-    NSArray *array = [statuses componentsSeparatedByString:@","];
-    for (NSString *item in array) {
-        NSString *trimmedItem = [item stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        
-        NSDictionary *attributes;
-        
-        if ([[trimmedItem uppercaseString] isEqualToString:[@"pp" uppercaseString]]) {
-            attributes = @{ NSForegroundColorAttributeName : [Colors powerplayColor] };
-        } else if ([[trimmedItem uppercaseString] isEqualToString:[@"en" uppercaseString]]) {
-            attributes = @{ NSForegroundColorAttributeName : [Colors emptyNetColor] };
-        } else {
-            attributes = @{ NSForegroundColorAttributeName : [Colors gameLabelTextColor] };
+    CGFloat width = CGRectGetWidth(self.bounds);
+    CGFloat height = CGRectGetHeight(self.bounds);
+    BOOL accessible = UIContentSizeCategoryIsAccessibilityCategory(self.traitCollection.preferredContentSizeCategory);
+    _leftTeamLabel.numberOfLines = accessible ? 0 : 2;
+    _rightTeamLabel.numberOfLines = accessible ? 0 : 2;
+    if (accessible) {
+        // Keep each team's name and score together when large text needs rows.
+        CGFloat nameWidth = MAX(0, width - 90);
+        CGFloat y = 12;
+        for (NSArray *team in @[@[_leftTeamImage, _leftTeamLabel, _leftScoreLabel, _leftStatusIndicatorLabel],
+                               @[_rightTeamImage, _rightTeamLabel, _rightScoreLabel, _rightStatusIndicatorLabel]]) {
+            TeamImage *image = team[0];
+            UILabel *name = team[1], *score = team[2], *indicator = team[3];
+            CGFloat nameHeight = MAX(50, [name sizeThatFits:CGSizeMake(nameWidth, CGFLOAT_MAX)].height);
+            image.frame = CGRectMake(16, y + (nameHeight - 50) / 2, 50, 50);
+            name.frame = CGRectMake(74, y, nameWidth, nameHeight);
+            name.textAlignment = NSTextAlignmentLeft;
+            y += nameHeight + 4;
+            CGFloat scoreHeight = score.font.lineHeight;
+            score.frame = CGRectMake(16, y, MAX(0, width / 2 - 20), scoreHeight);
+            indicator.frame = CGRectMake(width / 2, y, MAX(0, width / 2 - 16), scoreHeight);
+            y += scoreHeight + 8;
+            if (image == _leftTeamImage) {
+                CGFloat statusHeight = _gameStatusLabel.font.lineHeight * 2;
+                _gameStatusLabel.frame = CGRectMake(16, y, MAX(0, width - 32), statusHeight);
+                y += statusHeight + 8;
+            }
         }
-        
-        [statusText appendAttributedString: [[NSAttributedString alloc] initWithString:trimmedItem attributes:attributes]];
-        if (![[array lastObject] isEqual:item]) {
-            [statusText appendAttributedString: [[NSAttributedString alloc] initWithString:@"\n"]];
-        }
+        _videoButton.frame = CGRectMake((width - 44) / 2, MAX(y, height - 52), 44, 44);
+        return;
     }
-        
-    return statusText;
+
+    // Original two-tier arrangement: badges and scores above names and TV control.
+    CGFloat imageSize = 50;
+    CGFloat inset = 16;
+    CGFloat top = 12;
+    CGFloat sideWidth = MAX(0, (width - 2 * inset - 72) / 2);
+    CGFloat scoreWidth = MIN(40, MAX(24, sideWidth - imageSize - 30));
+    _leftTeamImage.frame = CGRectMake(inset, top, imageSize, imageSize);
+    _rightTeamImage.frame = CGRectMake(width - inset - imageSize, top, imageSize, imageSize);
+    _leftScoreLabel.frame = CGRectMake(CGRectGetMaxX(_leftTeamImage.frame) + 4, top, scoreWidth, imageSize);
+    _rightScoreLabel.frame = CGRectMake(CGRectGetMinX(_rightTeamImage.frame) - 4 - scoreWidth, top, scoreWidth, imageSize);
+    CGFloat indicatorWidth = MAX(0, sideWidth - imageSize - scoreWidth - 8);
+    _leftStatusIndicatorLabel.frame = CGRectMake(CGRectGetMaxX(_leftScoreLabel.frame) + 4, top, indicatorWidth, imageSize);
+    _rightStatusIndicatorLabel.frame = CGRectMake(CGRectGetMinX(_rightScoreLabel.frame) - 4 - indicatorWidth, top, indicatorWidth, imageSize);
+    CGFloat statusX = CGRectGetMaxX(_leftStatusIndicatorLabel.frame) + 4;
+    _gameStatusLabel.frame = CGRectMake(statusX, top, MAX(0, width - 2 * statusX), imageSize);
+    CGFloat nameY = CGRectGetMaxY(_leftTeamImage.frame) + 4;
+    CGFloat nameWidth = MAX(0, (width - 44 - 2 * inset - 16) / 2);
+    CGFloat nameHeight = MAX(0, height - nameY - 8);
+    _leftTeamLabel.frame = CGRectMake(inset, nameY, nameWidth, nameHeight);
+    _rightTeamLabel.frame = CGRectMake(width - inset - nameWidth, nameY, nameWidth, nameHeight);
+    _leftTeamLabel.textAlignment = NSTextAlignmentLeft;
+    _rightTeamLabel.textAlignment = NSTextAlignmentRight;
+    // Keep the expanded TV hit target below the row's center tap/navigation area.
+    _videoButton.frame = CGRectMake((width - 44) / 2, height - 52, 44, 44);
 }
 
++ (CGFloat)height {
+    if (!UIContentSizeCategoryIsAccessibilityCategory(UIApplication.sharedApplication.preferredContentSizeCategory)) {
+        return ceil([[UIFontMetrics metricsForTextStyle:UIFontTextStyleBody] scaledValueForValue:112]);
+    }
+    CGFloat names = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline].lineHeight * 4;
+    CGFloat status = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1].lineHeight * 2;
+    return ceil(2 * (MAX(50, names) + [self scoreFont].lineHeight + 12) + status + 68);
+}
+
+- (void)setGame:(GameObject *)game {
+    [self setTeam:game.awayID image:_leftTeamImage label:_leftTeamLabel];
+    [self setTeam:game.homeID image:_rightTeamImage label:_rightTeamLabel];
+    _gameStatusLabel.text = [game getGameStatus];
+    _leftScoreLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[game getScoreForTeam:game.awayID]];
+    _rightScoreLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[game getScoreForTeam:game.homeID]];
+    _leftStatusIndicatorLabel.attributedText = [self statusText:game.awayStatus];
+    _rightStatusIndicatorLabel.attributedText = [self statusText:game.homeStatus];
+    _leftStatusIndicatorLabel.hidden = game.awayStatus.length == 0;
+    _rightStatusIndicatorLabel.hidden = game.homeStatus.length == 0;
+    _videoButton.enabled = [game hasVideo];
+    [self setNeedsLayout];
+}
+
+- (NSAttributedString *)statusText:(NSString *)statuses {
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] init];
+    for (NSString *status in [statuses.uppercaseString componentsSeparatedByString:@","]) {
+        NSString *value = [status stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+        UIColor *color = [value isEqualToString:@"PP"] ? [Colors powerplayColor] :
+                         [value isEqualToString:@"EN"] ? [Colors emptyNetColor] : [Colors gameLabelTextColor];
+        if (text.length) [text appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
+        [text appendAttributedString:[[NSAttributedString alloc] initWithString:value attributes:@{NSForegroundColorAttributeName:color}]];
+    }
+    return text;
+}
+
+- (void)setTeam:(NSString *)team image:(TeamImage *)image label:(UILabel *)label {
+    label.text = [NSString stringWithFormat:@"%@\n%@", [TeamHandler getTeamCity:team], [TeamHandler getTeamName:team]];
+    [image setLargeImage:team];
+}
 @end

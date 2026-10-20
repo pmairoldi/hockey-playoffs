@@ -7,6 +7,7 @@
 //
 
 #import "PeriodScoreViewHeader.h"
+#import "ScoreGridLayout.h"
 #import "Dimensions.h"
 #import "Colors.h"
 #import "GameModel.h"
@@ -104,36 +105,25 @@
     
     [super layoutSubviews];
     
-    CGFloat labelWidth = GAME_HEADER_SCORE_LABEL_WIDTH;
-    CGFloat labelSpacing = SCORE_SPACEING;
-    
-    CGFloat yOffset = 1.0/[[UIScreen mainScreen] scale];
-    CGFloat labelHeight = self.frame.size.height - 2 * yOffset;
-    
-    _total.frame = CGRectMake(CGRectGetWidth(self.frame) - labelWidth, yOffset, labelWidth, labelHeight);
-    
-    if (_periodOT.text.length == 0) {
-        
-        _periodOT.frame = CGRectMake(CGRectGetMinX(_total.frame), yOffset, 0, 0);
+    BOOL overtime = _periodOT.text.length > 0;
+    _periodOT.hidden = !overtime;
+    NSArray<UILabel *> *labels = overtime ?
+        @[_shotsLabel, _periodOne, _periodTwo, _periodThree, _periodOT, _total] :
+        @[_shotsLabel, _periodOne, _periodTwo, _periodThree, _total];
+    ScoreGridLayout layout = ScoreGridLayoutMake(CGRectGetWidth(self.bounds), labels.count,
+                                                 44, 80, self.traitCollection);
+    for (NSUInteger i = 0; i < labels.count; i++) {
+        labels[i].frame = ScoreGridNumericFrame(layout, i, CGRectGetHeight(self.bounds));
     }
-    
-    else {
-        _periodOT.frame = CGRectMake(CGRectGetMinX(_total.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    }
-    
-    _periodThree.frame = CGRectMake(CGRectGetMinX(_periodOT.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _periodTwo.frame = CGRectMake(CGRectGetMinX(_periodThree.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _periodOne.frame = CGRectMake(CGRectGetMinX(_periodTwo.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
-    
-    _shotsLabel.frame = CGRectMake(CGRectGetMinX(_periodOne.frame) - labelWidth - labelSpacing, yOffset, labelWidth, labelHeight);
 }
 
 -(void)setGameLabelProperties:(UILabel *)label {
     
     label.textColor = [Colors periodScoreViewHeaderFontColor];
-    label.font = [UIFont systemFontOfSize:PERIOD_SCORE_VIEW_HEADER_FONT_SIZE];
+    label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    label.adjustsFontForContentSizeCategory = YES;
+    label.adjustsFontSizeToFitWidth = YES;
+    label.minimumScaleFactor = 0.5;
     label.textAlignment = NSTextAlignmentCenter;
 }
 
@@ -155,6 +145,7 @@
     else {
         _periodOT.text = @"";
     }
+    [self setNeedsLayout];
 }
 
 @end

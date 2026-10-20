@@ -1,136 +1,73 @@
-//
-//  GameDetailCell.m
-//  Hockey Playoffs
-//
-//  Created by Pierre-Marc Airoldi on 2014-03-18.
-//  Copyright (c) 2015 Pierre-Marc Airoldi. All rights reserved.
-//
-
 #import "GameDetailCell.h"
 #import "TeamImage.h"
-#import "Colors.h"
-#import "Dimensions.h"
 #import "EventObject.h"
-#import "StrengthIndicator.h"
+#import "Colors.h"
 
 @interface GameDetailCell ()
-
 @property TeamImage *teamImage;
 @property UILabel *timeLabel;
-@property UILabel *textLabel;
-@property StrengthIndicator *strength;
-
+@property UILabel *eventLabel;
+@property NSLayoutConstraint *identityWidth;
 @end
-
-#define EDGE_OFFSET 40
 
 @implementation GameDetailCell
 
-@synthesize textLabel = _textLabel;
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    
-    if (self) {
-        
-        self.contentView.backgroundColor = [Colors gameBackgroundColor];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        _teamImage = [[TeamImage alloc] init];
-        
-        _timeLabel = [[UILabel alloc] init];
-        [self setPropertiesForTimeLabel:_timeLabel];
-        
-        _textLabel = [[UILabel alloc] init];
-        [self setPropertiesForTextLabel:_textLabel];
-        
-        _strength = [[StrengthIndicator alloc] init];
-        
-        [self.contentView addSubview:_teamImage];
-        [self.contentView addSubview:_timeLabel];
-        [self.contentView addSubview:_textLabel];
-        [self.contentView addSubview:_strength];
-        
-        _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale])];
-        _seperatorView.backgroundColor = [Colors gameSeperatorColor];
-        
-        [self.contentView addSubview:_seperatorView];
-    }
-    
+    if (!self) return nil;
+    self.backgroundColor = [Colors gameBackgroundColor];
+    self.contentView.backgroundColor = [Colors gameBackgroundColor];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    _teamImage = [[TeamImage alloc] init];
+    _timeLabel = [[UILabel alloc] init];
+    _timeLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    _timeLabel.adjustsFontForContentSizeCategory = YES;
+    _timeLabel.textColor = [Colors gameDetailCellTimeColor];
+    _timeLabel.textAlignment = NSTextAlignmentCenter;
+    _eventLabel = [[UILabel alloc] init];
+    _eventLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    _eventLabel.adjustsFontForContentSizeCategory = YES;
+    _eventLabel.textColor = [Colors gameDetailCellTextColor];
+    _eventLabel.numberOfLines = 0;
+    UIStackView *identity = [[UIStackView alloc] initWithArrangedSubviews:@[_teamImage, _timeLabel]];
+    identity.axis = UILayoutConstraintAxisVertical;
+    identity.alignment = UIStackViewAlignmentCenter;
+    identity.spacing = 4;
+    UIStackView *row = [[UIStackView alloc] initWithArrangedSubviews:@[identity, _eventLabel]];
+    row.axis = UILayoutConstraintAxisHorizontal;
+    row.alignment = UIStackViewAlignmentCenter;
+    row.spacing = 16;
+    row.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:row];
+    _identityWidth = [identity.widthAnchor constraintEqualToConstant:44];
+    [self updateIdentityWidth];
+    [self registerForTraitChanges:@[[UITraitPreferredContentSizeCategory class]]
+                     withHandler:^(__kindof GameDetailCell *cell, UITraitCollection *previousTraits) {
+        [cell updateIdentityWidth];
+    }];
+    [NSLayoutConstraint activateConstraints:@[
+        [_teamImage.widthAnchor constraintEqualToConstant:32],
+        [_teamImage.heightAnchor constraintEqualToConstant:32],
+        _identityWidth,
+        [row.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:12],
+        [row.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor constant:-12],
+        [row.leadingAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.leadingAnchor],
+        [row.trailingAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.trailingAnchor]
+    ]];
+    [_timeLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    
-    [super setSelected:selected animated:animated];
+- (void)updateIdentityWidth {
+    _identityWidth.constant = ceil([[UIFontMetrics metricsForTextStyle:UIFontTextStyleCaption1]
+                                   scaledValueForValue:44 compatibleWithTraitCollection:self.traitCollection]);
 }
 
-- (void)prepareForReuse {
-    
-    [super prepareForReuse];
-    
-    [self layoutSubviews];
-}
++ (CGFloat)height { return 80; }
 
--(void)layoutSubviews {
-
-    [super layoutSubviews];
- 
-    _teamImage.frame = CGRectMake(DETAIL_GAME_X_OFFSET, DETAIL_GAME_Y_OFFSET, 30, 30);
-    
-    [_timeLabel sizeToFit];
-    
-    _timeLabel.frame = CGRectMake(DETAIL_GAME_X_OFFSET, [[self class] height] - _timeLabel.frame.size.height - DETAIL_GAME_Y_OFFSET, _teamImage.frame.size.width, _timeLabel.frame.size.height);
-    
-    CGRect slice;
-    CGRect remainder;
-    
-    CGRectDivide(self.contentView.frame, &slice, &remainder, _teamImage.frame.size.width + DETAIL_GAME_X_OFFSET + floorf(1.5*DETAIL_GAME_X_OFFSET), CGRectMinXEdge);
-    
-    [_textLabel sizeToFit];
-    
-    _textLabel.frame = CGRectMake(remainder.origin.x, floorf(1.5*DETAIL_GAME_Y_OFFSET), remainder.size.width - DETAIL_GAME_X_OFFSET, MIN(_textLabel.frame.size.height,remainder.size.height - 2*floorf(1.5*DETAIL_GAME_Y_OFFSET)));
-
-    //TODO: add implement of strength
-    _strength.frame = CGRectZero;
-    
-    _seperatorView.frame = CGRectMake(EDGE_OFFSET, 0.0, self.contentView.frame.size.width - EDGE_OFFSET, 1.0/[[UIScreen mainScreen] scale]);
-}
-
-+(CGFloat)height {
-    
-    return 55;
-}
-
--(void)setPropertiesForTimeLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameDetailCellTimeColor];
-    label.font = [UIFont systemFontOfSize:TIME_LABEL_FONT_SIZE];
-    label.numberOfLines = 1;
-    label.textAlignment = NSTextAlignmentCenter;
-    label.adjustsFontSizeToFitWidth = YES;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-}
-
--(void)setPropertiesForTextLabel:(UILabel *)label {
-    
-    label.textColor = [Colors gameDetailCellTextColor];
-    label.font = [UIFont systemFontOfSize:TEXT_LABEL_FONT_SIZE];
-    label.numberOfLines = 0;
-    label.textAlignment = NSTextAlignmentLeft;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-}
-
--(void)setEvent:(EventObject *)event {
-
+- (void)setEvent:(EventObject *)event {
     _timeLabel.text = event.time;
-    _textLabel.text = event.details;
-    
-    [_strength setStrength:event.strength];
+    _eventLabel.text = event.details;
     [_teamImage setSmallImage:event.teamID];
-    
-    [self layoutIfNeeded];
 }
-
 @end

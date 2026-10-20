@@ -45,11 +45,7 @@
     
     if (self) {
         
-        static dispatch_once_t onceToken;
-        
-        dispatch_once(&onceToken, ^{
-            self.datepickerQueue = DATE_PICKER_QUEUE;
-        });
+        self.datepickerQueue = DATE_PICKER_QUEUE;
         
         _recentGamesModel = [[RecentGamesModel alloc] init];
         
@@ -72,7 +68,20 @@
     _datePicker.date = _recentGamesModel.date;
     [_datePicker addTarget:self action:@selector(onDateChange:) forControlEvents:UIControlEventValueChanged];
   
-    self.navigationItem.titleView = _datePicker;
+    _datePicker.translatesAutoresizingMaskIntoConstraints = NO;
+    // Compact pickers report no intrinsic width until hosted; reserve enough
+    // space for the complete date instead of the minimum touch-target width.
+    CGFloat dateWidth = [[UIFontMetrics metricsForTextStyle:UIFontTextStyleBody] scaledValueForValue:144];
+    NSLayoutConstraint *dateWidthConstraint = [_datePicker.widthAnchor constraintEqualToConstant:dateWidth];
+    dateWidthConstraint.active = YES;
+    [_datePicker.heightAnchor constraintGreaterThanOrEqualToConstant:44].active = YES;
+    [self registerForTraitChanges:@[[UITraitPreferredContentSizeCategory class]]
+                     withHandler:^(__kindof RecentGamesViewController *controller, UITraitCollection *previousTraits) {
+        dateWidthConstraint.constant = [[UIFontMetrics metricsForTextStyle:UIFontTextStyleBody] scaledValueForValue:144];
+    }];
+    UIBarButtonItem *dateItem = [[UIBarButtonItem alloc] initWithCustomView:_datePicker];
+    if (@available(iOS 26.0, *)) dateItem.hidesSharedBackground = YES;
+    self.navigationItem.rightBarButtonItem = dateItem;
   
     _recentGamesView = [[RecentGamesView alloc] initWithFrame:CGRectZero];
     _recentGamesView.translatesAutoresizingMaskIntoConstraints = false;
@@ -84,14 +93,17 @@
 
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
-    [_recentGamesView addSubview:_refreshControl];
+    _recentGamesView.refreshControl = _refreshControl;
     
     [self.view addSubview:_recentGamesView];
     
-    [_recentGamesView.topAnchor constraintEqualToAnchor: self.view.topAnchor].active = true;
-    [_recentGamesView.leadingAnchor constraintEqualToAnchor: self.view.leadingAnchor].active = true;
-    [_recentGamesView.trailingAnchor constraintEqualToAnchor: self.view.trailingAnchor].active = true;
-    [_recentGamesView.bottomAnchor constraintEqualToAnchor: self.view.safeAreaLayoutGuide.bottomAnchor].active = true;
+    UILayoutGuide *safeArea = self.view.safeAreaLayoutGuide;
+    [NSLayoutConstraint activateConstraints:@[
+        [_recentGamesView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [_recentGamesView.leadingAnchor constraintEqualToAnchor:safeArea.leadingAnchor],
+        [_recentGamesView.trailingAnchor constraintEqualToAnchor:safeArea.trailingAnchor],
+        [_recentGamesView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
     
     _recentGamesView.hasContent = _recentGamesModel.hasData;
     
@@ -101,7 +113,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-            
     [self refresh];
 }
 
@@ -147,108 +158,73 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return [_recentGamesModel numberOfSections];
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 8;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [_recentGamesModel numberOfRowsInSection:section];
+    // Keep the original loading row without reserving an empty leading group.
+    return [_recentGamesModel numberOfRowsInSection:0] + [_recentGamesModel numberOfRowsInSection:1];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0 && _recentGamesModel.isRefreshing) {
-        
+    if (indexPath.row < [_recentGamesModel numberOfRowsInSection:0]) {
         return [RefreshTableViewCell height];
     }
-    
-    else if (indexPath.section == 0 && !_recentGamesModel.isRefreshing) {
-        
-        return [NoDataTableViewCell height];
-    }
-    
-    else {
-        return [GameCell height];
-    }
+    return [GameCell height];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0 && _recentGamesModel.isRefreshing) {
-        
-        return [RefreshTableViewCell height];
-    }
-    
-    else if (indexPath.section == 0 && !_recentGamesModel.isRefreshing) {
-        
-        return [NoDataTableViewCell height];
-    }
-    
-    else {
-        return [GameCell height];
-    }
+    return [self tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0 && _recentGamesModel.isRefreshing) {
-        
-        RefreshTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:REFRESH_CELL_REUSE_IDENTIFIER];
-        
-        return cell;
+    if (indexPath.row < [_recentGamesModel numberOfRowsInSection:0]) {
+        return [tableView dequeueReusableCellWithIdentifier:REFRESH_CELL_REUSE_IDENTIFIER];
     }
-    
-    else if (indexPath.section == 0 && !_recentGamesModel.isRefreshing) {
-        
-        NoDataTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NO_DATA_CELL_REUSE_IDENTIFIER];
-        
-        cell.textLabel.text = NSLocalizedString(@"series.nodata", nil);
-        
-        return cell;
-    }
-    
-    else {
-        
-        GameCell *cell = [tableView dequeueReusableCellWithIdentifier:GAME_CELL_REUSE_IDENTIFIER];
-        cell.videoButton.tag = indexPath.row;
-        
-        [cell setGame:[_recentGamesModel getGameAtIndex:indexPath]];
-        
-        [cell.videoButton addTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        if(indexPath.row == 0){
-            cell.seperatorView.hidden = YES;
-        }
-        
-        else {
-            cell.seperatorView.hidden = NO;
-        }
-        
-        return cell;
-    }
+    NSIndexPath *gameIndex = [self gameIndexForTableIndex:indexPath];
+    GameCell *cell = [tableView dequeueReusableCellWithIdentifier:GAME_CELL_REUSE_IDENTIFIER];
+    cell.showsBottomSeparator = indexPath.row + 1 < [self tableView:tableView numberOfRowsInSection:indexPath.section];
+    cell.videoButton.tag = gameIndex.row;
+    [cell setGame:[_recentGamesModel getGameAtIndex:gameIndex]];
+    [cell.videoButton removeTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.videoButton addTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    return cell;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    cell.contentView.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Clip the whole group, including the loading row, at its outer corners.
+    CACornerMask corners = 0;
+    if (indexPath.row == 0) corners |= kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
+    if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1) {
+        corners |= kCALayerMinXMaxYCorner | kCALayerMaxXMaxYCorner;
+    }
+    cell.layer.cornerRadius = 24;
+    cell.layer.cornerCurve = kCACornerCurveContinuous;
+    cell.layer.maskedCorners = corners;
+    cell.clipsToBounds = YES;
 }
-
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.section == 0) {
-        
-    }
-    
-    else {
-        
-        [self goToGameAtIndexPath:indexPath];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
+    if (indexPath.row < [_recentGamesModel numberOfRowsInSection:0]) return;
+    [self goToGameAtIndexPath:[self gameIndexForTableIndex:indexPath]];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+- (NSIndexPath *)gameIndexForTableIndex:(NSIndexPath *)indexPath {
+    return [NSIndexPath indexPathForRow:indexPath.row - [_recentGamesModel numberOfRowsInSection:0] inSection:1];
 }
 
 -(void)goToGameAtIndexPath:(NSIndexPath *)indexPath {
@@ -258,7 +234,6 @@
     GameViewController *controller = [[GameViewController alloc] initWithGame:game];
     
     [self.navigationController pushViewController:controller animated:YES];
-    
     [controller.navigationController setNavigationBarHidden:NO animated:YES];
 }
 

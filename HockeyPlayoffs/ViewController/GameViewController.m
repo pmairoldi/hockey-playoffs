@@ -51,8 +51,10 @@
     
     self.title = [_gameModel getTitle];
     self.view.backgroundColor = [Colors backgroundColor];
+    self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
     
-    _gameView = [[GameView alloc] initWithFrame:self.view.frame];
+    _gameView = [[GameView alloc] initWithFrame:CGRectZero];
+    _gameView.translatesAutoresizingMaskIntoConstraints = NO;
     
     _gameView.delegate = self;
     _gameView.dataSource = self;
@@ -62,9 +64,17 @@
 
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
-    [_gameView addSubview:_refreshControl];
+    _gameView.refreshControl = _refreshControl;
     
     [self.view addSubview:_gameView];
+    // Let content scroll to the display edges; UIKit adjusts the resting
+    // content/indicator insets for navigation, device corners, and system bars.
+    [NSLayoutConstraint activateConstraints:@[
+        [_gameView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [_gameView.leadingAnchor constraintEqualToAnchor:self.view.readableContentGuide.leadingAnchor constant:-16],
+        [_gameView.trailingAnchor constraintEqualToAnchor:self.view.readableContentGuide.trailingAnchor constant:16],
+        [_gameView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissVideoPlayer:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
@@ -156,7 +166,7 @@
         
         else {
             
-            return [GameDetailCell height];
+            return UITableViewAutomaticDimension;
         }
     }
 }
@@ -199,29 +209,9 @@
             
             [cell setEvent:[_gameModel getEventAtIndex:indexPath]];
             
-            if(indexPath.row == 0){
-                cell.seperatorView.hidden = YES;
-            }
-            
-            else {
-                cell.seperatorView.hidden = NO;
-            }
-            
             return cell;
         }
     }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    cell.contentView.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
-}
-
--(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    
-    UITableViewHeaderFooterView *headerFooter = (UITableViewHeaderFooterView *)view;
-    
-    headerFooter.contentView.frame = CGRectMake(0, 0, self.view.frame.size.width, [self tableView:tableView heightForHeaderInSection:section]);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -232,9 +222,11 @@
         
         [header setGame:_gameModel];
         
+        [header.sectionControl removeTarget:self action:@selector(tabSwitched:) forControlEvents:UIControlEventValueChanged];
         [header.sectionControl addTarget:self action:@selector(tabSwitched:) forControlEvents:UIControlEventValueChanged];
         [header.sectionControl setSelectedSegmentIndex:_gameModel.sectionIndex];
         
+        [header.videoButton removeTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [header.videoButton addTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         return header;

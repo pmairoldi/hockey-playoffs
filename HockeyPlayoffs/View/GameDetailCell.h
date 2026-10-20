@@ -12,7 +12,6 @@
 
 @interface GameDetailCell : UITableViewCell
 
-@property UIView *seperatorView;
 
 +(CGFloat)height;
 -(void)setEvent:(EventObject *)event;

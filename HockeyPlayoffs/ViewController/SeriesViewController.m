@@ -53,10 +53,12 @@
 	// Do any additional setup after loading the view.
     
     self.view.backgroundColor = [Colors backgroundColor];
+    self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
     
     self.title = [_seriesModel getControllerTitle];
     
-    _seriesView = [[SeriesView alloc] initWithFrame:self.view.frame];
+    _seriesView = [[SeriesView alloc] initWithFrame:CGRectZero];
+    _seriesView.translatesAutoresizingMaskIntoConstraints = NO;
     _seriesView.delegate = self;
     _seriesView.dataSource = self;
     
@@ -65,9 +67,17 @@
 
     [_refreshControl addTarget:self action:@selector(reloadData:) forControlEvents:UIControlEventValueChanged];
     
-    [_seriesView addSubview:_refreshControl];
+    _seriesView.refreshControl = _refreshControl;
     
     [self.view addSubview:_seriesView];
+    // The viewport extends beneath system bars; automatic scroll insets
+    // keep the first/last rows and scroll indicators clear at rest.
+    [NSLayoutConstraint activateConstraints:@[
+        [_seriesView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+        [_seriesView.leadingAnchor constraintEqualToAnchor:self.view.readableContentGuide.leadingAnchor constant:-16],
+        [_seriesView.trailingAnchor constraintEqualToAnchor:self.view.readableContentGuide.trailingAnchor constant:16],
+        [_seriesView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+    ]];
     
     _seriesView.hasContent = _seriesModel.hasData;
     
@@ -177,30 +187,11 @@
         GameCell *cell = [tableView dequeueReusableCellWithIdentifier:GAME_CELL_REUSE_IDENTIFIER];
         cell.videoButton.tag = indexPath.row;
         [cell setGame:[_seriesModel getGameAtIndex:indexPath]];
+        [cell.videoButton removeTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [cell.videoButton addTarget:self action:@selector(videoButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        if(indexPath.row == 0){
-            cell.seperatorView.hidden = YES;
-        }
-        
-        else {
-            cell.seperatorView.hidden = NO;
-        }
         
         return cell;
     }
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    cell.contentView.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
-}
-
--(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-
-    UITableViewHeaderFooterView *headerFooter = (UITableViewHeaderFooterView *)view;
-    
-    headerFooter.contentView.frame = CGRectMake(0, 0, self.view.frame.size.width, [self tableView:tableView heightForHeaderInSection:section]);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
