@@ -1,4 +1,6 @@
 import XCTest
+import UIKit
+@testable import HockeyPlayoffs
 
 class StringHandlerTests: XCTestCase {
 

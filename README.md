@@ -5,6 +5,23 @@
 
 iOS application that keeps track of the NHL playoffs. Requires iOS 17 or later.
 
+## Swift and Auto Layout
+
+The application is implemented in Swift 6, including its UIKit entry points, models, API client, and database layer. View content uses Auto Layout anchors and stack views; UIKit's collection layout places the bracket items. Custom drawing is limited to bracket connectors, team badges, and the original TV icon. The existing SQLite schema, `Library/hockey.sqlite` location, assets, colors, and push/back navigation are retained.
+
+### Compare migration screenshots
+
+The UI suite captures Bracket, Series (resting/scrolled), Recent, the date picker, Goals, Penalties, and native video in light/dark mode. Review images are written alongside fastlane snapshots, as well as attached to the test result. Use a dedicated simulator to avoid interference from other UI suites.
+
+To generate a side-by-side HTML report and amplified pixel differences from two capture directories:
+
+```sh
+swiftc -O scripts/compare-screenshots.swift -o /tmp/compare-hockey-screenshots
+/tmp/compare-hockey-screenshots <original-directory> <swift-directory> <report-directory>
+```
+
+Metrics exclude the status bar and flag video as nondeterministic. The report retains complete screenshots, including system materials. Local migration captures/reports live under `build/swift-migration/` (gitignored).
+
 ## Setup Project
 
 ```sh

@@ -31,6 +31,9 @@ class Screenshots: XCTestCase {
         for appearance in [XCUIDevice.Appearance.light, .dark] {
             app.terminate()
             device.orientation = .portrait
+            // Force a transition: interrupted simulator runs can leave XCTest's
+            // cached appearance out of sync with the actual display.
+            device.appearance = appearance == .light ? .dark : .light
             device.appearance = appearance
             app.launch()
             let suffix = appearance.toString()
@@ -65,7 +68,7 @@ class Screenshots: XCTestCase {
             let titleY = seriesTitle.frame.minY
             seriesTable.swipeUp()
             XCTAssertTrue(seriesTitle.isHittable, "The navigation title must stay visible while scrolling")
-            XCTAssertEqualWithAccuracy(seriesTitle.frame.minY, titleY, accuracy: 1,
+            XCTAssertEqual(seriesTitle.frame.minY, titleY, accuracy: 1,
                                        "The navigation title must remain pinned while content scrolls")
             attachScreenshot(app, name: "Review-Series-Scrolled-\(suffix)")
             seriesTable.swipeDown()
@@ -108,11 +111,14 @@ class Screenshots: XCTestCase {
             let bracket = app.collectionViews.firstMatch
             XCTAssertTrue(bracket.waitForExistence(timeout: 5))
 
-            // Content may scroll beneath the bars, but navigation must stay usable.
-            let visibleCells = bracket.cells.allElementsBoundByIndex.filter {
-                $0.frame.intersects(bracket.frame) && $0.frame.intersects(app.frame)
-            }
-            XCTAssertFalse(visibleCells.isEmpty)
+            // UIKit can expose collection/app frames in different coordinate
+            // spaces during a rotation. Wait for an actually tappable matchup,
+            // rather than intersecting those transient accessibility frames.
+            let matchupReady = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+                bracket.cells.allElementsBoundByIndex.contains { $0.isHittable }
+            }, object: nil)
+            XCTAssertEqual(XCTWaiter.wait(for: [matchupReady], timeout: 5), .completed)
+            let visibleCells = bracket.cells.allElementsBoundByIndex.filter { $0.isHittable }
             let tabs = [app.buttons.matching(identifier: "Bracket").firstMatch,
                         app.buttons.matching(identifier: "Recent").firstMatch]
             for tab in tabs {
@@ -199,7 +205,13 @@ class Screenshots: XCTestCase {
         // Duo's main-screen/app capture can be the inactive outer display.
         // Keep every screen so the active inner display is reviewable too.
         for (index, screen) in XCUIScreen.screens.enumerated() {
-            let attachment = XCTAttachment(screenshot: screen.screenshot())
+            let screenshot = screen.screenshot()
+            // Keep review images even when Xcode fails to finalize its result bundle.
+            if let directory = Snapshot.screenshotsDirectory {
+                try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+                try? screenshot.pngRepresentation.write(to: directory.appendingPathComponent("\(name)-Screen\(index).png"))
+            }
+            let attachment = XCTAttachment(screenshot: screenshot)
             attachment.name = "\(name)-Screen\(index)"
             attachment.lifetime = .keepAlways
             add(attachment)
