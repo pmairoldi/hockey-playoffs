@@ -36,6 +36,7 @@
 		55A1C5572FA2203C0048B826 /* AppBackgroundTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1C5562FA2203C0048B826 /* AppBackgroundTasks.swift */; };
 		55A1C5592FA2264A0048B826 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 55A1C5582FA2264A0048B826 /* CocoaLumberjackSwift */; };
 		55BA30A42F8DF06100D058E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55BA30A32F8DF06100D058E7 /* LaunchScreen.storyboard */; };
+		56096D231B4CAF11EE9DC687 /* SeriesSummaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930D8C811D58FC82AE22BC7 /* SeriesSummaryTests.swift */; };
 		729373F5F1D62F5F37D2656C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6E02372972C3136DAE7DF2 /* AppDelegate.swift */; };
 		7690C97ADB9D81113238FDA1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F2F19892586092A1FD5206 /* Colors.swift */; };
 		8FFB070950D497B1613E1566 /* PlayoffModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E73BE157E42506AB32A6674 /* PlayoffModels.swift */; };
@@ -119,6 +120,7 @@
 		C36E6D8F1F4F53AF15170398 /* BracketViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BracketViewController.swift; sourceTree = "<group>"; };
 		D26CD8A8BB6775835BE20D21 /* TableViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TableViews.swift; sourceTree = "<group>"; };
 		DE0646E8D27E4B3E240FE04B /* BracketLayoutTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BracketLayoutTests.swift; sourceTree = "<group>"; };
+		E930D8C811D58FC82AE22BC7 /* SeriesSummaryTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SeriesSummaryTests.swift; sourceTree = "<group>"; };
 		EDBC8D69B522FC9FDC45F925 /* GameOverviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GameOverviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 				065034CF1E9F2617003A132F /* StringHandlerTests.swift */,
 				065034D01E9F2617003A132F /* TeamHandlerTests.swift */,
 				DE0646E8D27E4B3E240FE04B /* BracketLayoutTests.swift */,
+				E930D8C811D58FC82AE22BC7 /* SeriesSummaryTests.swift */,
 			);
 			path = HockeyPlayoffsTests;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				06B3221E2065DE1000C4078F /* StringHandlerTests.swift in Sources */,
 				06B3221D2065DE1000C4078F /* DateTimeHandlerTests.swift in Sources */,
 				EF0B83522A937E61174BFBC7 /* BracketLayoutTests.swift in Sources */,
+				56096D231B4CAF11EE9DC687 /* SeriesSummaryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

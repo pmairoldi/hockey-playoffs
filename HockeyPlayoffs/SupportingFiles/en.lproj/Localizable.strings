@@ -45,6 +45,7 @@
 
 //game title
 "game.title" = "Game";
+"game.title.ifNecessary" = "%@ · If necessary";
 "game.section.goals" = "Goals";
 "game.section.penalties" = "Penalties";
 "game.section.hits" = "Hits";
@@ -60,6 +61,18 @@
 
 "game" = "Game";
 "series.nodata" = "No Games";
+"series.summary.title" = "Series summary";
+"series.summary.team" = "Team";
+"series.summary.game.column" = "G%ld";
+"series.summary.game.accessibility" = "Game %ld";
+"series.summary.score.accessibility" = "%@, Game %ld, %@";
+"series.summary.unplayed" = "Not played";
+"series.summary.unknownTeam" = "Team to be determined";
+"series.summary.pending" = "Matchup to be determined";
+"series.summary.upcoming" = "Series not started";
+"series.summary.tied" = "Series tied %ld–%ld";
+"series.summary.leads" = "%@ leads series %ld–%ld";
+"series.summary.won" = "%@ wins series %ld–%ld";
 "game.nogoals" = "No Goals";
 "game.nopenalties" = "No Penalties";
 

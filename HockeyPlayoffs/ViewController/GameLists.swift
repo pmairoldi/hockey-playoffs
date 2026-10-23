@@ -127,10 +127,10 @@ final class SeriesViewController: GameListViewController {
         indexPath.section == 0 && games.isEmpty ? 44 : GameOverviewView.height
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        section == 0 && model.hasTeams ? SeriesHeader.height : .leastNormalMagnitude
+        section == 0 && model.hasTeams ? UITableView.automaticDimension : .leastNormalMagnitude
     }
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        self.tableView(tableView, heightForHeaderInSection: section)
+        section == 0 && model.hasTeams ? SeriesHeader.estimatedHeight : .leastNormalMagnitude
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 && model.hasTeams else { return nil }

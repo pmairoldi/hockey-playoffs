@@ -162,7 +162,7 @@ final class DatabaseHandler: @unchecked Sendable {
     private static func games(_ db: FMDatabase, _ predicate: String, _ arguments: [Any], order: String = "game_id ASC")
         -> [GameObject]
     {
-        rows(db, "SELECT * FROM games WHERE \(predicate) ORDER BY \(order)", arguments).map { row in
+        let games = rows(db, "SELECT * FROM games WHERE \(predicate) ORDER BY \(order)", arguments).map { row in
             let game = GameObject()
             game.gameID = row.string("game_id")
             game.homeID = row.string("home_id")
@@ -197,6 +197,34 @@ final class DatabaseHandler: @unchecked Sendable {
             }
             return game
         }
+        var standings: [String: [String: Int]] = [:]
+        for game in games where !game.hasStarted && (game.number ?? 0) > 4 {
+            let seriesID = String(game.gameID.dropLast()) + "%"
+            if standings[seriesID] == nil {
+                var wins: [String: Int] = [:]
+                let results = rows(
+                    db,
+                    """
+                    SELECT g.home_id, g.away_id,
+                        COALESCE(SUM(CASE WHEN p.team_id = g.home_id THEN p.goals ELSE 0 END), 0) AS home_goals,
+                        COALESCE(SUM(CASE WHEN p.team_id = g.away_id THEN p.goals ELSE 0 END), 0) AS away_goals
+                    FROM games g LEFT JOIN periods p ON p.game_id = g.game_id
+                    WHERE g.game_id LIKE ? AND (g.period_time = 'FINAL' OR g.finished != 0)
+                    GROUP BY g.game_id
+                    """, [seriesID])
+                for result in results {
+                    let home = result.integer("home_goals")
+                    let away = result.integer("away_goals")
+                    if home != away {
+                        let winner = result.string(home > away ? "home_id" : "away_id")
+                        wins[winner, default: 0] += 1
+                    }
+                }
+                standings[seriesID] = wins
+            }
+            game.seriesWins = standings[seriesID]
+        }
+        return games
     }
     func getGamesForSeries(_ series: SeriesObject) -> [GameObject] {
         read { Self.games($0, "game_id LIKE ?", [series.seriesID]) }

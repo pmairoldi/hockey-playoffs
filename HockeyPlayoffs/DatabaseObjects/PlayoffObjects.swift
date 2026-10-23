@@ -23,6 +23,8 @@ final class GameObject {
     var homeCondense = ""
     var awayCondense = ""
     var active = true
+    // Hydrated from the entire series, even for single-game and date-filtered reads.
+    var seriesWins: [String: Int]?
     init(_ values: [String: Any] = [:]) {
         gameID = values.string("gameID")
         awayID = values.string("awayID")
@@ -48,8 +50,28 @@ final class GameObject {
     var hasVideo: Bool { !homeHighlight.isEmpty || !awayHighlight.isEmpty }
     var videoLinks: [URL] { [homeHighlight, awayHighlight].filter { !$0.isEmpty }.compactMap(URL.init(string:)) }
     var relativeGameID: String { String(gameID.dropFirst(7)) }
+    var number: Int? {
+        guard gameID.count == 10, gameID.dropFirst(4).hasPrefix("03"),
+            let number = Int(gameID.suffix(1)), (1...7).contains(number)
+        else { return nil }
+        return number
+    }
+    var hasStarted: Bool { started || finished || period > 0 || periodTime == "FINAL" }
+    var isIfNecessary: Bool {
+        guard let number, !hasStarted, active, let seriesWins else { return false }
+        let homeWins = seriesWins[homeID, default: 0]
+        let awayWins = seriesWins[awayID, default: 0]
+        guard max(homeWins, awayWins) < 4 else { return false }
+        // A best-of-seven series guarantees four games plus the trailing team's wins.
+        return number > 4 + min(homeWins, awayWins)
+    }
     var title: String {
-        gameID.count == 10 ? "\(localized("game.title")) \(gameID.suffix(1))" : localized("game.title")
+        number.map { "\(localized("game.title")) \($0)" } ?? localized("game.title")
+    }
+    var overviewTitle: String {
+        isIfNecessary
+            ? String.localizedStringWithFormat(localized("game.title.ifNecessary"), title)
+            : title
     }
     var status: String {
         if period == 0 {
@@ -131,6 +153,19 @@ final class SeriesObject {
     private var normalizedSeed: Int { seed + (conference == "w" ? [1: 4, 2: 2, 3: 1][round, default: 0] : 0) }
     var seriesID: String { "\(seasonID)0\(round)\(normalizedSeed)%" }
     var relativeSeriesID: String { "\(round)\(normalizedSeed)" }
+    var summaryTitle: String {
+        guard !topTeam.isEmpty, !bottomTeam.isEmpty else { return localized("series.summary.pending") }
+        if topWins == 0 && bottomWins == 0 { return localized("series.summary.upcoming") }
+        if topWins == bottomWins {
+            return String.localizedStringWithFormat(localized("series.summary.tied"), topWins, bottomWins)
+        }
+        let topLeads = topWins > bottomWins
+        let leader = topLeads ? topTeam : bottomTeam
+        let wins = topLeads ? topWins : bottomWins
+        let losses = topLeads ? bottomWins : topWins
+        let key = wins >= 4 ? "series.summary.won" : "series.summary.leads"
+        return String.localizedStringWithFormat(localized(key), leader.uppercased(), wins, losses)
+    }
     var title: String {
         if round == 4 { return localized("controller.bracket.final") }
         let name = [1: "quarter", 2: "semi", 3: "final"][round] ?? ""

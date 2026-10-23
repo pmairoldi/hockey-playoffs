@@ -58,6 +58,17 @@ class Screenshots: XCTestCase {
             matchup.tap()
             let game = app.tables.cells["Game-121"]
             XCTAssertTrue(game.waitForExistence(timeout: 5))
+            XCTAssertTrue(app.staticTexts["Series summary"].firstMatch.waitForExistence(timeout: 5))
+            XCTAssertTrue(game.staticTexts["Game 1"].exists,
+                          "The game cell must identify its game number above the score")
+            for number in 1...7 {
+                let column = app.staticTexts["Game \(number)"].firstMatch
+                XCTAssertTrue(column.exists, "Missing game-column label: \(number)\n\(app.debugDescription)")
+                if column.exists {
+                    XCTAssertTrue(app.frame.contains(column.frame),
+                                  "Every game-column label must remain on screen")
+                }
+            }
             snapshot("2-Series-\(suffix)")
             attachScreenshot(app, name: "Review-Series-\(suffix)")
 
@@ -76,6 +87,8 @@ class Screenshots: XCTestCase {
             game.tap()
             let sections = app.segmentedControls.firstMatch
             XCTAssertTrue(sections.waitForExistence(timeout: 5))
+            XCTAssertTrue(app.tables.staticTexts["Game 1"].firstMatch.exists,
+                          "The game-detail summary must also identify its game number")
             reveal(sections, in: app.tables.firstMatch)
             XCTAssertTrue(sections.buttons["Goals"].isSelected)
             snapshot("3-Game-\(suffix)")
@@ -183,12 +196,22 @@ class Screenshots: XCTestCase {
     }
 
     private func reveal(_ element: XCUIElement, in table: XCUIElement) {
-        for _ in 0..<5 where !element.isHittable {
-            if element.frame.minY < table.frame.minY {
-                table.swipeDown()
-            } else {
-                table.swipeUp()
+        // Full-screen flings can jump past the control in a tall Dynamic Type
+        // header, especially in landscape. Pan slowly in half-screen steps.
+        for _ in 0..<12 {
+            var moveDown = true
+            if element.exists {
+                let frame = element.frame
+                // XCTest can throw while hit-testing an off-screen header.
+                // Only request its hit point once its frame is on screen.
+                if !frame.isEmpty {
+                    if table.frame.contains(frame), element.isHittable { return }
+                    moveDown = frame.midY < table.frame.midY
+                }
             }
+            let start = table.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: moveDown ? 0.25 : 0.75))
+            let end = table.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: moveDown ? 0.75 : 0.25))
+            start.press(forDuration: 0.05, thenDragTo: end, withVelocity: .slow, thenHoldForDuration: 0.1)
         }
     }
 
